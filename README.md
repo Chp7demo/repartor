@@ -20,6 +20,7 @@ Pour augmenter fortement son utilité il faut créer des groupes d'éléments et
 - Pas mal de barrières utilisateur à coder
 - Quelques bugs et oublis à résoudre
 -... 
+
 Pour aller plus loin:
 
 - Connexion base de donnée

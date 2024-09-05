@@ -37,7 +37,9 @@ cout<<endl;
 //ce check fait confiance au datazone, si celui ci est faut le check ne le verra pas...
 void check_pop(vector<vector<int>> pop,const DataZone & dZ)//sur vect non ordo uniquement (vect normal)
 {
+
     for(unsigned int i=0;i<pop.size();i++){check_indiv(pop.at(i),dZ);}
+
 }
 
 void check_indiv(vector<int> indiv,const DataZone & dZ)//sur vect non ordo uniquement (vect normal)

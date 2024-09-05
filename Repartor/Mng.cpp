@@ -2,7 +2,6 @@
 
 using namespace std; 
 
-//hehehe2
 
 Mng::Mng() :QObject()
 {
@@ -165,12 +164,12 @@ emit ajourner_sans_reaff_cercle(sclass,combi.sc_dsm);
 //le code ici c'est nawak  avec les paires...
 void Mng::modif_bur(int index,Pos pos)
 {
-ro.bup[index]=pos;
-emit bup_ajourned(ro.bup,combi.sc_dsm,combi.fbs);
+ro.cell_pair[index]=pos;
+emit cell_pair_ajourned(ro.cell_pair,combi.sc_dsm,combi.fbs);
 }
 void Mng::supr_bur(int index)
 {
-ro.bup.erase(ro.bup.begin()+index);
+ro.cell_pair.erase(ro.cell_pair.begin()+index);
 //on ajourne les cpl======
 //----------------------------------------------------------------------------------------
 ro.r_bmmp.erase(index);
@@ -255,16 +254,16 @@ for(auto b:combi.fbs)
 }
 combi.fbs=new_set;
 //=========================
-emit bup_ajourned(ro.bup,combi.sc_dsm,combi.fbs);
+emit cell_pair_ajourned(ro.cell_pair,combi.sc_dsm,combi.fbs);
 //emit aj_dsm_copies(combi.sc_dsm);
 emit bmmp_ajourned(ro.r_bmmp);
 }
 void Mng::add_bur(Pos pos)
 {
 cout<<"entree add_bur"<<endl;
-ro.bup.push_back(pos);
-cout<<"ro.bup.size()"<<ro.bup.size()<<endl;
-emit bup_ajourned(ro.bup,combi.sc_dsm,combi.fbs);
+ro.cell_pair.push_back(pos);
+cout<<"ro.cell_pair.size()"<<ro.cell_pair.size()<<endl;
+emit cell_pair_ajourned(ro.cell_pair,combi.sc_dsm,combi.fbs);
 cout<<"sortie add_bur"<<endl;
 }
 void Mng::add_cpl(int i_1,int i_2)
@@ -371,7 +370,7 @@ for(auto m_p : combi_r.sc_dsm){cout<<"st: "<<m_p.first<<"bu: "<<m_p.second<<endl
 
  //decalage des ind bur (l ag les traites a partir de l ind 1( c'est con mais bon ))
  Pos p_vide;
- combi_r.room.bup.insert(combi_r.room.bup.begin(),p_vide);
+ combi_r.room.cell_pair.insert(combi_r.room.cell_pair.begin(),p_vide);
 //...........
  multimap<int,int> new_map;
 for(auto &paire: combi_r.room.r_bmmp)
@@ -395,7 +394,7 @@ combi_r.sc_dsm=new_map_dsm;
 
 void Mng::supr_bur(int index,SCcombi &comb)
 {
-comb.room.bup.erase(comb.room.bup.begin()+index);
+comb.room.cell_pair.erase(comb.room.cell_pair.begin()+index);
 //on ajourne les cpl======
 //----------------------------------------------------------------------------------------
 comb.room.r_bmmp.erase(index);
@@ -481,7 +480,7 @@ for(auto b:combi.fbs)
 }
 combi.fbs=new_set;*/
 //=========================
-//emit bup_ajourned(ro.bup,combi.sc_dsm,combi.fbs);
+//emit cell_pair_ajourned(ro.cell_pair,combi.sc_dsm,combi.fbs);
 //emit aj_dsm_copies(combi.sc_dsm);
 //emit bmmp_ajourned(ro.r_bmmp);
 }

@@ -26,7 +26,7 @@ class Room
 public:
 //Room();
 std::string r_n;
-std::vector<Pos> bup;//Pos à definir.
+std::vector<Pos> cell_pair;//Pos à definir.
 Pos at_pt;
 
 std::multimap<int,int> r_bmmp;//comment est il rempli?!

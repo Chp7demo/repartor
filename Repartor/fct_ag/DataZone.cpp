@@ -3,7 +3,7 @@
 DataZone::DataZone(const SCcombi &combi)
 {
 N_St=combi.sclass.st_nm.size();
-N_Bur=combi.room.bup.size()-1;//le 0 est useless
+N_Bur=combi.room.cell_pair.size()-1;//le 0 est useless
 bmm=combi.room.r_bmmp;
 dsm=combi.sc_dsm;
 stm=from_matr_to_stm(combi.sclass.matr_i);
@@ -49,7 +49,7 @@ for(int i=0;i<N_St;i++)
  }
 }
 //fin debug===
-bp=combi.room.bup;
+bp=combi.room.cell_pair;
 
 
 //distance max et min

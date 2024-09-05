@@ -70,7 +70,7 @@ void supr_fbs(int);
     signals:
 void ajourned(SClass,std::map<int,int>);
 void ajourner_sans_reaff_cercle(SClass,std::map<int,int>);
-void bup_ajourned(std::vector<Pos>,std::map<int,int>,std::set<int>);
+void cell_pair_ajourned(std::vector<Pos>,std::map<int,int>,std::set<int>);
 void bmmp_ajourned(std::multimap<int,int>);
 void faire_ajourner(SClass,std::map<int,int>);
 //void aj_dsm_copies(std::map<int,int>);//TODO fusionner avec les signaux existants

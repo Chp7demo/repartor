@@ -2,6 +2,8 @@
 
 using namespace std; 
 
+//hehehe2
+
 Mng::Mng() :QObject()
 {
 qRegisterMetaType<vector<int>> ("vector<int>");

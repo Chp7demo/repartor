@@ -3,7 +3,6 @@
 using namespace std; 
 
 
-
 Mng::Mng() :QObject()
 {
 qRegisterMetaType<vector<int>> ("vector<int>"); //??

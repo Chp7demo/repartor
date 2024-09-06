@@ -67,7 +67,7 @@ qRegisterMetaType< SClass >("SClass");
 connect(mng,SIGNAL(ajourned(SClass,std::map<int,int>)),this,SLOT(aff_cercle(SClass,std::map<int,int>)));
 connect(mng,SIGNAL(ajourned(SClass,std::map<int,int>)),fenRes,SLOT(ajourner(SClass,std::map<int,int>)));
 connect(mng,SIGNAL(ajourner_sans_reaff_cercle(SClass,std::map<int,int>)),fenRes,SLOT(ajourner(SClass,std::map<int,int>)));
-connect(mng,SIGNAL(bup_ajourned(std::vector<Pos>,std::map<int,int>,std::set<int>)),fenRes,SLOT(ajourner_bu(std::vector<Pos>,std::map<int,int>,std::set<int>)));
+connect(mng,SIGNAL(cell_pair_ajourned(std::vector<Pos>,std::map<int,int>,std::set<int>)),fenRes,SLOT(ajourner_bu(std::vector<Pos>,std::map<int,int>,std::set<int>)));
 connect(mng,SIGNAL(bmmp_ajourned(std::multimap<int,int>)),fenRes,SLOT(ajourner_mm(std::multimap<int,int>)));
 
 connect(mng,SIGNAL(faire_ajourner(SClass,std::map<int,int>)),this,SLOT(faire_ajourner(SClass,std::map<int,int>)));

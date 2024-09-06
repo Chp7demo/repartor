@@ -258,6 +258,8 @@ emit cell_pair_ajourned(ro.cell_pair,combi.sc_dsm,combi.fbs);
 //emit aj_dsm_copies(combi.sc_dsm);
 emit bmmp_ajourned(ro.r_bmmp);
 }
+
+
 void Mng::add_bur(Pos pos)
 {
 cout<<"entree add_bur"<<endl;
@@ -266,6 +268,8 @@ cout<<"ro.cell_pair.size()"<<ro.cell_pair.size()<<endl;
 emit cell_pair_ajourned(ro.cell_pair,combi.sc_dsm,combi.fbs);
 cout<<"sortie add_bur"<<endl;
 }
+
+
 void Mng::add_cpl(int i_1,int i_2)
 {
 pair<int,int> p(i_1,i_2);

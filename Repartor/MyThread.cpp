@@ -38,7 +38,7 @@ for (int i=0;i<N;i++)
 //cout<<"taille pop : "<<pop.size()<<endl;
      // cout<<"ap_genere"<<endl;
 //DEBUG======
-      check_pop(pop,"ap_genese",*dZ);
+      check_pop(pop,*dZ);
 //==========
     //initialisation critere d 'arret// fenetre progression ?
     //debut boucle //avec test critere d'arret
@@ -116,7 +116,7 @@ for(int i=0;i<N_g;i++)
      if(((double) (rand_a_b(0,1000)/1000))<=P_crois){cross_over(pop.at(id),pop.at(id+1),*dZ);}
    }
    //DEBUG======
-      check_pop(pop,"ap_crossing",*dZ);
+      check_pop(pop,*dZ);
 //==========
 
     //reunion des deux ensembles
@@ -137,7 +137,7 @@ for(int i=0;i<N_g;i++)
 // cout<<"ap_mutation"<<endl;
 
 //DEBUG======
-      check_pop(pop,"ap_mutation",*dZ);
+      check_pop(pop,*dZ);
 //==========
     //reintroduction des N_el
  //  cout<<"on remet best g"<<endl;

@@ -1,5 +1,4 @@
-#ifndef CROSS_OVER_H
-#define CROSS_OVER_H
+#pragma once
 
 #include "genese.h"
 
@@ -12,4 +11,4 @@ void clean_cross(vector<int> &vect_1,vector<int> &vect_2,int ind,const DataZone 
 bool clean_vect(vector<int> &v_1,vector<int> &v_2,int ind,const DataZone &dZ);
 
 
-#endif
+

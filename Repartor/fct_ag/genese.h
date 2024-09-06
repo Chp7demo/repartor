@@ -1,5 +1,4 @@
-#ifndef GENESE_H
-#define GENESE_H
+#pragma once
 
 #include <iostream>
 #include <math.h>
@@ -27,4 +26,4 @@ bool cpl_ds_dsm(int st_ind,const DataZone & dZ);//st_ind doit avoir une pair
 
 
 
-#endif
+

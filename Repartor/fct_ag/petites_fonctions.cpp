@@ -36,18 +36,19 @@ cout<<endl;
 }
 
 //ce check fait confiance au data zone , si celui ci est faut le check ne le verra pas...
-void check_pop(vector<vector<int>> pop,QString lieu,const DataZone & dZ)//sur vect non ordo uniquement (vect normal)
+void check_pop(vector<vector<int>> pop,const DataZone & dZ)//sur vect non ordo uniquement (vect normal)
 {
-    for(int i=0;i<pop.size();i++){check_indiv(pop.at(i),lieu,dZ);}
+    for(unsigned int i=0;i<pop.size();i++){check_indiv(pop.at(i),dZ);}
 }
 
-void check_indiv(vector<int> indiv,QString lieu,const DataZone & dZ)//sur vect non ordo uniquement (vect normal)
+void check_indiv(vector<int> indiv,const DataZone & dZ)//sur vect non ordo uniquement (vect normal)
 {
-QString type_erreur;
+string type_erreur;
 bool err_pres=false;
+
 //check redondance
-for(int i=0;i<indiv.size();i++)
-{for(int j;j<indiv.size();j++)
+for(unsigned int i=0;i<indiv.size();i++)
+{for(unsigned int j=0;j<indiv.size();j++)
     {
         if(i!=j&&indiv.at(i)==indiv.at(j)){err_pres=true;type_erreur="redondance";break;}
     }

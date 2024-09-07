@@ -1,5 +1,4 @@
-#ifndef MES_TYPES_H
-#define MES_TYPES_H
+#pragma once
 
 
 #include <cstdlib>
@@ -11,8 +10,8 @@
 
 struct Pos{double x;double y;double largeur;double hauteur;double angle;};
 
-enum class interType{ras,cpl,bav,gba,mes,gme};
+enum class interType{NO_INTER,PARTNERS,BRING_CLOSE,BRING_VERY_CLOSE,SPLIT,SPLIT_FAR};
 
 typedef std::vector<std::vector<interType> > MI;
 
-#endif
+

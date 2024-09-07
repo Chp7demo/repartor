@@ -52,7 +52,8 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../Repartor/Fena/FeNa.cpp \
+SOURCES       = ../Repartor/CalculThread.cpp \
+		../Repartor/Fena/FeNa.cpp \
 		../Repartor/Feni/FenI.cpp \
 		../Repartor/Feni/ItemPersI.cpp \
 		../Repartor/Feni/LiI.cpp \
@@ -63,7 +64,6 @@ SOURCES       = ../Repartor/Fena/FeNa.cpp \
 		../Repartor/Fenro/WidgLi.cpp \
 		../Repartor/GlobF.cpp \
 		../Repartor/Mng.cpp \
-		../Repartor/MyThread.cpp \
 		../Repartor/fct_ag/DataZone.cpp \
 		../Repartor/fct_ag/cross_over.cpp \
 		../Repartor/fct_ag/evaluation.cpp \
@@ -71,7 +71,8 @@ SOURCES       = ../Repartor/Fena/FeNa.cpp \
 		../Repartor/fct_ag/mutation.cpp \
 		../Repartor/fct_ag/petites_fonctions.cpp \
 		../Repartor/main.cpp \
-		../Repartor/mainwindow.cpp moc_FeNa.cpp \
+		../Repartor/mainwindow.cpp moc_CalculThread.cpp \
+		moc_FeNa.cpp \
 		moc_FenI.cpp \
 		moc_FenRes.cpp \
 		moc_WidgBurRes.cpp \
@@ -80,9 +81,9 @@ SOURCES       = ../Repartor/Fena/FeNa.cpp \
 		moc_WidgLi.cpp \
 		moc_GlobF.cpp \
 		moc_Mng.cpp \
-		moc_MyThread.cpp \
 		moc_mainwindow.cpp
-OBJECTS       = FeNa.o \
+OBJECTS       = CalculThread.o \
+		FeNa.o \
 		FenI.o \
 		ItemPersI.o \
 		LiI.o \
@@ -93,7 +94,6 @@ OBJECTS       = FeNa.o \
 		WidgLi.o \
 		GlobF.o \
 		Mng.o \
-		MyThread.o \
 		DataZone.o \
 		cross_over.o \
 		evaluation.o \
@@ -102,6 +102,7 @@ OBJECTS       = FeNa.o \
 		petites_fonctions.o \
 		main.o \
 		mainwindow.o \
+		moc_CalculThread.o \
 		moc_FeNa.o \
 		moc_FenI.o \
 		moc_FenRes.o \
@@ -111,7 +112,6 @@ OBJECTS       = FeNa.o \
 		moc_WidgLi.o \
 		moc_GlobF.o \
 		moc_Mng.o \
-		moc_MyThread.o \
 		moc_mainwindow.o
 DIST          = ../Repartor/README.md \
 		../../Qt/6.2.3/gcc_64/mkspecs/features/spec_pre.prf \
@@ -252,7 +252,9 @@ DIST          = ../Repartor/README.md \
 		../../Qt/6.2.3/gcc_64/mkspecs/features/exceptions.prf \
 		../../Qt/6.2.3/gcc_64/mkspecs/features/yacc.prf \
 		../../Qt/6.2.3/gcc_64/mkspecs/features/lex.prf \
-		../Repartor/Repartor.pro ../Repartor/Fena/FeNa.h \
+		../Repartor/Repartor.pro ../Repartor/CalculThread.h \
+		../Repartor/Elements_and_space.h \
+		../Repartor/Fena/FeNa.h \
 		../Repartor/Feni/FenI.h \
 		../Repartor/Feni/ItemPersI.h \
 		../Repartor/Feni/LiI.h \
@@ -263,16 +265,15 @@ DIST          = ../Repartor/README.md \
 		../Repartor/Fenro/WidgLi.h \
 		../Repartor/GlobF.h \
 		../Repartor/Mng.h \
-		../Repartor/MyThread.h \
+		../Repartor/RepartorTypes.h \
 		../Repartor/fct_ag/DataZone.h \
 		../Repartor/fct_ag/cross_over.h \
 		../Repartor/fct_ag/evaluation.h \
 		../Repartor/fct_ag/genese.h \
 		../Repartor/fct_ag/mutation.h \
 		../Repartor/fct_ag/petites_fonctions.h \
-		../Repartor/mainwindow.h \
-		../Repartor/mes_types.h \
-		../Repartor/sclass_et_room.h ../Repartor/Fena/FeNa.cpp \
+		../Repartor/mainwindow.h ../Repartor/CalculThread.cpp \
+		../Repartor/Fena/FeNa.cpp \
 		../Repartor/Feni/FenI.cpp \
 		../Repartor/Feni/ItemPersI.cpp \
 		../Repartor/Feni/LiI.cpp \
@@ -283,7 +284,6 @@ DIST          = ../Repartor/README.md \
 		../Repartor/Fenro/WidgLi.cpp \
 		../Repartor/GlobF.cpp \
 		../Repartor/Mng.cpp \
-		../Repartor/MyThread.cpp \
 		../Repartor/fct_ag/DataZone.cpp \
 		../Repartor/fct_ag/cross_over.cpp \
 		../Repartor/fct_ag/evaluation.cpp \
@@ -603,8 +603,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../Qt/6.2.3/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Repartor/Fena/FeNa.h ../Repartor/Feni/FenI.h ../Repartor/Feni/ItemPersI.h ../Repartor/Feni/LiI.h ../Repartor/Fenres/FenRes.h ../Repartor/Fenres/WidgBurRes.h ../Repartor/Fenro/FenRo.h ../Repartor/Fenro/WidgBur.h ../Repartor/Fenro/WidgLi.h ../Repartor/GlobF.h ../Repartor/Mng.h ../Repartor/MyThread.h ../Repartor/fct_ag/DataZone.h ../Repartor/fct_ag/cross_over.h ../Repartor/fct_ag/evaluation.h ../Repartor/fct_ag/genese.h ../Repartor/fct_ag/mutation.h ../Repartor/fct_ag/petites_fonctions.h ../Repartor/mainwindow.h ../Repartor/mes_types.h ../Repartor/sclass_et_room.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Repartor/Fena/FeNa.cpp ../Repartor/Feni/FenI.cpp ../Repartor/Feni/ItemPersI.cpp ../Repartor/Feni/LiI.cpp ../Repartor/Fenres/FenRes.cpp ../Repartor/Fenres/WidgBurRes.cpp ../Repartor/Fenro/FenRo.cpp ../Repartor/Fenro/WidgBur.cpp ../Repartor/Fenro/WidgLi.cpp ../Repartor/GlobF.cpp ../Repartor/Mng.cpp ../Repartor/MyThread.cpp ../Repartor/fct_ag/DataZone.cpp ../Repartor/fct_ag/cross_over.cpp ../Repartor/fct_ag/evaluation.cpp ../Repartor/fct_ag/genese.cpp ../Repartor/fct_ag/mutation.cpp ../Repartor/fct_ag/petites_fonctions.cpp ../Repartor/main.cpp ../Repartor/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Repartor/CalculThread.h ../Repartor/Elements_and_space.h ../Repartor/Fena/FeNa.h ../Repartor/Feni/FenI.h ../Repartor/Feni/ItemPersI.h ../Repartor/Feni/LiI.h ../Repartor/Fenres/FenRes.h ../Repartor/Fenres/WidgBurRes.h ../Repartor/Fenro/FenRo.h ../Repartor/Fenro/WidgBur.h ../Repartor/Fenro/WidgLi.h ../Repartor/GlobF.h ../Repartor/Mng.h ../Repartor/RepartorTypes.h ../Repartor/fct_ag/DataZone.h ../Repartor/fct_ag/cross_over.h ../Repartor/fct_ag/evaluation.h ../Repartor/fct_ag/genese.h ../Repartor/fct_ag/mutation.h ../Repartor/fct_ag/petites_fonctions.h ../Repartor/mainwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Repartor/CalculThread.cpp ../Repartor/Fena/FeNa.cpp ../Repartor/Feni/FenI.cpp ../Repartor/Feni/ItemPersI.cpp ../Repartor/Feni/LiI.cpp ../Repartor/Fenres/FenRes.cpp ../Repartor/Fenres/WidgBurRes.cpp ../Repartor/Fenro/FenRo.cpp ../Repartor/Fenro/WidgBur.cpp ../Repartor/Fenro/WidgLi.cpp ../Repartor/GlobF.cpp ../Repartor/Mng.cpp ../Repartor/fct_ag/DataZone.cpp ../Repartor/fct_ag/cross_over.cpp ../Repartor/fct_ag/evaluation.cpp ../Repartor/fct_ag/genese.cpp ../Repartor/fct_ag/mutation.cpp ../Repartor/fct_ag/petites_fonctions.cpp ../Repartor/main.cpp ../Repartor/mainwindow.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Repartor/mainwindow.ui $(DISTDIR)/
 
 
@@ -637,9 +637,164 @@ compiler_moc_predefs_clean:
 moc_predefs.h: ../../Qt/6.2.3/gcc_64/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -Wall -Wextra -dM -E -o moc_predefs.h ../../Qt/6.2.3/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_FeNa.cpp moc_FenI.cpp moc_FenRes.cpp moc_WidgBurRes.cpp moc_FenRo.cpp moc_WidgBur.cpp moc_WidgLi.cpp moc_GlobF.cpp moc_Mng.cpp moc_MyThread.cpp moc_mainwindow.cpp
+compiler_moc_header_make_all: moc_CalculThread.cpp moc_FeNa.cpp moc_FenI.cpp moc_FenRes.cpp moc_WidgBurRes.cpp moc_FenRo.cpp moc_WidgBur.cpp moc_WidgLi.cpp moc_GlobF.cpp moc_Mng.cpp moc_mainwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_FeNa.cpp moc_FenI.cpp moc_FenRes.cpp moc_WidgBurRes.cpp moc_FenRo.cpp moc_WidgBur.cpp moc_WidgLi.cpp moc_GlobF.cpp moc_Mng.cpp moc_MyThread.cpp moc_mainwindow.cpp
+	-$(DEL_FILE) moc_CalculThread.cpp moc_FeNa.cpp moc_FenI.cpp moc_FenRes.cpp moc_WidgBurRes.cpp moc_FenRo.cpp moc_WidgBur.cpp moc_WidgLi.cpp moc_GlobF.cpp moc_Mng.cpp moc_mainwindow.cpp
+moc_CalculThread.cpp: ../Repartor/CalculThread.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/QThread \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qthread.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qobject.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qobjectdefs.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qnamespace.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qglobal.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qconfig.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qtcore-config.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qsystemdetection.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qprocessordetection.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qtypeinfo.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qsysinfo.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qlogging.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qflags.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qatomic.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qbasicatomic.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qgenericatomic.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qglobalstatic.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qnumeric.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qversiontagging.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qtmetamacros.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qstring.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qchar.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qstringview.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qbytearray.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qrefcount.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qarraydata.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qpair.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qarraydatapointer.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qarraydataops.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qcontainertools_impl.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qbytearrayalgorithms.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qbytearrayview.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qstringliteral.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qstringalgorithms.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qanystringview.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qutf8stringview.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qstringtokenizer.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qstringbuilder.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qlist.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qhashfunctions.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qiterator.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qbytearraylist.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qstringlist.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qalgorithms.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qstringmatcher.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qcoreevent.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qscopedpointer.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qmetatype.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qcompare.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qscopeguard.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qdatastream.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qiodevicebase.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qiterable.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qmetacontainer.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qcontainerinfo.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qtaggedpointer.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qmath.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qobject_impl.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qbindingstorage.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qdeadlinetimer.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qelapsedtimer.h \
+		../Repartor/fct_ag/evaluation.h \
+		../Repartor/fct_ag/DataZone.h \
+		../Repartor/Elements_and_space.h \
+		../Repartor/RepartorTypes.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/QString \
+		../../Qt/6.2.3/gcc_64/include/QtCore/QFile \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qfile.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qfiledevice.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qiodevice.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/QTextStream \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qtextstream.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qstringconverter.h \
+		../Repartor/fct_ag/cross_over.h \
+		../Repartor/fct_ag/genese.h \
+		../Repartor/fct_ag/petites_fonctions.h \
+		../Repartor/fct_ag/mutation.h \
+		../../Qt/6.2.3/gcc_64/include/QtWidgets/QFileDialog \
+		../../Qt/6.2.3/gcc_64/include/QtWidgets/qfiledialog.h \
+		../../Qt/6.2.3/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qtguiglobal.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qtgui-config.h \
+		../../Qt/6.2.3/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qdir.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qfileinfo.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qshareddata.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qdatetime.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qcalendar.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qlocale.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qvariant.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qmap.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qshareddata_impl.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qhash.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qdebug.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qset.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qsharedpointer.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qurl.h \
+		../../Qt/6.2.3/gcc_64/include/QtWidgets/qdialog.h \
+		../../Qt/6.2.3/gcc_64/include/QtWidgets/qwidget.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qwindowdefs.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qmargins.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qpaintdevice.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qrect.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qsize.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qpoint.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qpalette.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qcolor.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qrgb.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qrgba64.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qbrush.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qimage.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qpixelformat.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qtransform.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qpolygon.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qregion.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qline.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qpixmap.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qfont.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qfontmetrics.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qfontinfo.h \
+		../../Qt/6.2.3/gcc_64/include/QtWidgets/qsizepolicy.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qcursor.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qbitmap.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qkeysequence.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qevent.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qpointer.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qeventpoint.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qvector2d.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qvectornd.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qpointingdevice.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qinputdevice.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qscreen.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/QList \
+		../../Qt/6.2.3/gcc_64/include/QtCore/QObject \
+		../../Qt/6.2.3/gcc_64/include/QtCore/QRect \
+		../../Qt/6.2.3/gcc_64/include/QtCore/QSize \
+		../../Qt/6.2.3/gcc_64/include/QtCore/QSizeF \
+		../../Qt/6.2.3/gcc_64/include/QtGui/QTransform \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qnativeinterface.h \
+		moc_predefs.h \
+		../../Qt/6.2.3/gcc_64/libexec/moc
+	/home/remi/Qt/6.2.3/gcc_64/libexec/moc $(DEFINES) --include /home/remi/repartor_rep/build-Repartor-Desktop_Qt_6_2_3_GCC_64bit-Debug/moc_predefs.h -I/home/remi/Qt/6.2.3/gcc_64/mkspecs/linux-g++ -I/home/remi/repartor_rep/Repartor -I/home/remi/Qt/6.2.3/gcc_64/include -I/home/remi/Qt/6.2.3/gcc_64/include/QtWidgets -I/home/remi/Qt/6.2.3/gcc_64/include/QtGui -I/home/remi/Qt/6.2.3/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/c++/13/x86_64-redhat-linux -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-redhat-linux/13/include -I/usr/local/include -I/usr/include ../Repartor/CalculThread.h -o moc_CalculThread.cpp
+
 moc_FeNa.cpp: ../Repartor/Fena/FeNa.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/QWidget \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/qwidget.h \
@@ -1005,8 +1160,8 @@ moc_FenI.cpp: ../Repartor/Feni/FenI.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPainterPath \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPolygon \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPainterPathStroker \
-		../Repartor/mes_types.h \
-		../Repartor/sclass_et_room.h \
+		../Repartor/RepartorTypes.h \
+		../Repartor/Elements_and_space.h \
 		moc_predefs.h \
 		../../Qt/6.2.3/gcc_64/libexec/moc
 	/home/remi/Qt/6.2.3/gcc_64/libexec/moc $(DEFINES) --include /home/remi/repartor_rep/build-Repartor-Desktop_Qt_6_2_3_GCC_64bit-Debug/moc_predefs.h -I/home/remi/Qt/6.2.3/gcc_64/mkspecs/linux-g++ -I/home/remi/repartor_rep/Repartor -I/home/remi/Qt/6.2.3/gcc_64/include -I/home/remi/Qt/6.2.3/gcc_64/include/QtWidgets -I/home/remi/Qt/6.2.3/gcc_64/include/QtGui -I/home/remi/Qt/6.2.3/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/c++/13/x86_64-redhat-linux -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-redhat-linux/13/include -I/usr/local/include -I/usr/include ../Repartor/Feni/FenI.h -o moc_FenI.cpp
@@ -1186,8 +1341,8 @@ moc_FenRes.cpp: ../Repartor/Fenres/FenRes.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QEvent \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/QSplitter \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/qsplitter.h \
-		../Repartor/sclass_et_room.h \
-		../Repartor/mes_types.h \
+		../Repartor/Elements_and_space.h \
+		../Repartor/RepartorTypes.h \
 		../Repartor/Fenres/WidgBurRes.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QDragEnterEvent \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QDragMoveEvent \
@@ -1402,7 +1557,7 @@ moc_WidgBurRes.cpp: ../Repartor/Fenres/WidgBurRes.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPainterPath \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPolygon \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPainterPathStroker \
-		../Repartor/mes_types.h \
+		../Repartor/RepartorTypes.h \
 		moc_predefs.h \
 		../../Qt/6.2.3/gcc_64/libexec/moc
 	/home/remi/Qt/6.2.3/gcc_64/libexec/moc $(DEFINES) --include /home/remi/repartor_rep/build-Repartor-Desktop_Qt_6_2_3_GCC_64bit-Debug/moc_predefs.h -I/home/remi/Qt/6.2.3/gcc_64/mkspecs/linux-g++ -I/home/remi/repartor_rep/Repartor -I/home/remi/Qt/6.2.3/gcc_64/include -I/home/remi/Qt/6.2.3/gcc_64/include/QtWidgets -I/home/remi/Qt/6.2.3/gcc_64/include/QtGui -I/home/remi/Qt/6.2.3/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/c++/13/x86_64-redhat-linux -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-redhat-linux/13/include -I/usr/local/include -I/usr/include ../Repartor/Fenres/WidgBurRes.h -o moc_WidgBurRes.cpp
@@ -1594,7 +1749,7 @@ moc_FenRo.cpp: ../Repartor/Fenro/FenRo.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPainterPath \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPolygon \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPainterPathStroker \
-		../Repartor/mes_types.h \
+		../Repartor/RepartorTypes.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QMimeData \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qmimedata.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QDrag \
@@ -1794,7 +1949,7 @@ moc_WidgBur.cpp: ../Repartor/Fenro/WidgBur.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPainterPath \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPolygon \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPainterPathStroker \
-		../Repartor/mes_types.h \
+		../Repartor/RepartorTypes.h \
 		moc_predefs.h \
 		../../Qt/6.2.3/gcc_64/libexec/moc
 	/home/remi/Qt/6.2.3/gcc_64/libexec/moc $(DEFINES) --include /home/remi/repartor_rep/build-Repartor-Desktop_Qt_6_2_3_GCC_64bit-Debug/moc_predefs.h -I/home/remi/Qt/6.2.3/gcc_64/mkspecs/linux-g++ -I/home/remi/repartor_rep/Repartor -I/home/remi/Qt/6.2.3/gcc_64/include -I/home/remi/Qt/6.2.3/gcc_64/include/QtWidgets -I/home/remi/Qt/6.2.3/gcc_64/include/QtGui -I/home/remi/Qt/6.2.3/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/c++/13/x86_64-redhat-linux -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-redhat-linux/13/include -I/usr/local/include -I/usr/include ../Repartor/Fenro/WidgBur.h -o moc_WidgBur.cpp
@@ -2178,8 +2333,8 @@ moc_GlobF.cpp: ../Repartor/GlobF.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPainterPath \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPolygon \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPainterPathStroker \
-		../Repartor/mes_types.h \
-		../Repartor/sclass_et_room.h \
+		../Repartor/RepartorTypes.h \
+		../Repartor/Elements_and_space.h \
 		../Repartor/Fenres/FenRes.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/QSplitter \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/qsplitter.h \
@@ -2202,7 +2357,7 @@ moc_GlobF.cpp: ../Repartor/GlobF.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qcalendar.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/qdialog.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QTextStream \
-		../Repartor/MyThread.h \
+		../Repartor/CalculThread.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QThread \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qthread.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qdeadlinetimer.h \
@@ -2401,15 +2556,15 @@ moc_Mng.cpp: ../Repartor/Mng.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qcalendar.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/qdialog.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QTextStream \
-		../Repartor/MyThread.h \
+		../Repartor/CalculThread.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QThread \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qthread.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qdeadlinetimer.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qelapsedtimer.h \
 		../Repartor/fct_ag/evaluation.h \
 		../Repartor/fct_ag/DataZone.h \
-		../Repartor/sclass_et_room.h \
-		../Repartor/mes_types.h \
+		../Repartor/Elements_and_space.h \
+		../Repartor/RepartorTypes.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QFile \
 		../Repartor/fct_ag/cross_over.h \
 		../Repartor/fct_ag/genese.h \
@@ -2418,161 +2573,6 @@ moc_Mng.cpp: ../Repartor/Mng.h \
 		moc_predefs.h \
 		../../Qt/6.2.3/gcc_64/libexec/moc
 	/home/remi/Qt/6.2.3/gcc_64/libexec/moc $(DEFINES) --include /home/remi/repartor_rep/build-Repartor-Desktop_Qt_6_2_3_GCC_64bit-Debug/moc_predefs.h -I/home/remi/Qt/6.2.3/gcc_64/mkspecs/linux-g++ -I/home/remi/repartor_rep/Repartor -I/home/remi/Qt/6.2.3/gcc_64/include -I/home/remi/Qt/6.2.3/gcc_64/include/QtWidgets -I/home/remi/Qt/6.2.3/gcc_64/include/QtGui -I/home/remi/Qt/6.2.3/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/c++/13/x86_64-redhat-linux -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-redhat-linux/13/include -I/usr/local/include -I/usr/include ../Repartor/Mng.h -o moc_Mng.cpp
-
-moc_MyThread.cpp: ../Repartor/MyThread.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/QThread \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qthread.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qobject.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qobjectdefs.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qnamespace.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qglobal.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qconfig.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qtcore-config.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qsystemdetection.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qprocessordetection.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qtypeinfo.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qsysinfo.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qlogging.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qflags.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qatomic.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qbasicatomic.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qgenericatomic.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qglobalstatic.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qnumeric.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qversiontagging.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qtmetamacros.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qstring.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qchar.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qstringview.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qbytearray.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qrefcount.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qarraydata.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qpair.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qarraydatapointer.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qarraydataops.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qcontainertools_impl.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qbytearrayalgorithms.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qbytearrayview.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qstringliteral.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qstringalgorithms.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qanystringview.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qutf8stringview.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qstringtokenizer.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qstringbuilder.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qlist.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qhashfunctions.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qiterator.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qbytearraylist.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qstringlist.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qalgorithms.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qstringmatcher.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qcoreevent.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qscopedpointer.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qmetatype.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qcompare.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qscopeguard.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qdatastream.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qiodevicebase.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qiterable.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qmetacontainer.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qcontainerinfo.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qtaggedpointer.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qmath.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qobject_impl.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qbindingstorage.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qdeadlinetimer.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qelapsedtimer.h \
-		../Repartor/fct_ag/evaluation.h \
-		../Repartor/fct_ag/DataZone.h \
-		../Repartor/sclass_et_room.h \
-		../Repartor/mes_types.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/QString \
-		../../Qt/6.2.3/gcc_64/include/QtCore/QFile \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qfile.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qfiledevice.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qiodevice.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/QTextStream \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qtextstream.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qstringconverter.h \
-		../Repartor/fct_ag/cross_over.h \
-		../Repartor/fct_ag/genese.h \
-		../Repartor/fct_ag/petites_fonctions.h \
-		../Repartor/fct_ag/mutation.h \
-		../../Qt/6.2.3/gcc_64/include/QtWidgets/QFileDialog \
-		../../Qt/6.2.3/gcc_64/include/QtWidgets/qfiledialog.h \
-		../../Qt/6.2.3/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qtguiglobal.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qtgui-config.h \
-		../../Qt/6.2.3/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qdir.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qfileinfo.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qshareddata.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qdatetime.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qcalendar.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qlocale.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qvariant.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qmap.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qshareddata_impl.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qhash.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qdebug.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qset.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qsharedpointer.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qurl.h \
-		../../Qt/6.2.3/gcc_64/include/QtWidgets/qdialog.h \
-		../../Qt/6.2.3/gcc_64/include/QtWidgets/qwidget.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qwindowdefs.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qwindowdefs_win.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qmargins.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qpaintdevice.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qrect.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qsize.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qpoint.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qpalette.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qcolor.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qrgb.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qrgba64.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qbrush.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qimage.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qpixelformat.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qtransform.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qpolygon.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qregion.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qline.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qpixmap.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qfont.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qfontmetrics.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qfontinfo.h \
-		../../Qt/6.2.3/gcc_64/include/QtWidgets/qsizepolicy.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qcursor.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qbitmap.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qkeysequence.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qevent.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qpointer.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qeventpoint.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qvector2d.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qvectornd.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qpointingdevice.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qinputdevice.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qscreen.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/QList \
-		../../Qt/6.2.3/gcc_64/include/QtCore/QObject \
-		../../Qt/6.2.3/gcc_64/include/QtCore/QRect \
-		../../Qt/6.2.3/gcc_64/include/QtCore/QSize \
-		../../Qt/6.2.3/gcc_64/include/QtCore/QSizeF \
-		../../Qt/6.2.3/gcc_64/include/QtGui/QTransform \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qnativeinterface.h \
-		moc_predefs.h \
-		../../Qt/6.2.3/gcc_64/libexec/moc
-	/home/remi/Qt/6.2.3/gcc_64/libexec/moc $(DEFINES) --include /home/remi/repartor_rep/build-Repartor-Desktop_Qt_6_2_3_GCC_64bit-Debug/moc_predefs.h -I/home/remi/Qt/6.2.3/gcc_64/mkspecs/linux-g++ -I/home/remi/repartor_rep/Repartor -I/home/remi/Qt/6.2.3/gcc_64/include -I/home/remi/Qt/6.2.3/gcc_64/include/QtWidgets -I/home/remi/Qt/6.2.3/gcc_64/include/QtGui -I/home/remi/Qt/6.2.3/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/c++/13/x86_64-redhat-linux -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-redhat-linux/13/include -I/usr/local/include -I/usr/include ../Repartor/MyThread.h -o moc_MyThread.cpp
 
 moc_mainwindow.cpp: ../Repartor/mainwindow.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/QMainWindow \
@@ -2728,6 +2728,159 @@ compiler_lex_clean:
 compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
+
+CalculThread.o: ../Repartor/CalculThread.cpp ../Repartor/CalculThread.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/QThread \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qthread.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qobject.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qobjectdefs.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qnamespace.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qglobal.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qconfig.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qtcore-config.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qsystemdetection.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qprocessordetection.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qtypeinfo.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qsysinfo.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qlogging.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qflags.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qatomic.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qbasicatomic.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qgenericatomic.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qglobalstatic.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qnumeric.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qversiontagging.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qtmetamacros.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qstring.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qchar.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qstringview.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qbytearray.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qrefcount.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qarraydata.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qpair.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qarraydatapointer.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qarraydataops.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qcontainertools_impl.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qbytearrayalgorithms.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qbytearrayview.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qstringliteral.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qstringalgorithms.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qanystringview.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qutf8stringview.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qstringtokenizer.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qstringbuilder.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qlist.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qhashfunctions.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qiterator.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qbytearraylist.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qstringlist.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qalgorithms.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qstringmatcher.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qcoreevent.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qscopedpointer.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qmetatype.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qcompare.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qscopeguard.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qdatastream.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qiodevicebase.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qiterable.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qmetacontainer.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qcontainerinfo.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qtaggedpointer.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qmath.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qobject_impl.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qbindingstorage.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qdeadlinetimer.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qelapsedtimer.h \
+		../Repartor/fct_ag/evaluation.h \
+		../Repartor/fct_ag/DataZone.h \
+		../Repartor/Elements_and_space.h \
+		../Repartor/RepartorTypes.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/QString \
+		../../Qt/6.2.3/gcc_64/include/QtCore/QFile \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qfile.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qfiledevice.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qiodevice.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/QTextStream \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qtextstream.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qstringconverter.h \
+		../Repartor/fct_ag/cross_over.h \
+		../Repartor/fct_ag/genese.h \
+		../Repartor/fct_ag/petites_fonctions.h \
+		../Repartor/fct_ag/mutation.h \
+		../../Qt/6.2.3/gcc_64/include/QtWidgets/QFileDialog \
+		../../Qt/6.2.3/gcc_64/include/QtWidgets/qfiledialog.h \
+		../../Qt/6.2.3/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qtguiglobal.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qtgui-config.h \
+		../../Qt/6.2.3/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qdir.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qfileinfo.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qshareddata.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qdatetime.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qcalendar.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qlocale.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qvariant.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qmap.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qshareddata_impl.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qhash.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qdebug.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qset.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qsharedpointer.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qurl.h \
+		../../Qt/6.2.3/gcc_64/include/QtWidgets/qdialog.h \
+		../../Qt/6.2.3/gcc_64/include/QtWidgets/qwidget.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qwindowdefs.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qmargins.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qpaintdevice.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qrect.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qsize.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qpoint.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qpalette.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qcolor.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qrgb.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qrgba64.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qbrush.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qimage.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qpixelformat.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qtransform.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qpolygon.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qregion.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qline.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qpixmap.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qfont.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qfontmetrics.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qfontinfo.h \
+		../../Qt/6.2.3/gcc_64/include/QtWidgets/qsizepolicy.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qcursor.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qbitmap.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qkeysequence.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qevent.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qpointer.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qeventpoint.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qvector2d.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qvectornd.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qpointingdevice.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qinputdevice.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qscreen.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/QList \
+		../../Qt/6.2.3/gcc_64/include/QtCore/QObject \
+		../../Qt/6.2.3/gcc_64/include/QtCore/QRect \
+		../../Qt/6.2.3/gcc_64/include/QtCore/QSize \
+		../../Qt/6.2.3/gcc_64/include/QtCore/QSizeF \
+		../../Qt/6.2.3/gcc_64/include/QtGui/QTransform \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qnativeinterface.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o CalculThread.o ../Repartor/CalculThread.cpp
 
 FeNa.o: ../Repartor/Fena/FeNa.cpp ../Repartor/Fena/FeNa.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/QWidget \
@@ -3092,8 +3245,8 @@ FenI.o: ../Repartor/Feni/FenI.cpp ../Repartor/Feni/FenI.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPainterPath \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPolygon \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPainterPathStroker \
-		../Repartor/mes_types.h \
-		../Repartor/sclass_et_room.h
+		../Repartor/RepartorTypes.h \
+		../Repartor/Elements_and_space.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o FenI.o ../Repartor/Feni/FenI.cpp
 
 ItemPersI.o: ../Repartor/Feni/ItemPersI.cpp ../Repartor/Feni/ItemPersI.h \
@@ -3461,7 +3614,7 @@ LiI.o: ../Repartor/Feni/LiI.cpp ../Repartor/Feni/LiI.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPainterPath \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPolygon \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPainterPathStroker \
-		../Repartor/mes_types.h
+		../Repartor/RepartorTypes.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o LiI.o ../Repartor/Feni/LiI.cpp
 
 FenRes.o: ../Repartor/Fenres/FenRes.cpp ../Repartor/Fenres/FenRes.h \
@@ -3639,8 +3792,8 @@ FenRes.o: ../Repartor/Fenres/FenRes.cpp ../Repartor/Fenres/FenRes.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QEvent \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/QSplitter \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/qsplitter.h \
-		../Repartor/sclass_et_room.h \
-		../Repartor/mes_types.h \
+		../Repartor/Elements_and_space.h \
+		../Repartor/RepartorTypes.h \
 		../Repartor/Fenres/WidgBurRes.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QDragEnterEvent \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QDragMoveEvent \
@@ -3853,11 +4006,11 @@ WidgBurRes.o: ../Repartor/Fenres/WidgBurRes.cpp ../Repartor/Fenres/WidgBurRes.h 
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPainterPath \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPolygon \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPainterPathStroker \
-		../Repartor/mes_types.h \
+		../Repartor/RepartorTypes.h \
 		../Repartor/Fenres/FenRes.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/QSplitter \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/qsplitter.h \
-		../Repartor/sclass_et_room.h
+		../Repartor/Elements_and_space.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o WidgBurRes.o ../Repartor/Fenres/WidgBurRes.cpp
 
 FenRo.o: ../Repartor/Fenro/FenRo.cpp ../Repartor/Fenro/FenRo.h \
@@ -4050,7 +4203,7 @@ FenRo.o: ../Repartor/Fenro/FenRo.cpp ../Repartor/Fenro/FenRo.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPainterPath \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPolygon \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPainterPathStroker \
-		../Repartor/mes_types.h
+		../Repartor/RepartorTypes.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o FenRo.o ../Repartor/Fenro/FenRo.cpp
 
 WidgBur.o: ../Repartor/Fenro/WidgBur.cpp ../Repartor/Fenro/WidgBur.h \
@@ -4239,7 +4392,7 @@ WidgBur.o: ../Repartor/Fenro/WidgBur.cpp ../Repartor/Fenro/WidgBur.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPainterPath \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPolygon \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPainterPathStroker \
-		../Repartor/mes_types.h \
+		../Repartor/RepartorTypes.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QMimeData \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qmimedata.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QDrag \
@@ -4623,8 +4776,8 @@ GlobF.o: ../Repartor/GlobF.cpp ../Repartor/GlobF.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPainterPath \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPolygon \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPainterPathStroker \
-		../Repartor/mes_types.h \
-		../Repartor/sclass_et_room.h \
+		../Repartor/RepartorTypes.h \
+		../Repartor/Elements_and_space.h \
 		../Repartor/Fenres/FenRes.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/QSplitter \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/qsplitter.h \
@@ -4647,7 +4800,7 @@ GlobF.o: ../Repartor/GlobF.cpp ../Repartor/GlobF.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qcalendar.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/qdialog.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QTextStream \
-		../Repartor/MyThread.h \
+		../Repartor/CalculThread.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QThread \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qthread.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qdeadlinetimer.h \
@@ -4844,15 +4997,15 @@ Mng.o: ../Repartor/Mng.cpp ../Repartor/Mng.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qcalendar.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/qdialog.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QTextStream \
-		../Repartor/MyThread.h \
+		../Repartor/CalculThread.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QThread \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qthread.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qdeadlinetimer.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qelapsedtimer.h \
 		../Repartor/fct_ag/evaluation.h \
 		../Repartor/fct_ag/DataZone.h \
-		../Repartor/sclass_et_room.h \
-		../Repartor/mes_types.h \
+		../Repartor/Elements_and_space.h \
+		../Repartor/RepartorTypes.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QFile \
 		../Repartor/fct_ag/cross_over.h \
 		../Repartor/fct_ag/genese.h \
@@ -4860,162 +5013,9 @@ Mng.o: ../Repartor/Mng.cpp ../Repartor/Mng.h \
 		../Repartor/fct_ag/mutation.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Mng.o ../Repartor/Mng.cpp
 
-MyThread.o: ../Repartor/MyThread.cpp ../Repartor/MyThread.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/QThread \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qthread.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qobject.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qobjectdefs.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qnamespace.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qglobal.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qconfig.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qtcore-config.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qsystemdetection.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qprocessordetection.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qtypeinfo.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qsysinfo.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qlogging.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qflags.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qatomic.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qbasicatomic.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qgenericatomic.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qglobalstatic.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qnumeric.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qversiontagging.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qtmetamacros.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qstring.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qchar.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qstringview.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qbytearray.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qrefcount.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qarraydata.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qpair.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qarraydatapointer.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qarraydataops.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qcontainertools_impl.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qbytearrayalgorithms.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qbytearrayview.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qstringliteral.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qstringalgorithms.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qanystringview.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qutf8stringview.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qstringtokenizer.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qstringbuilder.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qlist.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qhashfunctions.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qiterator.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qbytearraylist.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qstringlist.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qalgorithms.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qstringmatcher.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qcoreevent.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qscopedpointer.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qmetatype.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qcompare.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qscopeguard.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qdatastream.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qiodevicebase.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qiterable.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qmetacontainer.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qcontainerinfo.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qtaggedpointer.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qmath.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qobject_impl.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qbindingstorage.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qdeadlinetimer.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qelapsedtimer.h \
-		../Repartor/fct_ag/evaluation.h \
-		../Repartor/fct_ag/DataZone.h \
-		../Repartor/sclass_et_room.h \
-		../Repartor/mes_types.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/QString \
-		../../Qt/6.2.3/gcc_64/include/QtCore/QFile \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qfile.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qfiledevice.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qiodevice.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/QTextStream \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qtextstream.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qstringconverter.h \
-		../Repartor/fct_ag/cross_over.h \
-		../Repartor/fct_ag/genese.h \
-		../Repartor/fct_ag/petites_fonctions.h \
-		../Repartor/fct_ag/mutation.h \
-		../../Qt/6.2.3/gcc_64/include/QtWidgets/QFileDialog \
-		../../Qt/6.2.3/gcc_64/include/QtWidgets/qfiledialog.h \
-		../../Qt/6.2.3/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qtguiglobal.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qtgui-config.h \
-		../../Qt/6.2.3/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qdir.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qfileinfo.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qshareddata.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qdatetime.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qcalendar.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qlocale.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qvariant.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qmap.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qshareddata_impl.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qhash.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qdebug.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qset.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qsharedpointer.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qurl.h \
-		../../Qt/6.2.3/gcc_64/include/QtWidgets/qdialog.h \
-		../../Qt/6.2.3/gcc_64/include/QtWidgets/qwidget.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qwindowdefs.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qwindowdefs_win.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qmargins.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qpaintdevice.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qrect.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qsize.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qpoint.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qpalette.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qcolor.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qrgb.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qrgba64.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qbrush.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qimage.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qpixelformat.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qtransform.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qpolygon.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qregion.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qline.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qpixmap.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qfont.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qfontmetrics.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qfontinfo.h \
-		../../Qt/6.2.3/gcc_64/include/QtWidgets/qsizepolicy.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qcursor.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qbitmap.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qkeysequence.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qevent.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qpointer.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qeventpoint.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qvector2d.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qvectornd.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qpointingdevice.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qinputdevice.h \
-		../../Qt/6.2.3/gcc_64/include/QtGui/qscreen.h \
-		../../Qt/6.2.3/gcc_64/include/QtCore/QList \
-		../../Qt/6.2.3/gcc_64/include/QtCore/QObject \
-		../../Qt/6.2.3/gcc_64/include/QtCore/QRect \
-		../../Qt/6.2.3/gcc_64/include/QtCore/QSize \
-		../../Qt/6.2.3/gcc_64/include/QtCore/QSizeF \
-		../../Qt/6.2.3/gcc_64/include/QtGui/QTransform \
-		../../Qt/6.2.3/gcc_64/include/QtCore/qnativeinterface.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MyThread.o ../Repartor/MyThread.cpp
-
 DataZone.o: ../Repartor/fct_ag/DataZone.cpp ../Repartor/fct_ag/DataZone.h \
-		../Repartor/sclass_et_room.h \
-		../Repartor/mes_types.h \
+		../Repartor/Elements_and_space.h \
+		../Repartor/RepartorTypes.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QString \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qstring.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qchar.h \
@@ -5168,14 +5168,14 @@ cross_over.o: ../Repartor/fct_ag/cross_over.cpp ../Repartor/fct_ag/cross_over.h 
 		../../Qt/6.2.3/gcc_64/include/QtCore/qtextstream.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qstringconverter.h \
 		../Repartor/fct_ag/DataZone.h \
-		../Repartor/sclass_et_room.h \
-		../Repartor/mes_types.h
+		../Repartor/Elements_and_space.h \
+		../Repartor/RepartorTypes.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cross_over.o ../Repartor/fct_ag/cross_over.cpp
 
 evaluation.o: ../Repartor/fct_ag/evaluation.cpp ../Repartor/fct_ag/evaluation.h \
 		../Repartor/fct_ag/DataZone.h \
-		../Repartor/sclass_et_room.h \
-		../Repartor/mes_types.h \
+		../Repartor/Elements_and_space.h \
+		../Repartor/RepartorTypes.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QString \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qstring.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qchar.h \
@@ -5327,8 +5327,8 @@ genese.o: ../Repartor/fct_ag/genese.cpp ../Repartor/fct_ag/genese.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qtextstream.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qstringconverter.h \
 		../Repartor/fct_ag/DataZone.h \
-		../Repartor/sclass_et_room.h \
-		../Repartor/mes_types.h
+		../Repartor/Elements_and_space.h \
+		../Repartor/RepartorTypes.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o genese.o ../Repartor/fct_ag/genese.cpp
 
 mutation.o: ../Repartor/fct_ag/mutation.cpp ../Repartor/fct_ag/mutation.h \
@@ -5409,8 +5409,8 @@ mutation.o: ../Repartor/fct_ag/mutation.cpp ../Repartor/fct_ag/mutation.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qtextstream.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qstringconverter.h \
 		../Repartor/fct_ag/DataZone.h \
-		../Repartor/sclass_et_room.h \
-		../Repartor/mes_types.h
+		../Repartor/Elements_and_space.h \
+		../Repartor/RepartorTypes.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mutation.o ../Repartor/fct_ag/mutation.cpp
 
 petites_fonctions.o: ../Repartor/fct_ag/petites_fonctions.cpp ../Repartor/fct_ag/petites_fonctions.h \
@@ -5488,8 +5488,8 @@ petites_fonctions.o: ../Repartor/fct_ag/petites_fonctions.cpp ../Repartor/fct_ag
 		../../Qt/6.2.3/gcc_64/include/QtCore/qtextstream.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qstringconverter.h \
 		../Repartor/fct_ag/DataZone.h \
-		../Repartor/sclass_et_room.h \
-		../Repartor/mes_types.h
+		../Repartor/Elements_and_space.h \
+		../Repartor/RepartorTypes.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o petites_fonctions.o ../Repartor/fct_ag/petites_fonctions.cpp
 
 main.o: ../Repartor/main.cpp ../../Qt/6.2.3/gcc_64/include/QtWidgets/QApplication \
@@ -5703,8 +5703,8 @@ main.o: ../Repartor/main.cpp ../../Qt/6.2.3/gcc_64/include/QtWidgets/QApplicatio
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPainterPath \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPolygon \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QPainterPathStroker \
-		../Repartor/mes_types.h \
-		../Repartor/sclass_et_room.h \
+		../Repartor/RepartorTypes.h \
+		../Repartor/Elements_and_space.h \
 		../Repartor/Fenres/FenRes.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/QSplitter \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/qsplitter.h \
@@ -5727,7 +5727,7 @@ main.o: ../Repartor/main.cpp ../../Qt/6.2.3/gcc_64/include/QtWidgets/QApplicatio
 		../../Qt/6.2.3/gcc_64/include/QtCore/qcalendar.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/qdialog.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QTextStream \
-		../Repartor/MyThread.h \
+		../Repartor/CalculThread.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QThread \
 		../Repartor/fct_ag/evaluation.h \
 		../Repartor/fct_ag/DataZone.h \
@@ -5899,6 +5899,9 @@ mainwindow.o: ../Repartor/mainwindow.cpp ../Repartor/mainwindow.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../Repartor/mainwindow.cpp
 
+moc_CalculThread.o: moc_CalculThread.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_CalculThread.o moc_CalculThread.cpp
+
 moc_FeNa.o: moc_FeNa.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_FeNa.o moc_FeNa.cpp
 
@@ -5925,9 +5928,6 @@ moc_GlobF.o: moc_GlobF.cpp
 
 moc_Mng.o: moc_Mng.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_Mng.o moc_Mng.cpp
-
-moc_MyThread.o: moc_MyThread.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_MyThread.o moc_MyThread.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp

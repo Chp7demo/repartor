@@ -5,7 +5,7 @@
 #include <map>
 #include <set>
 
-#include"mes_types.h"
+#include"RepartorTypes.h"
 
 
 struct Elements
@@ -26,9 +26,7 @@ struct Combi
 Elements elements;
 Space  space;
 std::map<int,int> elem_cell_map;
-std::map<int,int> elem_cell_map_old;//stock elem_cell_map apres un placement auto (en cas d'annulation par l'utilisateur)
-std::set<int> frozen_cell;// cellules interdites//doit retirer le bureau ds data zone->à faire//peut etre vaux il mieux faire cela en amont?..
-
+std::set<int> frozen_cell;// cellules interdites
 };
 
 

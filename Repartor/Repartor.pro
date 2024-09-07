@@ -9,6 +9,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    CalculThread.cpp \
     Fena/FeNa.cpp \
     Feni/FenI.cpp \
     Feni/ItemPersI.cpp \
@@ -20,7 +21,6 @@ SOURCES += \
     Fenro/WidgLi.cpp \
     GlobF.cpp \
     Mng.cpp \
-    MyThread.cpp \
     fct_ag/DataZone.cpp \
     fct_ag/cross_over.cpp \
     fct_ag/evaluation.cpp \
@@ -31,6 +31,8 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
+    CalculThread.h \
+    Elements_and_space.h \
     Fena/FeNa.h \
     Feni/FenI.h \
     Feni/ItemPersI.h \
@@ -42,16 +44,14 @@ HEADERS += \
     Fenro/WidgLi.h \
     GlobF.h \
     Mng.h \
-    MyThread.h \
+    RepartorTypes.h \
     fct_ag/DataZone.h \
     fct_ag/cross_over.h \
     fct_ag/evaluation.h \
     fct_ag/genese.h \
     fct_ag/mutation.h \
     fct_ag/petites_fonctions.h \
-    mainwindow.h \
-    mes_types.h \
-    sclass_et_room.h
+    mainwindow.h
 
 FORMS += \
     mainwindow.ui

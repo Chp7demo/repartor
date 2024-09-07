@@ -12,7 +12,7 @@ coul_1.setRgb(20,200,180,100);
 coul_5.setRgb(200,20,10,100);
 coul_4.setRgb(200,70,10,100);
 
-li_mode=interType::ras;
+li_mode=interType::NO_INTER;
 
 p_1=p1;
 p_2=p2;
@@ -207,17 +207,17 @@ void LiI::set_li_mode(interType inter_type)
 li_mode=inter_type;
 switch(li_mode)
 {
-case interType::ras:
+case interType::NO_INTER:
 break;
-case interType::cpl:col=coul_1;
+case interType::PARTNERS:col=coul_1;
 break;
-case interType::bav:col=coul_2;
+case interType::BRING_CLOSE:col=coul_2;
 break;
-case interType::gba:col=coul_3;
+case interType::BRING_VERY_CLOSE:col=coul_3;
 break;
-case interType::mes:col=coul_4;
+case interType::SPLIT:col=coul_4;
 break;
-case interType::gme:col=coul_5;
+case interType::SPLIT_FAR:col=coul_5;
 break;
 }
 update();

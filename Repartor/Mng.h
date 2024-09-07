@@ -37,7 +37,7 @@
 
 
 
-#include "MyThread.h"
+#include "CalculThread.h"
    
 class Mng : public QObject
 {

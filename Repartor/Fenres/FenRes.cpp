@@ -206,7 +206,7 @@ if (pt_w!=NULL && !pt_w->get_occupe())
 /*
 auto it=std::find(elements_copie.elem_names.begin(),elements_copie.elem_names.end(),text_received.toStdString());
 int ind_st=it-elements_copie.elem_names.begin();
-auto it_matr=std::find(elements_copie.matr_i.at(ind_st).begin(),elements_copie.matr_i.at(ind_st).end(),interType::cpl);
+auto it_matr=std::find(elements_copie.matr_i.at(ind_st).begin(),elements_copie.matr_i.at(ind_st).end(),interType::PARTNERS);
 bool st_a_un_cpl=false;
 int ind_st_cpl;
 if(it_matr!=elements_copie.matr_i.at(ind_st).end()){st_a_un_cpl=true,ind_st_cpl=it_matr-elements_copie.matr_i.at(ind_st).begin();}
@@ -1289,7 +1289,7 @@ QString trouve_cpl(const QString & str ,const Elements & scl)
 {
 auto it=std::find(scl.elem_names.begin(),scl.elem_names.end(),str.toStdString());
 int ind_st=it-scl.elem_names.begin();
-auto it_matr=std::find(scl.matr_i.at(ind_st).begin(),scl.matr_i.at(ind_st).end(),interType::cpl);
+auto it_matr=std::find(scl.matr_i.at(ind_st).begin(),scl.matr_i.at(ind_st).end(),interType::PARTNERS);
 bool st_a_un_cpl=false;
 int ind_st_cpl;
 if(it_matr!=scl.matr_i.at(ind_st).end()){st_a_un_cpl=true,ind_st_cpl=it_matr-scl.matr_i.at(ind_st).begin();}

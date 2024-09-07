@@ -14,12 +14,6 @@ std::vector<std::string> vect_pass;
 for(int i=0;i<list_N.size();i++)
 {vect_pass.push_back(list_N.at(i).toStdString());}
 elements.elem_names=vect_pass;
-//===aff debug=====
-/*
-for(int i=0;i<elements.elem_names.size();i++)
-{cout<<elements.elem_names[i]<<" ";}
-cout<<endl;*/
-//===================
 }
 
 void Mng::aj_cl_et_ro(QList<QString> list_N)//pas et_ro en fait..
@@ -35,11 +29,11 @@ std::string nouv_element=nouv_list[nouv_list.size()-1];
 
 for(int i=0;i<elements.matr_i.size();i++)
 {
-elements.matr_i[i].push_back(interType::ras);
+elements.matr_i[i].push_back(interType::NO_INTER);
 }
 std::vector<interType> nouv_vect;
 for(int i=0;i<elements.matr_i.size()+1;i++)
-{nouv_vect.push_back(interType::ras);} 
+{nouv_vect.push_back(interType::NO_INTER);}
 elements.matr_i.push_back(nouv_vect);
 elements.elem_names=nouv_list;
 //==============
@@ -120,23 +114,23 @@ for(int i=0;i<elements.elem_names.size();i++)
     {
 
  switch (elements.matr_i.at(i).at(j)) {
-        case (interType::cpl):
+        case (interType::PARTNERS):
                   cout<<"cpl   ";
      break;
-        case (interType::bav):
+        case (interType::BRING_CLOSE):
                   cout<<"bav  ";
      break;
-       case (interType::ras):
+       case (interType::NO_INTER):
                   cout<<"---    ";
      break;
 
-        case(interType::gba):
+        case(interType::BRING_VERY_CLOSE):
             cout<<"gba  ";
                         break;
-        case(interType::mes):
+        case(interType::SPLIT):
                cout<<"mes  ";
              break;
-        case(interType::gme):
+        case(interType::SPLIT_FAR):
              cout<<"gme  ";
             break;
         default:
@@ -476,8 +470,7 @@ void Mng::placer_stud(vector<int> gen)
     {
      for (int i=0;i<gen.size();i++){if(gen[i]>=ind)gen[i]++;}
     }
-    //remplir un dsm_2 à fabrique(qui contient l 'ancien dsm)
-    combi.elem_cell_map_old=combi.elem_cell_map;
+
     combi.elem_cell_map.clear();
      for (int i=0;i<gen.size();i++){
          pair<int,int> newpair(i,gen[i]);

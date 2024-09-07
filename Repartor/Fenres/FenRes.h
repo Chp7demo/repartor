@@ -42,7 +42,7 @@
 
 
 
-#include "../sclass_et_room.h"
+#include "../Elements_and_space.h"
 
 #include "WidgBurRes.h"
 

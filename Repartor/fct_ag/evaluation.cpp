@@ -25,23 +25,23 @@ for(int i=0;i<dZ.N_St;i++)
     {
 
  switch (dZ.mi.at(i).at(j)) {
-        case (interType::cpl):
+        case (interType::PARTNERS):
                   cout<<"cpl ";
      break;
-        case (interType::bav):
+        case (interType::BRING_CLOSE):
                   cout<<"bav ";
      break;
-       case (interType::ras):
+       case (interType::NO_INTER):
                   cout<<"--- ";
      break;
 
-        case(interType::gba):
+        case(interType::BRING_VERY_CLOSE):
             cout<<"gba ";
                         break;
-        case(interType::mes):
+        case(interType::SPLIT):
                cout<<"mes";
              break;
-        case(interType::gme):
+        case(interType::SPLIT_FAR):
              cout<<"gme";
             break;
         default:
@@ -57,18 +57,18 @@ for(int i=0;i<dZ.N_St;i++)
     for(int j=i+1;j<dZ.N_St;j++)
     {
         switch (dZ.mi[i][j]) {
-        case (interType::bav):
+        case (interType::BRING_CLOSE):
 
             score+=formule_score_moins(dZ.D_max,C2,dZ.bp.at(vect.at(i)),dZ.bp.at(vect.at(j)));
 
             break;
-        case(interType::gba):
+        case(interType::BRING_VERY_CLOSE):
                  score+=2*formule_score_moins(dZ.D_max,C2,dZ.bp.at(vect.at(i)),dZ.bp.at(vect.at(j)));
             break;
-        case(interType::mes):
+        case(interType::SPLIT):
                  score+=formule_score_plus(dZ.D_max,C2,dZ.bp.at(vect.at(i)),dZ.bp.at(vect.at(j)));
              break;
-        case(interType::gme):
+        case(interType::SPLIT_FAR):
                  score+=2*formule_score_plus(dZ.D_max,C2,dZ.bp.at(vect.at(i)),dZ.bp.at(vect.at(j)));
             break;
         default:

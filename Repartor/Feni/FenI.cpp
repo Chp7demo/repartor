@@ -274,7 +274,7 @@ for(int i=0;i<scl.elem_names.size();i++)
 {
 for(int j=0;j<i;j++)
 {
-if(scl.matr_i.at(i).at(j)!=interType::ras)
+if(scl.matr_i.at(i).at(j)!=interType::NO_INTER)
 {
 LiI *liI=new LiI(item_list[i]->boundingRect().center(),item_list[j]->boundingRect().center());
 liI->set_li_mode(scl.matr_i.at(i).at(j));
@@ -544,23 +544,23 @@ case ViewModeI::NOMODE://mouseMoveEvent_NOMODE(event);
 break;
 case ViewModeI::MODE1://mouseMoveEvent_MODE1(event);
 col=coul_1;
-li_mode=interType::cpl;
+li_mode=interType::PARTNERS;
 break;
 case ViewModeI::MODE2://mouseMoveEvent_MODE2(event);
 col=coul_2;
-li_mode=interType::bav;
+li_mode=interType::BRING_CLOSE;
 break;
 case ViewModeI::MODE3://mouseMoveEvent_MODE3(event);
 col=coul_3;
-li_mode=interType::gba;
+li_mode=interType::BRING_VERY_CLOSE;
 break;
 case ViewModeI::MODE4://mouseMoveEvent_MODE4(event);
 col=coul_4;
-li_mode=interType::mes;
+li_mode=interType::SPLIT;
 break;
 case ViewModeI::MODE5://mouseMoveEvent_MODE5(event);
 col=coul_5;
-li_mode=interType::gme;
+li_mode=interType::SPLIT_FAR;
 break;
 case ViewModeI::MODE6:mouseReleaseEvent_SUPR(event);
 cont_fonc=false;
@@ -599,7 +599,7 @@ ind_1=it-str_list_std.begin();
 it=std::find(str_list_std.begin(),str_list_std.end(),nm_2_std);
 ind_2=it-str_list_std.begin();
 //=================================
-if(matr_copie.at(ind_1).at(ind_2)== interType::ras)
+if(matr_copie.at(ind_1).at(ind_2)== interType::NO_INTER)
 {
 LiI *liI;
 liI =new LiI(p_a,p_b);
@@ -755,11 +755,11 @@ ind_1=it-str_list_std.begin();
 it=std::find(str_list_std.begin(),str_list_std.end(),nm_2_std);
 ind_2=it-str_list_std.begin();
 
-matr_copie[ind_1][ind_2]=interType::ras;
-matr_copie[ind_2][ind_1]=interType::ras;
+matr_copie[ind_1][ind_2]=interType::NO_INTER;
+matr_copie[ind_2][ind_1]=interType::NO_INTER;
 //=================================
 
-emit nouv_inter(nm_1,nm_2,interType::ras);
+emit nouv_inter(nm_1,nm_2,interType::NO_INTER);
 
 this->scene()->removeItem(ptr_li_a);
 li_list.removeOne(ptr_li_a);

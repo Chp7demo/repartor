@@ -22,23 +22,23 @@ for(int i=0;i<N_St;i++)
     {
 
  switch (mi.at(i).at(j)) {
-        case (interType::cpl):
+        case (interType::PARTNERS):
                   cout<<"cpl   ";
      break;
-        case (interType::bav):
+        case (interType::BRING_CLOSE):
                   cout<<"bav  ";
      break;
-       case (interType::ras):
+       case (interType::NO_INTER):
                   cout<<"---    ";
      break;
 
-        case(interType::gba):
+        case(interType::BRING_VERY_CLOSE):
             cout<<"gba  ";
                         break;
-        case(interType::mes):
+        case(interType::SPLIT):
                cout<<"mes  ";
              break;
-        case(interType::gme):
+        case(interType::SPLIT_FAR):
              cout<<"gme  ";
             break;
         default:
@@ -87,7 +87,7 @@ for(int i=1;i<matr.size();i++)
 {
 for(int j=0;j<matr.at(i).size();j++)
 {
-if(matr.at(i).at(j)==interType::cpl)
+if(matr.at(i).at(j)==interType::PARTNERS)
 {
 stm[i]=j;
 stm[j]=i;

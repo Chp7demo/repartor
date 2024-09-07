@@ -43,7 +43,7 @@
 #include <QPolygon>
 #include <QPainterPathStroker>
 
-#include "mes_types.h"
+#include "RepartorTypes.h"
 
 class LiI :  public QGraphicsItem 
 {

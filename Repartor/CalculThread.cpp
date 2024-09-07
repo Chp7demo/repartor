@@ -1,4 +1,4 @@
-#include "MyThread.h"
+#include "CalculThread.h"
 
 void MyThread::run()
 {

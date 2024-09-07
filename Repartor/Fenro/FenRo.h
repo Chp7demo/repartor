@@ -38,7 +38,7 @@
 #include "WidgBur.h"
 #include "WidgLi.h"
 
-#include "../mes_types.h"
+#include "../RepartorTypes.h"
 
 enum class ViewMode{NOMODE,BUR,DES_BUR,CPL,BAR_CPL,COPIE,SUPRR,ROT};
 

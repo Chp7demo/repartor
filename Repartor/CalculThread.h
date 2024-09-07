@@ -1,5 +1,5 @@
-#ifndef MYTHREAD_H
-#define MYTHREAD_H
+#ifndef CALCULTHREAD_H
+#define CALCULTHREAD_H
 
 #include <QThread>
 #include "fct_ag/evaluation.h"
@@ -30,4 +30,4 @@ public:
 };
 
 
-#endif // MYTHREAD_H
+#endif // CALCULTHREAD_H

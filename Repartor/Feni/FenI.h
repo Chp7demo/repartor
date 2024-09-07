@@ -38,7 +38,7 @@
 
 #include "ItemPersI.h"
 #include "LiI.h"
-#include "sclass_et_room.h"
+#include "Elements_and_space.h"
 
 
 enum class ViewModeI{NOMODE,MODE1,MODE2,MODE3,MODE4,MODE5,MODE6,MODE7};

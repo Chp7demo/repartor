@@ -19,9 +19,9 @@ bool is_pair(int val)
 return ((val % 2 )==0);
 }
 
-int index(const std::vector<int> &vect, int val)
+int index(const std::vector<int> &vect, int val) // version cpp ?
 {
-for(int i=0;i<vect.size();i++)
+for(unsigned int i=0;i<vect.size();i++)
 {
 if(vect[i]==val)return i;
 }

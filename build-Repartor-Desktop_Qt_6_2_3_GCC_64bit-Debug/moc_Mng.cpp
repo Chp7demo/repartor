@@ -25,7 +25,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Mng_t {
     const uint offsetsAndSize[70];
-    char stringdata0[369];
+    char stringdata0[368];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_Mng_t, stringdata0) + ofs), len 
@@ -37,48 +37,47 @@ QT_MOC_LITERAL(13, 0), // ""
 QT_MOC_LITERAL(14, 6), // "SClass"
 QT_MOC_LITERAL(21, 17), // "std::map<int,int>"
 QT_MOC_LITERAL(39, 26), // "ajourner_sans_reaff_cercle"
-QT_MOC_LITERAL(66, 18), // "cell_pair_ajourned"
-QT_MOC_LITERAL(85, 16), // "std::vector<Pos>"
-QT_MOC_LITERAL(102, 13), // "std::set<int>"
-QT_MOC_LITERAL(116, 13), // "bmmp_ajourned"
-QT_MOC_LITERAL(130, 22), // "std::multimap<int,int>"
-QT_MOC_LITERAL(153, 14), // "faire_ajourner"
-QT_MOC_LITERAL(168, 11), // "lancer_calc"
-QT_MOC_LITERAL(180, 11), // "placer_stud"
-QT_MOC_LITERAL(192, 11), // "vector<int>"
-QT_MOC_LITERAL(204, 9), // "record_ag"
-QT_MOC_LITERAL(214, 9), // "aff_graph"
-QT_MOC_LITERAL(224, 7), // "aj_list"
-QT_MOC_LITERAL(232, 11), // "aj_cl_et_ro"
-QT_MOC_LITERAL(244, 10), // "nouv_inter"
-QT_MOC_LITERAL(255, 9), // "interType"
-QT_MOC_LITERAL(265, 9), // "modif_bur"
-QT_MOC_LITERAL(275, 5), // "index"
-QT_MOC_LITERAL(281, 3), // "Pos"
-QT_MOC_LITERAL(285, 8), // "supr_bur"
-QT_MOC_LITERAL(294, 8), // "SCcombi&"
-QT_MOC_LITERAL(303, 4), // "comb"
-QT_MOC_LITERAL(308, 7), // "add_bur"
-QT_MOC_LITERAL(316, 3), // "pos"
-QT_MOC_LITERAL(320, 7), // "add_cpl"
-QT_MOC_LITERAL(328, 8), // "supr_cpl"
-QT_MOC_LITERAL(337, 6), // "aj_dsm"
-QT_MOC_LITERAL(344, 8), // "dsm_supr"
-QT_MOC_LITERAL(353, 6), // "ad_fbs"
-QT_MOC_LITERAL(360, 8) // "supr_fbs"
+QT_MOC_LITERAL(66, 17), // "cell_pos_ajourned"
+QT_MOC_LITERAL(84, 16), // "std::vector<Pos>"
+QT_MOC_LITERAL(101, 13), // "std::set<int>"
+QT_MOC_LITERAL(115, 13), // "bmmp_ajourned"
+QT_MOC_LITERAL(129, 22), // "std::multimap<int,int>"
+QT_MOC_LITERAL(152, 14), // "faire_ajourner"
+QT_MOC_LITERAL(167, 11), // "lancer_calc"
+QT_MOC_LITERAL(179, 11), // "placer_stud"
+QT_MOC_LITERAL(191, 11), // "vector<int>"
+QT_MOC_LITERAL(203, 9), // "record_ag"
+QT_MOC_LITERAL(213, 9), // "aff_graph"
+QT_MOC_LITERAL(223, 7), // "aj_list"
+QT_MOC_LITERAL(231, 11), // "aj_cl_et_ro"
+QT_MOC_LITERAL(243, 10), // "nouv_inter"
+QT_MOC_LITERAL(254, 9), // "interType"
+QT_MOC_LITERAL(264, 9), // "modif_bur"
+QT_MOC_LITERAL(274, 5), // "index"
+QT_MOC_LITERAL(280, 3), // "Pos"
+QT_MOC_LITERAL(284, 8), // "supr_bur"
+QT_MOC_LITERAL(293, 8), // "SCcombi&"
+QT_MOC_LITERAL(302, 4), // "comb"
+QT_MOC_LITERAL(307, 7), // "add_bur"
+QT_MOC_LITERAL(315, 3), // "pos"
+QT_MOC_LITERAL(319, 7), // "add_cpl"
+QT_MOC_LITERAL(327, 8), // "supr_cpl"
+QT_MOC_LITERAL(336, 6), // "aj_dsm"
+QT_MOC_LITERAL(343, 8), // "dsm_supr"
+QT_MOC_LITERAL(352, 6), // "ad_fbs"
+QT_MOC_LITERAL(359, 8) // "supr_fbs"
 
     },
     "Mng\0ajourned\0\0SClass\0std::map<int,int>\0"
-    "ajourner_sans_reaff_cercle\0"
-    "cell_pair_ajourned\0std::vector<Pos>\0"
-    "std::set<int>\0bmmp_ajourned\0"
-    "std::multimap<int,int>\0faire_ajourner\0"
-    "lancer_calc\0placer_stud\0vector<int>\0"
-    "record_ag\0aff_graph\0aj_list\0aj_cl_et_ro\0"
-    "nouv_inter\0interType\0modif_bur\0index\0"
-    "Pos\0supr_bur\0SCcombi&\0comb\0add_bur\0"
-    "pos\0add_cpl\0supr_cpl\0aj_dsm\0dsm_supr\0"
-    "ad_fbs\0supr_fbs"
+    "ajourner_sans_reaff_cercle\0cell_pos_ajourned\0"
+    "std::vector<Pos>\0std::set<int>\0"
+    "bmmp_ajourned\0std::multimap<int,int>\0"
+    "faire_ajourner\0lancer_calc\0placer_stud\0"
+    "vector<int>\0record_ag\0aff_graph\0aj_list\0"
+    "aj_cl_et_ro\0nouv_inter\0interType\0"
+    "modif_bur\0index\0Pos\0supr_bur\0SCcombi&\0"
+    "comb\0add_bur\0pos\0add_cpl\0supr_cpl\0"
+    "aj_dsm\0dsm_supr\0ad_fbs\0supr_fbs"
 };
 #undef QT_MOC_LITERAL
 
@@ -158,7 +157,7 @@ void Mng::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **
         switch (_id) {
         case 0: _t->ajourned((*reinterpret_cast< SClass(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2]))); break;
         case 1: _t->ajourner_sans_reaff_cercle((*reinterpret_cast< SClass(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2]))); break;
-        case 2: _t->cell_pair_ajourned((*reinterpret_cast< std::vector<Pos>(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2])),(*reinterpret_cast< std::set<int>(*)>(_a[3]))); break;
+        case 2: _t->cell_pos_ajourned((*reinterpret_cast< std::vector<Pos>(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2])),(*reinterpret_cast< std::set<int>(*)>(_a[3]))); break;
         case 3: _t->bmmp_ajourned((*reinterpret_cast< std::multimap<int,int>(*)>(_a[1]))); break;
         case 4: _t->faire_ajourner((*reinterpret_cast< SClass(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2]))); break;
         case 5: _t->lancer_calc(); break;
@@ -198,7 +197,7 @@ void Mng::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **
         }
         {
             using _t = void (Mng::*)(std::vector<Pos> , std::map<int,int> , std::set<int> );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Mng::cell_pair_ajourned)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Mng::cell_pos_ajourned)) {
                 *result = 2;
                 return;
             }
@@ -281,7 +280,7 @@ void Mng::ajourner_sans_reaff_cercle(SClass _t1, std::map<int,int> _t2)
 }
 
 // SIGNAL 2
-void Mng::cell_pair_ajourned(std::vector<Pos> _t1, std::map<int,int> _t2, std::set<int> _t3)
+void Mng::cell_pos_ajourned(std::vector<Pos> _t1, std::map<int,int> _t2, std::set<int> _t3)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);

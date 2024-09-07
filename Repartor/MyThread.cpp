@@ -13,9 +13,9 @@ void MyThread::run()
    int  N_int=1;//nombre d 'indiv nouveau introduit à chaque generations//1?// on prend N_el = N_int = 1 pr le moment...
    double P_crois=0.6;// probabilité de croisement lors de reproduction d'un couple//0.6?
    double P_mut=0.005;// proba de mutation sur un indiv
-   double K_roul=0.15;//coeff rang-largeur roulette //largeur additionelle en faiti//a euilibrer en fct de N...
+   double K_roul=0.15;//coeff rang-largeur roulette //largeur additionelle en fait//a euilibrer en fct de N...
 
-   double d_roul_tot;
+  double d_roul_tot=0; // n'etait pas initialisé précedement et pourtant cela fonctionnait! génant ?
    for(int i=0;i<N;i++) {d_roul_tot+=1+K_roul*i;}
 
     int  ng=0;//generation en cours
@@ -33,7 +33,7 @@ vector<vector<int>> pop={};
 
 for (int i=0;i<N;i++)
 {
-    pop.push_back(genere_indiv(*dZ));
+    pop.push_back(genere_indiv(*dZ)); // *dz pourquoi etoile ?
 }
 //cout<<"taille pop : "<<pop.size()<<endl;
      // cout<<"ap_genere"<<endl;

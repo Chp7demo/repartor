@@ -5,7 +5,7 @@ using namespace std;
 
 Mng::Mng() :QObject()
 {
-qRegisterMetaType<vector<int>> ("vector<int>");
+qRegisterMetaType<vector<int>> ("vector<int>"); //??
 }
 
 void Mng::aj_list(QList<QString> list_N)//obsolette
@@ -164,12 +164,12 @@ emit ajourner_sans_reaff_cercle(sclass,combi.sc_dsm);
 //le code ici c'est nawak  avec les paires...
 void Mng::modif_bur(int index,Pos pos)
 {
-ro.cell_pair[index]=pos;
-emit cell_pair_ajourned(ro.cell_pair,combi.sc_dsm,combi.fbs);
+ro.cell_pos[index]=pos;
+emit cell_pos_ajourned(ro.cell_pos,combi.sc_dsm,combi.fbs);
 }
 void Mng::supr_bur(int index)
 {
-ro.cell_pair.erase(ro.cell_pair.begin()+index);
+ro.cell_pos.erase(ro.cell_pos.begin()+index);
 //on ajourne les cpl======
 //----------------------------------------------------------------------------------------
 ro.r_bmmp.erase(index);
@@ -254,7 +254,7 @@ for(auto b:combi.fbs)
 }
 combi.fbs=new_set;
 //=========================
-emit cell_pair_ajourned(ro.cell_pair,combi.sc_dsm,combi.fbs);
+emit cell_pos_ajourned(ro.cell_pos,combi.sc_dsm,combi.fbs);
 //emit aj_dsm_copies(combi.sc_dsm);
 emit bmmp_ajourned(ro.r_bmmp);
 }
@@ -263,9 +263,9 @@ emit bmmp_ajourned(ro.r_bmmp);
 void Mng::add_bur(Pos pos)
 {
 cout<<"entree add_bur"<<endl;
-ro.cell_pair.push_back(pos);
-cout<<"ro.cell_pair.size()"<<ro.cell_pair.size()<<endl;
-emit cell_pair_ajourned(ro.cell_pair,combi.sc_dsm,combi.fbs);
+ro.cell_pos.push_back(pos);
+cout<<"ro.cell_pos.size()"<<ro.cell_pos.size()<<endl;
+emit cell_pos_ajourned(ro.cell_pos,combi.sc_dsm,combi.fbs);
 cout<<"sortie add_bur"<<endl;
 }
 
@@ -339,7 +339,7 @@ cr=crea_combi_ready();
 //crea datazone
 DataZone Dz(cr);
 //fichier analise ag
-creer_fichier();//cette fct nettoie aussi le fichier recird indiv debug
+creer_fichier();//cette fct nettoie aussi le fichier recird indiv debug // inutilisé à priori
 //lancer thread
 MyThread * myThread=new MyThread(Dz);
 connect(myThread,SIGNAL(fin_ag(vector<int>)),this,SLOT(placer_stud(vector<int>)));
@@ -374,7 +374,7 @@ for(auto m_p : combi_r.sc_dsm){cout<<"st: "<<m_p.first<<"bu: "<<m_p.second<<endl
 
  //decalage des ind bur (l ag les traites a partir de l ind 1( c'est con mais bon ))
  Pos p_vide;
- combi_r.room.cell_pair.insert(combi_r.room.cell_pair.begin(),p_vide);
+ combi_r.room.cell_pos.insert(combi_r.room.cell_pos.begin(),p_vide);
 //...........
  multimap<int,int> new_map;
 for(auto &paire: combi_r.room.r_bmmp)
@@ -398,7 +398,7 @@ combi_r.sc_dsm=new_map_dsm;
 
 void Mng::supr_bur(int index,SCcombi &comb)
 {
-comb.room.cell_pair.erase(comb.room.cell_pair.begin()+index);
+comb.room.cell_pos.erase(comb.room.cell_pos.begin()+index);
 //on ajourne les cpl======
 //----------------------------------------------------------------------------------------
 comb.room.r_bmmp.erase(index);
@@ -484,7 +484,7 @@ for(auto b:combi.fbs)
 }
 combi.fbs=new_set;*/
 //=========================
-//emit cell_pair_ajourned(ro.cell_pair,combi.sc_dsm,combi.fbs);
+//emit cell_pos_ajourned(ro.cell_pos,combi.sc_dsm,combi.fbs);
 //emit aj_dsm_copies(combi.sc_dsm);
 //emit bmmp_ajourned(ro.r_bmmp);
 }

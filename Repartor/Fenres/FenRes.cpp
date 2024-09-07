@@ -30,8 +30,8 @@ this->setLayout(hLayout);
 connect(fenDes->pt_graphView(),SIGNAL(drop_cached()),fenNaRes,SLOT(set_drop_catched()));
 connect(fenDes->pt_graphView(),SIGNAL(aj_dsm(QString,int)),this,SLOT(emettre_aj_dsm(QString,int)));
 
-connect(fenDes->pt_graphView(),SIGNAL(ad_fbs(int)),this,SLOT(emettre_ad_fbs(int)));
-connect(fenDes->pt_graphView(),SIGNAL(supr_fbs(int)),this,SLOT(emettre_supr_fbs(int)));
+connect(fenDes->pt_graphView(),SIGNAL(ad_frozen_cell(int)),this,SLOT(emettre_ad_frozen_cell(int)));
+connect(fenDes->pt_graphView(),SIGNAL(supr_frozen_cell(int)),this,SLOT(emettre_supr_frozen_cell(int)));
 
 connect(fenDes->pt_graphView(),SIGNAL(enlever_st(QString)),fenNaRes->pt_feResNaAff(),SLOT(enlever_st(QString)));
 connect(fenDes->pt_graphView(),SIGNAL(rapatrier_wNRG(QList<QString>)),fenNaRes,SLOT(rapatrier_wNRG(QList<QString>)));
@@ -45,8 +45,8 @@ connect(fenNaRes,SIGNAL(sous()),this,SLOT(emettre_sous()));
 
 connect(fenBut,SIGNAL(aj_mode(modeRes)),this,SLOT(aj_mode(modeRes)));
 
-connect(fenNaRes->pt_feResNaAff(),SIGNAL(desact_fbs()),fenBut,SLOT(desact_fbs()));
-connect(fenNaRes->pt_feResNaAff(),SIGNAL(desact_fbs()),fenDes,SLOT(desact_fbs()));
+connect(fenNaRes->pt_feResNaAff(),SIGNAL(desact_frozen_cell()),fenBut,SLOT(desact_frozen_cell()));
+connect(fenNaRes->pt_feResNaAff(),SIGNAL(desact_frozen_cell()),fenDes,SLOT(desact_frozen_cell()));
 }
 
 FeResNaAff::FeResNaAff() :QWidget()
@@ -303,13 +303,13 @@ if(pt_w_b!=NULL && !pt_w_b->get_occupe() && (pt_w_b->getModeCroix()==WidgBurRes:
 {
 pt_w_b->setModeCroix(WidgBurRes::CROIX);
 pt_w_b->set_occupe(true);
-emit ad_fbs(pt_w_b->get_index());
+emit ad_frozen_cell(pt_w_b->get_index());
 }
 if(pt_w_b!=NULL/* && !pt_w_b->get_occupe()*/ && (pt_w_b->getModeCroix()==WidgBurRes::CROIXR))
 {
 pt_w_b->setModeCroix(WidgBurRes::NOCROIX);
 pt_w_b->set_occupe(false);
-emit supr_fbs(pt_w_b->get_index());
+emit supr_frozen_cell(pt_w_b->get_index());
 
 }
 
@@ -607,20 +607,20 @@ emit sous();
 }
 
 //cette cascade c'est n'importe quoi..; iutiliser des refs..
-void FenRes::ajourner_bu(vector<Pos> pos_vect,std::map<int,int> map_dsm,std::set<int> set_fbs)
+void FenRes::ajourner_bu(vector<Pos> pos_vect,std::map<int,int> map_dsm,std::set<int> set_frozen_cell)
 {
 cout<<"entree cascade"<<endl;
 //deux travaux
-fenDes->ajourner_bu(pos_vect,map_dsm,set_fbs);
+fenDes->ajourner_bu(pos_vect,map_dsm,set_frozen_cell);
 fenNaRes->ajourner(map_dsm);
 }
 void FenRes::ajourner_mm(multimap<int,int> mmp) 
 {
 fenDes->ajourner_mm(mmp);
 }
-void FenDesRes::ajourner_bu(vector<Pos> pos_vect,std::map<int,int> map_dsm,std::set<int> set_fbs)
+void FenDesRes::ajourner_bu(vector<Pos> pos_vect,std::map<int,int> map_dsm,std::set<int> set_frozen_cell)
 {
-graphView->ajourner_bu(pos_vect,map_dsm,set_fbs);
+graphView->ajourner_bu(pos_vect,map_dsm,set_frozen_cell);
 }
 void FenDesRes::ajourner_mm(multimap<int,int> mmp) 
 {
@@ -628,7 +628,7 @@ graphView->ajourner_mm(mmp);
 }
 
 
-void MaGraphicsViewRes::ajourner_bu(vector<Pos> pos_vect,std::map<int,int> map_dsm,std::set<int> set_fbs)
+void MaGraphicsViewRes::ajourner_bu(vector<Pos> pos_vect,std::map<int,int> map_dsm,std::set<int> set_frozen_cell)
 {
 
 //dsm_copie=map_dsm;//utile?
@@ -668,9 +668,9 @@ nouv_wbr->set_angle(pos_vect.at(i).angle);
 nouv_wbr->rotation(pos_vect.at(i).angle);//lent?
 nouv_wbr->setZValue(1);
 connect(nouv_wbr,SIGNAL(drop_catched()),this,SLOT(drop_cached_sl()));
-//====fbs
-//auto set_it=set_fbs.find(i);
-if(set_fbs.count(i)>0){nouv_wbr->set_occupe(true);nouv_wbr->setModeCroix(WidgBurRes::CROIX);}
+//====frozen_cell
+//auto set_it=set_frozen_cell.find(i);
+if(set_frozen_cell.count(i)>0){nouv_wbr->set_occupe(true);nouv_wbr->setModeCroix(WidgBurRes::CROIX);}
 //======
 this->scene()->addItem(nouv_wbr);
 //cout<<"coucou 2"<<endl;
@@ -773,7 +773,7 @@ cout<<"hedsif"<<endl;
 // child_N=static_cast<widgNRes*>(childAt(event->pos()));
 if(!(child_N=trouve_N(event->pos()))) return;
 
-emit desact_fbs();
+emit desact_frozen_cell();
 /*
 }
 else {cout<<"hebyebye";return;}

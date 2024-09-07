@@ -82,13 +82,13 @@ class MaGraphicsViewRes : public QGraphicsView
         void rapatrier_wNRG(QList<QString>);
         void sous();
 
-        void ad_fbs(int);
-        void supr_fbs(int);
+        void ad_frozen_cell(int);
+        void supr_frozen_cell(int);
         public slots:
 
         void drop_cached_sl();
 
-        void ajourner_bu(std::vector<Pos>,std::map<int,int>,std::set<int> set_fbs);
+        void ajourner_bu(std::vector<Pos>,std::map<int,int>,std::set<int> set_frozen_cell);
         void ajourner_mm(std::multimap<int,int>);
         void aj_drop_catched_locale(bool b);
         void detruire_wn(widgNRG* pt_wn);
@@ -126,11 +126,11 @@ class FenDesRes :  public QWidget
     public slots:
 void ajourner(Elements,std::map<int,int>);
 
-void ajourner_bu(std::vector<Pos>,std::map<int,int>,std::set<int> set_fbs);
+void ajourner_bu(std::vector<Pos>,std::map<int,int>,std::set<int> set_frozen_cell);
 void ajourner_mm(std::multimap<int,int>); 
 void drop_locale_catched(){graphView->aj_drop_catched_locale(true);}
 
-void desact_fbs(){pt_graphView()->setModeRes(modeRes::NORMALE);}
+void desact_frozen_cell(){pt_graphView()->setModeRes(modeRes::NORMALE);}
          signals:
      private:
  QGraphicsScene *graphScene;
@@ -163,8 +163,8 @@ class FenButRes :  public QWidget
 
      public slots:
     void aj_mode_res(){if(but2->isChecked())emit aj_mode(modeRes::FBS);else emit aj_mode(modeRes::NORMALE);}
-    void mode_calc(){desact_fbs();emit aj_mode(modeRes::CALCUL);}
-    void desact_fbs(){but2->setChecked(false);}
+    void mode_calc(){desact_frozen_cell();emit aj_mode(modeRes::CALCUL);}
+    void desact_frozen_cell(){but2->setChecked(false);}
     signals:
  void aj_mode(modeRes);
     private:
@@ -198,15 +198,15 @@ void emettre_aj_dsm(QString s,int i){emit aj_dsm(s,i);}
 void emettre_dsm_supr(QString s){emit dsm_supr(s);}
 void emettre_sous(){emit sous_cpt_freeze_fenres();}
 
-void emettre_ad_fbs(int i){emit ad_fbs(i);}
-void emettre_supr_fbs(int i){emit supr_fbs(i);}
+void emettre_ad_frozen_cell(int i){emit ad_frozen_cell(i);}
+void emettre_supr_frozen_cell(int i){emit supr_frozen_cell(i);}
 
 
 void aj_mode(modeRes mode){moderes=mode;fenDes->pt_graphView()->setModeRes(mode);if(moderes==modeRes::CALCUL)emit lancer_calc();}
     signals:
  void aj_dsm(QString,int);
- void ad_fbs(int);
- void supr_fbs(int);
+ void ad_frozen_cell(int);
+ void supr_frozen_cell(int);
  void dsm_supr(QString);
  void sous_cpt_freeze_fenres();
  void  lancer_calc();
@@ -369,7 +369,7 @@ class FeResNaAff :  public QWidget
   signals:
    void aj_post_drop(QString,int);
    void sous_cpt_freeze_fenres();
-   void desact_fbs();
+   void desact_frozen_cell();
   protected: 
      void mousePressEvent(QMouseEvent *);
    

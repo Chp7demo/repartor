@@ -25,7 +25,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Mng_t {
     const uint offsetsAndSize[70];
-    char stringdata0[370];
+    char stringdata0[384];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_Mng_t, stringdata0) + ofs), len 
@@ -56,16 +56,16 @@ QT_MOC_LITERAL(266, 9), // "modif_bur"
 QT_MOC_LITERAL(276, 5), // "index"
 QT_MOC_LITERAL(282, 3), // "Pos"
 QT_MOC_LITERAL(286, 8), // "supr_bur"
-QT_MOC_LITERAL(295, 8), // "SCcombi&"
-QT_MOC_LITERAL(304, 4), // "comb"
-QT_MOC_LITERAL(309, 7), // "add_bur"
-QT_MOC_LITERAL(317, 3), // "pos"
-QT_MOC_LITERAL(321, 7), // "add_cpl"
-QT_MOC_LITERAL(329, 8), // "supr_cpl"
-QT_MOC_LITERAL(338, 6), // "aj_dsm"
-QT_MOC_LITERAL(345, 8), // "dsm_supr"
-QT_MOC_LITERAL(354, 6), // "ad_fbs"
-QT_MOC_LITERAL(361, 8) // "supr_fbs"
+QT_MOC_LITERAL(295, 6), // "Combi&"
+QT_MOC_LITERAL(302, 4), // "comb"
+QT_MOC_LITERAL(307, 7), // "add_bur"
+QT_MOC_LITERAL(315, 3), // "pos"
+QT_MOC_LITERAL(319, 7), // "add_cpl"
+QT_MOC_LITERAL(327, 8), // "supr_cpl"
+QT_MOC_LITERAL(336, 6), // "aj_dsm"
+QT_MOC_LITERAL(343, 8), // "dsm_supr"
+QT_MOC_LITERAL(352, 14), // "ad_frozen_cell"
+QT_MOC_LITERAL(367, 16) // "supr_frozen_cell"
 
     },
     "Mng\0ajourned\0\0Elements\0std::map<int,int>\0"
@@ -75,9 +75,10 @@ QT_MOC_LITERAL(361, 8) // "supr_fbs"
     "faire_ajourner\0lancer_calc\0placer_stud\0"
     "vector<int>\0record_ag\0aff_graph\0aj_list\0"
     "aj_cl_et_ro\0nouv_inter\0interType\0"
-    "modif_bur\0index\0Pos\0supr_bur\0SCcombi&\0"
+    "modif_bur\0index\0Pos\0supr_bur\0Combi&\0"
     "comb\0add_bur\0pos\0add_cpl\0supr_cpl\0"
-    "aj_dsm\0dsm_supr\0ad_fbs\0supr_fbs"
+    "aj_dsm\0dsm_supr\0ad_frozen_cell\0"
+    "supr_frozen_cell"
 };
 #undef QT_MOC_LITERAL
 
@@ -169,14 +170,14 @@ void Mng::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **
         case 11: _t->nouv_inter((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< interType(*)>(_a[3]))); break;
         case 12: _t->modif_bur((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< Pos(*)>(_a[2]))); break;
         case 13: _t->supr_bur((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 14: _t->supr_bur((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< SCcombi(*)>(_a[2]))); break;
+        case 14: _t->supr_bur((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< Combi(*)>(_a[2]))); break;
         case 15: _t->add_bur((*reinterpret_cast< Pos(*)>(_a[1]))); break;
         case 16: _t->add_cpl((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 17: _t->supr_cpl((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 18: _t->aj_dsm((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 19: _t->dsm_supr((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 20: _t->ad_fbs((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 21: _t->supr_fbs((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 20: _t->ad_frozen_cell((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 21: _t->supr_frozen_cell((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -227,7 +228,7 @@ const QMetaObject Mng::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_Mng_t
 , QtPrivate::TypeAndForceComplete<Mng, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<Elements, std::false_type>, QtPrivate::TypeAndForceComplete<std::map<int,int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<Elements, std::false_type>, QtPrivate::TypeAndForceComplete<std::map<int,int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::vector<Pos>, std::false_type>, QtPrivate::TypeAndForceComplete<std::map<int,int>, std::false_type>, QtPrivate::TypeAndForceComplete<std::set<int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::multimap<int,int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<Elements, std::false_type>, QtPrivate::TypeAndForceComplete<std::map<int,int>, std::false_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<vector<int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<vector<int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QList<QString>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QList<QString>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<interType, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<Pos, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<SCcombi &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<Pos, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<vector<int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<double, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<vector<int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QList<QString>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QList<QString>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<interType, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<Pos, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<Combi &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<Pos, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>
 
 
 >,

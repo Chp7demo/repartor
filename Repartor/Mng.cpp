@@ -72,9 +72,9 @@ elements.elem_names.erase(elements.elem_names.begin()+ind_disp);
 //==============
 
 //====on ajourne dsm ==========
-combi.sc_dsm.erase(ind_disp);
+combi.elem_cell_map.erase(ind_disp);
 map<int,int> new_map;
-for(auto &paire: combi.sc_dsm)
+for(auto &paire: combi.elem_cell_map)
 {
     if(paire.first>ind_disp)
     {
@@ -86,11 +86,11 @@ for(auto &paire: combi.sc_dsm)
             new_map.insert(paire);
         }
 }
-combi.sc_dsm=new_map;
+combi.elem_cell_map=new_map;
 //=========================
 }
-emit ajourned(elements,combi.sc_dsm);
-//emit aj_dsm_copies(combi.sc_dsm);
+emit ajourned(elements,combi.elem_cell_map);
+
 }
 
 void Mng::nouv_inter(QString s1 ,QString s2 ,interType inter_type)
@@ -147,7 +147,7 @@ for(int i=0;i<elements.elem_names.size();i++)
  }
 }
 //fin debug======
-emit ajourner_sans_reaff_cercle(elements,combi.sc_dsm);
+emit ajourner_sans_reaff_cercle(elements,combi.elem_cell_map);
 
 }
 
@@ -157,17 +157,17 @@ emit ajourner_sans_reaff_cercle(elements,combi.sc_dsm);
 void Mng::modif_bur(int index,Pos pos)
 {
 ro.cell_pos[index]=pos;
-emit cell_pos_ajourned(ro.cell_pos,combi.sc_dsm,combi.fbs);
+emit cell_pos_ajourned(ro.cell_pos,combi.elem_cell_map,combi.frozen_cell);
 }
 void Mng::supr_bur(int index)
 {
 ro.cell_pos.erase(ro.cell_pos.begin()+index);
 //on ajourne les cpl======
 //----------------------------------------------------------------------------------------
-ro.r_bmmp.erase(index);
+ro.cell_pair.erase(index);
 pair<int,int> paire_to_remove;//en pratique un bur n'a qu'un paire (meme si multimap...)  
 bool remove_paire=false;
-for(auto &paire: ro.r_bmmp)
+for(auto &paire: ro.cell_pair)
 {
 if(paire.second==index)
 {
@@ -177,12 +177,12 @@ remove_paire=true;
 }//sortie for
 if(remove_paire)
 {
-ro.r_bmmp.erase(paire_to_remove.first);
+ro.cell_pair.erase(paire_to_remove.first);
 }
 
 //----------------------------------------------------------------------------------------
 multimap<int,int> mm_copie;
-for(auto &paire: ro.r_bmmp)
+for(auto &paire: ro.cell_pair)
 {
 if(paire.first>index&&paire.second<index)
 {
@@ -210,19 +210,19 @@ mm_copie.insert(paire);
 }
 }
 }//sortie for
-ro.r_bmmp=mm_copie;
+ro.cell_pair=mm_copie;
 //====on ajourne dsm =======
 int  ind_st_to_erase;
 bool is_there_ind=false;
-for(auto &paire:combi.sc_dsm)
+for(auto &paire:combi.elem_cell_map)
  {
     if(paire.second==index){ind_st_to_erase=paire.first;is_there_ind=true;}
 }
 
-if(is_there_ind)combi.sc_dsm.erase(ind_st_to_erase);
+if(is_there_ind)combi.elem_cell_map.erase(ind_st_to_erase);
 
 map<int,int> new_map;
-for(auto &paire: combi.sc_dsm)
+for(auto &paire: combi.elem_cell_map)
 {
     if(paire.second>index)
     {
@@ -234,21 +234,21 @@ for(auto &paire: combi.sc_dsm)
             new_map.insert(paire);
         }
 }
-combi.sc_dsm=new_map;
-//======on ajourne fbs==========
+combi.elem_cell_map=new_map;
+//======on ajourne frozen_cell==========
 set<int> new_set;
 
-for(auto b:combi.fbs)
+for(auto b:combi.frozen_cell)
 {
     if(b>index) new_set.insert(b-1);
     if(b<index) new_set.insert(b);
     //if egale on s'en fiche ...
 }
-combi.fbs=new_set;
+combi.frozen_cell=new_set;
 //=========================
-emit cell_pos_ajourned(ro.cell_pos,combi.sc_dsm,combi.fbs);
-//emit aj_dsm_copies(combi.sc_dsm);
-emit bmmp_ajourned(ro.r_bmmp);
+emit cell_pos_ajourned(ro.cell_pos,combi.elem_cell_map,combi.frozen_cell);
+
+emit bmmp_ajourned(ro.cell_pair);
 }
 
 
@@ -257,7 +257,7 @@ void Mng::add_bur(Pos pos)
 cout<<"entree add_bur"<<endl;
 ro.cell_pos.push_back(pos);
 cout<<"ro.cell_pos.size()"<<ro.cell_pos.size()<<endl;
-emit cell_pos_ajourned(ro.cell_pos,combi.sc_dsm,combi.fbs);
+emit cell_pos_ajourned(ro.cell_pos,combi.elem_cell_map,combi.frozen_cell);
 cout<<"sortie add_bur"<<endl;
 }
 
@@ -267,17 +267,17 @@ void Mng::add_cpl(int i_1,int i_2)
 pair<int,int> p(i_1,i_2);
 pair<int,int> p_2(i_2,i_1);
 
-ro.r_bmmp.insert(p);
-ro.r_bmmp.insert(p_2);
+ro.cell_pair.insert(p);
+ro.cell_pair.insert(p_2);
 
-emit bmmp_ajourned(ro.r_bmmp);
+emit bmmp_ajourned(ro.cell_pair);
 }
 void Mng::supr_cpl(int i_1,int i_2) 
 {
 pair<int,int> paire_to_remove;
 pair<int,int> paire_to_remove_2;
 
-for(auto &paire: ro.r_bmmp)
+for(auto &paire: ro.cell_pair)
 {
 if(paire.first==i_1&&paire.second==i_2)
 {
@@ -289,10 +289,10 @@ paire_to_remove_2=paire;
 }
 
 }
-ro.r_bmmp.erase(paire_to_remove.first);
-ro.r_bmmp.erase(paire_to_remove_2.first);
+ro.cell_pair.erase(paire_to_remove.first);
+ro.cell_pair.erase(paire_to_remove_2.first);
 
-emit bmmp_ajourned(ro.r_bmmp);
+emit bmmp_ajourned(ro.cell_pair);
 
 }
 
@@ -303,30 +303,30 @@ auto it=find(elements.elem_names.begin(),elements.elem_names.end(),qstr_n.toStdS
 int ind_n=it-elements.elem_names.begin();
 
 pair<int,int>  new_pair(ind_n,ind_bu);
-combi.sc_dsm.erase(ind_n);//pas grave s'il ny en a pas ?
-combi.sc_dsm.insert(new_pair);
+combi.elem_cell_map.erase(ind_n);//pas grave s'il ny en a pas ?
+combi.elem_cell_map.insert(new_pair);
 }
 void Mng::dsm_supr(QString qstr_n)
 {
 auto it=find(elements.elem_names.begin(),elements.elem_names.end(),qstr_n.toStdString());
 int ind_n=it-elements.elem_names.begin();
-combi.sc_dsm.erase(ind_n);
+combi.elem_cell_map.erase(ind_n);
 }
 
-void Mng::ad_fbs(int i)
+void Mng::ad_frozen_cell(int i)
 {
-combi.fbs.insert(i);
+combi.frozen_cell.insert(i);
 }
 
-void Mng::supr_fbs(int i)
+void Mng::supr_frozen_cell(int i)
 {
-combi.fbs.erase(i);
+combi.frozen_cell.erase(i);
 }
 
 void Mng::lancer_calc()
 {
 //crea_combi_ready
-SCcombi cr;
+Combi cr;
 cr=crea_combi_ready();
 //crea datazone
 DataZone Dz(cr);
@@ -340,63 +340,63 @@ connect(myThread,SIGNAL(fin_ag(vector<int>)),this,SLOT(placer_stud(vector<int>))
 myThread->start();
 }
 
-SCcombi Mng::crea_combi_ready()
+Combi Mng::crea_combi_ready()
 {
- SCcombi combi_r;
+ Combi combi_r;
  combi_r.elements=elements;
- combi_r.room=ro;
- combi_r.sc_dsm=combi.sc_dsm;
+ combi_r.space=ro;
+ combi_r.elem_cell_map=combi.elem_cell_map;
  //DEBUG=========
-for(auto m_p : combi_r.sc_dsm){cout<<"st: "<<m_p.first<<"bu: "<<m_p.second<<endl;}
+for(auto m_p : combi_r.elem_cell_map){cout<<"st: "<<m_p.first<<"bu: "<<m_p.second<<endl;}
 //===============
 
 // for(int )
-  //supression des fbs
+  //supression des frozen_cell
 
  int cpt_bur_spr=0;
- for(auto ind: combi.fbs)
+ for(auto ind: combi.frozen_cell)
  {
      cout<<ind<<endl;
      supr_bur(ind-cpt_bur_spr,combi_r);
      cpt_bur_spr++;
  }
  //DEBUG=========
-for(auto m_p : combi_r.sc_dsm){cout<<"st: "<<m_p.first<<"bu: "<<m_p.second<<endl;}
+for(auto m_p : combi_r.elem_cell_map){cout<<"st: "<<m_p.first<<"bu: "<<m_p.second<<endl;}
 //===============
 
  //decalage des ind bur (l ag les traites a partir de l ind 1( c'est con mais bon ))
  Pos p_vide;
- combi_r.room.cell_pos.insert(combi_r.room.cell_pos.begin(),p_vide);
+ combi_r.space.cell_pos.insert(combi_r.space.cell_pos.begin(),p_vide);
 //...........
  multimap<int,int> new_map;
-for(auto &paire: combi_r.room.r_bmmp)
+for(auto &paire: combi_r.space.cell_pair)
 {
          pair<int,int> new_paire(paire.first+1,paire.second+1);
         new_map.insert(new_paire);
  }
-combi_r.room.r_bmmp=new_map;
+combi_r.space.cell_pair=new_map;
 //..........
 
 map<int,int> new_map_dsm;
-for(auto &paire: combi_r.sc_dsm)
+for(auto &paire: combi_r.elem_cell_map)
 {
          pair<int,int> new_paire(paire.first,paire.second+1);
         new_map_dsm.insert(new_paire);
  }
-combi_r.sc_dsm=new_map_dsm;
+combi_r.elem_cell_map=new_map_dsm;
  //====
  return combi_r;
 }
 
-void Mng::supr_bur(int index,SCcombi &comb)
+void Mng::supr_bur(int index,Combi &comb)
 {
-comb.room.cell_pos.erase(comb.room.cell_pos.begin()+index);
+comb.space.cell_pos.erase(comb.space.cell_pos.begin()+index);
 //on ajourne les cpl======
 //----------------------------------------------------------------------------------------
-comb.room.r_bmmp.erase(index);
+comb.space.cell_pair.erase(index);
 pair<int,int> paire_to_remove;//en pratique un bur n'a qu'un paire (meme si multimap...)
 bool remove_paire=false;
-for(auto &paire: comb.room.r_bmmp)
+for(auto &paire: comb.space.cell_pair)
 {
 if(paire.second==index)
 {
@@ -406,12 +406,12 @@ remove_paire=true;
 }//sortie for
 if(remove_paire)
 {
-comb.room.r_bmmp.erase(paire_to_remove.first);
+comb.space.cell_pair.erase(paire_to_remove.first);
 }
 
 //----------------------------------------------------------------------------------------
 multimap<int,int> mm_copie;
-for(auto &paire: comb.room.r_bmmp)
+for(auto &paire: comb.space.cell_pair)
 {
 if(paire.first>index&&paire.second<index)
 {
@@ -439,18 +439,18 @@ mm_copie.insert(paire);
 }
 }
 }//sortie for
-comb.room.r_bmmp=mm_copie;
+comb.space.cell_pair=mm_copie;
 //====on ajourne dsm =======
 /*vient de l autre surcharge
 int  ind_st_to_erase;
-for(auto &paire:comb.sc_dsm)
+for(auto &paire:comb.elem_cell_map)
  {
     if(paire.second==index)ind_st_to_erase=paire.first;
 }
-comb.sc_dsm.erase(ind_st_to_erase);
+comb.elem_cell_map.erase(ind_st_to_erase);
 */
 map<int,int> new_map;
-for(auto &paire: comb.sc_dsm)
+for(auto &paire: comb.elem_cell_map)
 {
     if(paire.second>index)
     {
@@ -462,23 +462,8 @@ for(auto &paire: comb.sc_dsm)
             new_map.insert(paire);
         }
 }
-comb.sc_dsm=new_map;
-//======on ajourne fbs==========
+comb.elem_cell_map=new_map;
 
-//ça on s' en fiche pour l'utilisation de cette fct====
-/*
-set<int> new_set;
-for(auto b:combi.fbs)
-{
-    if(b>index) new_set.insert(b-1);
-    if(b<index) new_set.insert(b);
-    //if egale on s'en fiche ...
-}
-combi.fbs=new_set;*/
-//=========================
-//emit cell_pos_ajourned(ro.cell_pos,combi.sc_dsm,combi.fbs);
-//emit aj_dsm_copies(combi.sc_dsm);
-//emit bmmp_ajourned(ro.r_bmmp);
 }
 
 void Mng::placer_stud(vector<int> gen)
@@ -487,22 +472,22 @@ void Mng::placer_stud(vector<int> gen)
    for(int i=0;i<gen.size();i++){gen[i]--;}
 
     //remapper les resultats en rajoutant les bur manquants
-    for(auto ind: combi.fbs)
+    for(auto ind: combi.frozen_cell)
     {
      for (int i=0;i<gen.size();i++){if(gen[i]>=ind)gen[i]++;}
     }
     //remplir un dsm_2 à fabrique(qui contient l 'ancien dsm)
-    combi.sc_dsm_old=combi.sc_dsm;
-    combi.sc_dsm.clear();
+    combi.elem_cell_map_old=combi.elem_cell_map;
+    combi.elem_cell_map.clear();
      for (int i=0;i<gen.size();i++){
          pair<int,int> newpair(i,gen[i]);
-         combi.sc_dsm.insert(newpair);
+         combi.elem_cell_map.insert(newpair);
      cout<< gen[i]<<" ";
      }
            cout<<endl;
-     cout<<"taille dsm: "<<combi.sc_dsm.size()<<endl;
+     cout<<"taille dsm: "<<combi.elem_cell_map.size()<<endl;
     //emmetre un ajourned // faire les modif ds fenro pr prendre en cpt le dsm_2 //faire un bout annuler calc...
-     emit faire_ajourner(elements,combi.sc_dsm);//pb a l affichage , à voir...
+     emit faire_ajourner(elements,combi.elem_cell_map);//pb a l affichage , à voir...
 }
 
 void Mng::record_ag(double fit_moy,double fit_max,int ng,vector<int> best_g)

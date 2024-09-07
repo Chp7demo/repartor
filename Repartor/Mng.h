@@ -57,16 +57,16 @@ void nouv_inter(QString,QString,interType);
 //====fcts en rapport avec liste de bu===================
 void modif_bur(int index,Pos);
 void supr_bur(int index);
-void supr_bur(int index,SCcombi &comb);//surchage utile dans crea_combi_ready;
+void supr_bur(int index,Combi &comb);//surchage utile dans crea_combi_ready;
 void add_bur(Pos pos);
 void add_cpl(int,int);
 void supr_cpl(int,int); 
 //================fcts en rapport avec dsm=========================
 void aj_dsm(QString,int);//rajoute ou remplace une paire dsm
 void dsm_supr(QString);
-//======================fbs=========================
-void ad_fbs(int);
-void supr_fbs(int);
+//======================frozen_cell=========================
+void ad_frozen_cell(int);
+void supr_frozen_cell(int);
     signals:
 void ajourned(Elements,std::map<int,int>);
 void ajourner_sans_reaff_cercle(Elements,std::map<int,int>);
@@ -76,13 +76,13 @@ void faire_ajourner(Elements,std::map<int,int>);
 //void aj_dsm_copies(std::map<int,int>);//TODO fusionner avec les signaux existants
     private:
 void creer_fichier();
-SCcombi crea_combi_ready();
+Combi crea_combi_ready();
 
 Elements elements;
-Room ro;
+Space ro;
 
 
-SCcombi combi;
+Combi combi;
 
 //pr debug
 QString fileName;

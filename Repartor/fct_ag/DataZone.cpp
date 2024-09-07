@@ -1,11 +1,11 @@
 #include "DataZone.h"
 
-DataZone::DataZone(const SCcombi &combi)
+DataZone::DataZone(const Combi &combi)
 {
 N_St=combi.elements.elem_names.size();
-N_Bur=combi.room.cell_pos.size()-1;//le 0 est useless
-bmm=combi.room.r_bmmp;
-dsm=combi.sc_dsm;
+N_Bur=combi.space.cell_pos.size()-1;//le 0 est useless
+bmm=combi.space.cell_pair;
+dsm=combi.elem_cell_map;
 stm=from_matr_to_stm(combi.elements.matr_i);
 vect_ordo=create_ordo();
 vect_desordo=create_desordo();
@@ -49,7 +49,7 @@ for(int i=0;i<N_St;i++)
  }
 }
 //fin debug===
-bp=combi.room.cell_pos;
+bp=combi.space.cell_pos;
 
 
 //distance max et min

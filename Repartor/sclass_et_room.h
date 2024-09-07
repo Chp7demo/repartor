@@ -11,32 +11,23 @@
 struct Elements
 {
 std::vector<std::string> elem_names;
-MI matr_i;//matrice d'interactions triangulaire sans diagonale
+MI matr_i; // matrice d'interactions triangulaire sans diagonale
 };
 
-class Room
+struct Space
 {
-public:
-//Room();
-std::string r_n; // nom de la salle classe ? utile ?
-std::vector<Pos> cell_pos;//Pos à definir.// position des cellules (nom "cell pair erreure)
-//Pos at_pt; // ??
-
-std::multimap<int,int> r_bmmp;//comment est il rempli?! // multimap ? paire de bureau ??
-
+std::vector<Pos> cell_pos; // position des cellules
+std::multimap<int,int> cell_pair; // cellules liées entre elles pour acceuillir des paires d'éléments
 };
 
 
-class SCcombi
+struct Combi
 {
-public:
-//SCcombi();
-
 Elements elements;
-Room  room;
-std::map<int,int> sc_dsm;//el-b  // eleve -bureau , si j'ai bien compris !!!
-std::map<int,int>sc_dsm_old;//stock sc_dsm apres un placement auto en cas d 'annulation
-std::set<int> fbs;// place interdites//doit retirer le bureau ds data zone->à faire//peut etre vaux il mieux faire cela en amont?..
+Space  space;
+std::map<int,int> elem_cell_map;
+std::map<int,int> elem_cell_map_old;//stock elem_cell_map apres un placement auto (en cas d'annulation par l'utilisateur)
+std::set<int> frozen_cell;// cellules interdites//doit retirer le bureau ds data zone->à faire//peut etre vaux il mieux faire cela en amont?..
 
 };
 

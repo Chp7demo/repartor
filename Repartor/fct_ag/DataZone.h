@@ -21,7 +21,7 @@ struct DataZone
 {
 
 
-DataZone(const SCcombi &combi);
+DataZone(const Combi &combi);
 
 
 //rq: les 3 fonction suivante existe aussi ds genese.h elles sont surchargées...

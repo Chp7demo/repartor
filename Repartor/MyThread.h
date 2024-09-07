@@ -16,7 +16,7 @@ class MyThread : public QThread
  Q_OBJECT
 
 public:
-    MyThread(const DataZone & dz) : QThread () {SCcombi combi_vide;dZ=new DataZone(combi_vide);*dZ=dz;}//nawak
+    MyThread(const DataZone & dz) : QThread () {Combi combi_vide;dZ=new DataZone(combi_vide);*dZ=dz;}//nawak
  public slots:
     void run();
  signals:

@@ -104,7 +104,7 @@ class MaGraphicsViewI : public QGraphicsView
     void sous();
      public slots:
 
-    void aff_cercle(SClass); 
+    void aff_cercle(Elements); 
  
     void setMode(ViewModeI vM);
 
@@ -176,7 +176,7 @@ class FenDesI :  public QWidget
     QGraphicsView *pt_graph_View(){return graphView;}
     public slots:
     void setMode(ViewModeI);
-  void aff_cercle(SClass);
+  void aff_cercle(Elements);
   void pass_nouv_inter(QString,QString,interType);
     signals:
   void nouv_inter(QString,QString,interType);
@@ -243,7 +243,7 @@ class FenI :  public QWidget
 
 
     public slots:
-  void aff_cercle(SClass);
+  void aff_cercle(Elements);
   void pass_nouv_inter(QString,QString,interType);
   void emettre_sous(){emit sous_cpt_freeze_fenres();}
     signals:

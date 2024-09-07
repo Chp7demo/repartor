@@ -1,5 +1,4 @@
-#ifndef SCLASS_ET_ROOM_H
-#define SCLASS_ET_ROOM_H
+#pragma once
 
 
 #include <cstdlib>
@@ -9,16 +8,10 @@
 #include"mes_types.h"
 
 
-class SClass
+struct Elements
 {
-public:
-//SClass();
-std::string sc_n; // nom de la classe ?
-std::vector<std::string> st_nm; // les nom des elèves
-std::vector<indivType> st_it; // ??
-MI matr_i;//matrice triangulaire sans diagonale // matrice d'interaction
-
-
+std::vector<std::string> elem_names;
+MI matr_i;//matrice d'interactions triangulaire sans diagonale
 };
 
 class Room
@@ -39,7 +32,7 @@ class SCcombi
 public:
 //SCcombi();
 
-SClass sclass;
+Elements elements;
 Room  room;
 std::map<int,int> sc_dsm;//el-b  // eleve -bureau , si j'ai bien compris !!!
 std::map<int,int>sc_dsm_old;//stock sc_dsm apres un placement auto en cas d 'annulation
@@ -49,4 +42,4 @@ std::set<int> fbs;// place interdites//doit retirer le bureau ds data zone->à f
 
 
 
-#endif
+

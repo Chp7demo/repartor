@@ -231,6 +231,7 @@ DIST          = ../Repartor/README.md \
 		../../Qt/6.2.3/gcc_64/mkspecs/features/qt_config.prf \
 		../../Qt/6.2.3/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../Qt/6.2.3/gcc_64/mkspecs/features/spec_post.prf \
+		../Repartor/.qmake.stash \
 		../../Qt/6.2.3/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../Qt/6.2.3/gcc_64/mkspecs/features/toolchain.prf \
 		../../Qt/6.2.3/gcc_64/mkspecs/features/default_pre.prf \
@@ -260,7 +261,6 @@ DIST          = ../Repartor/README.md \
 		../Repartor/Fenro/FenRo.h \
 		../Repartor/Fenro/WidgBur.h \
 		../Repartor/Fenro/WidgLi.h \
-		../Repartor/Fenro/mes_types.h \
 		../Repartor/GlobF.h \
 		../Repartor/Mng.h \
 		../Repartor/MyThread.h \
@@ -420,6 +420,7 @@ Makefile: ../Repartor/Repartor.pro ../../Qt/6.2.3/gcc_64/mkspecs/linux-g++/qmake
 		../../Qt/6.2.3/gcc_64/mkspecs/features/qt_config.prf \
 		../../Qt/6.2.3/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../Qt/6.2.3/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../Qt/6.2.3/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../Qt/6.2.3/gcc_64/mkspecs/features/toolchain.prf \
 		../../Qt/6.2.3/gcc_64/mkspecs/features/default_pre.prf \
@@ -562,6 +563,7 @@ Makefile: ../Repartor/Repartor.pro ../../Qt/6.2.3/gcc_64/mkspecs/linux-g++/qmake
 ../../Qt/6.2.3/gcc_64/mkspecs/features/qt_config.prf:
 ../../Qt/6.2.3/gcc_64/mkspecs/linux-g++/qmake.conf:
 ../../Qt/6.2.3/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../Qt/6.2.3/gcc_64/mkspecs/features/exclusive_builds.prf:
 ../../Qt/6.2.3/gcc_64/mkspecs/features/toolchain.prf:
 ../../Qt/6.2.3/gcc_64/mkspecs/features/default_pre.prf:
@@ -601,7 +603,7 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../Qt/6.2.3/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Repartor/Fena/FeNa.h ../Repartor/Feni/FenI.h ../Repartor/Feni/ItemPersI.h ../Repartor/Feni/LiI.h ../Repartor/Fenres/FenRes.h ../Repartor/Fenres/WidgBurRes.h ../Repartor/Fenro/FenRo.h ../Repartor/Fenro/WidgBur.h ../Repartor/Fenro/WidgLi.h ../Repartor/Fenro/mes_types.h ../Repartor/GlobF.h ../Repartor/Mng.h ../Repartor/MyThread.h ../Repartor/fct_ag/DataZone.h ../Repartor/fct_ag/cross_over.h ../Repartor/fct_ag/evaluation.h ../Repartor/fct_ag/genese.h ../Repartor/fct_ag/mutation.h ../Repartor/fct_ag/petites_fonctions.h ../Repartor/mainwindow.h ../Repartor/mes_types.h ../Repartor/sclass_et_room.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Repartor/Fena/FeNa.h ../Repartor/Feni/FenI.h ../Repartor/Feni/ItemPersI.h ../Repartor/Feni/LiI.h ../Repartor/Fenres/FenRes.h ../Repartor/Fenres/WidgBurRes.h ../Repartor/Fenro/FenRo.h ../Repartor/Fenro/WidgBur.h ../Repartor/Fenro/WidgLi.h ../Repartor/GlobF.h ../Repartor/Mng.h ../Repartor/MyThread.h ../Repartor/fct_ag/DataZone.h ../Repartor/fct_ag/cross_over.h ../Repartor/fct_ag/evaluation.h ../Repartor/fct_ag/genese.h ../Repartor/fct_ag/mutation.h ../Repartor/fct_ag/petites_fonctions.h ../Repartor/mainwindow.h ../Repartor/mes_types.h ../Repartor/sclass_et_room.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../Repartor/Fena/FeNa.cpp ../Repartor/Feni/FenI.cpp ../Repartor/Feni/ItemPersI.cpp ../Repartor/Feni/LiI.cpp ../Repartor/Fenres/FenRes.cpp ../Repartor/Fenres/WidgBurRes.cpp ../Repartor/Fenro/FenRo.cpp ../Repartor/Fenro/WidgBur.cpp ../Repartor/Fenro/WidgLi.cpp ../Repartor/GlobF.cpp ../Repartor/Mng.cpp ../Repartor/MyThread.cpp ../Repartor/fct_ag/DataZone.cpp ../Repartor/fct_ag/cross_over.cpp ../Repartor/fct_ag/evaluation.cpp ../Repartor/fct_ag/genese.cpp ../Repartor/fct_ag/mutation.cpp ../Repartor/fct_ag/petites_fonctions.cpp ../Repartor/main.cpp ../Repartor/mainwindow.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Repartor/mainwindow.ui $(DISTDIR)/
 
@@ -5866,7 +5868,35 @@ mainwindow.o: ../Repartor/mainwindow.cpp ../Repartor/mainwindow.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qnativeinterface.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/qicon.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/QVariant \
+		../../Qt/6.2.3/gcc_64/include/QtWidgets/QApplication \
+		../../Qt/6.2.3/gcc_64/include/QtWidgets/qapplication.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qcoreapplication.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qeventloop.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qcoreapplication_platform.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qfuture.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qfutureinterface.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qmutex.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qresultstore.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qfuture_impl.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qthreadpool.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qthread.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qdeadlinetimer.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qelapsedtimer.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qrunnable.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qexception.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qguiapplication.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qinputmethod.h \
+		../../Qt/6.2.3/gcc_64/include/QtCore/qlocale.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qguiapplication_platform.h \
+		../../Qt/6.2.3/gcc_64/include/QtWidgets/QMenuBar \
+		../../Qt/6.2.3/gcc_64/include/QtWidgets/qmenubar.h \
+		../../Qt/6.2.3/gcc_64/include/QtWidgets/qmenu.h \
+		../../Qt/6.2.3/gcc_64/include/QtGui/qaction.h \
+		../../Qt/6.2.3/gcc_64/include/QtWidgets/QStatusBar \
+		../../Qt/6.2.3/gcc_64/include/QtWidgets/qstatusbar.h \
+		../../Qt/6.2.3/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../Repartor/mainwindow.cpp
 
 moc_FeNa.o: moc_FeNa.cpp 

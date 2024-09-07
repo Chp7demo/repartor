@@ -204,14 +204,14 @@ if (pt_w!=NULL && !pt_w->get_occupe())
 {
  //=========le st a-t-il un cpl?===============
 /*
-auto it=std::find(sclass_copie.st_nm.begin(),sclass_copie.st_nm.end(),text_received.toStdString());
-int ind_st=it-sclass_copie.st_nm.begin();
-auto it_matr=std::find(sclass_copie.matr_i.at(ind_st).begin(),sclass_copie.matr_i.at(ind_st).end(),interType::cpl);
+auto it=std::find(elements_copie.elem_names.begin(),elements_copie.elem_names.end(),text_received.toStdString());
+int ind_st=it-elements_copie.elem_names.begin();
+auto it_matr=std::find(elements_copie.matr_i.at(ind_st).begin(),elements_copie.matr_i.at(ind_st).end(),interType::cpl);
 bool st_a_un_cpl=false;
 int ind_st_cpl;
-if(it_matr!=sclass_copie.matr_i.at(ind_st).end()){st_a_un_cpl=true,ind_st_cpl=it_matr-sclass_copie.matr_i.at(ind_st).begin();}
+if(it_matr!=elements_copie.matr_i.at(ind_st).end()){st_a_un_cpl=true,ind_st_cpl=it_matr-elements_copie.matr_i.at(ind_st).begin();}
 */
- QString str_cpl=trouve_cpl(text_received,sclass_copie);
+ QString str_cpl=trouve_cpl(text_received,elements_copie);
 if(str_cpl=="")//si pas de cpl...
  {
       emit drop_cached();//attention je l'ai appler catched a d'autres endroits..
@@ -270,7 +270,7 @@ cout<<"rep widg cpl"<<endl;
 //le st_cpl est il deja ds un bur?
 bool deja_ds_bur=false;
 int ind_NRG_cpl;
-//QString str_cpl=QString::fromStdString(sclass_copie.st_nm.at(ind_st_cpl));
+//QString str_cpl=QString::fromStdString(elements_copie.elem_names.at(ind_st_cpl));
 for(int i=0;i<list_widgNRG.size();i++)
 {if(list_widgNRG.at(i)->getN()==str_cpl){deja_ds_bur=true;ind_NRG_cpl=i;}}
   if(deja_ds_bur)
@@ -475,26 +475,26 @@ QString widgNRG::getN()
 return text_N;
 }
 
-void FenRes::ajourner(SClass sclass,std::map<int,int> map_dsm)
+void FenRes::ajourner(Elements elements,std::map<int,int> map_dsm)
 {
-fenDes->ajourner(sclass,map_dsm);
-fenNaRes->ajourner(sclass,map_dsm);
+fenDes->ajourner(elements,map_dsm);
+fenNaRes->ajourner(elements,map_dsm);
 } 
-void FenDesRes::ajourner(SClass sclass,std::map<int,int> map_dsm)
+void FenDesRes::ajourner(Elements elements,std::map<int,int> map_dsm)
 {
-graphView->ajourner(sclass,map_dsm);
+graphView->ajourner(elements,map_dsm);
 }
 
-void MaGraphicsViewRes::ajourner(SClass sclass,std::map<int,int> map_dsm)
+void MaGraphicsViewRes::ajourner(Elements elements,std::map<int,int> map_dsm)
 {
- sclass_copie=sclass;
+ elements_copie=elements;
 /*
-matr_copie=sclass.matr_i;//utile ici?
+matr_copie=elements.matr_i;//utile ici?
 dsm_copie=map_dsm;//utile?
 */
 //=========================
 //ici on retire le stud eventuellment disparu...//si l ajournement provient d'un supression d'un stud...
-vector<string> stnm_copie=sclass.st_nm;
+vector<string> stnm_copie=elements.elem_names;
 if(map_dsm.size()<list_widgNRG.size())
 {
 //si ds la widgNRG le nom correspondant n'est pas ds les dsm on le retire
@@ -547,13 +547,13 @@ emit sous();
 }
 void FeNaRes::ajourner(std::map<int,int> map_dsm)
 {
-   ajourner(sclass_copie,map_dsm);
+   ajourner(elements_copie,map_dsm);
 
 }
-void FeNaRes::ajourner(SClass sclass,std::map<int,int> map_dsm)
+void FeNaRes::ajourner(Elements elements,std::map<int,int> map_dsm)
 {
 //dsm_copie_fenares=map_dsm;//utile?
-sclass_copie=sclass;
+elements_copie=elements;
 int s=N_str_list.size();
 while((m_w_multi_aff->N_list.size())>0)
 {
@@ -567,8 +567,8 @@ delete wN;
 N_str_list.clear();
 //nouvelle liste========
 //cout<<m_w_multi_aff->N_list.size()<<endl;
-for(int i=0;i<sclass.st_nm.size();i++)
-{if(map_dsm.find(i)==map_dsm.end())N_str_list.append(QString::fromStdString(sclass.st_nm.at(i)));}
+for(int i=0;i<elements.elem_names.size();i++)
+{if(map_dsm.find(i)==map_dsm.end())N_str_list.append(QString::fromStdString(elements.elem_names.at(i)));}
 //=========ajourner st_map=========================
 QMap<QString,int>::iterator i=st_qmap.begin();
 while(i!=st_qmap.end())
@@ -691,13 +691,13 @@ for(auto &paire:map_dsm)
  {
     if(paire.second==list_widgBurRes.at(i)->get_index())
     {
-list_widgBurRes.at(i)->set_text(QString::fromStdString(sclass_copie.st_nm.at(paire.first)));//useless?
+list_widgBurRes.at(i)->set_text(QString::fromStdString(elements_copie.elem_names.at(paire.first)));//useless?
 list_widgBurRes.at(i)->set_occupe(true);
 
 QRectF rect(list_widgBurRes.at(i)->get_centre().x(),list_widgBurRes.at(i)->get_centre().y(),150,20);//dimensions calquees sur widgNres//pq pas utiliser rect_widg?
 rect.translate(-rect.width()/2,-rect.height()/2);
         widgNRG * nouv_wNRG=new widgNRG(rect);
-        nouv_wNRG->setN(QString::fromStdString(sclass_copie.st_nm.at(paire.first)));
+        nouv_wNRG->setN(QString::fromStdString(elements_copie.elem_names.at(paire.first)));
         nouv_wNRG->set_pixmap(map_pix.value(nouv_wNRG->getN()));//pour stocker l'image en vue d'un futur deplacement
         nouv_wNRG->set_entered(false);
         nouv_wNRG->setZValue(2);
@@ -723,7 +723,7 @@ cout<<"mm rep 1"<<endl;
 for(int i=0;i<list_widgNRG.size();i++)
 {
 
-    QString str=trouve_cpl(list_widgNRG.at(i)->getN(),sclass_copie);
+    QString str=trouve_cpl(list_widgNRG.at(i)->getN(),elements_copie);
     cout<<str.toStdString()<<endl;
     if(str!=""&&mmp.find(list_widgNRG.at(i)->get_pt_WBR()->get_index())==mmp.end())
     {
@@ -893,7 +893,7 @@ emit dsm_supr(text_received);
 rapatrier_cpl_eventuel(text_received);
 /*
 //s'il a un cpl sur un bur
-QString str_cpl=trouve_cpl(text_received,sclass_copie);
+QString str_cpl=trouve_cpl(text_received,elements_copie);
 if(str_cpl!="")//si cpl
  {
 //est il ds la liste ou sur un bur?
@@ -1285,16 +1285,16 @@ void FeResNaAff::enlever_st(QString str)
    cacher_widg(wN);
 }
 
-QString trouve_cpl(const QString & str ,const SClass & scl)
+QString trouve_cpl(const QString & str ,const Elements & scl)
 {
-auto it=std::find(scl.st_nm.begin(),scl.st_nm.end(),str.toStdString());
-int ind_st=it-scl.st_nm.begin();
+auto it=std::find(scl.elem_names.begin(),scl.elem_names.end(),str.toStdString());
+int ind_st=it-scl.elem_names.begin();
 auto it_matr=std::find(scl.matr_i.at(ind_st).begin(),scl.matr_i.at(ind_st).end(),interType::cpl);
 bool st_a_un_cpl=false;
 int ind_st_cpl;
 if(it_matr!=scl.matr_i.at(ind_st).end()){st_a_un_cpl=true,ind_st_cpl=it_matr-scl.matr_i.at(ind_st).begin();}
     QString str_cpl="";
-    if(st_a_un_cpl)str_cpl=QString::fromStdString(scl.st_nm.at(ind_st_cpl));
+    if(st_a_un_cpl)str_cpl=QString::fromStdString(scl.elem_names.at(ind_st_cpl));
     return str_cpl;
  }
 
@@ -1310,7 +1310,7 @@ detruire_wn(list_widgNRG.at(ind_NRG));
 
  void FeNaRes::rapatrier_cpl_eventuel(QString text_received)
 {
-QString str_cpl=trouve_cpl(text_received,sclass_copie);
+QString str_cpl=trouve_cpl(text_received,elements_copie);
 if(str_cpl!="")//si cpl
  {
 //est il ds la liste ou sur un bur?

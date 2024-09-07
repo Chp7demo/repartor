@@ -218,16 +218,16 @@ void MaGraphicsViewI::setMode( ViewModeI vM)
 mode=vM;
 }
 
-void MaGraphicsViewI::aff_cercle(SClass scl)
+void MaGraphicsViewI::aff_cercle(Elements scl)
 {
 //au passage on transmet une copie de la matr (utile ailleurs) =========
 matr_copie=scl.matr_i;
-str_list_std=scl.st_nm;
+str_list_std=scl.elem_names;
 //====================================================
 //conversion en QString=====
 QList<QString> str_list;
-for(int i=0;i<scl.st_nm.size();i++)
-{str_list.append(QString::fromStdString(scl.st_nm.at(i)));}
+for(int i=0;i<scl.elem_names.size();i++)
+{str_list.append(QString::fromStdString(scl.elem_names.at(i)));}
 
 //==========================
 if(item_list.size()==0)
@@ -270,7 +270,7 @@ item_list << nouv_item;
 this->scene()->addItem(nouv_item);
 }
 //============liaisons========
-for(int i=0;i<scl.st_nm.size();i++)
+for(int i=0;i<scl.elem_names.size();i++)
 {
 for(int j=0;j<i;j++)
 {
@@ -395,11 +395,11 @@ vect << p;
 return vect;
 }
 
-  void FenI::aff_cercle(SClass s)
+  void FenI::aff_cercle(Elements s)
 {
 fenDes->aff_cercle(s);
 }
-  void FenDesI::aff_cercle(SClass s)
+  void FenDesI::aff_cercle(Elements s)
 {
 graphView->aff_cercle(s);
 }

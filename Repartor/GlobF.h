@@ -64,7 +64,7 @@ class GlobF :  public QWidget
 
     public slots:
   void setMode(GlobMode);
-    void aff_cercle(SClass sc,std::map<int,int> mp){fenI->aff_cercle(sc);}
+    void aff_cercle(Elements sc,std::map<int,int> mp){fenI->aff_cercle(sc);}
     void add_cpt_freeze_fenres(){cpt_freeze_fenres++;fenGlobBut->freeze_fenres();}//en fait on freeze tout les boutons...pas que fenres.../useless
     void sous_cpt_freeze_fenres(){cpt_freeze_fenres--;std::cout<<"cpt_freeze: "<<cpt_freeze_fenres<<std::endl;if(cpt_freeze_fenres==0)fenGlobBut->unfreeze();}///*debug*/lab_cpt_1->setValue(cpt_freeze_fenres);}
 
@@ -77,7 +77,7 @@ class GlobF :  public QWidget
     void add_cpl(int i,int i2){cpt_freeze_fenres++;fenGlobBut->freeze_fenres();mng->add_cpl(i,i2);}///*debug*/cpt_freeze_bis+=1;lab_cpt_1->setValue(cpt_freeze_fenres);lab_cpt_2->setValue(cpt_freeze_bis);}
     void supr_cpl(int i,int i2){cpt_freeze_fenres++;fenGlobBut->freeze_fenres();mng->supr_cpl(i,i2);}///*debug*/cpt_freeze_bis+=1;lab_cpt_1->setValue(cpt_freeze_fenres);lab_cpt_2->setValue(cpt_freeze_bis);}
    //....
-   void faire_ajourner(SClass sc,std::map<int,int> mp){cpt_freeze_fenres+=2/*pas sur */;fenRes->ajourner(sc,mp);}
+   void faire_ajourner(Elements sc,std::map<int,int> mp){cpt_freeze_fenres+=2/*pas sur */;fenRes->ajourner(sc,mp);}
     private:
   void fermer_anc_mode(GlobMode);
     

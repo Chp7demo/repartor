@@ -40,7 +40,6 @@ HEADERS += \
     Fenro/FenRo.h \
     Fenro/WidgBur.h \
     Fenro/WidgLi.h \
-    Fenro/mes_types.h \
     GlobF.h \
     Mng.h \
     MyThread.h \

@@ -2,15 +2,15 @@
 
 DataZone::DataZone(const SCcombi &combi)
 {
-N_St=combi.sclass.st_nm.size();
+N_St=combi.elements.elem_names.size();
 N_Bur=combi.room.cell_pos.size()-1;//le 0 est useless
 bmm=combi.room.r_bmmp;
 dsm=combi.sc_dsm;
-stm=from_matr_to_stm(combi.sclass.matr_i);
+stm=from_matr_to_stm(combi.elements.matr_i);
 vect_ordo=create_ordo();
 vect_desordo=create_desordo();
 //pour evaluation======
-mi=combi.sclass.matr_i;
+mi=combi.elements.matr_i;
 //DEBUG===aff matrice
 //cout<<"matrice lors de la creation de data zone"<<endl;
 //  cout<<"dZ.N_st : "<<dZ.N_St<<endl;

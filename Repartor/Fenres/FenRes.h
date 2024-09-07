@@ -47,7 +47,7 @@
 #include "WidgBurRes.h"
 
 
-QString trouve_cpl(const QString &,const SClass &);
+QString trouve_cpl(const QString &,const Elements &);
 
 enum class modeRes{NORMALE,CALCUL,FBS};
 
@@ -61,7 +61,7 @@ class MaGraphicsViewRes : public QGraphicsView
 
   public:
     MaGraphicsViewRes(QGraphicsScene* scene,QWidget *parent=0);
-   void ajourner(SClass,std::map<int,int>);
+   void ajourner(Elements,std::map<int,int>);
    void setModeRes(modeRes moderes){mode=moderes;}
     protected:
            
@@ -95,7 +95,7 @@ class MaGraphicsViewRes : public QGraphicsView
        widgNRG* creer_widgNRG(QString,WidgBurRes*);
        void rapatrier(QString);//en fait detruit seulement...
     private:
-      SClass sclass_copie;
+      Elements elements_copie;
     // MI matr_copie;//TODO a faire ajourner par ajourned...
     //std::map<int,int> dsm_copie;
      std::multimap<int,int> mm_copie;
@@ -124,7 +124,7 @@ class FenDesRes :  public QWidget
 	FenDesRes();
     MaGraphicsViewRes *pt_graphView(){return graphView;}
     public slots:
-void ajourner(SClass,std::map<int,int>);
+void ajourner(Elements,std::map<int,int>);
 
 void ajourner_bu(std::vector<Pos>,std::map<int,int>,std::set<int> set_fbs);
 void ajourner_mm(std::multimap<int,int>); 
@@ -187,7 +187,7 @@ class FenRes :  public QWidget
    // FenDesRes * pt_fenDes(){return fenDes;}
 
     public slots:
-void ajourner(SClass,std::map<int,int>);
+void ajourner(Elements,std::map<int,int>);
 
 void ajourner_bu(std::vector<Pos>,std::map<int,int>,std::set<int>);
 void ajourner_mm(std::multimap<int,int>); 
@@ -233,7 +233,7 @@ class FeNaRes :  public QWidget
 
     public:
 	FeNaRes();
-   void ajourner(SClass,std::map<int,int>);// TODO const ref?
+   void ajourner(Elements,std::map<int,int>);// TODO const ref?
    void ajourner(std::map<int,int>);// TODO const ref?
      public slots:
  void cacher_widg(widgNRes *wn);
@@ -260,7 +260,7 @@ QScrollArea * m_scroll_multi_aff;
 //===================================
 //std::map<int,int> dsm_copie_fenares;//utile?
 QMap<QString,int> st_qmap;
-SClass sclass_copie;
+Elements elements_copie;
 QVBoxLayout *bl;
      };
 

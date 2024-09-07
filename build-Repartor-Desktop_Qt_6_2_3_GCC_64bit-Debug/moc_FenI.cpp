@@ -24,7 +24,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MaGraphicsViewI_t {
     const uint offsetsAndSize[20];
-    char stringdata0[82];
+    char stringdata0[84];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MaGraphicsViewI_t, stringdata0) + ofs), len 
@@ -36,15 +36,15 @@ QT_MOC_LITERAL(27, 0), // ""
 QT_MOC_LITERAL(28, 9), // "interType"
 QT_MOC_LITERAL(38, 4), // "sous"
 QT_MOC_LITERAL(43, 10), // "aff_cercle"
-QT_MOC_LITERAL(54, 6), // "SClass"
-QT_MOC_LITERAL(61, 7), // "setMode"
-QT_MOC_LITERAL(69, 9), // "ViewModeI"
-QT_MOC_LITERAL(79, 2) // "vM"
+QT_MOC_LITERAL(54, 8), // "Elements"
+QT_MOC_LITERAL(63, 7), // "setMode"
+QT_MOC_LITERAL(71, 9), // "ViewModeI"
+QT_MOC_LITERAL(81, 2) // "vM"
 
     },
     "MaGraphicsViewI\0nouv_inter\0\0interType\0"
-    "sous\0aff_cercle\0SClass\0setMode\0ViewModeI\0"
-    "vM"
+    "sous\0aff_cercle\0Elements\0setMode\0"
+    "ViewModeI\0vM"
 };
 #undef QT_MOC_LITERAL
 
@@ -88,7 +88,7 @@ void MaGraphicsViewI::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         switch (_id) {
         case 0: _t->nouv_inter((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< interType(*)>(_a[3]))); break;
         case 1: _t->sous(); break;
-        case 2: _t->aff_cercle((*reinterpret_cast< SClass(*)>(_a[1]))); break;
+        case 2: _t->aff_cercle((*reinterpret_cast< Elements(*)>(_a[1]))); break;
         case 3: _t->setMode((*reinterpret_cast< ViewModeI(*)>(_a[1]))); break;
         default: ;
         }
@@ -119,7 +119,7 @@ const QMetaObject MaGraphicsViewI::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_MaGraphicsViewI_t
 , QtPrivate::TypeAndForceComplete<MaGraphicsViewI, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<interType, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<SClass, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ViewModeI, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<Elements, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ViewModeI, std::false_type>
 
 
 >,
@@ -171,7 +171,7 @@ void MaGraphicsViewI::sous()
 }
 struct qt_meta_stringdata_FenDesI_t {
     const uint offsetsAndSize[18];
-    char stringdata0[82];
+    char stringdata0[84];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_FenDesI_t, stringdata0) + ofs), len 
@@ -184,12 +184,13 @@ QT_MOC_LITERAL(20, 9), // "interType"
 QT_MOC_LITERAL(30, 7), // "setMode"
 QT_MOC_LITERAL(38, 9), // "ViewModeI"
 QT_MOC_LITERAL(48, 10), // "aff_cercle"
-QT_MOC_LITERAL(59, 6), // "SClass"
-QT_MOC_LITERAL(66, 15) // "pass_nouv_inter"
+QT_MOC_LITERAL(59, 8), // "Elements"
+QT_MOC_LITERAL(68, 15) // "pass_nouv_inter"
 
     },
     "FenDesI\0nouv_inter\0\0interType\0setMode\0"
-    "ViewModeI\0aff_cercle\0SClass\0pass_nouv_inter"
+    "ViewModeI\0aff_cercle\0Elements\0"
+    "pass_nouv_inter"
 };
 #undef QT_MOC_LITERAL
 
@@ -233,7 +234,7 @@ void FenDesI::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         switch (_id) {
         case 0: _t->nouv_inter((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< interType(*)>(_a[3]))); break;
         case 1: _t->setMode((*reinterpret_cast< ViewModeI(*)>(_a[1]))); break;
-        case 2: _t->aff_cercle((*reinterpret_cast< SClass(*)>(_a[1]))); break;
+        case 2: _t->aff_cercle((*reinterpret_cast< Elements(*)>(_a[1]))); break;
         case 3: _t->pass_nouv_inter((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< interType(*)>(_a[3]))); break;
         default: ;
         }
@@ -257,7 +258,7 @@ const QMetaObject FenDesI::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_FenDesI_t
 , QtPrivate::TypeAndForceComplete<FenDesI, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<interType, std::false_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ViewModeI, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<SClass, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<interType, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ViewModeI, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<Elements, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<interType, std::false_type>
 
 
 >,
@@ -570,7 +571,7 @@ void FenButI::aj_mode(ViewModeI _t1)
 }
 struct qt_meta_stringdata_FenI_t {
     const uint offsetsAndSize[18];
-    char stringdata0[97];
+    char stringdata0[99];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_FenI_t, stringdata0) + ofs), len 
@@ -582,14 +583,14 @@ QT_MOC_LITERAL(16, 0), // ""
 QT_MOC_LITERAL(17, 9), // "interType"
 QT_MOC_LITERAL(27, 22), // "sous_cpt_freeze_fenres"
 QT_MOC_LITERAL(50, 10), // "aff_cercle"
-QT_MOC_LITERAL(61, 6), // "SClass"
-QT_MOC_LITERAL(68, 15), // "pass_nouv_inter"
-QT_MOC_LITERAL(84, 12) // "emettre_sous"
+QT_MOC_LITERAL(61, 8), // "Elements"
+QT_MOC_LITERAL(70, 15), // "pass_nouv_inter"
+QT_MOC_LITERAL(86, 12) // "emettre_sous"
 
     },
     "FenI\0nouv_inter\0\0interType\0"
     "sous_cpt_freeze_fenres\0aff_cercle\0"
-    "SClass\0pass_nouv_inter\0emettre_sous"
+    "Elements\0pass_nouv_inter\0emettre_sous"
 };
 #undef QT_MOC_LITERAL
 
@@ -635,7 +636,7 @@ void FenI::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         switch (_id) {
         case 0: _t->nouv_inter((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< interType(*)>(_a[3]))); break;
         case 1: _t->sous_cpt_freeze_fenres(); break;
-        case 2: _t->aff_cercle((*reinterpret_cast< SClass(*)>(_a[1]))); break;
+        case 2: _t->aff_cercle((*reinterpret_cast< Elements(*)>(_a[1]))); break;
         case 3: _t->pass_nouv_inter((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< interType(*)>(_a[3]))); break;
         case 4: _t->emettre_sous(); break;
         default: ;
@@ -667,7 +668,7 @@ const QMetaObject FenI::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_FenI_t
 , QtPrivate::TypeAndForceComplete<FenI, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<interType, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<SClass, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<interType, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<Elements, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<interType, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
 
 >,

@@ -13,11 +13,11 @@ void Mng::aj_list(QList<QString> list_N)//obsolette
 std::vector<std::string> vect_pass;
 for(int i=0;i<list_N.size();i++)
 {vect_pass.push_back(list_N.at(i).toStdString());}
-sclass.st_nm=vect_pass;
+elements.elem_names=vect_pass;
 //===aff debug=====
 /*
-for(int i=0;i<sclass.st_nm.size();i++)
-{cout<<sclass.st_nm[i]<<" ";}
+for(int i=0;i<elements.elem_names.size();i++)
+{cout<<elements.elem_names[i]<<" ";}
 cout<<endl;*/
 //===================
 }
@@ -28,34 +28,29 @@ std::vector<std::string> nouv_list;
 for(int i=0;i<list_N.size();i++)
 {nouv_list.push_back(list_N.at(i).toStdString());}
 
-if(nouv_list.size()>sclass.st_nm.size())
+if(nouv_list.size()>elements.elem_names.size())
 {
 //aj matr_i===
 std::string nouv_element=nouv_list[nouv_list.size()-1];
 
-for(int i=0;i<sclass.matr_i.size();i++)
+for(int i=0;i<elements.matr_i.size();i++)
 {
-sclass.matr_i[i].push_back(interType::ras);
+elements.matr_i[i].push_back(interType::ras);
 }
 std::vector<interType> nouv_vect;
-for(int i=0;i<sclass.matr_i.size()+1;i++)
+for(int i=0;i<elements.matr_i.size()+1;i++)
 {nouv_vect.push_back(interType::ras);} 
-sclass.matr_i.push_back(nouv_vect);
-//==============
-//aj_st_it=======
-sclass.st_it.push_back(indivType::ras);
-//=================
-//aj_st_nm========
-sclass.st_nm=nouv_list;
+elements.matr_i.push_back(nouv_vect);
+elements.elem_names=nouv_list;
 //==============
 }
-if(nouv_list.size()<sclass.st_nm.size())
+if(nouv_list.size()<elements.elem_names.size())
 {
 //indice du disparu===
 int ind_disp;
-for(int i=0;i<sclass.st_nm.size();i++)
+for(int i=0;i<elements.elem_names.size();i++)
 {
-auto it=find(nouv_list.begin(),nouv_list.end(),sclass.st_nm[i]);
+auto it=find(nouv_list.begin(),nouv_list.end(),elements.elem_names[i]);
 if(it == nouv_list.end())
 {
 ind_disp=i;
@@ -64,19 +59,16 @@ break;
 }
 //=========
 //aj_matr_i=======
-for(int i=0;i<sclass.matr_i.size();i++)
+for(int i=0;i<elements.matr_i.size();i++)
 {
-sclass.matr_i[i].erase(sclass.matr_i[i].begin()+ind_disp);
+elements.matr_i[i].erase(elements.matr_i[i].begin()+ind_disp);
 }
-sclass.matr_i.erase(sclass.matr_i.begin()+ind_disp);
+elements.matr_i.erase(elements.matr_i.begin()+ind_disp);
 //==================
 
-//aj_st_it=======
-sclass.st_it.erase(sclass.st_it.begin()+ind_disp);
-//=================
 
-//aj_st_nm========
-sclass.st_nm.erase(sclass.st_nm.begin()+ind_disp);
+//aj_elem_names========
+elements.elem_names.erase(elements.elem_names.begin()+ind_disp);
 //==============
 
 //====on ajourne dsm ==========
@@ -97,7 +89,7 @@ for(auto &paire: combi.sc_dsm)
 combi.sc_dsm=new_map;
 //=========================
 }
-emit ajourned(sclass,combi.sc_dsm);
+emit ajourned(elements,combi.sc_dsm);
 //emit aj_dsm_copies(combi.sc_dsm);
 }
 
@@ -109,25 +101,25 @@ std::string str2=s2.toStdString();
 int ind_1;
 int ind_2;
 
-auto it=find(sclass.st_nm.begin(),sclass.st_nm.end(),str1);
-ind_1=it-sclass.st_nm.begin();
+auto it=find(elements.elem_names.begin(),elements.elem_names.end(),str1);
+ind_1=it-elements.elem_names.begin();
 
-it=find(sclass.st_nm.begin(),sclass.st_nm.end(),str2);
-ind_2=it-sclass.st_nm.begin();
+it=find(elements.elem_names.begin(),elements.elem_names.end(),str2);
+ind_2=it-elements.elem_names.begin();
 
-sclass.matr_i[ind_1][ind_2]=inter_type;
-sclass.matr_i[ind_2][ind_1]=inter_type;
+elements.matr_i[ind_1][ind_2]=inter_type;
+elements.matr_i[ind_2][ind_1]=inter_type;
 //DEBUG===aff matrice
 
 //  cout<<"dZ.N_st : "<<dZ.N_St<<endl;
-for(int i=0;i<sclass.st_nm.size();i++)
+for(int i=0;i<elements.elem_names.size();i++)
 {
   //  cout<<"pilipili"<<endl;
     //cout<<endl;
-    for(int j=0;j<sclass.st_nm.size();j++)
+    for(int j=0;j<elements.elem_names.size();j++)
     {
 
- switch (sclass.matr_i.at(i).at(j)) {
+ switch (elements.matr_i.at(i).at(j)) {
         case (interType::cpl):
                   cout<<"cpl   ";
      break;
@@ -155,7 +147,7 @@ for(int i=0;i<sclass.st_nm.size();i++)
  }
 }
 //fin debug======
-emit ajourner_sans_reaff_cercle(sclass,combi.sc_dsm);
+emit ajourner_sans_reaff_cercle(elements,combi.sc_dsm);
 
 }
 
@@ -307,8 +299,8 @@ emit bmmp_ajourned(ro.r_bmmp);
 void Mng::aj_dsm(QString qstr_n,int ind_bu)//rajoute ou remplace une paire dsm
 {
 
-auto it=find(sclass.st_nm.begin(),sclass.st_nm.end(),qstr_n.toStdString());
-int ind_n=it-sclass.st_nm.begin();
+auto it=find(elements.elem_names.begin(),elements.elem_names.end(),qstr_n.toStdString());
+int ind_n=it-elements.elem_names.begin();
 
 pair<int,int>  new_pair(ind_n,ind_bu);
 combi.sc_dsm.erase(ind_n);//pas grave s'il ny en a pas ?
@@ -316,8 +308,8 @@ combi.sc_dsm.insert(new_pair);
 }
 void Mng::dsm_supr(QString qstr_n)
 {
-auto it=find(sclass.st_nm.begin(),sclass.st_nm.end(),qstr_n.toStdString());
-int ind_n=it-sclass.st_nm.begin();
+auto it=find(elements.elem_names.begin(),elements.elem_names.end(),qstr_n.toStdString());
+int ind_n=it-elements.elem_names.begin();
 combi.sc_dsm.erase(ind_n);
 }
 
@@ -351,7 +343,7 @@ myThread->start();
 SCcombi Mng::crea_combi_ready()
 {
  SCcombi combi_r;
- combi_r.sclass=sclass;
+ combi_r.elements=elements;
  combi_r.room=ro;
  combi_r.sc_dsm=combi.sc_dsm;
  //DEBUG=========
@@ -510,7 +502,7 @@ void Mng::placer_stud(vector<int> gen)
            cout<<endl;
      cout<<"taille dsm: "<<combi.sc_dsm.size()<<endl;
     //emmetre un ajourned // faire les modif ds fenro pr prendre en cpt le dsm_2 //faire un bout annuler calc...
-     emit faire_ajourner(sclass,combi.sc_dsm);//pb a l affichage , à voir...
+     emit faire_ajourner(elements,combi.sc_dsm);//pb a l affichage , à voir...
 }
 
 void Mng::record_ag(double fit_moy,double fit_max,int ng,vector<int> best_g)

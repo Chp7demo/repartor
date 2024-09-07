@@ -60,17 +60,17 @@ connect(fenRes,SIGNAL(dsm_supr(QString)),mng,SLOT(dsm_supr(QString)));
 connect(fenRes,SIGNAL(ad_fbs(int)),mng,SLOT(ad_fbs(int)));//Slot à faire
 connect(fenRes,SIGNAL(supr_fbs(int)),mng,SLOT(supr_fbs(int)));//Slot à faire
 
-qRegisterMetaType< SClass >("SClass");
-//qRegisterMetaType< SClass >("SClass");
-//qRegisterMetaType< SClass >("SClass");
+qRegisterMetaType< Elements >("Elements");
+//qRegisterMetaType< Elements >("Elements");
+//qRegisterMetaType< Elements >("Elements");
 
-connect(mng,SIGNAL(ajourned(SClass,std::map<int,int>)),this,SLOT(aff_cercle(SClass,std::map<int,int>)));
-connect(mng,SIGNAL(ajourned(SClass,std::map<int,int>)),fenRes,SLOT(ajourner(SClass,std::map<int,int>)));
-connect(mng,SIGNAL(ajourner_sans_reaff_cercle(SClass,std::map<int,int>)),fenRes,SLOT(ajourner(SClass,std::map<int,int>)));
+connect(mng,SIGNAL(ajourned(Elements,std::map<int,int>)),this,SLOT(aff_cercle(Elements,std::map<int,int>)));
+connect(mng,SIGNAL(ajourned(Elements,std::map<int,int>)),fenRes,SLOT(ajourner(Elements,std::map<int,int>)));
+connect(mng,SIGNAL(ajourner_sans_reaff_cercle(Elements,std::map<int,int>)),fenRes,SLOT(ajourner(Elements,std::map<int,int>)));
 connect(mng,SIGNAL(cell_pos_ajourned(std::vector<Pos>,std::map<int,int>,std::set<int>)),fenRes,SLOT(ajourner_bu(std::vector<Pos>,std::map<int,int>,std::set<int>)));
 connect(mng,SIGNAL(bmmp_ajourned(std::multimap<int,int>)),fenRes,SLOT(ajourner_mm(std::multimap<int,int>)));
 
-connect(mng,SIGNAL(faire_ajourner(SClass,std::map<int,int>)),this,SLOT(faire_ajourner(SClass,std::map<int,int>)));
+connect(mng,SIGNAL(faire_ajourner(Elements,std::map<int,int>)),this,SLOT(faire_ajourner(Elements,std::map<int,int>)));
 
 connect(fenRes,SIGNAL(lancer_calc()),mng,SLOT(lancer_calc()));//todo: geler toutes les fenetres
 //=========================================

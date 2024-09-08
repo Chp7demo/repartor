@@ -159,7 +159,7 @@ ro.cell_pos.erase(ro.cell_pos.begin()+index);
 //on ajourne les cpl======
 //----------------------------------------------------------------------------------------
 ro.cell_pair.erase(index);
-pair<int,int> paire_to_remove;//en pratique un bur n'a qu'un paire (meme si multimap...)  
+pair<int,int> paire_to_remove;//en pratique un bur n'a qu'un paire (meme si map...)  
 bool remove_paire=false;
 for(auto &paire: ro.cell_pair)
 {
@@ -175,7 +175,7 @@ ro.cell_pair.erase(paire_to_remove.first);
 }
 
 //----------------------------------------------------------------------------------------
-multimap<int,int> mm_copie;
+map<int,int> mm_copie;
 for(auto &paire: ro.cell_pair)
 {
 if(paire.first>index&&paire.second<index)
@@ -362,7 +362,7 @@ for(auto m_p : combi_r.elem_cell_map){cout<<"st: "<<m_p.first<<"bu: "<<m_p.secon
  Pos p_vide;
  combi_r.space.cell_pos.insert(combi_r.space.cell_pos.begin(),p_vide);
 //...........
- multimap<int,int> new_map;
+ map<int,int> new_map;
 for(auto &paire: combi_r.space.cell_pair)
 {
          pair<int,int> new_paire(paire.first+1,paire.second+1);
@@ -388,7 +388,7 @@ comb.space.cell_pos.erase(comb.space.cell_pos.begin()+index);
 //on ajourne les cpl======
 //----------------------------------------------------------------------------------------
 comb.space.cell_pair.erase(index);
-pair<int,int> paire_to_remove;//en pratique un bur n'a qu'un paire (meme si multimap...)
+pair<int,int> paire_to_remove;//en pratique un bur n'a qu'un paire (meme si map...)
 bool remove_paire=false;
 for(auto &paire: comb.space.cell_pair)
 {
@@ -404,7 +404,7 @@ comb.space.cell_pair.erase(paire_to_remove.first);
 }
 
 //----------------------------------------------------------------------------------------
-multimap<int,int> mm_copie;
+map<int,int> mm_copie;
 for(auto &paire: comb.space.cell_pair)
 {
 if(paire.first>index&&paire.second<index)

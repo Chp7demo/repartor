@@ -89,7 +89,7 @@ class MaGraphicsViewRes : public QGraphicsView
         void drop_cached_sl();
 
         void ajourner_bu(std::vector<Pos>,std::map<int,int>,std::set<int> set_frozen_cell);
-        void ajourner_mm(std::multimap<int,int>);
+        void ajourner_mm(std::map<int,int>);
         void aj_drop_catched_locale(bool b);
         void detruire_wn(widgNRG* pt_wn);
        widgNRG* creer_widgNRG(QString,WidgBurRes*);
@@ -98,7 +98,7 @@ class MaGraphicsViewRes : public QGraphicsView
       Elements elements_copie;
     // MI matr_copie;//TODO a faire ajourner par ajourned...
     //std::map<int,int> elem_cell_map_copie;
-     std::multimap<int,int> mm_copie;
+     std::map<int,int> mm_copie;
 
     QList<WidgBurRes *> list_widgBurRes;
    QList<widgNRG*> list_widgNRG;
@@ -127,7 +127,7 @@ class FenDesRes :  public QWidget
 void ajourner(Elements,std::map<int,int>);
 
 void ajourner_bu(std::vector<Pos>,std::map<int,int>,std::set<int> set_frozen_cell);
-void ajourner_mm(std::multimap<int,int>); 
+void ajourner_mm(std::map<int,int>); 
 void drop_locale_catched(){graphView->aj_drop_catched_locale(true);}
 
 void desact_frozen_cell(){pt_graphView()->setModeRes(modeRes::NORMALE);}
@@ -190,7 +190,7 @@ class FenRes :  public QWidget
 void ajourner(Elements,std::map<int,int>);
 
 void ajourner_bu(std::vector<Pos>,std::map<int,int>,std::set<int>);
-void ajourner_mm(std::multimap<int,int>); 
+void ajourner_mm(std::map<int,int>); 
 
 
 void set_drop_catched();

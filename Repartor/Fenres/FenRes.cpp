@@ -614,7 +614,7 @@ cout<<"entree cascade"<<endl;
 fenDes->ajourner_bu(pos_vect,map_elem_cell_map,set_frozen_cell);
 fenNaRes->ajourner(map_elem_cell_map);
 }
-void FenRes::ajourner_mm(multimap<int,int> mmp) 
+void FenRes::ajourner_mm(map<int,int> mmp) 
 {
 fenDes->ajourner_mm(mmp);
 }
@@ -622,7 +622,7 @@ void FenDesRes::ajourner_bu(vector<Pos> pos_vect,std::map<int,int> map_elem_cell
 {
 graphView->ajourner_bu(pos_vect,map_elem_cell_map,set_frozen_cell);
 }
-void FenDesRes::ajourner_mm(multimap<int,int> mmp) 
+void FenDesRes::ajourner_mm(map<int,int> mmp) 
 {
 graphView->ajourner_mm(mmp);
 }
@@ -714,7 +714,7 @@ update();
 emit sous();
 }
 
-void MaGraphicsViewRes::ajourner_mm(multimap<int,int> mmp) 
+void MaGraphicsViewRes::ajourner_mm(map<int,int> mmp) 
 {
 //TODO comportement lorsque des nom sont placé?
 mm_copie=mmp;

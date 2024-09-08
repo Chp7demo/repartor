@@ -24,8 +24,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MaGraphicsViewRes_t {
-    const uint offsetsAndSize[50];
-    char stringdata0[326];
+    const uint offsetsAndSize[48];
+    char stringdata0[303];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MaGraphicsViewRes_t, stringdata0) + ofs), len 
@@ -47,15 +47,14 @@ QT_MOC_LITERAL(155, 17), // "std::map<int,int>"
 QT_MOC_LITERAL(173, 13), // "std::set<int>"
 QT_MOC_LITERAL(187, 15), // "set_frozen_cell"
 QT_MOC_LITERAL(203, 11), // "ajourner_mm"
-QT_MOC_LITERAL(215, 22), // "std::multimap<int,int>"
-QT_MOC_LITERAL(238, 22), // "aj_drop_catched_locale"
-QT_MOC_LITERAL(261, 1), // "b"
-QT_MOC_LITERAL(263, 11), // "detruire_wn"
-QT_MOC_LITERAL(275, 8), // "widgNRG*"
-QT_MOC_LITERAL(284, 5), // "pt_wn"
-QT_MOC_LITERAL(290, 13), // "creer_widgNRG"
-QT_MOC_LITERAL(304, 11), // "WidgBurRes*"
-QT_MOC_LITERAL(316, 9) // "rapatrier"
+QT_MOC_LITERAL(215, 22), // "aj_drop_catched_locale"
+QT_MOC_LITERAL(238, 1), // "b"
+QT_MOC_LITERAL(240, 11), // "detruire_wn"
+QT_MOC_LITERAL(252, 8), // "widgNRG*"
+QT_MOC_LITERAL(261, 5), // "pt_wn"
+QT_MOC_LITERAL(267, 13), // "creer_widgNRG"
+QT_MOC_LITERAL(281, 11), // "WidgBurRes*"
+QT_MOC_LITERAL(293, 9) // "rapatrier"
 
     },
     "MaGraphicsViewRes\0drop_cached\0\0"
@@ -64,9 +63,9 @@ QT_MOC_LITERAL(316, 9) // "rapatrier"
     "drop_cached_sl\0ajourner_bu\0std::vector<Pos>\0"
     "std::map<int,int>\0std::set<int>\0"
     "set_frozen_cell\0ajourner_mm\0"
-    "std::multimap<int,int>\0aj_drop_catched_locale\0"
-    "b\0detruire_wn\0widgNRG*\0pt_wn\0creer_widgNRG\0"
-    "WidgBurRes*\0rapatrier"
+    "aj_drop_catched_locale\0b\0detruire_wn\0"
+    "widgNRG*\0pt_wn\0creer_widgNRG\0WidgBurRes*\0"
+    "rapatrier"
 };
 #undef QT_MOC_LITERAL
 
@@ -96,10 +95,10 @@ static const uint qt_meta_data_MaGraphicsViewRes[] = {
        9,    0,  117,    2, 0x0a,   14 /* Public */,
       10,    3,  118,    2, 0x0a,   15 /* Public */,
       15,    1,  125,    2, 0x0a,   19 /* Public */,
-      17,    1,  128,    2, 0x0a,   21 /* Public */,
-      19,    1,  131,    2, 0x0a,   23 /* Public */,
-      22,    2,  134,    2, 0x0a,   25 /* Public */,
-      24,    1,  139,    2, 0x0a,   28 /* Public */,
+      16,    1,  128,    2, 0x0a,   21 /* Public */,
+      18,    1,  131,    2, 0x0a,   23 /* Public */,
+      21,    2,  134,    2, 0x0a,   25 /* Public */,
+      23,    1,  139,    2, 0x0a,   28 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -113,10 +112,10 @@ static const uint qt_meta_data_MaGraphicsViewRes[] = {
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 11, 0x80000000 | 12, 0x80000000 | 13,    2,    2,   14,
-    QMetaType::Void, 0x80000000 | 16,    2,
-    QMetaType::Void, QMetaType::Bool,   18,
-    QMetaType::Void, 0x80000000 | 20,   21,
-    0x80000000 | 20, QMetaType::QString, 0x80000000 | 23,    2,    2,
+    QMetaType::Void, 0x80000000 | 12,    2,
+    QMetaType::Void, QMetaType::Bool,   17,
+    QMetaType::Void, 0x80000000 | 19,   20,
+    0x80000000 | 19, QMetaType::QString, 0x80000000 | 22,    2,    2,
     QMetaType::Void, QMetaType::QString,    2,
 
        0        // eod
@@ -137,7 +136,7 @@ void MaGraphicsViewRes::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
         case 6: _t->supr_frozen_cell((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 7: _t->drop_cached_sl(); break;
         case 8: _t->ajourner_bu((*reinterpret_cast< std::vector<Pos>(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2])),(*reinterpret_cast< std::set<int>(*)>(_a[3]))); break;
-        case 9: _t->ajourner_mm((*reinterpret_cast< std::multimap<int,int>(*)>(_a[1]))); break;
+        case 9: _t->ajourner_mm((*reinterpret_cast< std::map<int,int>(*)>(_a[1]))); break;
         case 10: _t->aj_drop_catched_locale((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 11: _t->detruire_wn((*reinterpret_cast< widgNRG*(*)>(_a[1]))); break;
         case 12: { widgNRG* _r = _t->creer_widgNRG((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< WidgBurRes*(*)>(_a[2])));
@@ -225,7 +224,7 @@ const QMetaObject MaGraphicsViewRes::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_MaGraphicsViewRes_t
 , QtPrivate::TypeAndForceComplete<MaGraphicsViewRes, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QList<QString>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::vector<Pos>, std::false_type>, QtPrivate::TypeAndForceComplete<std::map<int,int>, std::false_type>, QtPrivate::TypeAndForceComplete<std::set<int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::multimap<int,int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<widgNRG *, std::false_type>, QtPrivate::TypeAndForceComplete<widgNRG *, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<WidgBurRes *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::vector<Pos>, std::false_type>, QtPrivate::TypeAndForceComplete<std::map<int,int>, std::false_type>, QtPrivate::TypeAndForceComplete<std::set<int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::map<int,int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<widgNRG *, std::false_type>, QtPrivate::TypeAndForceComplete<widgNRG *, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<WidgBurRes *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>
 
 
 >,
@@ -310,8 +309,8 @@ void MaGraphicsViewRes::supr_frozen_cell(int _t1)
     QMetaObject::activate(this, &staticMetaObject, 6, _a);
 }
 struct qt_meta_stringdata_FenDesRes_t {
-    const uint offsetsAndSize[26];
-    char stringdata0[180];
+    const uint offsetsAndSize[24];
+    char stringdata0[157];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_FenDesRes_t, stringdata0) + ofs), len 
@@ -327,17 +326,15 @@ QT_MOC_LITERAL(59, 16), // "std::vector<Pos>"
 QT_MOC_LITERAL(76, 13), // "std::set<int>"
 QT_MOC_LITERAL(90, 15), // "set_frozen_cell"
 QT_MOC_LITERAL(106, 11), // "ajourner_mm"
-QT_MOC_LITERAL(118, 22), // "std::multimap<int,int>"
-QT_MOC_LITERAL(141, 19), // "drop_locale_catched"
-QT_MOC_LITERAL(161, 18) // "desact_frozen_cell"
+QT_MOC_LITERAL(118, 19), // "drop_locale_catched"
+QT_MOC_LITERAL(138, 18) // "desact_frozen_cell"
 
     },
     "FenDesRes\0ajourner\0\0Elements\0"
     "std::map<int,int>\0ajourner_bu\0"
     "std::vector<Pos>\0std::set<int>\0"
     "set_frozen_cell\0ajourner_mm\0"
-    "std::multimap<int,int>\0drop_locale_catched\0"
-    "desact_frozen_cell"
+    "drop_locale_catched\0desact_frozen_cell"
 };
 #undef QT_MOC_LITERAL
 
@@ -358,13 +355,13 @@ static const uint qt_meta_data_FenDesRes[] = {
        1,    2,   44,    2, 0x0a,    1 /* Public */,
        5,    3,   49,    2, 0x0a,    4 /* Public */,
        9,    1,   56,    2, 0x0a,    8 /* Public */,
-      11,    0,   59,    2, 0x0a,   10 /* Public */,
-      12,    0,   60,    2, 0x0a,   11 /* Public */,
+      10,    0,   59,    2, 0x0a,   10 /* Public */,
+      11,    0,   60,    2, 0x0a,   11 /* Public */,
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 3, 0x80000000 | 4,    2,    2,
     QMetaType::Void, 0x80000000 | 6, 0x80000000 | 4, 0x80000000 | 7,    2,    2,    8,
-    QMetaType::Void, 0x80000000 | 10,    2,
+    QMetaType::Void, 0x80000000 | 4,    2,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -379,7 +376,7 @@ void FenDesRes::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         switch (_id) {
         case 0: _t->ajourner((*reinterpret_cast< Elements(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2]))); break;
         case 1: _t->ajourner_bu((*reinterpret_cast< std::vector<Pos>(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2])),(*reinterpret_cast< std::set<int>(*)>(_a[3]))); break;
-        case 2: _t->ajourner_mm((*reinterpret_cast< std::multimap<int,int>(*)>(_a[1]))); break;
+        case 2: _t->ajourner_mm((*reinterpret_cast< std::map<int,int>(*)>(_a[1]))); break;
         case 3: _t->drop_locale_catched(); break;
         case 4: _t->desact_frozen_cell(); break;
         default: ;
@@ -395,7 +392,7 @@ const QMetaObject FenDesRes::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_FenDesRes_t
 , QtPrivate::TypeAndForceComplete<FenDesRes, std::true_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<Elements, std::false_type>, QtPrivate::TypeAndForceComplete<std::map<int,int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::vector<Pos>, std::false_type>, QtPrivate::TypeAndForceComplete<std::map<int,int>, std::false_type>, QtPrivate::TypeAndForceComplete<std::set<int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::multimap<int,int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<Elements, std::false_type>, QtPrivate::TypeAndForceComplete<std::map<int,int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::vector<Pos>, std::false_type>, QtPrivate::TypeAndForceComplete<std::map<int,int>, std::false_type>, QtPrivate::TypeAndForceComplete<std::set<int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::map<int,int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
 
 >,
@@ -636,8 +633,8 @@ void FenButRes::aj_mode(modeRes _t1)
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 struct qt_meta_stringdata_FenRes_t {
-    const uint offsetsAndSize[54];
-    char stringdata0[380];
+    const uint offsetsAndSize[52];
+    char stringdata0[357];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_FenRes_t, stringdata0) + ofs), len 
@@ -658,18 +655,17 @@ QT_MOC_LITERAL(147, 11), // "ajourner_bu"
 QT_MOC_LITERAL(159, 16), // "std::vector<Pos>"
 QT_MOC_LITERAL(176, 13), // "std::set<int>"
 QT_MOC_LITERAL(190, 11), // "ajourner_mm"
-QT_MOC_LITERAL(202, 22), // "std::multimap<int,int>"
-QT_MOC_LITERAL(225, 16), // "set_drop_catched"
-QT_MOC_LITERAL(242, 24), // "emettre_aj_elem_cell_map"
-QT_MOC_LITERAL(267, 1), // "s"
-QT_MOC_LITERAL(269, 1), // "i"
-QT_MOC_LITERAL(271, 26), // "emettre_elem_cell_map_supr"
-QT_MOC_LITERAL(298, 12), // "emettre_sous"
-QT_MOC_LITERAL(311, 22), // "emettre_ad_frozen_cell"
-QT_MOC_LITERAL(334, 24), // "emettre_supr_frozen_cell"
-QT_MOC_LITERAL(359, 7), // "aj_mode"
-QT_MOC_LITERAL(367, 7), // "modeRes"
-QT_MOC_LITERAL(375, 4) // "mode"
+QT_MOC_LITERAL(202, 16), // "set_drop_catched"
+QT_MOC_LITERAL(219, 24), // "emettre_aj_elem_cell_map"
+QT_MOC_LITERAL(244, 1), // "s"
+QT_MOC_LITERAL(246, 1), // "i"
+QT_MOC_LITERAL(248, 26), // "emettre_elem_cell_map_supr"
+QT_MOC_LITERAL(275, 12), // "emettre_sous"
+QT_MOC_LITERAL(288, 22), // "emettre_ad_frozen_cell"
+QT_MOC_LITERAL(311, 24), // "emettre_supr_frozen_cell"
+QT_MOC_LITERAL(336, 7), // "aj_mode"
+QT_MOC_LITERAL(344, 7), // "modeRes"
+QT_MOC_LITERAL(352, 4) // "mode"
 
     },
     "FenRes\0aj_elem_cell_map\0\0ad_frozen_cell\0"
@@ -677,12 +673,11 @@ QT_MOC_LITERAL(375, 4) // "mode"
     "sous_cpt_freeze_fenres\0lancer_calc\0"
     "ajourner\0Elements\0std::map<int,int>\0"
     "ajourner_bu\0std::vector<Pos>\0std::set<int>\0"
-    "ajourner_mm\0std::multimap<int,int>\0"
-    "set_drop_catched\0emettre_aj_elem_cell_map\0"
-    "s\0i\0emettre_elem_cell_map_supr\0"
-    "emettre_sous\0emettre_ad_frozen_cell\0"
-    "emettre_supr_frozen_cell\0aj_mode\0"
-    "modeRes\0mode"
+    "ajourner_mm\0set_drop_catched\0"
+    "emettre_aj_elem_cell_map\0s\0i\0"
+    "emettre_elem_cell_map_supr\0emettre_sous\0"
+    "emettre_ad_frozen_cell\0emettre_supr_frozen_cell\0"
+    "aj_mode\0modeRes\0mode"
 };
 #undef QT_MOC_LITERAL
 
@@ -711,13 +706,13 @@ static const uint qt_meta_data_FenRes[] = {
        8,    2,  126,    2, 0x0a,   12 /* Public */,
       11,    3,  131,    2, 0x0a,   15 /* Public */,
       14,    1,  138,    2, 0x0a,   19 /* Public */,
-      16,    0,  141,    2, 0x0a,   21 /* Public */,
-      17,    2,  142,    2, 0x0a,   22 /* Public */,
-      20,    1,  147,    2, 0x0a,   25 /* Public */,
-      21,    0,  150,    2, 0x0a,   27 /* Public */,
-      22,    1,  151,    2, 0x0a,   28 /* Public */,
-      23,    1,  154,    2, 0x0a,   30 /* Public */,
-      24,    1,  157,    2, 0x0a,   32 /* Public */,
+      15,    0,  141,    2, 0x0a,   21 /* Public */,
+      16,    2,  142,    2, 0x0a,   22 /* Public */,
+      19,    1,  147,    2, 0x0a,   25 /* Public */,
+      20,    0,  150,    2, 0x0a,   27 /* Public */,
+      21,    1,  151,    2, 0x0a,   28 /* Public */,
+      22,    1,  154,    2, 0x0a,   30 /* Public */,
+      23,    1,  157,    2, 0x0a,   32 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString, QMetaType::Int,    2,    2,
@@ -730,14 +725,14 @@ static const uint qt_meta_data_FenRes[] = {
  // slots: parameters
     QMetaType::Void, 0x80000000 | 9, 0x80000000 | 10,    2,    2,
     QMetaType::Void, 0x80000000 | 12, 0x80000000 | 10, 0x80000000 | 13,    2,    2,    2,
-    QMetaType::Void, 0x80000000 | 15,    2,
+    QMetaType::Void, 0x80000000 | 10,    2,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString, QMetaType::Int,   18,   19,
-    QMetaType::Void, QMetaType::QString,   18,
+    QMetaType::Void, QMetaType::QString, QMetaType::Int,   17,   18,
+    QMetaType::Void, QMetaType::QString,   17,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,   19,
-    QMetaType::Void, QMetaType::Int,   19,
-    QMetaType::Void, 0x80000000 | 25,   26,
+    QMetaType::Void, QMetaType::Int,   18,
+    QMetaType::Void, QMetaType::Int,   18,
+    QMetaType::Void, 0x80000000 | 24,   25,
 
        0        // eod
 };
@@ -756,7 +751,7 @@ void FenRes::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 5: _t->lancer_calc(); break;
         case 6: _t->ajourner((*reinterpret_cast< Elements(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2]))); break;
         case 7: _t->ajourner_bu((*reinterpret_cast< std::vector<Pos>(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2])),(*reinterpret_cast< std::set<int>(*)>(_a[3]))); break;
-        case 8: _t->ajourner_mm((*reinterpret_cast< std::multimap<int,int>(*)>(_a[1]))); break;
+        case 8: _t->ajourner_mm((*reinterpret_cast< std::map<int,int>(*)>(_a[1]))); break;
         case 9: _t->set_drop_catched(); break;
         case 10: _t->emettre_aj_elem_cell_map((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 11: _t->emettre_elem_cell_map_supr((*reinterpret_cast< QString(*)>(_a[1]))); break;
@@ -821,7 +816,7 @@ const QMetaObject FenRes::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_FenRes_t
 , QtPrivate::TypeAndForceComplete<FenRes, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<Elements, std::false_type>, QtPrivate::TypeAndForceComplete<std::map<int,int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::vector<Pos>, std::false_type>, QtPrivate::TypeAndForceComplete<std::map<int,int>, std::false_type>, QtPrivate::TypeAndForceComplete<std::set<int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::multimap<int,int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<modeRes, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<Elements, std::false_type>, QtPrivate::TypeAndForceComplete<std::map<int,int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::vector<Pos>, std::false_type>, QtPrivate::TypeAndForceComplete<std::map<int,int>, std::false_type>, QtPrivate::TypeAndForceComplete<std::set<int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::map<int,int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<modeRes, std::false_type>
 
 
 >,

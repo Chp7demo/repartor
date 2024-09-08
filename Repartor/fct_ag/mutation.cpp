@@ -133,17 +133,10 @@ bool are_cpl(int a,int b,const DataZone &dZ)//indiv desordo //seulement si a un 
 
 
 
-int get_cell_pair(int cell_ind,const std::multimap<int,int> &cell_pair_map)
+int get_cell_pair(int cell_ind,const std::map<int,int> &cell_pair_map)
 {
 
-    int ctrk=cell_pair_map.count(cell_ind);
-    if(ctrk==0)return 0;  // 0? pas -1?
-    int a=rand_a_b(0,ctrk);
-
-    auto itlow=cell_pair_map.lower_bound(cell_ind);
-    for(int i=0;i<a;i++){itlow++;}  // c'est quoi ça ?!!!
-    int cell_value=itlow->second;
-    return cell_value;
-
+    auto it=cell_pair_map.find(cell_ind);
+    return(it->second);
 }
 

@@ -68,7 +68,7 @@ connect(mng,SIGNAL(ajourned(Elements,std::map<int,int>)),this,SLOT(aff_cercle(El
 connect(mng,SIGNAL(ajourned(Elements,std::map<int,int>)),fenRes,SLOT(ajourner(Elements,std::map<int,int>)));
 connect(mng,SIGNAL(ajourner_sans_reaff_cercle(Elements,std::map<int,int>)),fenRes,SLOT(ajourner(Elements,std::map<int,int>)));
 connect(mng,SIGNAL(cell_pos_ajourned(std::vector<Pos>,std::map<int,int>,std::set<int>)),fenRes,SLOT(ajourner_bu(std::vector<Pos>,std::map<int,int>,std::set<int>)));
-connect(mng,SIGNAL(bmmp_ajourned(std::multimap<int,int>)),fenRes,SLOT(ajourner_mm(std::multimap<int,int>)));
+connect(mng,SIGNAL(bmmp_ajourned(std::map<int,int>)),fenRes,SLOT(ajourner_mm(std::map<int,int>)));
 
 connect(mng,SIGNAL(faire_ajourner(Elements,std::map<int,int>)),this,SLOT(faire_ajourner(Elements,std::map<int,int>)));
 

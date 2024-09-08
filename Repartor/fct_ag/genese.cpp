@@ -15,7 +15,7 @@ vector<int> cell_ind_list=dZ.vect_ordo;
 
 //for(int i=0;i<dZ.N_Elem;i++)cell_ind_list.push_back(i);
 //auto cell_pair_map_av=dZ.cell_pair_map;//marche pas!
-std::multimap<int,int> cell_pair_map_av=dZ.cell_pair_map;
+std::map<int,int> cell_pair_map_av=dZ.cell_pair_map;
 //cout<<"rep G3"<<endl;
 
 //cout<<"placement des direct s"<<endl;
@@ -138,7 +138,7 @@ return indiv;
 }
 
 
-int get_a_cell_pair(int bur_ind,std::multimap<int,int> &cell_pair_map_av)
+int get_a_cell_pair(int bur_ind,std::map<int,int> &cell_pair_map_av)
 {
 //cout<<"rep bur_1"<<endl;
 auto itlow=cell_pair_map_av.lower_bound(bur_ind);
@@ -158,7 +158,7 @@ eff_pairs(bur_ind,cell_pair_map_av);
 return bur_value;
 }
 
-void eff_pairs(int bur_ind,std::multimap<int,int> &cell_pair_map_av)//pas optimal non?
+void eff_pairs(int bur_ind,std::map<int,int> &cell_pair_map_av)//pas optimal non?
 {
 auto p=cell_pair_map_av.begin();
 while(p!=cell_pair_map_av.end())
@@ -181,7 +181,7 @@ else{p++;}
 }
 
 
-bool cell_have_pair_av(int bur_ind,const std::multimap<int,int> &cell_pair_map_av)
+bool cell_have_pair_av(int bur_ind,const std::map<int,int> &cell_pair_map_av)
 {
 //cout<<"entree bur have pair"<<endl;
 auto it_pair=cell_pair_map_av.equal_range(bur_ind);

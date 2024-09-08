@@ -43,7 +43,7 @@ int N_Fix;
 int N_Cpl; // partners (elements can be partners) = couple = cpl
 int N_Free;
 
-multimap<int,int> cell_pair_map;
+map<int,int> cell_pair_map;
 map<int,int> elem_cell_map;
 map<int,int> cpl_map;
 

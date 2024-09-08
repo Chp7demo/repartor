@@ -80,7 +80,7 @@ void supr_frozen_cell(int);
 void ajourned(Elements,std::map<int,int>);
 void ajourner_sans_reaff_cercle(Elements,std::map<int,int>);
 void cell_pos_ajourned(std::vector<Pos>,std::map<int,int>,std::set<int>);
-void bmmp_ajourned(std::multimap<int,int>);
+void bmmp_ajourned(std::map<int,int>);
 void faire_ajourner(Elements,std::map<int,int>);
 
 

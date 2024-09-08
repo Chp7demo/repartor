@@ -17,7 +17,7 @@ MI matr_i; // matrice d'interactions triangulaire sans diagonale
 struct Space
 {
 std::vector<Pos> cell_pos; // position des cellules
-std::multimap<int,int> cell_pair; // cellules liées entre elles pour acceuillir des paires d'éléments
+std::map<int,int> cell_pair; // cellules liées entre elles pour acceuillir des paires d'éléments
 };
 
 

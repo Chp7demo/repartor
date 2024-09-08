@@ -5,52 +5,9 @@ using namespace std;
 
 double evaluation(const vector<int> & vect,const DataZone & dZ)
 {
-    //debug===
 
-    cout<<"damx"<<dZ.D_max<<endl;
-    //   for(int i=0;i<dZ.cell_pos.size();i++){cout<<dZ.cell_pos[i].x<<" ";}
-    //=======
     double score=0;
 
-
-    double C2=0;//d_min  // variable inutile->à nettoyer
-//DEBUG===aff matrice
-/*
-  cout<<"dZ.N_st : "<<dZ.N_Elem<<endl;
-for(int i=0;i<dZ.N_Elem;i++)
-{
-  //  cout<<"pilipili"<<endl;
-    cout<<endl;
-    for(int j=0;j<dZ.N_Elem;j++)
-    {
-
- switch (dZ.mi.at(i).at(j)) {
-        case (interType::PARTNERS):
-                  cout<<"cpl ";
-     break;
-        case (interType::BRING_CLOSE):
-                  cout<<"bav ";
-     break;
-       case (interType::NO_INTER):
-                  cout<<"--- ";
-     break;
-
-        case(interType::BRING_VERY_CLOSE):
-            cout<<"gba ";
-                        break;
-        case(interType::SPLIT):
-               cout<<"mes";
-             break;
-        case(interType::SPLIT_FAR):
-             cout<<"gme";
-            break;
-        default:
-       cout<<"???";
-
-            break;
-   }
- }
-}*/
 //==============
 for(int i=0;i<dZ.N_Elem;i++)
 {
@@ -59,25 +16,25 @@ for(int i=0;i<dZ.N_Elem;i++)
         switch (dZ.mi[i][j]) {
         case (interType::BRING_CLOSE):
 
-            score+=formule_score_moins(dZ.D_max,C2,dZ.cell_pos.at(vect.at(i)),dZ.cell_pos.at(vect.at(j)));
+            score+=formule_score_moins(dZ.D_max,dZ.cell_pos.at(vect.at(i)),dZ.cell_pos.at(vect.at(j)));
 
             break;
         case(interType::BRING_VERY_CLOSE):
-                 score+=2*formule_score_moins(dZ.D_max,C2,dZ.cell_pos.at(vect.at(i)),dZ.cell_pos.at(vect.at(j)));
+                 score+=2*formule_score_moins(dZ.D_max,dZ.cell_pos.at(vect.at(i)),dZ.cell_pos.at(vect.at(j)));
             break;
         case(interType::SPLIT):
-                 score+=formule_score_plus(dZ.D_max,C2,dZ.cell_pos.at(vect.at(i)),dZ.cell_pos.at(vect.at(j)));
+                 score+=formule_score_plus(dZ.D_max,dZ.cell_pos.at(vect.at(i)),dZ.cell_pos.at(vect.at(j)));
              break;
         case(interType::SPLIT_FAR):
-                 score+=2*formule_score_plus(dZ.D_max,C2,dZ.cell_pos.at(vect.at(i)),dZ.cell_pos.at(vect.at(j)));
+                 score+=2*formule_score_plus(dZ.D_max,dZ.cell_pos.at(vect.at(i)),dZ.cell_pos.at(vect.at(j)));
             break;
         default:
             break;
         }
     }
 }
-//fitness:
 
+//fitness:
 return score;
 
 
@@ -88,14 +45,14 @@ double distance(Pos pos_1,Pos pos_2)
     return sqrt(pow(pos_1.x-pos_2.x,2)+pow(pos_1.y-pos_2.y,2));
 }
 
-double formule_score_plus(double d_max, double d_min,Pos p1,Pos p2)
+double formule_score_plus(double d_max,Pos p1,Pos p2)
 {
-   // cout<<"dist plus"<< "dmax "<<distance(p1,p2)<<(d_max)<<endl;
+
     return distance(p1,p2)/(d_max);
 }
-double formule_score_moins(double d_max, double d_min,Pos p1,Pos p2)
+double formule_score_moins(double d_max,Pos p1,Pos p2)
 {
-   // cout<<"dist moins"<<"d_max"<<distance(p1,p2)<<(d_max)<<endl;
+
     return (1-distance(p1,p2)/(d_max));
 }
 

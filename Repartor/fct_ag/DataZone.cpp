@@ -98,33 +98,33 @@ cpl_map[j]=i;
 return cpl_map;
 }
 
-bool DataZone::elem_have_pair(int st_ind)
+bool DataZone::elem_have_pair(int cell_ind)
 {
 //cout<<"entree elem_have_pair"<<endl;
-return(!(cpl_map.find(st_ind)==cpl_map.end()));
+return(!(cpl_map.find(cell_ind)==cpl_map.end()));
 }
 
-int DataZone::get_elem_pair(int st_ind)
+int DataZone::get_elem_pair(int cell_ind)
 {//cout<<"entree_fct"<<endl;
-// cout<<"dZ.cpl_map.find(st_ind)->second"<<dZ.cpl_map.find(st_ind)->second<<endl;
-auto it=cpl_map.find(st_ind);
+// cout<<"dZ.cpl_map.find(cell_ind)->second"<<dZ.cpl_map.find(cell_ind)->second<<endl;
+auto it=cpl_map.find(cell_ind);
 //cout<<"hello"<<endl;
 return(it->second);
-//return dZ.cpl_map[st_ind];
+//return dZ.cpl_map[cell_ind];
 }
 
-bool DataZone::cpl_in_elem_cell_map(int st_ind)
+bool DataZone::cpl_in_elem_cell_map(int cell_ind)
 {
-int fd=get_elem_pair(st_ind);
+int fd=get_elem_pair(cell_ind);
 //cout<<"fd"<<fd<<endl;
 //bool ess=!((dZ.elem_cell_map.find(fd))==(dZ.elem_cell_map.end()));
 //cout<<"ess"<<ess<<endl;
 return(!((elem_cell_map.find(fd))==(elem_cell_map.end())));
 }
 
-bool DataZone::in_elem_cell_map(int st_ind)
+bool DataZone::in_elem_cell_map(int cell_ind)
 {
-return(!((elem_cell_map.find(st_ind))==(elem_cell_map.end())));
+return(!((elem_cell_map.find(cell_ind))==(elem_cell_map.end())));
 }
 
 

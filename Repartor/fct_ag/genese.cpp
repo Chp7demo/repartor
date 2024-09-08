@@ -19,11 +19,11 @@ std::multimap<int,int> cell_pair_map_av=dZ.cell_pair_map;
 //cout<<"rep G3"<<endl;
 
 //cout<<"placement des direct s"<<endl;
-//cout<<"dsm:"<<endl;
+//cout<<"elem_cell_map:"<<endl;
 //DEBUG=========
-//for(auto m_p : dZ.dsm){cout<<"st: "<<m_p.first<<"bu: "<<m_p.second<<endl;}
+//for(auto m_p : dZ.elem_cell_map){cout<<"st: "<<m_p.first<<"bu: "<<m_p.second<<endl;}
 //===============
-for(auto m_p : dZ.dsm)
+for(auto m_p : dZ.elem_cell_map)
 {
 /*//DEBUG==========
 cout<<"rep G4"<<endl;
@@ -61,9 +61,9 @@ debug_aff_vect(bur_ind_list);
 //cout<<"placement des cpl des direct s"<<endl;
 //useless c'est fait manuellement...*
 /*
-for(auto m_p : dZ.dsm)
+for(auto m_p : dZ.elem_cell_map)
 {
-if((st_have_pair(m_p.first,dZ))&&(!cpl_ds_dsm(m_p.first,dZ)))
+if((st_have_pair(m_p.first,dZ))&&(!cpl_ds_elem_cell_map(m_p.first,dZ)))
 {
 //cout<<"entree if"<<endl;
 int bp=get_a_bur_pair(m_p.second,cell_pair_map_av);
@@ -205,12 +205,12 @@ return(it->second);
 //return dZ.stm[st_ind];
 }
 
-bool cpl_ds_dsm(int st_ind,const DataZone & dZ)
+bool cpl_ds_elem_cell_map(int st_ind,const DataZone & dZ)
 {
 int fd=get_st_pair(st_ind,dZ);
 //cout<<"fd"<<fd<<endl;
-//bool ess=!((dZ.dsm.find(fd))==(dZ.dsm.end()));
+//bool ess=!((dZ.elem_cell_map.find(fd))==(dZ.elem_cell_map.end()));
 //cout<<"ess"<<ess<<endl;
-return(!((dZ.dsm.find(fd))==(dZ.dsm.end())));
+return(!((dZ.elem_cell_map.find(fd))==(dZ.elem_cell_map.end())));
 }
 

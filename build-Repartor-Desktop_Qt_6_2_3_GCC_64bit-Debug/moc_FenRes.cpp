@@ -25,7 +25,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MaGraphicsViewRes_t {
     const uint offsetsAndSize[50];
-    char stringdata0[316];
+    char stringdata0[326];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MaGraphicsViewRes_t, stringdata0) + ofs), len 
@@ -34,33 +34,33 @@ static const qt_meta_stringdata_MaGraphicsViewRes_t qt_meta_stringdata_MaGraphic
 QT_MOC_LITERAL(0, 17), // "MaGraphicsViewRes"
 QT_MOC_LITERAL(18, 11), // "drop_cached"
 QT_MOC_LITERAL(30, 0), // ""
-QT_MOC_LITERAL(31, 6), // "aj_dsm"
-QT_MOC_LITERAL(38, 10), // "enlever_st"
-QT_MOC_LITERAL(49, 14), // "rapatrier_wNRG"
-QT_MOC_LITERAL(64, 4), // "sous"
-QT_MOC_LITERAL(69, 14), // "ad_frozen_cell"
-QT_MOC_LITERAL(84, 16), // "supr_frozen_cell"
-QT_MOC_LITERAL(101, 14), // "drop_cached_sl"
-QT_MOC_LITERAL(116, 11), // "ajourner_bu"
-QT_MOC_LITERAL(128, 16), // "std::vector<Pos>"
-QT_MOC_LITERAL(145, 17), // "std::map<int,int>"
-QT_MOC_LITERAL(163, 13), // "std::set<int>"
-QT_MOC_LITERAL(177, 15), // "set_frozen_cell"
-QT_MOC_LITERAL(193, 11), // "ajourner_mm"
-QT_MOC_LITERAL(205, 22), // "std::multimap<int,int>"
-QT_MOC_LITERAL(228, 22), // "aj_drop_catched_locale"
-QT_MOC_LITERAL(251, 1), // "b"
-QT_MOC_LITERAL(253, 11), // "detruire_wn"
-QT_MOC_LITERAL(265, 8), // "widgNRG*"
-QT_MOC_LITERAL(274, 5), // "pt_wn"
-QT_MOC_LITERAL(280, 13), // "creer_widgNRG"
-QT_MOC_LITERAL(294, 11), // "WidgBurRes*"
-QT_MOC_LITERAL(306, 9) // "rapatrier"
+QT_MOC_LITERAL(31, 16), // "aj_elem_cell_map"
+QT_MOC_LITERAL(48, 10), // "enlever_st"
+QT_MOC_LITERAL(59, 14), // "rapatrier_wNRG"
+QT_MOC_LITERAL(74, 4), // "sous"
+QT_MOC_LITERAL(79, 14), // "ad_frozen_cell"
+QT_MOC_LITERAL(94, 16), // "supr_frozen_cell"
+QT_MOC_LITERAL(111, 14), // "drop_cached_sl"
+QT_MOC_LITERAL(126, 11), // "ajourner_bu"
+QT_MOC_LITERAL(138, 16), // "std::vector<Pos>"
+QT_MOC_LITERAL(155, 17), // "std::map<int,int>"
+QT_MOC_LITERAL(173, 13), // "std::set<int>"
+QT_MOC_LITERAL(187, 15), // "set_frozen_cell"
+QT_MOC_LITERAL(203, 11), // "ajourner_mm"
+QT_MOC_LITERAL(215, 22), // "std::multimap<int,int>"
+QT_MOC_LITERAL(238, 22), // "aj_drop_catched_locale"
+QT_MOC_LITERAL(261, 1), // "b"
+QT_MOC_LITERAL(263, 11), // "detruire_wn"
+QT_MOC_LITERAL(275, 8), // "widgNRG*"
+QT_MOC_LITERAL(284, 5), // "pt_wn"
+QT_MOC_LITERAL(290, 13), // "creer_widgNRG"
+QT_MOC_LITERAL(304, 11), // "WidgBurRes*"
+QT_MOC_LITERAL(316, 9) // "rapatrier"
 
     },
-    "MaGraphicsViewRes\0drop_cached\0\0aj_dsm\0"
-    "enlever_st\0rapatrier_wNRG\0sous\0"
-    "ad_frozen_cell\0supr_frozen_cell\0"
+    "MaGraphicsViewRes\0drop_cached\0\0"
+    "aj_elem_cell_map\0enlever_st\0rapatrier_wNRG\0"
+    "sous\0ad_frozen_cell\0supr_frozen_cell\0"
     "drop_cached_sl\0ajourner_bu\0std::vector<Pos>\0"
     "std::map<int,int>\0std::set<int>\0"
     "set_frozen_cell\0ajourner_mm\0"
@@ -129,7 +129,7 @@ void MaGraphicsViewRes::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
         (void)_t;
         switch (_id) {
         case 0: _t->drop_cached(); break;
-        case 1: _t->aj_dsm((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 1: _t->aj_elem_cell_map((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 2: _t->enlever_st((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 3: _t->rapatrier_wNRG((*reinterpret_cast< QList<QString>(*)>(_a[1]))); break;
         case 4: _t->sous(); break;
@@ -174,7 +174,7 @@ void MaGraphicsViewRes::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
         }
         {
             using _t = void (MaGraphicsViewRes::*)(QString , int );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MaGraphicsViewRes::aj_dsm)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MaGraphicsViewRes::aj_elem_cell_map)) {
                 *result = 1;
                 return;
             }
@@ -270,7 +270,7 @@ void MaGraphicsViewRes::drop_cached()
 }
 
 // SIGNAL 1
-void MaGraphicsViewRes::aj_dsm(QString _t1, int _t2)
+void MaGraphicsViewRes::aj_elem_cell_map(QString _t1, int _t2)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
@@ -637,51 +637,52 @@ void FenButRes::aj_mode(modeRes _t1)
 }
 struct qt_meta_stringdata_FenRes_t {
     const uint offsetsAndSize[54];
-    char stringdata0[340];
+    char stringdata0[380];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_FenRes_t, stringdata0) + ofs), len 
 static const qt_meta_stringdata_FenRes_t qt_meta_stringdata_FenRes = {
     {
 QT_MOC_LITERAL(0, 6), // "FenRes"
-QT_MOC_LITERAL(7, 6), // "aj_dsm"
-QT_MOC_LITERAL(14, 0), // ""
-QT_MOC_LITERAL(15, 14), // "ad_frozen_cell"
-QT_MOC_LITERAL(30, 16), // "supr_frozen_cell"
-QT_MOC_LITERAL(47, 8), // "dsm_supr"
-QT_MOC_LITERAL(56, 22), // "sous_cpt_freeze_fenres"
-QT_MOC_LITERAL(79, 11), // "lancer_calc"
-QT_MOC_LITERAL(91, 8), // "ajourner"
-QT_MOC_LITERAL(100, 8), // "Elements"
-QT_MOC_LITERAL(109, 17), // "std::map<int,int>"
-QT_MOC_LITERAL(127, 11), // "ajourner_bu"
-QT_MOC_LITERAL(139, 16), // "std::vector<Pos>"
-QT_MOC_LITERAL(156, 13), // "std::set<int>"
-QT_MOC_LITERAL(170, 11), // "ajourner_mm"
-QT_MOC_LITERAL(182, 22), // "std::multimap<int,int>"
-QT_MOC_LITERAL(205, 16), // "set_drop_catched"
-QT_MOC_LITERAL(222, 14), // "emettre_aj_dsm"
-QT_MOC_LITERAL(237, 1), // "s"
-QT_MOC_LITERAL(239, 1), // "i"
-QT_MOC_LITERAL(241, 16), // "emettre_dsm_supr"
-QT_MOC_LITERAL(258, 12), // "emettre_sous"
-QT_MOC_LITERAL(271, 22), // "emettre_ad_frozen_cell"
-QT_MOC_LITERAL(294, 24), // "emettre_supr_frozen_cell"
-QT_MOC_LITERAL(319, 7), // "aj_mode"
-QT_MOC_LITERAL(327, 7), // "modeRes"
-QT_MOC_LITERAL(335, 4) // "mode"
+QT_MOC_LITERAL(7, 16), // "aj_elem_cell_map"
+QT_MOC_LITERAL(24, 0), // ""
+QT_MOC_LITERAL(25, 14), // "ad_frozen_cell"
+QT_MOC_LITERAL(40, 16), // "supr_frozen_cell"
+QT_MOC_LITERAL(57, 18), // "elem_cell_map_supr"
+QT_MOC_LITERAL(76, 22), // "sous_cpt_freeze_fenres"
+QT_MOC_LITERAL(99, 11), // "lancer_calc"
+QT_MOC_LITERAL(111, 8), // "ajourner"
+QT_MOC_LITERAL(120, 8), // "Elements"
+QT_MOC_LITERAL(129, 17), // "std::map<int,int>"
+QT_MOC_LITERAL(147, 11), // "ajourner_bu"
+QT_MOC_LITERAL(159, 16), // "std::vector<Pos>"
+QT_MOC_LITERAL(176, 13), // "std::set<int>"
+QT_MOC_LITERAL(190, 11), // "ajourner_mm"
+QT_MOC_LITERAL(202, 22), // "std::multimap<int,int>"
+QT_MOC_LITERAL(225, 16), // "set_drop_catched"
+QT_MOC_LITERAL(242, 24), // "emettre_aj_elem_cell_map"
+QT_MOC_LITERAL(267, 1), // "s"
+QT_MOC_LITERAL(269, 1), // "i"
+QT_MOC_LITERAL(271, 26), // "emettre_elem_cell_map_supr"
+QT_MOC_LITERAL(298, 12), // "emettre_sous"
+QT_MOC_LITERAL(311, 22), // "emettre_ad_frozen_cell"
+QT_MOC_LITERAL(334, 24), // "emettre_supr_frozen_cell"
+QT_MOC_LITERAL(359, 7), // "aj_mode"
+QT_MOC_LITERAL(367, 7), // "modeRes"
+QT_MOC_LITERAL(375, 4) // "mode"
 
     },
-    "FenRes\0aj_dsm\0\0ad_frozen_cell\0"
-    "supr_frozen_cell\0dsm_supr\0"
+    "FenRes\0aj_elem_cell_map\0\0ad_frozen_cell\0"
+    "supr_frozen_cell\0elem_cell_map_supr\0"
     "sous_cpt_freeze_fenres\0lancer_calc\0"
     "ajourner\0Elements\0std::map<int,int>\0"
     "ajourner_bu\0std::vector<Pos>\0std::set<int>\0"
     "ajourner_mm\0std::multimap<int,int>\0"
-    "set_drop_catched\0emettre_aj_dsm\0s\0i\0"
-    "emettre_dsm_supr\0emettre_sous\0"
-    "emettre_ad_frozen_cell\0emettre_supr_frozen_cell\0"
-    "aj_mode\0modeRes\0mode"
+    "set_drop_catched\0emettre_aj_elem_cell_map\0"
+    "s\0i\0emettre_elem_cell_map_supr\0"
+    "emettre_sous\0emettre_ad_frozen_cell\0"
+    "emettre_supr_frozen_cell\0aj_mode\0"
+    "modeRes\0mode"
 };
 #undef QT_MOC_LITERAL
 
@@ -747,18 +748,18 @@ void FenRes::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         auto *_t = static_cast<FenRes *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->aj_dsm((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 0: _t->aj_elem_cell_map((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 1: _t->ad_frozen_cell((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 2: _t->supr_frozen_cell((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 3: _t->dsm_supr((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 3: _t->elem_cell_map_supr((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 4: _t->sous_cpt_freeze_fenres(); break;
         case 5: _t->lancer_calc(); break;
         case 6: _t->ajourner((*reinterpret_cast< Elements(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2]))); break;
         case 7: _t->ajourner_bu((*reinterpret_cast< std::vector<Pos>(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2])),(*reinterpret_cast< std::set<int>(*)>(_a[3]))); break;
         case 8: _t->ajourner_mm((*reinterpret_cast< std::multimap<int,int>(*)>(_a[1]))); break;
         case 9: _t->set_drop_catched(); break;
-        case 10: _t->emettre_aj_dsm((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 11: _t->emettre_dsm_supr((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 10: _t->emettre_aj_elem_cell_map((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 11: _t->emettre_elem_cell_map_supr((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 12: _t->emettre_sous(); break;
         case 13: _t->emettre_ad_frozen_cell((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 14: _t->emettre_supr_frozen_cell((*reinterpret_cast< int(*)>(_a[1]))); break;
@@ -769,7 +770,7 @@ void FenRes::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         int *result = reinterpret_cast<int *>(_a[0]);
         {
             using _t = void (FenRes::*)(QString , int );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&FenRes::aj_dsm)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&FenRes::aj_elem_cell_map)) {
                 *result = 0;
                 return;
             }
@@ -790,7 +791,7 @@ void FenRes::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         }
         {
             using _t = void (FenRes::*)(QString );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&FenRes::dsm_supr)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&FenRes::elem_cell_map_supr)) {
                 *result = 3;
                 return;
             }
@@ -859,7 +860,7 @@ int FenRes::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void FenRes::aj_dsm(QString _t1, int _t2)
+void FenRes::aj_elem_cell_map(QString _t1, int _t2)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
@@ -880,7 +881,7 @@ void FenRes::supr_frozen_cell(int _t1)
 }
 
 // SIGNAL 3
-void FenRes::dsm_supr(QString _t1)
+void FenRes::elem_cell_map_supr(QString _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 3, _a);
@@ -899,7 +900,7 @@ void FenRes::lancer_calc()
 }
 struct qt_meta_stringdata_FeNaRes_t {
     const uint offsetsAndSize[26];
-    char stringdata0[136];
+    char stringdata0[146];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_FeNaRes_t, stringdata0) + ofs), len 
@@ -908,22 +909,22 @@ static const qt_meta_stringdata_FeNaRes_t qt_meta_stringdata_FeNaRes = {
 QT_MOC_LITERAL(0, 7), // "FeNaRes"
 QT_MOC_LITERAL(8, 19), // "drop_locale_catched"
 QT_MOC_LITERAL(28, 0), // ""
-QT_MOC_LITERAL(29, 8), // "dsm_supr"
-QT_MOC_LITERAL(38, 9), // "rapatrier"
-QT_MOC_LITERAL(48, 4), // "sous"
-QT_MOC_LITERAL(53, 11), // "cacher_widg"
-QT_MOC_LITERAL(65, 9), // "widgNRes*"
-QT_MOC_LITERAL(75, 2), // "wn"
-QT_MOC_LITERAL(78, 16), // "set_drop_catched"
-QT_MOC_LITERAL(95, 14), // "rapatrier_wNRG"
-QT_MOC_LITERAL(110, 13), // "pt_feResNaAff"
-QT_MOC_LITERAL(124, 11) // "FeResNaAff*"
+QT_MOC_LITERAL(29, 18), // "elem_cell_map_supr"
+QT_MOC_LITERAL(48, 9), // "rapatrier"
+QT_MOC_LITERAL(58, 4), // "sous"
+QT_MOC_LITERAL(63, 11), // "cacher_widg"
+QT_MOC_LITERAL(75, 9), // "widgNRes*"
+QT_MOC_LITERAL(85, 2), // "wn"
+QT_MOC_LITERAL(88, 16), // "set_drop_catched"
+QT_MOC_LITERAL(105, 14), // "rapatrier_wNRG"
+QT_MOC_LITERAL(120, 13), // "pt_feResNaAff"
+QT_MOC_LITERAL(134, 11) // "FeResNaAff*"
 
     },
-    "FeNaRes\0drop_locale_catched\0\0dsm_supr\0"
-    "rapatrier\0sous\0cacher_widg\0widgNRes*\0"
-    "wn\0set_drop_catched\0rapatrier_wNRG\0"
-    "pt_feResNaAff\0FeResNaAff*"
+    "FeNaRes\0drop_locale_catched\0\0"
+    "elem_cell_map_supr\0rapatrier\0sous\0"
+    "cacher_widg\0widgNRes*\0wn\0set_drop_catched\0"
+    "rapatrier_wNRG\0pt_feResNaAff\0FeResNaAff*"
 };
 #undef QT_MOC_LITERAL
 
@@ -974,7 +975,7 @@ void FeNaRes::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         (void)_t;
         switch (_id) {
         case 0: _t->drop_locale_catched(); break;
-        case 1: _t->dsm_supr((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 1: _t->elem_cell_map_supr((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 2: _t->rapatrier((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 3: _t->sous(); break;
         case 4: _t->cacher_widg((*reinterpret_cast< widgNRes*(*)>(_a[1]))); break;
@@ -1006,7 +1007,7 @@ void FeNaRes::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         }
         {
             using _t = void (FeNaRes::*)(QString );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&FeNaRes::dsm_supr)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&FeNaRes::elem_cell_map_supr)) {
                 *result = 1;
                 return;
             }
@@ -1081,7 +1082,7 @@ void FeNaRes::drop_locale_catched()
 }
 
 // SIGNAL 1
-void FeNaRes::dsm_supr(QString _t1)
+void FeNaRes::elem_cell_map_supr(QString _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);

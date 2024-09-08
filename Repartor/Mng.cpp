@@ -65,7 +65,7 @@ elements.matr_i.erase(elements.matr_i.begin()+ind_disp);
 elements.elem_names.erase(elements.elem_names.begin()+ind_disp);
 //==============
 
-//====on ajourne dsm ==========
+//====on ajourne elem_cell_map ==========
 combi.elem_cell_map.erase(ind_disp);
 map<int,int> new_map;
 for(auto &paire: combi.elem_cell_map)
@@ -205,7 +205,7 @@ mm_copie.insert(paire);
 }
 }//sortie for
 ro.cell_pair=mm_copie;
-//====on ajourne dsm =======
+//====on ajourne elem_cell_map =======
 int  ind_st_to_erase;
 bool is_there_ind=false;
 for(auto &paire:combi.elem_cell_map)
@@ -290,7 +290,7 @@ emit bmmp_ajourned(ro.cell_pair);
 
 }
 
-void Mng::aj_dsm(QString qstr_n,int ind_bu)//rajoute ou remplace une paire dsm
+void Mng::aj_elem_cell_map(QString qstr_n,int ind_bu)//rajoute ou remplace une paire elem_cell_map
 {
 
 auto it=find(elements.elem_names.begin(),elements.elem_names.end(),qstr_n.toStdString());
@@ -300,7 +300,7 @@ pair<int,int>  new_pair(ind_n,ind_bu);
 combi.elem_cell_map.erase(ind_n);//pas grave s'il ny en a pas ?
 combi.elem_cell_map.insert(new_pair);
 }
-void Mng::dsm_supr(QString qstr_n)
+void Mng::elem_cell_map_supr(QString qstr_n)
 {
 auto it=find(elements.elem_names.begin(),elements.elem_names.end(),qstr_n.toStdString());
 int ind_n=it-elements.elem_names.begin();
@@ -371,13 +371,13 @@ for(auto &paire: combi_r.space.cell_pair)
 combi_r.space.cell_pair=new_map;
 //..........
 
-map<int,int> new_map_dsm;
+map<int,int> new_map_elem_cell_map;
 for(auto &paire: combi_r.elem_cell_map)
 {
          pair<int,int> new_paire(paire.first,paire.second+1);
-        new_map_dsm.insert(new_paire);
+        new_map_elem_cell_map.insert(new_paire);
  }
-combi_r.elem_cell_map=new_map_dsm;
+combi_r.elem_cell_map=new_map_elem_cell_map;
  //====
  return combi_r;
 }
@@ -434,7 +434,7 @@ mm_copie.insert(paire);
 }
 }//sortie for
 comb.space.cell_pair=mm_copie;
-//====on ajourne dsm =======
+//====on ajourne elem_cell_map =======
 /*vient de l autre surcharge
 int  ind_st_to_erase;
 for(auto &paire:comb.elem_cell_map)
@@ -478,8 +478,8 @@ void Mng::placer_stud(vector<int> gen)
      cout<< gen[i]<<" ";
      }
            cout<<endl;
-     cout<<"taille dsm: "<<combi.elem_cell_map.size()<<endl;
-    //emmetre un ajourned // faire les modif ds fenro pr prendre en cpt le dsm_2 //faire un bout annuler calc...
+     cout<<"taille elem_cell_map: "<<combi.elem_cell_map.size()<<endl;
+    //emmetre un ajourned // faire les modif ds fenro pr prendre en cpt le elem_cell_map_2 //faire un bout annuler calc...
      emit faire_ajourner(elements,combi.elem_cell_map);//pb a l affichage , à voir...
 }
 

@@ -52,12 +52,12 @@ for(unsigned int i=0;i<indiv.size();i++)
         if(i!=j&&indiv.at(i)==indiv.at(j)){err_found=true;type_erreur="redondance";break;}
     }
 }
-//check dsm
+//check elem_cell_map
 if(!err_found)
 {
-for(auto m_p: dZ.dsm)
+for(auto m_p: dZ.elem_cell_map)
 {
-    if(indiv.at(m_p.first)!=m_p.second){err_found=true;type_erreur="erreur dsm";break;}
+    if(indiv.at(m_p.first)!=m_p.second){err_found=true;type_erreur="erreur elem_cell_map";break;}
 }
 }
 //check cpls

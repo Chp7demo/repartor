@@ -66,9 +66,9 @@ void add_bur(Pos pos);
 void add_cpl(int,int);
 void supr_cpl(int,int); 
 
-//================fcts en rapport avec dsm=========================
-void aj_dsm(QString,int);//rajoute ou remplace une paire dsm
-void dsm_supr(QString);
+//================fcts en rapport avec elem_cell_map=========================
+void aj_elem_cell_map(QString,int);//rajoute ou remplace une paire elem_cell_map
+void elem_cell_map_supr(QString);
 
 //======================frozen_cell=========================
 void ad_frozen_cell(int);

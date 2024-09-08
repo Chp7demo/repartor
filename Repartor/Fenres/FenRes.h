@@ -77,7 +77,7 @@ class MaGraphicsViewRes : public QGraphicsView
     signals:
 
         void drop_cached();
-        void aj_dsm(QString,int);
+        void aj_elem_cell_map(QString,int);
         void enlever_st(QString);
         void rapatrier_wNRG(QList<QString>);
         void sous();
@@ -97,7 +97,7 @@ class MaGraphicsViewRes : public QGraphicsView
     private:
       Elements elements_copie;
     // MI matr_copie;//TODO a faire ajourner par ajourned...
-    //std::map<int,int> dsm_copie;
+    //std::map<int,int> elem_cell_map_copie;
      std::multimap<int,int> mm_copie;
 
     QList<WidgBurRes *> list_widgBurRes;
@@ -194,8 +194,8 @@ void ajourner_mm(std::multimap<int,int>);
 
 
 void set_drop_catched();
-void emettre_aj_dsm(QString s,int i){emit aj_dsm(s,i);}
-void emettre_dsm_supr(QString s){emit dsm_supr(s);}
+void emettre_aj_elem_cell_map(QString s,int i){emit aj_elem_cell_map(s,i);}
+void emettre_elem_cell_map_supr(QString s){emit elem_cell_map_supr(s);}
 void emettre_sous(){emit sous_cpt_freeze_fenres();}
 
 void emettre_ad_frozen_cell(int i){emit ad_frozen_cell(i);}
@@ -204,10 +204,10 @@ void emettre_supr_frozen_cell(int i){emit supr_frozen_cell(i);}
 
 void aj_mode(modeRes mode){moderes=mode;fenDes->pt_graphView()->setModeRes(mode);if(moderes==modeRes::CALCUL)emit lancer_calc();}
     signals:
- void aj_dsm(QString,int);
+ void aj_elem_cell_map(QString,int);
  void ad_frozen_cell(int);
  void supr_frozen_cell(int);
- void dsm_supr(QString);
+ void elem_cell_map_supr(QString);
  void sous_cpt_freeze_fenres();
  void  lancer_calc();
     private:
@@ -248,7 +248,7 @@ class FeNaRes :  public QWidget
 
     signals:
         void drop_locale_catched();
-        void dsm_supr(QString);
+        void elem_cell_map_supr(QString);
         void rapatrier(QString);
         void sous();
     private:
@@ -258,7 +258,7 @@ class FeNaRes :  public QWidget
 FeResNaAff * m_w_multi_aff;
 QScrollArea * m_scroll_multi_aff;
 //===================================
-//std::map<int,int> dsm_copie_fenares;//utile?
+//std::map<int,int> elem_cell_map_copie_fenares;//utile?
 QMap<QString,int> st_qmap;
 Elements elements_copie;
 QVBoxLayout *bl;

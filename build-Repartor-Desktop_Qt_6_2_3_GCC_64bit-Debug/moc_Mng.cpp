@@ -25,7 +25,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Mng_t {
     const uint offsetsAndSize[70];
-    char stringdata0[384];
+    char stringdata0[404];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_Mng_t, stringdata0) + ofs), len 
@@ -62,10 +62,10 @@ QT_MOC_LITERAL(307, 7), // "add_bur"
 QT_MOC_LITERAL(315, 3), // "pos"
 QT_MOC_LITERAL(319, 7), // "add_cpl"
 QT_MOC_LITERAL(327, 8), // "supr_cpl"
-QT_MOC_LITERAL(336, 6), // "aj_dsm"
-QT_MOC_LITERAL(343, 8), // "dsm_supr"
-QT_MOC_LITERAL(352, 14), // "ad_frozen_cell"
-QT_MOC_LITERAL(367, 16) // "supr_frozen_cell"
+QT_MOC_LITERAL(336, 16), // "aj_elem_cell_map"
+QT_MOC_LITERAL(353, 18), // "elem_cell_map_supr"
+QT_MOC_LITERAL(372, 14), // "ad_frozen_cell"
+QT_MOC_LITERAL(387, 16) // "supr_frozen_cell"
 
     },
     "Mng\0ajourned\0\0Elements\0std::map<int,int>\0"
@@ -77,8 +77,8 @@ QT_MOC_LITERAL(367, 16) // "supr_frozen_cell"
     "aj_cl_et_ro\0nouv_inter\0interType\0"
     "modif_bur\0index\0Pos\0supr_bur\0Combi&\0"
     "comb\0add_bur\0pos\0add_cpl\0supr_cpl\0"
-    "aj_dsm\0dsm_supr\0ad_frozen_cell\0"
-    "supr_frozen_cell"
+    "aj_elem_cell_map\0elem_cell_map_supr\0"
+    "ad_frozen_cell\0supr_frozen_cell"
 };
 #undef QT_MOC_LITERAL
 
@@ -174,8 +174,8 @@ void Mng::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **
         case 15: _t->add_bur((*reinterpret_cast< Pos(*)>(_a[1]))); break;
         case 16: _t->add_cpl((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 17: _t->supr_cpl((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 18: _t->aj_dsm((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 19: _t->dsm_supr((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 18: _t->aj_elem_cell_map((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 19: _t->elem_cell_map_supr((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 20: _t->ad_frozen_cell((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 21: _t->supr_frozen_cell((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;

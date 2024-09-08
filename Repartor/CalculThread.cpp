@@ -152,7 +152,7 @@ for(int i=0;i<N_g;i++)
     //............................................................................
     //sortie boucle ag critere d'arret rempli// fermer evntuelle boite de dialogue // critere d 'arret : nb de geneartion fixe avec une bne marge ? ou convergence du pb?
     //ou bien combinaison /nb gen min / convergence /temp max?//pour l 'instant N_g generation
-    //emettre un signal contenant la meilleur solution sous forme de dsm par exemple// pr debug le graph des record ag sera affiché apres ce signal
+    //emettre un signal contenant la meilleur solution sous forme de elem_cell_map par exemple// pr debug le graph des record ag sera affiché apres ce signal
       // for(int i=0;i<test.size();i++){cout<<test.at(i)<<" ";}
 
    // cout<<endl;

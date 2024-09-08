@@ -5,7 +5,7 @@ DataZone::DataZone(const Combi &combi)
 N_Elem=combi.elements.elem_names.size();
 N_Cell=combi.space.cell_pos.size()-1;//le 0 est useless
 cell_pair_map=combi.space.cell_pair;
-dsm=combi.elem_cell_map;
+elem_cell_map=combi.elem_cell_map;
 stm=from_matr_to_stm(combi.elements.matr_i);
 vect_ordo=create_ordo();
 vect_desordo=create_desordo();
@@ -113,18 +113,18 @@ return(it->second);
 //return dZ.stm[st_ind];
 }
 
-bool DataZone::cpl_ds_dsm(int st_ind)
+bool DataZone::cpl_ds_elem_cell_map(int st_ind)
 {
 int fd=get_st_pair(st_ind);
 //cout<<"fd"<<fd<<endl;
-//bool ess=!((dZ.dsm.find(fd))==(dZ.dsm.end()));
+//bool ess=!((dZ.elem_cell_map.find(fd))==(dZ.elem_cell_map.end()));
 //cout<<"ess"<<ess<<endl;
-return(!((dsm.find(fd))==(dsm.end())));
+return(!((elem_cell_map.find(fd))==(elem_cell_map.end())));
 }
 
-bool DataZone::ds_dsm(int st_ind)
+bool DataZone::ds_elem_cell_map(int st_ind)
 {
-return(!((dsm.find(st_ind))==(dsm.end())));
+return(!((elem_cell_map.find(st_ind))==(elem_cell_map.end())));
 }
 
 
@@ -139,7 +139,7 @@ for(int i=0;i<N_Elem;i++){ind_list.push_back(i);}
 
 while(ind_list.size()>0)
 {
-if(ds_dsm(ind_list[0]))
+if(ds_elem_cell_map(ind_list[0]))
 {
 vect_fix.push_back(ind_list[0]);
 if(st_have_pair(ind_list[0]))
@@ -152,7 +152,7 @@ ind_list.erase(ind_list.begin());
 }
 else
 {
-if((st_have_pair(ind_list[0]))&&(ds_dsm(get_st_pair(ind_list[0]))))
+if((st_have_pair(ind_list[0]))&&(ds_elem_cell_map(get_st_pair(ind_list[0]))))
 {
 vect_fix.push_back(ind_list[0]);
 int nb=get_st_pair(ind_list[0]);
@@ -160,7 +160,7 @@ vect_fix.push_back(nb);
 ind_list.erase(find(ind_list.begin(),ind_list.end(),nb));
 ind_list.erase(ind_list.begin());
 }
-if((st_have_pair(ind_list[0]))&&!(ds_dsm(get_st_pair(ind_list[0]))))
+if((st_have_pair(ind_list[0]))&&!(ds_elem_cell_map(get_st_pair(ind_list[0]))))
 {
 vect_cpl.push_back(ind_list[0]);
 int nb=get_st_pair(ind_list[0]);

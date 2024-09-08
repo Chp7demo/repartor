@@ -21,7 +21,7 @@ void eff_pairs(int bur_ind,std::multimap<int,int> &cell_pair_map_av);
 bool bur_have_pair_av(int bur_ind,const std::multimap<int,int> &cell_pair_map_av);
 bool st_have_pair(int st_ind,const DataZone & dZ);
 int get_st_pair(int st_ind,const DataZone & dZ);//st_ind doit avoir une pair
-bool cpl_ds_dsm(int st_ind,const DataZone & dZ);//st_ind doit avoir une pair
+bool cpl_ds_elem_cell_map(int st_ind,const DataZone & dZ);//st_ind doit avoir une pair
 
 
 

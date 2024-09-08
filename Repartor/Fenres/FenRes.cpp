@@ -28,7 +28,7 @@ hLayout->setStretchFactor(fenBut,1);
 this->setLayout(hLayout);
 
 connect(fenDes->pt_graphView(),SIGNAL(drop_cached()),fenNaRes,SLOT(set_drop_catched()));
-connect(fenDes->pt_graphView(),SIGNAL(aj_dsm(QString,int)),this,SLOT(emettre_aj_dsm(QString,int)));
+connect(fenDes->pt_graphView(),SIGNAL(aj_elem_cell_map(QString,int)),this,SLOT(emettre_aj_elem_cell_map(QString,int)));
 
 connect(fenDes->pt_graphView(),SIGNAL(ad_frozen_cell(int)),this,SLOT(emettre_ad_frozen_cell(int)));
 connect(fenDes->pt_graphView(),SIGNAL(supr_frozen_cell(int)),this,SLOT(emettre_supr_frozen_cell(int)));
@@ -38,7 +38,7 @@ connect(fenDes->pt_graphView(),SIGNAL(rapatrier_wNRG(QList<QString>)),fenNaRes,S
 connect(fenDes->pt_graphView(),SIGNAL(sous()),this,SLOT(emettre_sous()));
 
 connect(fenNaRes,SIGNAL(drop_locale_catched()),fenDes,SLOT(drop_locale_catched()));
-connect(fenNaRes,SIGNAL(dsm_supr(QString)),this,SLOT(emettre_dsm_supr(QString)));
+connect(fenNaRes,SIGNAL(elem_cell_map_supr(QString)),this,SLOT(emettre_elem_cell_map_supr(QString)));
 connect(fenNaRes,SIGNAL(rapatrier(QString)),fenDes->pt_graphView(),SLOT(rapatrier(QString)));
 connect(fenNaRes,SIGNAL(sous()),this,SLOT(emettre_sous()));
 
@@ -475,29 +475,29 @@ QString widgNRG::getN()
 return text_N;
 }
 
-void FenRes::ajourner(Elements elements,std::map<int,int> map_dsm)
+void FenRes::ajourner(Elements elements,std::map<int,int> map_elem_cell_map)
 {
-fenDes->ajourner(elements,map_dsm);
-fenNaRes->ajourner(elements,map_dsm);
+fenDes->ajourner(elements,map_elem_cell_map);
+fenNaRes->ajourner(elements,map_elem_cell_map);
 } 
-void FenDesRes::ajourner(Elements elements,std::map<int,int> map_dsm)
+void FenDesRes::ajourner(Elements elements,std::map<int,int> map_elem_cell_map)
 {
-graphView->ajourner(elements,map_dsm);
+graphView->ajourner(elements,map_elem_cell_map);
 }
 
-void MaGraphicsViewRes::ajourner(Elements elements,std::map<int,int> map_dsm)
+void MaGraphicsViewRes::ajourner(Elements elements,std::map<int,int> map_elem_cell_map)
 {
  elements_copie=elements;
 /*
 matr_copie=elements.matr_i;//utile ici?
-dsm_copie=map_dsm;//utile?
+elem_cell_map_copie=map_elem_cell_map;//utile?
 */
 //=========================
 //ici on retire le stud eventuellment disparu...//si l ajournement provient d'un supression d'un stud...
 vector<string> stnm_copie=elements.elem_names;
-if(map_dsm.size()<list_widgNRG.size())
+if(map_elem_cell_map.size()<list_widgNRG.size())
 {
-//si ds la widgNRG le nom correspondant n'est pas ds les dsm on le retire
+//si ds la widgNRG le nom correspondant n'est pas ds les elem_cell_map on le retire
 int ind_widgNRG_to_remove;
 for(int i=0;i<list_widgNRG.size();i++)
  {
@@ -505,7 +505,7 @@ string str=(list_widgNRG.at(i)->getN()).toStdString();
 //std::vector<std::string>::iterator
 auto it=std::find(stnm_copie.begin(),stnm_copie.end(),str);
 int ind_st=it-stnm_copie.begin();
-if(map_dsm.find(ind_st)==map_dsm.end())
+if(map_elem_cell_map.find(ind_st)==map_elem_cell_map.end())
 {ind_widgNRG_to_remove=i;break;}
 }
 //on libere le bu
@@ -517,9 +517,9 @@ delete list_widgNRG.at(ind_widgNRG_to_remove);
 list_widgNRG.removeAt(ind_widgNRG_to_remove);
 }
 //si l'ajournement provient d'un placement auto===//attention cette partie n'a pas encore été testée
-if(map_dsm.size()>list_widgNRG.size())
+if(map_elem_cell_map.size()>list_widgNRG.size())
 {
-    for(auto paire: map_dsm)
+    for(auto paire: map_elem_cell_map)
   {
   //on trouve le nom du type
    string str=stnm_copie.at(paire.first);
@@ -545,14 +545,14 @@ wn->set_entered(false);
 //=============================
 emit sous();
 }
-void FeNaRes::ajourner(std::map<int,int> map_dsm)
+void FeNaRes::ajourner(std::map<int,int> map_elem_cell_map)
 {
-   ajourner(elements_copie,map_dsm);
+   ajourner(elements_copie,map_elem_cell_map);
 
 }
-void FeNaRes::ajourner(Elements elements,std::map<int,int> map_dsm)
+void FeNaRes::ajourner(Elements elements,std::map<int,int> map_elem_cell_map)
 {
-//dsm_copie_fenares=map_dsm;//utile?
+//elem_cell_map_copie_fenares=map_elem_cell_map;//utile?
 elements_copie=elements;
 int s=N_str_list.size();
 while((m_w_multi_aff->N_list.size())>0)
@@ -568,7 +568,7 @@ N_str_list.clear();
 //nouvelle liste========
 //cout<<m_w_multi_aff->N_list.size()<<endl;
 for(int i=0;i<elements.elem_names.size();i++)
-{if(map_dsm.find(i)==map_dsm.end())N_str_list.append(QString::fromStdString(elements.elem_names.at(i)));}
+{if(map_elem_cell_map.find(i)==map_elem_cell_map.end())N_str_list.append(QString::fromStdString(elements.elem_names.at(i)));}
 //=========ajourner st_map=========================
 QMap<QString,int>::iterator i=st_qmap.begin();
 while(i!=st_qmap.end())
@@ -607,20 +607,20 @@ emit sous();
 }
 
 //cette cascade c'est n'importe quoi..; iutiliser des refs..
-void FenRes::ajourner_bu(vector<Pos> pos_vect,std::map<int,int> map_dsm,std::set<int> set_frozen_cell)
+void FenRes::ajourner_bu(vector<Pos> pos_vect,std::map<int,int> map_elem_cell_map,std::set<int> set_frozen_cell)
 {
 cout<<"entree cascade"<<endl;
 //deux travaux
-fenDes->ajourner_bu(pos_vect,map_dsm,set_frozen_cell);
-fenNaRes->ajourner(map_dsm);
+fenDes->ajourner_bu(pos_vect,map_elem_cell_map,set_frozen_cell);
+fenNaRes->ajourner(map_elem_cell_map);
 }
 void FenRes::ajourner_mm(multimap<int,int> mmp) 
 {
 fenDes->ajourner_mm(mmp);
 }
-void FenDesRes::ajourner_bu(vector<Pos> pos_vect,std::map<int,int> map_dsm,std::set<int> set_frozen_cell)
+void FenDesRes::ajourner_bu(vector<Pos> pos_vect,std::map<int,int> map_elem_cell_map,std::set<int> set_frozen_cell)
 {
-graphView->ajourner_bu(pos_vect,map_dsm,set_frozen_cell);
+graphView->ajourner_bu(pos_vect,map_elem_cell_map,set_frozen_cell);
 }
 void FenDesRes::ajourner_mm(multimap<int,int> mmp) 
 {
@@ -628,10 +628,10 @@ graphView->ajourner_mm(mmp);
 }
 
 
-void MaGraphicsViewRes::ajourner_bu(vector<Pos> pos_vect,std::map<int,int> map_dsm,std::set<int> set_frozen_cell)
+void MaGraphicsViewRes::ajourner_bu(vector<Pos> pos_vect,std::map<int,int> map_elem_cell_map,std::set<int> set_frozen_cell)
 {
 
-//dsm_copie=map_dsm;//utile?
+//elem_cell_map_copie=map_elem_cell_map;//utile?
 //cout<<"entree ajourner bu"<<endl;
 if(list_widgBurRes.size()==0)
 {
@@ -687,7 +687,7 @@ list_widgNRG.clear();
 
 for(int i=0;i<list_widgBurRes.size();i++)//mal codee peu etre plus rapide...
 {
-for(auto &paire:map_dsm)
+for(auto &paire:map_elem_cell_map)
  {
     if(paire.second==list_widgBurRes.at(i)->get_index())
     {
@@ -888,7 +888,7 @@ QPointF point_intra;
 dataStream>>text_received>>rect_widg>>point_intra;//>>pix;
 m_w_multi_aff->ajouter_widg(text_received);
 emit drop_locale_catched();
-emit dsm_supr(text_received);
+emit elem_cell_map_supr(text_received);
 
 rapatrier_cpl_eventuel(text_received);
 /*
@@ -902,7 +902,7 @@ if(str_cpl!="")//si cpl
  if(!ds_liste)
  {
      emit rapatrier(str_cpl);
-   emit dsm_supr(str_cpl);
+   emit elem_cell_map_supr(str_cpl);
  m_w_multi_aff->recreer_widg(str_cpl,m_w_multi_aff->N_list.size()-1);
  }
 }*/
@@ -1240,7 +1240,7 @@ else
 
 widgNRG* MaGraphicsViewRes::creer_widgNRG(QString text_received,WidgBurRes* pt_w)
 {
-       emit aj_dsm(text_received,pt_w->get_index());//list_widgBurRes.indexOf(pt_w));
+       emit aj_elem_cell_map(text_received,pt_w->get_index());//list_widgBurRes.indexOf(pt_w));
 pt_w->set_text(text_received);//useless?
 pt_w->set_occupe(true);
 
@@ -1319,7 +1319,7 @@ if(str_cpl!="")//si cpl
  if(!ds_liste)
  {
      emit rapatrier(str_cpl);
-   emit dsm_supr(str_cpl);
+   emit elem_cell_map_supr(str_cpl);
  m_w_multi_aff->recreer_widg(str_cpl,m_w_multi_aff->N_list.size()-1);
  }
 }
@@ -1329,7 +1329,7 @@ if(str_cpl!="")//si cpl
  void FeNaRes::rapatrier_wNRG(QList<QString> list)
 {
   cout<<"rap enter"<<endl;
- for(int i=0;i<list.size();i++){ m_w_multi_aff->recreer_widg(list.at(i),m_w_multi_aff->N_list.size()-1);emit dsm_supr(list.at(i));}
+ for(int i=0;i<list.size();i++){ m_w_multi_aff->recreer_widg(list.at(i),m_w_multi_aff->N_list.size()-1);emit elem_cell_map_supr(list.at(i));}
  cout<<"rap sortie"<<endl;
 //emit degeler//TODO
  emit sous();

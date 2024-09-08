@@ -27,8 +27,8 @@ DataZone(const Combi &combi);
 //Les 3 fonctions suivantes existent aussi ds genese.h elles sont surchargées...
 bool st_have_pair(int st_ind);
 int get_st_pair(int st_ind); //st_ind doit avoir une pair
-bool cpl_ds_dsm(int st_ind); //st_ind doit avoir une pair
-bool ds_dsm(int st_ind);
+bool cpl_ds_elem_cell_map(int st_ind); //st_ind doit avoir une pair
+bool ds_elem_cell_map(int st_ind);
 
 
 vector<int> create_ordo();
@@ -44,7 +44,7 @@ int N_Cpl; // partners (elements can be partners) = couple = cpl
 int N_Free;
 
 multimap<int,int> cell_pair_map;
-map<int,int> dsm;
+map<int,int> elem_cell_map;
 map<int,int> stm;
 
 vector<int> vect_ordo;

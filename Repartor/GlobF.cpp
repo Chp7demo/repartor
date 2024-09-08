@@ -54,8 +54,8 @@ connect(fenRo,SIGNAL(add_cpl(int,int)),mng,SLOT(add_cpl(int,int)));
 connect(fenRo,SIGNAL(supr_cpl(int,int)),mng,SLOT(supr_cpl(int,int)));
 */
 
-connect(fenRes,SIGNAL(aj_dsm(QString,int)),mng,SLOT(aj_dsm(QString,int)));
-connect(fenRes,SIGNAL(dsm_supr(QString)),mng,SLOT(dsm_supr(QString)));
+connect(fenRes,SIGNAL(aj_elem_cell_map(QString,int)),mng,SLOT(aj_elem_cell_map(QString,int)));
+connect(fenRes,SIGNAL(elem_cell_map_supr(QString)),mng,SLOT(elem_cell_map_supr(QString)));
 
 connect(fenRes,SIGNAL(ad_frozen_cell(int)),mng,SLOT(ad_frozen_cell(int)));//Slot à faire
 connect(fenRes,SIGNAL(supr_frozen_cell(int)),mng,SLOT(supr_frozen_cell(int)));//Slot à faire

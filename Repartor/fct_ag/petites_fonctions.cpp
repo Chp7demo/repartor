@@ -64,7 +64,7 @@ for(auto m_p: dZ.elem_cell_map)
 
 if(!err_found)
 {
-for(auto m_p: dZ.stm)
+for(auto m_p: dZ.cpl_map)
 {
     auto it=dZ.cell_pair_map.find(indiv.at(m_p.first));
     if(indiv.at(m_p.second)!=it->second){err_found=true;type_erreur="erreur cpl";break;}

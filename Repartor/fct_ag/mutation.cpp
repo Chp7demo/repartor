@@ -107,7 +107,7 @@ else{ds_indiv_bis=true;}
 if(ds_indiv_bis)
 {
 desordo(indiv,dZ.vect_desordo);
-int a_bis=get_st_pair(dZ.vect_ordo[a],dZ);
+int a_bis=get_elem_pair(dZ.vect_ordo[a],dZ);
 int b_bis=dZ.vect_ordo[idx_bis];
 switch_bur_cpl(indiv,a_bis,b_bis,dZ);//marteau pr mouche;
 ordo(indiv,dZ.vect_ordo);
@@ -117,7 +117,7 @@ else
 desordo(indiv,dZ.vect_desordo);
 
 indiv[dZ.vect_ordo[a]]=bu;
-indiv[get_st_pair(dZ.vect_ordo[a],dZ)]=bu_pair;
+indiv[get_elem_pair(dZ.vect_ordo[a],dZ)]=bu_pair;
 
 ordo(indiv,dZ.vect_ordo);
 
@@ -141,7 +141,7 @@ indiv[b]=n_pass;
 
 void switch_bur_cpl(vector<int> &indiv,int a,int b,const DataZone &dZ)//indiv desordo
 {
-int c= get_st_pair(a,dZ);
+int c= get_elem_pair(a,dZ);
 //cout<<"a= "<<a<<endl;
 //cout<<"b= "<<b<<endl;
 //cout<<"c= "<<c<<endl;
@@ -169,7 +169,7 @@ simple_switch(indiv,c,d);
 
 bool en_cpl(int a,int b,const DataZone &dZ)//indiv desordo //seulement si a a un cpl;
 {
-int n=get_st_pair(a,dZ);
+int n=get_elem_pair(a,dZ);
 if(n==b) {return true;}
 else {return false;}
 }

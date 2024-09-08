@@ -8,7 +8,7 @@ double evaluation(const vector<int> & vect,const DataZone & dZ)
     //debug===
 
     cout<<"damx"<<dZ.D_max<<endl;
-    //   for(int i=0;i<dZ.bp.size();i++){cout<<dZ.bp[i].x<<" ";}
+    //   for(int i=0;i<dZ.cell_pos.size();i++){cout<<dZ.cell_pos[i].x<<" ";}
     //=======
     double score=0;
 
@@ -59,17 +59,17 @@ for(int i=0;i<dZ.N_Elem;i++)
         switch (dZ.mi[i][j]) {
         case (interType::BRING_CLOSE):
 
-            score+=formule_score_moins(dZ.D_max,C2,dZ.bp.at(vect.at(i)),dZ.bp.at(vect.at(j)));
+            score+=formule_score_moins(dZ.D_max,C2,dZ.cell_pos.at(vect.at(i)),dZ.cell_pos.at(vect.at(j)));
 
             break;
         case(interType::BRING_VERY_CLOSE):
-                 score+=2*formule_score_moins(dZ.D_max,C2,dZ.bp.at(vect.at(i)),dZ.bp.at(vect.at(j)));
+                 score+=2*formule_score_moins(dZ.D_max,C2,dZ.cell_pos.at(vect.at(i)),dZ.cell_pos.at(vect.at(j)));
             break;
         case(interType::SPLIT):
-                 score+=formule_score_plus(dZ.D_max,C2,dZ.bp.at(vect.at(i)),dZ.bp.at(vect.at(j)));
+                 score+=formule_score_plus(dZ.D_max,C2,dZ.cell_pos.at(vect.at(i)),dZ.cell_pos.at(vect.at(j)));
              break;
         case(interType::SPLIT_FAR):
-                 score+=2*formule_score_plus(dZ.D_max,C2,dZ.bp.at(vect.at(i)),dZ.bp.at(vect.at(j)));
+                 score+=2*formule_score_plus(dZ.D_max,C2,dZ.cell_pos.at(vect.at(i)),dZ.cell_pos.at(vect.at(j)));
             break;
         default:
             break;

@@ -25,10 +25,10 @@ DataZone(const Combi &combi);
 
 
 //Les 3 fonctions suivantes existent aussi ds genese.h elles sont surchargées...
-bool st_have_pair(int st_ind);
-int get_st_pair(int st_ind); //st_ind doit avoir une pair
-bool cpl_ds_elem_cell_map(int st_ind); //st_ind doit avoir une pair
-bool ds_elem_cell_map(int st_ind);
+bool elem_have_pair(int st_ind);
+int get_elem_pair(int st_ind); //st_ind doit avoir une pair
+bool cpl_in_elem_cell_map(int st_ind); //st_ind doit avoir une pair
+bool in_elem_cell_map(int st_ind);
 
 
 vector<int> create_ordo();
@@ -45,13 +45,13 @@ int N_Free;
 
 multimap<int,int> cell_pair_map;
 map<int,int> elem_cell_map;
-map<int,int> stm;
+map<int,int> cpl_map;
 
 vector<int> vect_ordo;
 vector<int> vect_desordo;
 
 MI mi;
-vector<Pos> bp;
+vector<Pos> cell_pos;
 double D_max;  // max found distance between cells
 double D_min;  // min found distance between cells
 
@@ -59,7 +59,7 @@ double D_min;  // min found distance between cells
 private:
 
 //fct du constructeur:
-map<int,int>  from_matr_to_stm(const MI &matr);
+map<int,int>  from_matr_to_cpl_map(const MI &matr);
 
 
 };

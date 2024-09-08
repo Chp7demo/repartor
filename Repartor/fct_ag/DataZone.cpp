@@ -6,7 +6,7 @@ N_Elem=combi.elements.elem_names.size();
 N_Cell=combi.space.cell_pos.size()-1;//le 0 est useless
 cell_pair_map=combi.space.cell_pair;
 elem_cell_map=combi.elem_cell_map;
-stm=from_matr_to_stm(combi.elements.matr_i);
+cpl_map=from_matr_to_cpl_map(combi.elements.matr_i);
 vect_ordo=create_ordo();
 vect_desordo=create_desordo();
 //pour evaluation======
@@ -49,22 +49,22 @@ for(int i=0;i<N_Elem;i++)
  }
 }
 //fin debug===
-bp=combi.space.cell_pos;
+cell_pos=combi.space.cell_pos;
 
 
 //distance max et min
 
 double d_max=0;
 double d_min=0;
-for(int i=0;i<bp.size();i++)
+for(int i=0;i<cell_pos.size();i++)
 {
-    for(int j=i+1;j<bp.size();j++)
+    for(int j=i+1;j<cell_pos.size();j++)
     {
 
-            double a_x = bp.at(i).x;
-            double b_x = bp.at(j).x;
-            double a_y = bp.at(i).y;
-            double b_y = bp.at(j).y;
+            double a_x = cell_pos.at(i).x;
+            double b_x = cell_pos.at(j).x;
+            double a_y = cell_pos.at(i).y;
+            double b_y = cell_pos.at(j).y;
 
              double dist=sqrt(pow(a_x-b_x,2)+pow(a_y-b_y,2));
 
@@ -79,9 +79,9 @@ D_min=d_min;
 //===============
 }
 
-std::map<int,int>   DataZone::from_matr_to_stm(const MI &matr)
+std::map<int,int>   DataZone::from_matr_to_cpl_map(const MI &matr)
 {
- std::map<int,int>  stm;
+ std::map<int,int>  cpl_map;
 
 for(int i=1;i<matr.size();i++)
 {
@@ -89,40 +89,40 @@ for(int j=0;j<matr.at(i).size();j++)
 {
 if(matr.at(i).at(j)==interType::PARTNERS)
 {
-stm[i]=j;
-stm[j]=i;
+cpl_map[i]=j;
+cpl_map[j]=i;
 }
 }
 
 }
-return stm;
+return cpl_map;
 }
 
-bool DataZone::st_have_pair(int st_ind)
+bool DataZone::elem_have_pair(int st_ind)
 {
-//cout<<"entree st_have_pair"<<endl;
-return(!(stm.find(st_ind)==stm.end()));
+//cout<<"entree elem_have_pair"<<endl;
+return(!(cpl_map.find(st_ind)==cpl_map.end()));
 }
 
-int DataZone::get_st_pair(int st_ind)
+int DataZone::get_elem_pair(int st_ind)
 {//cout<<"entree_fct"<<endl;
-// cout<<"dZ.stm.find(st_ind)->second"<<dZ.stm.find(st_ind)->second<<endl;
-auto it=stm.find(st_ind);
+// cout<<"dZ.cpl_map.find(st_ind)->second"<<dZ.cpl_map.find(st_ind)->second<<endl;
+auto it=cpl_map.find(st_ind);
 //cout<<"hello"<<endl;
 return(it->second);
-//return dZ.stm[st_ind];
+//return dZ.cpl_map[st_ind];
 }
 
-bool DataZone::cpl_ds_elem_cell_map(int st_ind)
+bool DataZone::cpl_in_elem_cell_map(int st_ind)
 {
-int fd=get_st_pair(st_ind);
+int fd=get_elem_pair(st_ind);
 //cout<<"fd"<<fd<<endl;
 //bool ess=!((dZ.elem_cell_map.find(fd))==(dZ.elem_cell_map.end()));
 //cout<<"ess"<<ess<<endl;
 return(!((elem_cell_map.find(fd))==(elem_cell_map.end())));
 }
 
-bool DataZone::ds_elem_cell_map(int st_ind)
+bool DataZone::in_elem_cell_map(int st_ind)
 {
 return(!((elem_cell_map.find(st_ind))==(elem_cell_map.end())));
 }
@@ -139,12 +139,12 @@ for(int i=0;i<N_Elem;i++){ind_list.push_back(i);}
 
 while(ind_list.size()>0)
 {
-if(ds_elem_cell_map(ind_list[0]))
+if(in_elem_cell_map(ind_list[0]))
 {
 vect_fix.push_back(ind_list[0]);
-if(st_have_pair(ind_list[0]))
+if(elem_have_pair(ind_list[0]))
 {
-int nb=get_st_pair(ind_list[0]);
+int nb=get_elem_pair(ind_list[0]);
 vect_fix.push_back(nb);
 ind_list.erase(find(ind_list.begin(),ind_list.end(),nb));
 }
@@ -152,23 +152,23 @@ ind_list.erase(ind_list.begin());
 }
 else
 {
-if((st_have_pair(ind_list[0]))&&(ds_elem_cell_map(get_st_pair(ind_list[0]))))
+if((elem_have_pair(ind_list[0]))&&(in_elem_cell_map(get_elem_pair(ind_list[0]))))
 {
 vect_fix.push_back(ind_list[0]);
-int nb=get_st_pair(ind_list[0]);
+int nb=get_elem_pair(ind_list[0]);
 vect_fix.push_back(nb);
 ind_list.erase(find(ind_list.begin(),ind_list.end(),nb));
 ind_list.erase(ind_list.begin());
 }
-if((st_have_pair(ind_list[0]))&&!(ds_elem_cell_map(get_st_pair(ind_list[0]))))
+if((elem_have_pair(ind_list[0]))&&!(in_elem_cell_map(get_elem_pair(ind_list[0]))))
 {
 vect_cpl.push_back(ind_list[0]);
-int nb=get_st_pair(ind_list[0]);
+int nb=get_elem_pair(ind_list[0]);
 vect_cpl.push_back(nb);
 ind_list.erase(find(ind_list.begin(),ind_list.end(),nb));
 ind_list.erase(ind_list.begin());
 }
-if(!st_have_pair(ind_list[0]))
+if(!elem_have_pair(ind_list[0]))
 {
 vect_free.push_back(ind_list[0]);
 ind_list.erase(ind_list.begin());

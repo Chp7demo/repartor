@@ -35,7 +35,7 @@ debug_aff_vect(bur_ind_list);
 indiv[m_p.first]=m_p.second;
 bur_ind_list.erase(find(bur_ind_list.begin(),bur_ind_list.end(),m_p.second));
 // effacer pair ds cell_pair_map_av si c'est un bur de paire!!!
-if(bur_have_pair_av(m_p.second,cell_pair_map_av))
+if(cell_have_pair_av(m_p.second,cell_pair_map_av))
 {
     auto it=cell_pair_map_av.find(m_p.second);
     //auto it_2=cell_pair_map_av.find(it->second);
@@ -66,7 +66,7 @@ for(auto m_p : dZ.elem_cell_map)
 if((elem_have_pair(m_p.first,dZ))&&(!cpl_in_elem_cell_map(m_p.first,dZ)))
 {
 //cout<<"entree if"<<endl;
-int bp=get_a_bur_pair(m_p.second,cell_pair_map_av);
+int bp=get_a_cell_pair(m_p.second,cell_pair_map_av);
 //cout<<"sortie get_a_bur pair"<<endl;
 int st_pair=get_elem_pair(m_p.first,dZ);
 //cout<<"sortie_fct"<<endl;
@@ -87,7 +87,7 @@ while(cell_ind_list.size()!=0)
 //cout<<"entree while,choix d'un indice de bur"<<endl;
 //cout<<"rep G5"<<endl;
 int a=rand_a_b(0,bur_ind_list.size());//voir lib std si il ya une fct implementée
-while(elem_have_pair(cell_ind_list.at(0),dZ)&&(!bur_have_pair_av(bur_ind_list.at(a),cell_pair_map_av)))
+while(elem_have_pair(cell_ind_list.at(0),dZ)&&(!cell_have_pair_av(bur_ind_list.at(a),cell_pair_map_av)))
 {//cout<<"rep g5 while"<<endl;
 //cout<<"a= "<<a<<endl;
 //cout<<"(int) a/(bur_ind_list.size())"<<(int) a/(bur_ind_list.size())<<endl;
@@ -112,7 +112,7 @@ indiv[cell_ind_list.at(0)]=bur_ind;
 if(elem_have_pair(cell_ind_list.at(0),dZ))
 {
 //cout<<"rep G7"<<endl;
-int bp=get_a_bur_pair(bur_ind,cell_pair_map_av);//efface ds cell_pair_map_av...
+int bp=get_a_cell_pair(bur_ind,cell_pair_map_av);//efface ds cell_pair_map_av...
 //cout<<"rep G7_2"<<endl;
 int st_pair=get_elem_pair(cell_ind_list.at(0),dZ);
 //cout<<"rep G7_3"<<endl;
@@ -138,7 +138,7 @@ return indiv;
 }
 
 
-int get_a_bur_pair(int bur_ind,std::multimap<int,int> &cell_pair_map_av)
+int get_a_cell_pair(int bur_ind,std::multimap<int,int> &cell_pair_map_av)
 {
 //cout<<"rep bur_1"<<endl;
 auto itlow=cell_pair_map_av.lower_bound(bur_ind);
@@ -181,7 +181,7 @@ else{p++;}
 }
 
 
-bool bur_have_pair_av(int bur_ind,const std::multimap<int,int> &cell_pair_map_av)
+bool cell_have_pair_av(int bur_ind,const std::multimap<int,int> &cell_pair_map_av)
 {
 //cout<<"entree bur have pair"<<endl;
 auto it_pair=cell_pair_map_av.equal_range(bur_ind);

@@ -49,7 +49,7 @@ void detruire_N(widgN*);
     signals:
     void addNS(QString);
     void aj_list(QList<QString>);
- protected:
+    protected:
         //void showEvent();
 
     private:
@@ -58,17 +58,24 @@ bool N_libre();
 //=================ajout N===============
 QPushButton * bouton;
 MaLineEdit * line;
+
+
 //========================================
 //===============container N===============
-  QList<widgN*> N_list;
-  QList<QString> N_str_list;
+QList<widgN*> N_list;
+QList<QString> N_str_list;
 QWidget * m_w_multi_aff;
 QScrollArea * m_scroll_multi_aff;
 QVBoxLayout* m_vboxlayout_pr_aff;
+
+
+
 //===================================
 QHBoxLayout * l;
 QHBoxLayout * lay;
      };
+
+
 
 class widgN:  public QWidget 
 {

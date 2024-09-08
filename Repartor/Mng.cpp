@@ -105,7 +105,7 @@ elements.matr_i[ind_1][ind_2]=inter_type;
 elements.matr_i[ind_2][ind_1]=inter_type;
 //DEBUG===aff matrice
 
-//  cout<<"dZ.N_st : "<<dZ.N_St<<endl;
+//  cout<<"dZ.N_st : "<<dZ.N_Elem<<endl;
 for(int i=0;i<elements.elem_names.size();i++)
 {
   //  cout<<"pilipili"<<endl;

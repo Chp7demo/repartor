@@ -13,7 +13,7 @@ int a=rand_a_b(dZ.N_Fix,indiv.size()-1);
 //int b=rand_a_b(dZ.N_Fix,indiv.size()-1);//a refaire! tirer un bureau pas un indice!!!
 int bord= dZ.N_Cpl+dZ.N_Fix;
 
-int bu=rand_a_b(1,dZ.N_Bur);
+int bu=rand_a_b(1,dZ.N_Cell);
 int idx=index(indiv,bu);
 bool ds_indiv;
 if(idx==-1){ds_indiv=false;}
@@ -34,7 +34,7 @@ simple_switch(indiv,a,b);
 if ((a < bord) &( b >= bord))
 {
 desordo(indiv,dZ.vect_desordo);
-if(bur_have_pair_av(indiv[dZ.vect_ordo[b]],dZ.bmm))//sinon pas de mutation atttention inlue le taux de mut
+if(bur_have_pair_av(indiv[dZ.vect_ordo[b]],dZ.cell_pair_map))//sinon pas de mutation atttention inlue le taux de mut
 {
 //cout<<"a,b "<<a<<","<<b<<endl; 
 //cout<<"rep 1 dZ.vect_ordo"<<endl;
@@ -76,7 +76,7 @@ ordo(indiv,dZ.vect_ordo);
 if ((b < bord) &( a >= bord))
 {
 desordo(indiv,dZ.vect_desordo);
-if(bur_have_pair_av(indiv[dZ.vect_ordo[a]],dZ.bmm))//attention au taux de mut
+if(bur_have_pair_av(indiv[dZ.vect_ordo[a]],dZ.cell_pair_map))//attention au taux de mut
 {
 //cout<<"a,b "<<a<<","<<b<<endl; 
 //cout<<"rep 1 dZ.vect_ordo"<<endl;
@@ -97,9 +97,9 @@ indiv[a]=bu;
 }
 if(a < bord)
 {
-if(bur_have_pair_av(bu,dZ.bmm))//attention au taux de mut
+if(bur_have_pair_av(bu,dZ.cell_pair_map))//attention au taux de mut
 {
-int bu_pair=get_bur_pair(bu,dZ.bmm);
+int bu_pair=get_bur_pair(bu,dZ.cell_pair_map);
 int idx_bis=index(indiv,bu_pair);
 bool ds_indiv_bis;
 if(idx_bis==-1){ds_indiv_bis=false;}
@@ -146,7 +146,7 @@ int c= get_st_pair(a,dZ);
 //cout<<"b= "<<b<<endl;
 //cout<<"c= "<<c<<endl;
 
-int val=get_bur_pair(indiv[b],dZ.bmm);
+int val=get_bur_pair(indiv[b],dZ.cell_pair_map);
 //cout<<"val= "<<val<<endl;
 
 int d=index(indiv,val);
@@ -174,16 +174,16 @@ if(n==b) {return true;}
 else {return false;}
 }
 
-int get_bur_pair(int bur_ind,const std::multimap<int,int> &bmm)
+int get_bur_pair(int bur_ind,const std::multimap<int,int> &cell_pair_map)
 {
-auto itlow=bmm.lower_bound(bur_ind);
-int ctrk=bmm.count(bur_ind);
+auto itlow=cell_pair_map.lower_bound(bur_ind);
+int ctrk=cell_pair_map.count(bur_ind);
 if(ctrk==0)return 0;
 int a=rand_a_b(0,ctrk);
 for(int i=0;i<a;i++){itlow++;}
 int bur_value=itlow->second;
 //cout<<"entree eff pair"<<endl;
-//eff_pairs(bur_ind,bmm_av);
+//eff_pairs(bur_ind,cell_pair_map_av);
 //cout<<"sortie eff pair"<<endl;
 return bur_value;
 

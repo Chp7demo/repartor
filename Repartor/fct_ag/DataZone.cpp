@@ -2,9 +2,9 @@
 
 DataZone::DataZone(const Combi &combi)
 {
-N_St=combi.elements.elem_names.size();
-N_Bur=combi.space.cell_pos.size()-1;//le 0 est useless
-bmm=combi.space.cell_pair;
+N_Elem=combi.elements.elem_names.size();
+N_Cell=combi.space.cell_pos.size()-1;//le 0 est useless
+cell_pair_map=combi.space.cell_pair;
 dsm=combi.elem_cell_map;
 stm=from_matr_to_stm(combi.elements.matr_i);
 vect_ordo=create_ordo();
@@ -13,12 +13,12 @@ vect_desordo=create_desordo();
 mi=combi.elements.matr_i;
 //DEBUG===aff matrice
 //cout<<"matrice lors de la creation de data zone"<<endl;
-//  cout<<"dZ.N_st : "<<dZ.N_St<<endl;
-for(int i=0;i<N_St;i++)
+//  cout<<"dZ.N_st : "<<dZ.N_Elem<<endl;
+for(int i=0;i<N_Elem;i++)
 {
 
 
-    for(int j=0;j<N_St;j++)
+    for(int j=0;j<N_Elem;j++)
     {
 
  switch (mi.at(i).at(j)) {
@@ -135,7 +135,7 @@ vector<int> vect_cpl;
 vector<int> vect_free;
 
 vector<int> ind_list;
-for(int i=0;i<N_St;i++){ind_list.push_back(i);}
+for(int i=0;i<N_Elem;i++){ind_list.push_back(i);}
 
 while(ind_list.size()>0)
 {
@@ -194,7 +194,7 @@ return vect_ord;
 vector<int> DataZone::create_desordo()
 {
 vector<int> vect_des;
-for(int i=0;i<N_St;i++)
+for(int i=0;i<N_Elem;i++)
 {
 vect_des.push_back((int) (find(vect_ordo.begin(),vect_ordo.end(),i)-vect_ordo.begin()));
 }

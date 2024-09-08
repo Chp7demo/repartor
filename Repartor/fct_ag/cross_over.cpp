@@ -82,7 +82,7 @@ bool clean_vect(vector<int> &v_1,vector<int> &v_2,int ind /*indice du crossover*
 
 if(ind >= (dZ.N_Fix+dZ.N_Cpl))
 {
-for(int i=ind+1; i<dZ.N_St;i++)
+for(int i=ind+1; i<dZ.N_Elem;i++)
 {  
 int idx= index(v_1,v_1[i]); //??//retourne le premier ayant cette valeur
 //(donc potentiellement un idx < à ind+1) ...-1 sinon //index c'est le bur?
@@ -90,7 +90,7 @@ int idx= index(v_1,v_1[i]); //??//retourne le premier ayant cette valeur
 //PARTIE A REVOIR!!!!======
 
 if(idx<=ind){ // ça veut dire qu'on a trouvé un doublon...
-    for(int id=ind+1;id<dZ.N_St;id++)
+    for(int id=ind+1;id<dZ.N_Elem;id++)
        {
         if(v_1[id]==v_2[i]){/*cout<<"annulation cross"<<endl;*/ return false;} //on annule le cross, c'est pas beau A CHANGER!!!
         //else v_1_prov[idx]=v_2[i];
@@ -109,12 +109,12 @@ if(ind<(dZ.N_Fix+dZ.N_Cpl))//PAS /2 ?!!!
 {
 
 
-for(int i=ind+1;i<(dZ.N_St);i++)
+for(int i=ind+1;i<(dZ.N_Elem);i++)
 {
 int idx= index(v_1_prov,v_1_prov[i]);
 //cout<<"rep 2 idx"<<idx<<endl;
 if(idx<=ind){
-      for(int id=ind+1;id<dZ.N_St;id++) //a changer !!! on reduit considerablement le nb de cross!
+      for(int id=ind+1;id<dZ.N_Elem;id++) //a changer !!! on reduit considerablement le nb de cross!
        {
         if(v_1_prov[id]==v_2[i]){/*cout<<"annulation cross"<<endl;*/ return false;} //on annule le cross, c'est pas beau A CHANGER!!!
         //else v_1_prov[idx]=v_2[i];

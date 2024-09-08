@@ -16,12 +16,12 @@ double evaluation(const vector<int> & vect,const DataZone & dZ)
     double C2=0;//d_min  // variable inutile->à nettoyer
 //DEBUG===aff matrice
 /*
-  cout<<"dZ.N_st : "<<dZ.N_St<<endl;
-for(int i=0;i<dZ.N_St;i++)
+  cout<<"dZ.N_st : "<<dZ.N_Elem<<endl;
+for(int i=0;i<dZ.N_Elem;i++)
 {
   //  cout<<"pilipili"<<endl;
     cout<<endl;
-    for(int j=0;j<dZ.N_St;j++)
+    for(int j=0;j<dZ.N_Elem;j++)
     {
 
  switch (dZ.mi.at(i).at(j)) {
@@ -52,9 +52,9 @@ for(int i=0;i<dZ.N_St;i++)
  }
 }*/
 //==============
-for(int i=0;i<dZ.N_St;i++)
+for(int i=0;i<dZ.N_Elem;i++)
 {
-    for(int j=i+1;j<dZ.N_St;j++)
+    for(int j=i+1;j<dZ.N_Elem;j++)
     {
         switch (dZ.mi[i][j]) {
         case (interType::BRING_CLOSE):

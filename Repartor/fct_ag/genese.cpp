@@ -6,16 +6,16 @@ using namespace std;
 vector<int> genere_indiv(const DataZone & dZ)
 {
 //srand(time(NULL));//voir lib standard
-vector<int> indiv(dZ.N_St);
+vector<int> indiv(dZ.N_Elem);
 vector<int> bur_ind_list;//pourquoi des vect et pas des set?ou list c'est mieux pr les erase...
 //cout<<"rep G1"<<endl;
-for(int i=1;i<=dZ.N_Bur;i++)bur_ind_list.push_back(i);
+for(int i=1;i<=dZ.N_Cell;i++)bur_ind_list.push_back(i);
 vector<int> st_ind_list=dZ.vect_ordo;
 //cout<<"rep G2"<<endl;
 
-//for(int i=0;i<dZ.N_St;i++)st_ind_list.push_back(i);
-//auto bmm_av=dZ.bmm;//marche pas!
-std::multimap<int,int> bmm_av=dZ.bmm;
+//for(int i=0;i<dZ.N_Elem;i++)st_ind_list.push_back(i);
+//auto cell_pair_map_av=dZ.cell_pair_map;//marche pas!
+std::multimap<int,int> cell_pair_map_av=dZ.cell_pair_map;
 //cout<<"rep G3"<<endl;
 
 //cout<<"placement des direct s"<<endl;
@@ -34,15 +34,15 @@ debug_aff_vect(bur_ind_list);
 //=============*/
 indiv[m_p.first]=m_p.second;
 bur_ind_list.erase(find(bur_ind_list.begin(),bur_ind_list.end(),m_p.second));
-// effacer pair ds bmm_av si c'est un bur de paire!!!
-if(bur_have_pair_av(m_p.second,bmm_av))
+// effacer pair ds cell_pair_map_av si c'est un bur de paire!!!
+if(bur_have_pair_av(m_p.second,cell_pair_map_av))
 {
-    auto it=bmm_av.find(m_p.second);
-    //auto it_2=bmm_av.find(it->second);
+    auto it=cell_pair_map_av.find(m_p.second);
+    //auto it_2=cell_pair_map_av.find(it->second);
     int ind_bp=it->second;
-    bmm_av.erase(it);
-    it=bmm_av.find(ind_bp);
-    bmm_av.erase(it);
+    cell_pair_map_av.erase(it);
+    it=cell_pair_map_av.find(ind_bp);
+    cell_pair_map_av.erase(it);
 
 }
 st_ind_list.erase(find(st_ind_list.begin(),st_ind_list.end(),m_p.first));
@@ -66,7 +66,7 @@ for(auto m_p : dZ.dsm)
 if((st_have_pair(m_p.first,dZ))&&(!cpl_ds_dsm(m_p.first,dZ)))
 {
 //cout<<"entree if"<<endl;
-int bp=get_a_bur_pair(m_p.second,bmm_av);
+int bp=get_a_bur_pair(m_p.second,cell_pair_map_av);
 //cout<<"sortie get_a_bur pair"<<endl;
 int st_pair=get_st_pair(m_p.first,dZ);
 //cout<<"sortie_fct"<<endl;
@@ -87,7 +87,7 @@ while(st_ind_list.size()!=0)
 //cout<<"entree while,choix d'un indice de bur"<<endl;
 //cout<<"rep G5"<<endl;
 int a=rand_a_b(0,bur_ind_list.size());//voir lib std si il ya une fct implementée
-while(st_have_pair(st_ind_list.at(0),dZ)&&(!bur_have_pair_av(bur_ind_list.at(a),bmm_av)))
+while(st_have_pair(st_ind_list.at(0),dZ)&&(!bur_have_pair_av(bur_ind_list.at(a),cell_pair_map_av)))
 {//cout<<"rep g5 while"<<endl;
 //cout<<"a= "<<a<<endl;
 //cout<<"(int) a/(bur_ind_list.size())"<<(int) a/(bur_ind_list.size())<<endl;
@@ -112,7 +112,7 @@ indiv[st_ind_list.at(0)]=bur_ind;
 if(st_have_pair(st_ind_list.at(0),dZ))
 {
 //cout<<"rep G7"<<endl;
-int bp=get_a_bur_pair(bur_ind,bmm_av);//efface ds bmm_av...
+int bp=get_a_bur_pair(bur_ind,cell_pair_map_av);//efface ds cell_pair_map_av...
 //cout<<"rep G7_2"<<endl;
 int st_pair=get_st_pair(st_ind_list.at(0),dZ);
 //cout<<"rep G7_3"<<endl;
@@ -138,12 +138,12 @@ return indiv;
 }
 
 
-int get_a_bur_pair(int bur_ind,std::multimap<int,int> &bmm_av)
+int get_a_bur_pair(int bur_ind,std::multimap<int,int> &cell_pair_map_av)
 {
 //cout<<"rep bur_1"<<endl;
-auto itlow=bmm_av.lower_bound(bur_ind);
+auto itlow=cell_pair_map_av.lower_bound(bur_ind);
 //cout<<"rep bur_2"<<endl;
-int ctrk=bmm_av.count(bur_ind);
+int ctrk=cell_pair_map_av.count(bur_ind);
 //cout<<"rep bur_3"<<endl;
 if(ctrk==0)return 0;
 //cout<<"rep bur_4"<<endl;
@@ -153,26 +153,26 @@ for(int i=0;i<a;i++){itlow++;}
 //cout<<"rep bur_6"<<endl;
 int bur_value=itlow->second;
 //cout<<"entree eff pair"<<endl;
-eff_pairs(bur_ind,bmm_av);
+eff_pairs(bur_ind,cell_pair_map_av);
 //cout<<"sortie eff pair"<<endl;
 return bur_value;
 }
 
-void eff_pairs(int bur_ind,std::multimap<int,int> &bmm_av)//pas optimal non?
+void eff_pairs(int bur_ind,std::multimap<int,int> &cell_pair_map_av)//pas optimal non?
 {
-auto p=bmm_av.begin();
-while(p!=bmm_av.end())
+auto p=cell_pair_map_av.begin();
+while(p!=cell_pair_map_av.end())
 {
 //cout<<"hello you"<<endl;
 //debug//
-//for(auto pt:bmm_av){cout<<pt.first<<" "<<pt.second<<endl;}
+//for(auto pt:cell_pair_map_av){cout<<pt.first<<" "<<pt.second<<endl;}
 //cout<<endl;
 //cout<<p->first<<" "<<p->second<<endl;
 //cout<<endl;
 //
 if((p->first==bur_ind)||(p->second==bur_ind)){
 //cout<<"ça va effacer une paire"<<endl;
-p = bmm_av.erase(p);
+p = cell_pair_map_av.erase(p);
 //cout<<"paire effacee.."<<endl;
 
 }
@@ -181,10 +181,10 @@ else{p++;}
 }
 
 
-bool bur_have_pair_av(int bur_ind,const std::multimap<int,int> &bmm_av)
+bool bur_have_pair_av(int bur_ind,const std::multimap<int,int> &cell_pair_map_av)
 {
 //cout<<"entree bur have pair"<<endl;
-auto it_pair=bmm_av.equal_range(bur_ind);
+auto it_pair=cell_pair_map_av.equal_range(bur_ind);
 return(!(it_pair.first==it_pair.second));//???
 }
 

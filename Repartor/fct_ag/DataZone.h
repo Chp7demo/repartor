@@ -24,10 +24,10 @@ struct DataZone
 DataZone(const Combi &combi);
 
 
-//rq: les 3 fonction suivante existe aussi ds genese.h elles sont surchargées...
+//Les 3 fonctions suivantes existent aussi ds genese.h elles sont surchargées...
 bool st_have_pair(int st_ind);
-int get_st_pair(int st_ind);//st_ind doit avoir une pair
-bool cpl_ds_dsm(int st_ind);//st_ind doit avoir une pair
+int get_st_pair(int st_ind); //st_ind doit avoir une pair
+bool cpl_ds_dsm(int st_ind); //st_ind doit avoir une pair
 bool ds_dsm(int st_ind);
 
 
@@ -36,15 +36,14 @@ vector<int> create_desordo();
 
 
 
-
-int N_St;
-int N_Bur;
+int N_Elem;
+int N_Cell;
 
 int N_Fix;
-int N_Cpl;
+int N_Cpl; // partners (elements can be partners) = couple = cpl
 int N_Free;
 
-multimap<int,int> bmm;
+multimap<int,int> cell_pair_map;
 map<int,int> dsm;
 map<int,int> stm;
 
@@ -53,8 +52,8 @@ vector<int> vect_desordo;
 
 MI mi;
 vector<Pos> bp;
-double D_max;
-double D_min;
+double D_max;  // max found distance between cells
+double D_min;  // min found distance between cells
 
 
 private:

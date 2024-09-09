@@ -117,7 +117,7 @@ void CalculThread::run()
        for(unsigned int id=0;id<pop.size();id++)
        {
            //cout<< ((double) rand_a_b(0,1000))/1000<<endl;
-           if((((double) rand_a_b(0,1000))/1000)<=P_mut){mutation(pop.at(id),dZ);cout<<"mutation"<<endl;}
+           if((((double) rand_a_b(0,1000))/1000)<=P_mut){mutation(pop.at(id),dZ);/*cout<<"mutation"<<endl;*/}
        }
        // cout<<"ap_mutation"<<endl;
 

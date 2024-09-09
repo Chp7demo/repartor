@@ -305,35 +305,36 @@ QT_MOC_LITERAL(15, 8), // "GlobMode"
 QT_MOC_LITERAL(24, 10), // "aff_cercle"
 QT_MOC_LITERAL(35, 8), // "Elements"
 QT_MOC_LITERAL(44, 2), // "sc"
-QT_MOC_LITERAL(47, 17), // "std::map<int,int>"
-QT_MOC_LITERAL(65, 2), // "mp"
-QT_MOC_LITERAL(68, 21), // "add_cpt_freeze_fenres"
-QT_MOC_LITERAL(90, 22), // "sous_cpt_freeze_fenres"
-QT_MOC_LITERAL(113, 11), // "aj_cl_et_ro"
-QT_MOC_LITERAL(125, 1), // "l"
-QT_MOC_LITERAL(127, 10), // "nouv_inter"
-QT_MOC_LITERAL(138, 1), // "s"
-QT_MOC_LITERAL(140, 2), // "s2"
-QT_MOC_LITERAL(143, 9), // "interType"
-QT_MOC_LITERAL(153, 2), // "it"
-QT_MOC_LITERAL(156, 9), // "modif_bur"
-QT_MOC_LITERAL(166, 1), // "i"
-QT_MOC_LITERAL(168, 3), // "Pos"
-QT_MOC_LITERAL(172, 1), // "p"
-QT_MOC_LITERAL(174, 8), // "supr_bur"
-QT_MOC_LITERAL(183, 7), // "add_bur"
-QT_MOC_LITERAL(191, 7), // "add_cpl"
-QT_MOC_LITERAL(199, 2), // "i2"
-QT_MOC_LITERAL(202, 8), // "supr_cpl"
-QT_MOC_LITERAL(211, 14) // "faire_ajourner"
+QT_MOC_LITERAL(47, 21), // "add_cpt_freeze_fenres"
+QT_MOC_LITERAL(69, 22), // "sous_cpt_freeze_fenres"
+QT_MOC_LITERAL(92, 11), // "aj_cl_et_ro"
+QT_MOC_LITERAL(104, 1), // "l"
+QT_MOC_LITERAL(106, 10), // "nouv_inter"
+QT_MOC_LITERAL(117, 1), // "s"
+QT_MOC_LITERAL(119, 2), // "s2"
+QT_MOC_LITERAL(122, 9), // "interType"
+QT_MOC_LITERAL(132, 2), // "it"
+QT_MOC_LITERAL(135, 9), // "modif_bur"
+QT_MOC_LITERAL(145, 1), // "i"
+QT_MOC_LITERAL(147, 3), // "Pos"
+QT_MOC_LITERAL(151, 1), // "p"
+QT_MOC_LITERAL(153, 8), // "supr_bur"
+QT_MOC_LITERAL(162, 7), // "add_bur"
+QT_MOC_LITERAL(170, 7), // "add_cpl"
+QT_MOC_LITERAL(178, 2), // "i2"
+QT_MOC_LITERAL(181, 8), // "supr_cpl"
+QT_MOC_LITERAL(190, 14), // "faire_ajourner"
+QT_MOC_LITERAL(205, 17), // "std::map<int,int>"
+QT_MOC_LITERAL(223, 2) // "mp"
 
     },
     "GlobF\0setMode\0\0GlobMode\0aff_cercle\0"
-    "Elements\0sc\0std::map<int,int>\0mp\0"
-    "add_cpt_freeze_fenres\0sous_cpt_freeze_fenres\0"
-    "aj_cl_et_ro\0l\0nouv_inter\0s\0s2\0interType\0"
-    "it\0modif_bur\0i\0Pos\0p\0supr_bur\0add_bur\0"
-    "add_cpl\0i2\0supr_cpl\0faire_ajourner"
+    "Elements\0sc\0add_cpt_freeze_fenres\0"
+    "sous_cpt_freeze_fenres\0aj_cl_et_ro\0l\0"
+    "nouv_inter\0s\0s2\0interType\0it\0modif_bur\0"
+    "i\0Pos\0p\0supr_bur\0add_bur\0add_cpl\0i2\0"
+    "supr_cpl\0faire_ajourner\0std::map<int,int>\0"
+    "mp"
 };
 #undef QT_MOC_LITERAL
 
@@ -352,31 +353,31 @@ static const uint qt_meta_data_GlobF[] = {
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
        1,    1,   86,    2, 0x0a,    1 /* Public */,
-       4,    2,   89,    2, 0x0a,    3 /* Public */,
-       9,    0,   94,    2, 0x0a,    6 /* Public */,
-      10,    0,   95,    2, 0x0a,    7 /* Public */,
-      11,    1,   96,    2, 0x0a,    8 /* Public */,
-      13,    3,   99,    2, 0x0a,   10 /* Public */,
-      18,    2,  106,    2, 0x0a,   14 /* Public */,
-      22,    1,  111,    2, 0x0a,   17 /* Public */,
-      23,    1,  114,    2, 0x0a,   19 /* Public */,
-      24,    2,  117,    2, 0x0a,   21 /* Public */,
-      26,    2,  122,    2, 0x0a,   24 /* Public */,
-      27,    2,  127,    2, 0x0a,   27 /* Public */,
+       4,    1,   89,    2, 0x0a,    3 /* Public */,
+       7,    0,   92,    2, 0x0a,    5 /* Public */,
+       8,    0,   93,    2, 0x0a,    6 /* Public */,
+       9,    1,   94,    2, 0x0a,    7 /* Public */,
+      11,    3,   97,    2, 0x0a,    9 /* Public */,
+      16,    2,  104,    2, 0x0a,   13 /* Public */,
+      20,    1,  109,    2, 0x0a,   16 /* Public */,
+      21,    1,  112,    2, 0x0a,   18 /* Public */,
+      22,    2,  115,    2, 0x0a,   20 /* Public */,
+      24,    2,  120,    2, 0x0a,   23 /* Public */,
+      25,    2,  125,    2, 0x0a,   26 /* Public */,
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 3,    2,
-    QMetaType::Void, 0x80000000 | 5, 0x80000000 | 7,    6,    8,
+    QMetaType::Void, 0x80000000 | 5,    6,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QStringList,   12,
-    QMetaType::Void, QMetaType::QString, QMetaType::QString, 0x80000000 | 16,   14,   15,   17,
-    QMetaType::Void, QMetaType::Int, 0x80000000 | 20,   19,   21,
-    QMetaType::Void, QMetaType::Int,   19,
-    QMetaType::Void, 0x80000000 | 20,   21,
-    QMetaType::Void, QMetaType::Int, QMetaType::Int,   19,   25,
-    QMetaType::Void, QMetaType::Int, QMetaType::Int,   19,   25,
-    QMetaType::Void, 0x80000000 | 5, 0x80000000 | 7,    6,    8,
+    QMetaType::Void, QMetaType::QStringList,   10,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString, 0x80000000 | 14,   12,   13,   15,
+    QMetaType::Void, QMetaType::Int, 0x80000000 | 18,   17,   19,
+    QMetaType::Void, QMetaType::Int,   17,
+    QMetaType::Void, 0x80000000 | 18,   19,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int,   17,   23,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int,   17,   23,
+    QMetaType::Void, 0x80000000 | 5, 0x80000000 | 26,    6,   27,
 
        0        // eod
 };
@@ -388,7 +389,7 @@ void GlobF::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         (void)_t;
         switch (_id) {
         case 0: _t->setMode((*reinterpret_cast< GlobMode(*)>(_a[1]))); break;
-        case 1: _t->aff_cercle((*reinterpret_cast< Elements(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2]))); break;
+        case 1: _t->aff_cercle((*reinterpret_cast< Elements(*)>(_a[1]))); break;
         case 2: _t->add_cpt_freeze_fenres(); break;
         case 3: _t->sous_cpt_freeze_fenres(); break;
         case 4: _t->aj_cl_et_ro((*reinterpret_cast< QList<QString>(*)>(_a[1]))); break;
@@ -412,7 +413,7 @@ const QMetaObject GlobF::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_GlobF_t
 , QtPrivate::TypeAndForceComplete<GlobF, std::true_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<GlobMode, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<Elements, std::false_type>, QtPrivate::TypeAndForceComplete<std::map<int,int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QList<QString>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<interType, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<Pos, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<Pos, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<Elements, std::false_type>, QtPrivate::TypeAndForceComplete<std::map<int,int>, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<GlobMode, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<Elements, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QList<QString>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<interType, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<Pos, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<Pos, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<Elements, std::false_type>, QtPrivate::TypeAndForceComplete<std::map<int,int>, std::false_type>
 
 
 >,

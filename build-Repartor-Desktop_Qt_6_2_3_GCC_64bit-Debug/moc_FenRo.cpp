@@ -24,33 +24,33 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MaGraphicsView_t {
     const uint offsetsAndSize[34];
-    char stringdata0[137];
+    char stringdata0[140];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MaGraphicsView_t, stringdata0) + ofs), len 
 static const qt_meta_stringdata_MaGraphicsView_t qt_meta_stringdata_MaGraphicsView = {
     {
 QT_MOC_LITERAL(0, 14), // "MaGraphicsView"
-QT_MOC_LITERAL(15, 9), // "modif_bur"
-QT_MOC_LITERAL(25, 0), // ""
-QT_MOC_LITERAL(26, 5), // "index"
-QT_MOC_LITERAL(32, 3), // "Pos"
-QT_MOC_LITERAL(36, 3), // "pos"
-QT_MOC_LITERAL(40, 8), // "supr_bur"
-QT_MOC_LITERAL(49, 7), // "add_bur"
-QT_MOC_LITERAL(57, 7), // "add_cpl"
-QT_MOC_LITERAL(65, 8), // "supr_cpl"
-QT_MOC_LITERAL(74, 6), // "resize"
-QT_MOC_LITERAL(81, 8), // "rotation"
-QT_MOC_LITERAL(90, 12), // "index_du_wiB"
-QT_MOC_LITERAL(103, 7), // "setMode"
-QT_MOC_LITERAL(111, 8), // "ViewMode"
-QT_MOC_LITERAL(120, 2), // "vM"
-QT_MOC_LITERAL(123, 13) // "effectuer_rot"
+QT_MOC_LITERAL(15, 10), // "modif_cell"
+QT_MOC_LITERAL(26, 0), // ""
+QT_MOC_LITERAL(27, 5), // "index"
+QT_MOC_LITERAL(33, 3), // "Pos"
+QT_MOC_LITERAL(37, 3), // "pos"
+QT_MOC_LITERAL(41, 9), // "supr_cell"
+QT_MOC_LITERAL(51, 8), // "add_cell"
+QT_MOC_LITERAL(60, 7), // "add_cpl"
+QT_MOC_LITERAL(68, 8), // "supr_cpl"
+QT_MOC_LITERAL(77, 6), // "resize"
+QT_MOC_LITERAL(84, 8), // "rotation"
+QT_MOC_LITERAL(93, 12), // "index_du_wiB"
+QT_MOC_LITERAL(106, 7), // "setMode"
+QT_MOC_LITERAL(114, 8), // "ViewMode"
+QT_MOC_LITERAL(123, 2), // "vM"
+QT_MOC_LITERAL(126, 13) // "effectuer_rot"
 
     },
-    "MaGraphicsView\0modif_bur\0\0index\0Pos\0"
-    "pos\0supr_bur\0add_bur\0add_cpl\0supr_cpl\0"
+    "MaGraphicsView\0modif_cell\0\0index\0Pos\0"
+    "pos\0supr_cell\0add_cell\0add_cpl\0supr_cpl\0"
     "resize\0rotation\0index_du_wiB\0setMode\0"
     "ViewMode\0vM\0effectuer_rot"
 };
@@ -104,9 +104,9 @@ void MaGraphicsView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         auto *_t = static_cast<MaGraphicsView *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->modif_bur((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< Pos(*)>(_a[2]))); break;
-        case 1: _t->supr_bur((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 2: _t->add_bur((*reinterpret_cast< Pos(*)>(_a[1]))); break;
+        case 0: _t->modif_cell((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< Pos(*)>(_a[2]))); break;
+        case 1: _t->supr_cell((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 2: _t->add_cell((*reinterpret_cast< Pos(*)>(_a[1]))); break;
         case 3: _t->add_cpl((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 4: _t->supr_cpl((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 5: _t->resize((*reinterpret_cast< qreal(*)>(_a[1]))); break;
@@ -119,21 +119,21 @@ void MaGraphicsView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         int *result = reinterpret_cast<int *>(_a[0]);
         {
             using _t = void (MaGraphicsView::*)(int , Pos );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MaGraphicsView::modif_bur)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MaGraphicsView::modif_cell)) {
                 *result = 0;
                 return;
             }
         }
         {
             using _t = void (MaGraphicsView::*)(int );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MaGraphicsView::supr_bur)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MaGraphicsView::supr_cell)) {
                 *result = 1;
                 return;
             }
         }
         {
             using _t = void (MaGraphicsView::*)(Pos );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MaGraphicsView::add_bur)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MaGraphicsView::add_cell)) {
                 *result = 2;
                 return;
             }
@@ -216,21 +216,21 @@ int MaGraphicsView::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void MaGraphicsView::modif_bur(int _t1, Pos _t2)
+void MaGraphicsView::modif_cell(int _t1, Pos _t2)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 
 // SIGNAL 1
-void MaGraphicsView::supr_bur(int _t1)
+void MaGraphicsView::supr_cell(int _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 
 // SIGNAL 2
-void MaGraphicsView::add_bur(Pos _t1)
+void MaGraphicsView::add_cell(Pos _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);
@@ -265,39 +265,39 @@ void MaGraphicsView::rotation(int _t1)
 }
 struct qt_meta_stringdata_FenRoDes_t {
     const uint offsetsAndSize[40];
-    char stringdata0[179];
+    char stringdata0[185];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_FenRoDes_t, stringdata0) + ofs), len 
 static const qt_meta_stringdata_FenRoDes_t qt_meta_stringdata_FenRoDes = {
     {
 QT_MOC_LITERAL(0, 8), // "FenRoDes"
-QT_MOC_LITERAL(9, 9), // "modif_bur"
-QT_MOC_LITERAL(19, 0), // ""
-QT_MOC_LITERAL(20, 5), // "index"
-QT_MOC_LITERAL(26, 3), // "Pos"
-QT_MOC_LITERAL(30, 3), // "pos"
-QT_MOC_LITERAL(34, 8), // "supr_bur"
-QT_MOC_LITERAL(43, 7), // "add_bur"
-QT_MOC_LITERAL(51, 7), // "add_cpl"
-QT_MOC_LITERAL(59, 3), // "i_1"
-QT_MOC_LITERAL(63, 3), // "i_2"
-QT_MOC_LITERAL(67, 8), // "supr_cpl"
-QT_MOC_LITERAL(76, 7), // "setMode"
-QT_MOC_LITERAL(84, 8), // "ViewMode"
-QT_MOC_LITERAL(93, 6), // "resize"
-QT_MOC_LITERAL(100, 16), // "emetre_modif_bur"
-QT_MOC_LITERAL(117, 15), // "emetre_supr_bur"
-QT_MOC_LITERAL(133, 14), // "emetre_add_bur"
-QT_MOC_LITERAL(148, 14), // "emetre_add_cpl"
-QT_MOC_LITERAL(163, 15) // "emetre_supr_cpl"
+QT_MOC_LITERAL(9, 10), // "modif_cell"
+QT_MOC_LITERAL(20, 0), // ""
+QT_MOC_LITERAL(21, 5), // "index"
+QT_MOC_LITERAL(27, 3), // "Pos"
+QT_MOC_LITERAL(31, 3), // "pos"
+QT_MOC_LITERAL(35, 9), // "supr_cell"
+QT_MOC_LITERAL(45, 8), // "add_cell"
+QT_MOC_LITERAL(54, 7), // "add_cpl"
+QT_MOC_LITERAL(62, 3), // "i_1"
+QT_MOC_LITERAL(66, 3), // "i_2"
+QT_MOC_LITERAL(70, 8), // "supr_cpl"
+QT_MOC_LITERAL(79, 7), // "setMode"
+QT_MOC_LITERAL(87, 8), // "ViewMode"
+QT_MOC_LITERAL(96, 6), // "resize"
+QT_MOC_LITERAL(103, 17), // "emetre_modif_cell"
+QT_MOC_LITERAL(121, 16), // "emetre_supr_cell"
+QT_MOC_LITERAL(138, 15), // "emetre_add_cell"
+QT_MOC_LITERAL(154, 14), // "emetre_add_cpl"
+QT_MOC_LITERAL(169, 15) // "emetre_supr_cpl"
 
     },
-    "FenRoDes\0modif_bur\0\0index\0Pos\0pos\0"
-    "supr_bur\0add_bur\0add_cpl\0i_1\0i_2\0"
+    "FenRoDes\0modif_cell\0\0index\0Pos\0pos\0"
+    "supr_cell\0add_cell\0add_cpl\0i_1\0i_2\0"
     "supr_cpl\0setMode\0ViewMode\0resize\0"
-    "emetre_modif_bur\0emetre_supr_bur\0"
-    "emetre_add_bur\0emetre_add_cpl\0"
+    "emetre_modif_cell\0emetre_supr_cell\0"
+    "emetre_add_cell\0emetre_add_cpl\0"
     "emetre_supr_cpl"
 };
 #undef QT_MOC_LITERAL
@@ -356,16 +356,16 @@ void FenRoDes::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         auto *_t = static_cast<FenRoDes *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->modif_bur((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< Pos(*)>(_a[2]))); break;
-        case 1: _t->supr_bur((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 2: _t->add_bur((*reinterpret_cast< Pos(*)>(_a[1]))); break;
+        case 0: _t->modif_cell((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< Pos(*)>(_a[2]))); break;
+        case 1: _t->supr_cell((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 2: _t->add_cell((*reinterpret_cast< Pos(*)>(_a[1]))); break;
         case 3: _t->add_cpl((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 4: _t->supr_cpl((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 5: _t->setMode((*reinterpret_cast< ViewMode(*)>(_a[1]))); break;
         case 6: _t->resize((*reinterpret_cast< qreal(*)>(_a[1]))); break;
-        case 7: _t->emetre_modif_bur((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< Pos(*)>(_a[2]))); break;
-        case 8: _t->emetre_supr_bur((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 9: _t->emetre_add_bur((*reinterpret_cast< Pos(*)>(_a[1]))); break;
+        case 7: _t->emetre_modif_cell((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< Pos(*)>(_a[2]))); break;
+        case 8: _t->emetre_supr_cell((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 9: _t->emetre_add_cell((*reinterpret_cast< Pos(*)>(_a[1]))); break;
         case 10: _t->emetre_add_cpl((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 11: _t->emetre_supr_cpl((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         default: ;
@@ -374,21 +374,21 @@ void FenRoDes::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         int *result = reinterpret_cast<int *>(_a[0]);
         {
             using _t = void (FenRoDes::*)(int , Pos );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&FenRoDes::modif_bur)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&FenRoDes::modif_cell)) {
                 *result = 0;
                 return;
             }
         }
         {
             using _t = void (FenRoDes::*)(int );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&FenRoDes::supr_bur)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&FenRoDes::supr_cell)) {
                 *result = 1;
                 return;
             }
         }
         {
             using _t = void (FenRoDes::*)(Pos );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&FenRoDes::add_bur)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&FenRoDes::add_cell)) {
                 *result = 2;
                 return;
             }
@@ -457,21 +457,21 @@ int FenRoDes::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void FenRoDes::modif_bur(int _t1, Pos _t2)
+void FenRoDes::modif_cell(int _t1, Pos _t2)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 
 // SIGNAL 1
-void FenRoDes::supr_bur(int _t1)
+void FenRoDes::supr_cell(int _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 
 // SIGNAL 2
-void FenRoDes::add_bur(Pos _t1)
+void FenRoDes::add_cell(Pos _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);
@@ -759,35 +759,35 @@ void FenRoBut::aj_mode(ViewMode _t1)
 }
 struct qt_meta_stringdata_FenRo_t {
     const uint offsetsAndSize[34];
-    char stringdata0[152];
+    char stringdata0[158];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_FenRo_t, stringdata0) + ofs), len 
 static const qt_meta_stringdata_FenRo_t qt_meta_stringdata_FenRo = {
     {
 QT_MOC_LITERAL(0, 5), // "FenRo"
-QT_MOC_LITERAL(6, 9), // "modif_bur"
-QT_MOC_LITERAL(16, 0), // ""
-QT_MOC_LITERAL(17, 5), // "index"
-QT_MOC_LITERAL(23, 3), // "Pos"
-QT_MOC_LITERAL(27, 3), // "pos"
-QT_MOC_LITERAL(31, 8), // "supr_bur"
-QT_MOC_LITERAL(40, 7), // "add_bur"
-QT_MOC_LITERAL(48, 7), // "add_cpl"
-QT_MOC_LITERAL(56, 3), // "i_1"
-QT_MOC_LITERAL(60, 3), // "i_2"
-QT_MOC_LITERAL(64, 8), // "supr_cpl"
-QT_MOC_LITERAL(73, 16), // "emetre_modif_bur"
-QT_MOC_LITERAL(90, 15), // "emetre_supr_bur"
-QT_MOC_LITERAL(106, 14), // "emetre_add_bur"
-QT_MOC_LITERAL(121, 14), // "emetre_add_cpl"
-QT_MOC_LITERAL(136, 15) // "emetre_supr_cpl"
+QT_MOC_LITERAL(6, 10), // "modif_cell"
+QT_MOC_LITERAL(17, 0), // ""
+QT_MOC_LITERAL(18, 5), // "index"
+QT_MOC_LITERAL(24, 3), // "Pos"
+QT_MOC_LITERAL(28, 3), // "pos"
+QT_MOC_LITERAL(32, 9), // "supr_cell"
+QT_MOC_LITERAL(42, 8), // "add_cell"
+QT_MOC_LITERAL(51, 7), // "add_cpl"
+QT_MOC_LITERAL(59, 3), // "i_1"
+QT_MOC_LITERAL(63, 3), // "i_2"
+QT_MOC_LITERAL(67, 8), // "supr_cpl"
+QT_MOC_LITERAL(76, 17), // "emetre_modif_cell"
+QT_MOC_LITERAL(94, 16), // "emetre_supr_cell"
+QT_MOC_LITERAL(111, 15), // "emetre_add_cell"
+QT_MOC_LITERAL(127, 14), // "emetre_add_cpl"
+QT_MOC_LITERAL(142, 15) // "emetre_supr_cpl"
 
     },
-    "FenRo\0modif_bur\0\0index\0Pos\0pos\0supr_bur\0"
-    "add_bur\0add_cpl\0i_1\0i_2\0supr_cpl\0"
-    "emetre_modif_bur\0emetre_supr_bur\0"
-    "emetre_add_bur\0emetre_add_cpl\0"
+    "FenRo\0modif_cell\0\0index\0Pos\0pos\0"
+    "supr_cell\0add_cell\0add_cpl\0i_1\0i_2\0"
+    "supr_cpl\0emetre_modif_cell\0emetre_supr_cell\0"
+    "emetre_add_cell\0emetre_add_cpl\0"
     "emetre_supr_cpl"
 };
 #undef QT_MOC_LITERAL
@@ -842,14 +842,14 @@ void FenRo::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         auto *_t = static_cast<FenRo *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->modif_bur((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< Pos(*)>(_a[2]))); break;
-        case 1: _t->supr_bur((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 2: _t->add_bur((*reinterpret_cast< Pos(*)>(_a[1]))); break;
+        case 0: _t->modif_cell((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< Pos(*)>(_a[2]))); break;
+        case 1: _t->supr_cell((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 2: _t->add_cell((*reinterpret_cast< Pos(*)>(_a[1]))); break;
         case 3: _t->add_cpl((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 4: _t->supr_cpl((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 5: _t->emetre_modif_bur((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< Pos(*)>(_a[2]))); break;
-        case 6: _t->emetre_supr_bur((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 7: _t->emetre_add_bur((*reinterpret_cast< Pos(*)>(_a[1]))); break;
+        case 5: _t->emetre_modif_cell((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< Pos(*)>(_a[2]))); break;
+        case 6: _t->emetre_supr_cell((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 7: _t->emetre_add_cell((*reinterpret_cast< Pos(*)>(_a[1]))); break;
         case 8: _t->emetre_add_cpl((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 9: _t->emetre_supr_cpl((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         default: ;
@@ -858,21 +858,21 @@ void FenRo::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         int *result = reinterpret_cast<int *>(_a[0]);
         {
             using _t = void (FenRo::*)(int , Pos );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&FenRo::modif_bur)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&FenRo::modif_cell)) {
                 *result = 0;
                 return;
             }
         }
         {
             using _t = void (FenRo::*)(int );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&FenRo::supr_bur)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&FenRo::supr_cell)) {
                 *result = 1;
                 return;
             }
         }
         {
             using _t = void (FenRo::*)(Pos );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&FenRo::add_bur)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&FenRo::add_cell)) {
                 *result = 2;
                 return;
             }
@@ -941,21 +941,21 @@ int FenRo::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void FenRo::modif_bur(int _t1, Pos _t2)
+void FenRo::modif_cell(int _t1, Pos _t2)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 
 // SIGNAL 1
-void FenRo::supr_bur(int _t1)
+void FenRo::supr_cell(int _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 
 // SIGNAL 2
-void FenRo::add_bur(Pos _t1)
+void FenRo::add_cell(Pos _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);

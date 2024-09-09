@@ -99,7 +99,7 @@ class MaGraphicsViewI : public QGraphicsView
         //void resizeEvent(QResizeEvent *);
 
     signals:
-    void nouv_inter(QString,QString,interType);
+    void new_inter(QString,QString,interType);
     // void add_cpt_freeze_fenres();
     void sous();
      public slots:
@@ -177,9 +177,9 @@ class FenDesI :  public QWidget
     public slots:
     void setMode(ViewModeI);
   void aff_cercle(Elements);
-  void pass_nouv_inter(QString,QString,interType);
+  void pass_new_inter(QString,QString,interType);
     signals:
-  void nouv_inter(QString,QString,interType);
+  void new_inter(QString,QString,interType);
 
      private:
  QGraphicsScene *graphScene;
@@ -244,11 +244,11 @@ class FenI :  public QWidget
 
     public slots:
   void aff_cercle(Elements);
-  void pass_nouv_inter(QString,QString,interType);
-  void emettre_sous(){emit sous_cpt_freeze_fenres();}
+  void pass_new_inter(QString,QString,interType);
+  void emettre_sous(){emit sub_cpt_freeze_fenres();}
     signals:
-  void nouv_inter(QString,QString,interType);
-  void sous_cpt_freeze_fenres();
+  void new_inter(QString,QString,interType);
+  void sub_cpt_freeze_fenres();
     private:
 
 

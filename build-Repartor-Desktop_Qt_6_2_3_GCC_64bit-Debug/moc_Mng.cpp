@@ -25,7 +25,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Mng_t {
     const uint offsetsAndSize[64];
-    char stringdata0[361];
+    char stringdata0[365];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_Mng_t, stringdata0) + ofs), len 
@@ -41,38 +41,38 @@ QT_MOC_LITERAL(68, 17), // "cell_pos_ajourned"
 QT_MOC_LITERAL(86, 16), // "std::vector<Pos>"
 QT_MOC_LITERAL(103, 13), // "std::set<int>"
 QT_MOC_LITERAL(117, 13), // "bmmp_ajourned"
-QT_MOC_LITERAL(131, 14), // "faire_ajourner"
-QT_MOC_LITERAL(146, 11), // "lancer_calc"
-QT_MOC_LITERAL(158, 11), // "placer_stud"
-QT_MOC_LITERAL(170, 11), // "vector<int>"
-QT_MOC_LITERAL(182, 7), // "aj_list"
-QT_MOC_LITERAL(190, 11), // "aj_cl_et_ro"
-QT_MOC_LITERAL(202, 10), // "nouv_inter"
-QT_MOC_LITERAL(213, 9), // "interType"
-QT_MOC_LITERAL(223, 9), // "modif_bur"
-QT_MOC_LITERAL(233, 5), // "index"
-QT_MOC_LITERAL(239, 3), // "Pos"
-QT_MOC_LITERAL(243, 8), // "supr_bur"
-QT_MOC_LITERAL(252, 6), // "Combi&"
-QT_MOC_LITERAL(259, 4), // "comb"
-QT_MOC_LITERAL(264, 7), // "add_bur"
-QT_MOC_LITERAL(272, 3), // "pos"
-QT_MOC_LITERAL(276, 7), // "add_cpl"
-QT_MOC_LITERAL(284, 8), // "supr_cpl"
-QT_MOC_LITERAL(293, 16), // "aj_elem_cell_map"
-QT_MOC_LITERAL(310, 18), // "elem_cell_map_supr"
-QT_MOC_LITERAL(329, 14), // "ad_frozen_cell"
-QT_MOC_LITERAL(344, 16) // "supr_frozen_cell"
+QT_MOC_LITERAL(131, 12), // "make_refresh"
+QT_MOC_LITERAL(144, 11), // "lancer_calc"
+QT_MOC_LITERAL(156, 11), // "placer_stud"
+QT_MOC_LITERAL(168, 11), // "vector<int>"
+QT_MOC_LITERAL(180, 7), // "aj_list"
+QT_MOC_LITERAL(188, 15), // "rfsh_elem_space"
+QT_MOC_LITERAL(204, 9), // "new_inter"
+QT_MOC_LITERAL(214, 9), // "interType"
+QT_MOC_LITERAL(224, 10), // "modif_cell"
+QT_MOC_LITERAL(235, 5), // "index"
+QT_MOC_LITERAL(241, 3), // "Pos"
+QT_MOC_LITERAL(245, 9), // "supr_cell"
+QT_MOC_LITERAL(255, 6), // "Combi&"
+QT_MOC_LITERAL(262, 4), // "comb"
+QT_MOC_LITERAL(267, 8), // "add_cell"
+QT_MOC_LITERAL(276, 3), // "pos"
+QT_MOC_LITERAL(280, 7), // "add_cpl"
+QT_MOC_LITERAL(288, 8), // "supr_cpl"
+QT_MOC_LITERAL(297, 16), // "aj_elem_cell_map"
+QT_MOC_LITERAL(314, 18), // "elem_cell_map_supr"
+QT_MOC_LITERAL(333, 14), // "ad_frozen_cell"
+QT_MOC_LITERAL(348, 16) // "supr_frozen_cell"
 
     },
     "Mng\0ajourned\0\0Elements\0std::map<int,int>\0"
     "ajourner_sans_reaff_cercle\0cell_pos_ajourned\0"
     "std::vector<Pos>\0std::set<int>\0"
-    "bmmp_ajourned\0faire_ajourner\0lancer_calc\0"
+    "bmmp_ajourned\0make_refresh\0lancer_calc\0"
     "placer_stud\0vector<int>\0aj_list\0"
-    "aj_cl_et_ro\0nouv_inter\0interType\0"
-    "modif_bur\0index\0Pos\0supr_bur\0Combi&\0"
-    "comb\0add_bur\0pos\0add_cpl\0supr_cpl\0"
+    "rfsh_elem_space\0new_inter\0interType\0"
+    "modif_cell\0index\0Pos\0supr_cell\0Combi&\0"
+    "comb\0add_cell\0pos\0add_cpl\0supr_cpl\0"
     "aj_elem_cell_map\0elem_cell_map_supr\0"
     "ad_frozen_cell\0supr_frozen_cell"
 };
@@ -152,16 +152,16 @@ void Mng::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **
         case 1: _t->ajourner_sans_reaff_cercle((*reinterpret_cast< Elements(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2]))); break;
         case 2: _t->cell_pos_ajourned((*reinterpret_cast< std::vector<Pos>(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2])),(*reinterpret_cast< std::set<int>(*)>(_a[3]))); break;
         case 3: _t->bmmp_ajourned((*reinterpret_cast< std::map<int,int>(*)>(_a[1]))); break;
-        case 4: _t->faire_ajourner((*reinterpret_cast< Elements(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2]))); break;
+        case 4: _t->make_refresh((*reinterpret_cast< Elements(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2]))); break;
         case 5: _t->lancer_calc(); break;
         case 6: _t->placer_stud((*reinterpret_cast< vector<int>(*)>(_a[1]))); break;
         case 7: _t->aj_list((*reinterpret_cast< QList<QString>(*)>(_a[1]))); break;
-        case 8: _t->aj_cl_et_ro((*reinterpret_cast< QList<QString>(*)>(_a[1]))); break;
-        case 9: _t->nouv_inter((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< interType(*)>(_a[3]))); break;
-        case 10: _t->modif_bur((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< Pos(*)>(_a[2]))); break;
-        case 11: _t->supr_bur((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 12: _t->supr_bur((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< Combi(*)>(_a[2]))); break;
-        case 13: _t->add_bur((*reinterpret_cast< Pos(*)>(_a[1]))); break;
+        case 8: _t->rfsh_elem_space((*reinterpret_cast< QList<QString>(*)>(_a[1]))); break;
+        case 9: _t->new_inter((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< interType(*)>(_a[3]))); break;
+        case 10: _t->modif_cell((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< Pos(*)>(_a[2]))); break;
+        case 11: _t->supr_cell((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 12: _t->supr_cell((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< Combi(*)>(_a[2]))); break;
+        case 13: _t->add_cell((*reinterpret_cast< Pos(*)>(_a[1]))); break;
         case 14: _t->add_cpl((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 15: _t->supr_cpl((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 16: _t->aj_elem_cell_map((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
@@ -202,7 +202,7 @@ void Mng::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **
         }
         {
             using _t = void (Mng::*)(Elements , std::map<int,int> );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Mng::faire_ajourner)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Mng::make_refresh)) {
                 *result = 4;
                 return;
             }
@@ -285,7 +285,7 @@ void Mng::bmmp_ajourned(std::map<int,int> _t1)
 }
 
 // SIGNAL 4
-void Mng::faire_ajourner(Elements _t1, std::map<int,int> _t2)
+void Mng::make_refresh(Elements _t1, std::map<int,int> _t2)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
     QMetaObject::activate(this, &staticMetaObject, 4, _a);

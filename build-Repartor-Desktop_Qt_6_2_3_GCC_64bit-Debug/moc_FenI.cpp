@@ -24,25 +24,25 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MaGraphicsViewI_t {
     const uint offsetsAndSize[20];
-    char stringdata0[84];
+    char stringdata0[83];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MaGraphicsViewI_t, stringdata0) + ofs), len 
 static const qt_meta_stringdata_MaGraphicsViewI_t qt_meta_stringdata_MaGraphicsViewI = {
     {
 QT_MOC_LITERAL(0, 15), // "MaGraphicsViewI"
-QT_MOC_LITERAL(16, 10), // "nouv_inter"
-QT_MOC_LITERAL(27, 0), // ""
-QT_MOC_LITERAL(28, 9), // "interType"
-QT_MOC_LITERAL(38, 4), // "sous"
-QT_MOC_LITERAL(43, 10), // "aff_cercle"
-QT_MOC_LITERAL(54, 8), // "Elements"
-QT_MOC_LITERAL(63, 7), // "setMode"
-QT_MOC_LITERAL(71, 9), // "ViewModeI"
-QT_MOC_LITERAL(81, 2) // "vM"
+QT_MOC_LITERAL(16, 9), // "new_inter"
+QT_MOC_LITERAL(26, 0), // ""
+QT_MOC_LITERAL(27, 9), // "interType"
+QT_MOC_LITERAL(37, 4), // "sous"
+QT_MOC_LITERAL(42, 10), // "aff_cercle"
+QT_MOC_LITERAL(53, 8), // "Elements"
+QT_MOC_LITERAL(62, 7), // "setMode"
+QT_MOC_LITERAL(70, 9), // "ViewModeI"
+QT_MOC_LITERAL(80, 2) // "vM"
 
     },
-    "MaGraphicsViewI\0nouv_inter\0\0interType\0"
+    "MaGraphicsViewI\0new_inter\0\0interType\0"
     "sous\0aff_cercle\0Elements\0setMode\0"
     "ViewModeI\0vM"
 };
@@ -86,7 +86,7 @@ void MaGraphicsViewI::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         auto *_t = static_cast<MaGraphicsViewI *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->nouv_inter((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< interType(*)>(_a[3]))); break;
+        case 0: _t->new_inter((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< interType(*)>(_a[3]))); break;
         case 1: _t->sous(); break;
         case 2: _t->aff_cercle((*reinterpret_cast< Elements(*)>(_a[1]))); break;
         case 3: _t->setMode((*reinterpret_cast< ViewModeI(*)>(_a[1]))); break;
@@ -96,7 +96,7 @@ void MaGraphicsViewI::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         int *result = reinterpret_cast<int *>(_a[0]);
         {
             using _t = void (MaGraphicsViewI::*)(QString , QString , interType );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MaGraphicsViewI::nouv_inter)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MaGraphicsViewI::new_inter)) {
                 *result = 0;
                 return;
             }
@@ -158,7 +158,7 @@ int MaGraphicsViewI::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void MaGraphicsViewI::nouv_inter(QString _t1, QString _t2, interType _t3)
+void MaGraphicsViewI::new_inter(QString _t1, QString _t2, interType _t3)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
@@ -171,26 +171,26 @@ void MaGraphicsViewI::sous()
 }
 struct qt_meta_stringdata_FenDesI_t {
     const uint offsetsAndSize[18];
-    char stringdata0[84];
+    char stringdata0[82];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_FenDesI_t, stringdata0) + ofs), len 
 static const qt_meta_stringdata_FenDesI_t qt_meta_stringdata_FenDesI = {
     {
 QT_MOC_LITERAL(0, 7), // "FenDesI"
-QT_MOC_LITERAL(8, 10), // "nouv_inter"
-QT_MOC_LITERAL(19, 0), // ""
-QT_MOC_LITERAL(20, 9), // "interType"
-QT_MOC_LITERAL(30, 7), // "setMode"
-QT_MOC_LITERAL(38, 9), // "ViewModeI"
-QT_MOC_LITERAL(48, 10), // "aff_cercle"
-QT_MOC_LITERAL(59, 8), // "Elements"
-QT_MOC_LITERAL(68, 15) // "pass_nouv_inter"
+QT_MOC_LITERAL(8, 9), // "new_inter"
+QT_MOC_LITERAL(18, 0), // ""
+QT_MOC_LITERAL(19, 9), // "interType"
+QT_MOC_LITERAL(29, 7), // "setMode"
+QT_MOC_LITERAL(37, 9), // "ViewModeI"
+QT_MOC_LITERAL(47, 10), // "aff_cercle"
+QT_MOC_LITERAL(58, 8), // "Elements"
+QT_MOC_LITERAL(67, 14) // "pass_new_inter"
 
     },
-    "FenDesI\0nouv_inter\0\0interType\0setMode\0"
+    "FenDesI\0new_inter\0\0interType\0setMode\0"
     "ViewModeI\0aff_cercle\0Elements\0"
-    "pass_nouv_inter"
+    "pass_new_inter"
 };
 #undef QT_MOC_LITERAL
 
@@ -232,17 +232,17 @@ void FenDesI::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         auto *_t = static_cast<FenDesI *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->nouv_inter((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< interType(*)>(_a[3]))); break;
+        case 0: _t->new_inter((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< interType(*)>(_a[3]))); break;
         case 1: _t->setMode((*reinterpret_cast< ViewModeI(*)>(_a[1]))); break;
         case 2: _t->aff_cercle((*reinterpret_cast< Elements(*)>(_a[1]))); break;
-        case 3: _t->pass_nouv_inter((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< interType(*)>(_a[3]))); break;
+        case 3: _t->pass_new_inter((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< interType(*)>(_a[3]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
             using _t = void (FenDesI::*)(QString , QString , interType );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&FenDesI::nouv_inter)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&FenDesI::new_inter)) {
                 *result = 0;
                 return;
             }
@@ -297,7 +297,7 @@ int FenDesI::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void FenDesI::nouv_inter(QString _t1, QString _t2, interType _t3)
+void FenDesI::new_inter(QString _t1, QString _t2, interType _t3)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
@@ -571,26 +571,26 @@ void FenButI::aj_mode(ViewModeI _t1)
 }
 struct qt_meta_stringdata_FenI_t {
     const uint offsetsAndSize[18];
-    char stringdata0[99];
+    char stringdata0[96];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_FenI_t, stringdata0) + ofs), len 
 static const qt_meta_stringdata_FenI_t qt_meta_stringdata_FenI = {
     {
 QT_MOC_LITERAL(0, 4), // "FenI"
-QT_MOC_LITERAL(5, 10), // "nouv_inter"
-QT_MOC_LITERAL(16, 0), // ""
-QT_MOC_LITERAL(17, 9), // "interType"
-QT_MOC_LITERAL(27, 22), // "sous_cpt_freeze_fenres"
-QT_MOC_LITERAL(50, 10), // "aff_cercle"
-QT_MOC_LITERAL(61, 8), // "Elements"
-QT_MOC_LITERAL(70, 15), // "pass_nouv_inter"
-QT_MOC_LITERAL(86, 12) // "emettre_sous"
+QT_MOC_LITERAL(5, 9), // "new_inter"
+QT_MOC_LITERAL(15, 0), // ""
+QT_MOC_LITERAL(16, 9), // "interType"
+QT_MOC_LITERAL(26, 21), // "sub_cpt_freeze_fenres"
+QT_MOC_LITERAL(48, 10), // "aff_cercle"
+QT_MOC_LITERAL(59, 8), // "Elements"
+QT_MOC_LITERAL(68, 14), // "pass_new_inter"
+QT_MOC_LITERAL(83, 12) // "emettre_sous"
 
     },
-    "FenI\0nouv_inter\0\0interType\0"
-    "sous_cpt_freeze_fenres\0aff_cercle\0"
-    "Elements\0pass_nouv_inter\0emettre_sous"
+    "FenI\0new_inter\0\0interType\0"
+    "sub_cpt_freeze_fenres\0aff_cercle\0"
+    "Elements\0pass_new_inter\0emettre_sous"
 };
 #undef QT_MOC_LITERAL
 
@@ -634,10 +634,10 @@ void FenI::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         auto *_t = static_cast<FenI *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->nouv_inter((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< interType(*)>(_a[3]))); break;
-        case 1: _t->sous_cpt_freeze_fenres(); break;
+        case 0: _t->new_inter((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< interType(*)>(_a[3]))); break;
+        case 1: _t->sub_cpt_freeze_fenres(); break;
         case 2: _t->aff_cercle((*reinterpret_cast< Elements(*)>(_a[1]))); break;
-        case 3: _t->pass_nouv_inter((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< interType(*)>(_a[3]))); break;
+        case 3: _t->pass_new_inter((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< interType(*)>(_a[3]))); break;
         case 4: _t->emettre_sous(); break;
         default: ;
         }
@@ -645,14 +645,14 @@ void FenI::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         int *result = reinterpret_cast<int *>(_a[0]);
         {
             using _t = void (FenI::*)(QString , QString , interType );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&FenI::nouv_inter)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&FenI::new_inter)) {
                 *result = 0;
                 return;
             }
         }
         {
             using _t = void (FenI::*)();
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&FenI::sous_cpt_freeze_fenres)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&FenI::sub_cpt_freeze_fenres)) {
                 *result = 1;
                 return;
             }
@@ -707,14 +707,14 @@ int FenI::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void FenI::nouv_inter(QString _t1, QString _t2, interType _t3)
+void FenI::new_inter(QString _t1, QString _t2, interType _t3)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 
 // SIGNAL 1
-void FenI::sous_cpt_freeze_fenres()
+void FenI::sub_cpt_freeze_fenres()
 {
     QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
 }

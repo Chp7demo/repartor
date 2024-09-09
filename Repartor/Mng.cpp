@@ -16,7 +16,7 @@ for(int i=0;i<list_N.size();i++)
 elements.elem_names=vect_pass;
 }
 
-void Mng::aj_cl_et_ro(QList<QString> list_N)//pas et_ro en fait..
+void Mng::rfsh_elem_space(QList<QString> list_N)//pas et_ro en fait..
 {
 std::vector<std::string> nouv_list;
 for(int i=0;i<list_N.size();i++)
@@ -87,7 +87,7 @@ emit ajourned(elements,combi.elem_cell_map);
 
 }
 
-void Mng::nouv_inter(QString s1 ,QString s2 ,interType inter_type)
+void Mng::new_inter(QString s1 ,QString s2 ,interType inter_type)
 {
 std::string str1=s1.toStdString();
 std::string str2=s2.toStdString();
@@ -148,12 +148,12 @@ emit ajourner_sans_reaff_cercle(elements,combi.elem_cell_map);
 //fcts pr burs====================================================
 
 //le code ici c'est nawak  avec les paires...
-void Mng::modif_bur(int index,Pos pos)
+void Mng::modif_cell(int index,Pos pos)
 {
 ro.cell_pos[index]=pos;
 emit cell_pos_ajourned(ro.cell_pos,combi.elem_cell_map,combi.frozen_cell);
 }
-void Mng::supr_bur(int index)
+void Mng::supr_cell(int index)
 {
 ro.cell_pos.erase(ro.cell_pos.begin()+index);
 //on ajourne les cpl======
@@ -246,13 +246,13 @@ emit bmmp_ajourned(ro.cell_pair);
 }
 
 
-void Mng::add_bur(Pos pos)
+void Mng::add_cell(Pos pos)
 {
-cout<<"entree add_bur"<<endl;
+cout<<"entree add_cell"<<endl;
 ro.cell_pos.push_back(pos);
 cout<<"ro.cell_pos.size()"<<ro.cell_pos.size()<<endl;
 emit cell_pos_ajourned(ro.cell_pos,combi.elem_cell_map,combi.frozen_cell);
-cout<<"sortie add_bur"<<endl;
+cout<<"sortie add_cell"<<endl;
 }
 
 
@@ -356,7 +356,7 @@ for(auto m_p : combi_r.elem_cell_map){cout<<"st: "<<m_p.first<<"bu: "<<m_p.secon
  for(auto ind: combi.frozen_cell)
  {
      cout<<ind<<endl;
-     supr_bur(ind-cpt_bur_spr,combi_r);
+     supr_cell(ind-cpt_bur_spr,combi_r);
      cpt_bur_spr++;
  }
  //DEBUG=========
@@ -387,7 +387,7 @@ combi_r.elem_cell_map=new_map_elem_cell_map;
  return combi_r;
 }
 
-void Mng::supr_bur(int index,Combi &comb)
+void Mng::supr_cell(int index,Combi &comb)
 {
 comb.space.cell_pos.erase(comb.space.cell_pos.begin()+index);
 //on ajourne les cpl======
@@ -485,7 +485,7 @@ void Mng::placer_stud(vector<int> gen)
            cout<<endl;
      cout<<"taille elem_cell_map: "<<combi.elem_cell_map.size()<<endl;
     //emmetre un ajourned // faire les modif ds fenro pr prendre en cpt le elem_cell_map_2 //faire un bout annuler calc...
-     emit faire_ajourner(elements,combi.elem_cell_map);//pb a l affichage , à voir...
+     emit make_refresh(elements,combi.elem_cell_map);//pb a l affichage , à voir...
 }
 
 

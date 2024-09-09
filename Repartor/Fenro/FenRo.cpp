@@ -32,9 +32,9 @@ this->setLayout(hLayout);
 
 connect(fenRoBut,SIGNAL(aj_mode(ViewMode)),fenRoDes,SLOT(setMode(ViewMode)));
 
-connect(fenRoDes,SIGNAL(modif_bur(int,Pos)),this,SLOT(emetre_modif_bur(int,Pos)));
-connect(fenRoDes,SIGNAL(supr_bur(int)),this,SLOT(emetre_supr_bur(int)));
-connect(fenRoDes,SIGNAL(add_bur(Pos)),this,SLOT(emetre_add_bur(Pos)));
+connect(fenRoDes,SIGNAL(modif_cell(int,Pos)),this,SLOT(emetre_modif_cell(int,Pos)));
+connect(fenRoDes,SIGNAL(supr_cell(int)),this,SLOT(emetre_supr_cell(int)));
+connect(fenRoDes,SIGNAL(add_cell(Pos)),this,SLOT(emetre_add_cell(Pos)));
 connect(fenRoDes,SIGNAL(add_cpl(int,int)),this,SLOT(emetre_add_cpl(int,int)));
 connect(fenRoDes,SIGNAL(supr_cpl(int,int)),this,SLOT(emetre_supr_cpl(int,int)));
 
@@ -78,9 +78,9 @@ this->setLayout(layout_2);
 connect(graphView,SIGNAL(resize(qreal)),this,SLOT(resize(qreal)));
 
 
-connect(graphView,SIGNAL(modif_bur(int,Pos)),this,SLOT(emetre_modif_bur(int,Pos)));
-connect(graphView,SIGNAL(supr_bur(int)),this,SLOT(emetre_supr_bur(int)));
-connect(graphView,SIGNAL(add_bur(Pos)),this,SLOT(emetre_add_bur(Pos)));
+connect(graphView,SIGNAL(modif_cell(int,Pos)),this,SLOT(emetre_modif_cell(int,Pos)));
+connect(graphView,SIGNAL(supr_cell(int)),this,SLOT(emetre_supr_cell(int)));
+connect(graphView,SIGNAL(add_cell(Pos)),this,SLOT(emetre_add_cell(Pos)));
 connect(graphView,SIGNAL(add_cpl(int,int)),this,SLOT(emetre_add_cpl(int,int)));
 connect(graphView,SIGNAL(supr_cpl(int,int)),this,SLOT(emetre_supr_cpl(int,int)));
 
@@ -509,7 +509,7 @@ w=list_widgBur[list_widgBur.size()-1]->get_rect_eff().width();
 h=list_widgBur[list_widgBur.size()-1]->get_rect_eff().height();
 
 Pos pos={x,y,w,h,angle};
-emit modif_bur(index,pos);
+emit modif_cell(index,pos);
 }
 
 }
@@ -609,7 +609,7 @@ w=list_widgBur[list_widgBur.size()-1]->get_rect_eff().width();
 h=list_widgBur[list_widgBur.size()-1]->get_rect_eff().height();
 
 Pos pos={x,y,w,h,0};//l'angle est nul lors de la creation...
-emit add_bur(pos);
+emit add_cell(pos);
 
 }
 
@@ -930,7 +930,7 @@ w=list_widgBur[list_widgBur.size()-1]->get_rect_eff().width();
 h=list_widgBur[list_widgBur.size()-1]->get_rect_eff().height();
 
 Pos pos={x,y,w,h,angle};
-emit add_bur(pos);
+emit add_cell(pos);
 }
 }
 
@@ -982,7 +982,7 @@ ptr_wiB_a=trouve_bur(p_1);
 if(ptr_wiB_a!=NULL)
 {
 int index=ptr_wiB_a->get_index();
-emit supr_bur(index);
+emit supr_cell(index);
 this->scene()->removeItem(ptr_wiB_a);
 list_widgBur.removeOne(ptr_wiB_a);//fuite memoire?
 //========aj post supr==================
@@ -1102,7 +1102,7 @@ l=rect.width();
 h=rect.height();
 ang=ptr_wiB_g->get_angle();
 Pos pos{x,y,l,h,ang};
-emit modif_bur(index,pos);
+emit modif_cell(index,pos);
 }
 //pb de rapidite...(de clic oubliés...)
 //emit rotation(list_widgBur.indexOf(ptr_wiB_g));//tentative pr resoudre pb des clics mais ne marche pas mieux...des clics sont perdus pq?

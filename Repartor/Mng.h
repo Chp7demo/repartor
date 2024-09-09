@@ -55,14 +55,14 @@ void placer_stud(vector<int>);
 
 //=============fcts en rapport avec liste d'elements=========
 void aj_list(QList<QString>);//pas tres optimal...//non utilisee
-void aj_cl_et_ro(QList<QString>);
-void nouv_inter(QString,QString,interType);
+void rfsh_elem_space(QList<QString>);
+void new_inter(QString,QString,interType);
 
 //====fcts en rapport avec liste de bu===================
-void modif_bur(int index,Pos);
-void supr_bur(int index);
-void supr_bur(int index,Combi &comb);//surchage utile dans crea_combi_ready;
-void add_bur(Pos pos);
+void modif_cell(int index,Pos);
+void supr_cell(int index);
+void supr_cell(int index,Combi &comb);//surchage utile dans crea_combi_ready;
+void add_cell(Pos pos);
 void add_cpl(int,int);
 void supr_cpl(int,int); 
 
@@ -81,7 +81,7 @@ void ajourned(Elements,std::map<int,int>);
 void ajourner_sans_reaff_cercle(Elements,std::map<int,int>);
 void cell_pos_ajourned(std::vector<Pos>,std::map<int,int>,std::set<int>);
 void bmmp_ajourned(std::map<int,int>);
-void faire_ajourner(Elements,std::map<int,int>);
+void make_refresh(Elements,std::map<int,int>);
 
 
     private:

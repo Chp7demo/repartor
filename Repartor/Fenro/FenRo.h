@@ -114,9 +114,9 @@ class MaGraphicsView : public QGraphicsView
         //void resizeEvent(QResizeEvent *);
     signals:
 
-    void modif_bur(int index,Pos pos);
-    void supr_bur(int index);
-    void add_bur(Pos pos);
+    void modif_cell(int index,Pos pos);
+    void supr_cell(int index);
+    void add_cell(Pos pos);
     void add_cpl(int,int);
     void supr_cpl(int,int); 
         // void clean_widgbur();
@@ -208,16 +208,16 @@ QScrollArea * scroll_area_2;
 
 
    signals:
-   void modif_bur(int index,Pos pos);
-    void supr_bur(int index);
-    void add_bur(Pos pos);
+   void modif_cell(int index,Pos pos);
+    void supr_cell(int index);
+    void add_cell(Pos pos);
     void add_cpl(int i_1,int i_2);
     void supr_cpl(int i_1,int i_2); 
 
     public slots:
-   void emetre_modif_bur(int index,Pos pos){emit modif_bur(index,pos);};
-    void emetre_supr_bur(int index){emit supr_bur(index);};
-    void emetre_add_bur(Pos pos){emit add_bur(pos);};
+   void emetre_modif_cell(int index,Pos pos){emit modif_cell(index,pos);};
+    void emetre_supr_cell(int index){emit supr_cell(index);};
+    void emetre_add_cell(Pos pos){emit add_cell(pos);};
     void emetre_add_cpl(int i_1,int i_2){emit add_cpl(i_1,i_2);};
     void emetre_supr_cpl(int i_1,int i_2){emit supr_cpl(i_1,i_2);}; 
 
@@ -276,16 +276,16 @@ class FenRo :  public QWidget
     public:
 	FenRo();
    signals:
-   void modif_bur(int index,Pos pos);
-    void supr_bur(int index);
-    void add_bur(Pos pos);
+   void modif_cell(int index,Pos pos);
+    void supr_cell(int index);
+    void add_cell(Pos pos);
     void add_cpl(int i_1,int i_2);
     void supr_cpl(int i_1,int i_2); 
   //  void add_cpt_freeze_fenres();
     public slots:
-   void emetre_modif_bur(int index,Pos pos){emit modif_bur(index,pos);};
-    void emetre_supr_bur(int index){emit supr_bur(index);};
-    void emetre_add_bur(Pos pos){emit add_bur(pos);};
+   void emetre_modif_cell(int index,Pos pos){emit modif_cell(index,pos);};
+    void emetre_supr_cell(int index){emit supr_cell(index);};
+    void emetre_add_cell(Pos pos){emit add_cell(pos);};
     void emetre_add_cpl(int i_1,int i_2){emit add_cpl(i_1,i_2);}//emit add_cpl(i_2,i_1);}//comme c'est vilain...
     void emetre_supr_cpl(int i_1,int i_2){emit supr_cpl(i_1,i_2);}//emit supr_cpl(i_2,i_1);}
 

@@ -196,7 +196,7 @@ void ajourner_mm(std::map<int,int>);
 void set_drop_catched();
 void emettre_aj_elem_cell_map(QString s,int i){emit aj_elem_cell_map(s,i);}
 void emettre_elem_cell_map_supr(QString s){emit elem_cell_map_supr(s);}
-void emettre_sous(){emit sous_cpt_freeze_fenres();}
+void emettre_sous(){emit sub_cpt_freeze_fenres();}
 
 void emettre_ad_frozen_cell(int i){emit ad_frozen_cell(i);}
 void emettre_supr_frozen_cell(int i){emit supr_frozen_cell(i);}
@@ -208,7 +208,7 @@ void aj_mode(modeRes mode){moderes=mode;fenDes->pt_graphView()->setModeRes(mode)
  void ad_frozen_cell(int);
  void supr_frozen_cell(int);
  void elem_cell_map_supr(QString);
- void sous_cpt_freeze_fenres();
+ void sub_cpt_freeze_fenres();
  void  lancer_calc();
     private:
 
@@ -368,7 +368,7 @@ class FeResNaAff :  public QWidget
   void enlever_st(QString);
   signals:
    void aj_post_drop(QString,int);
-   void sous_cpt_freeze_fenres();
+   void sub_cpt_freeze_fenres();
    void desact_frozen_cell();
   protected: 
      void mousePressEvent(QMouseEvent *);

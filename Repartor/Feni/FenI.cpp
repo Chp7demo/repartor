@@ -20,7 +20,7 @@ hLayout->setStretchFactor(fenBut,1);
 this->setLayout(hLayout);
 
 connect(fenBut,SIGNAL(aj_mode(ViewModeI)),fenDes,SLOT(setMode(ViewModeI)));
-connect(fenDes,SIGNAL(nouv_inter(QString,QString,interType)),this,SLOT(pass_nouv_inter(QString,QString,interType)));
+connect(fenDes,SIGNAL(new_inter(QString,QString,interType)),this,SLOT(pass_new_inter(QString,QString,interType)));
 connect(fenDes->pt_graph_View(),SIGNAL(sous()),this,SLOT(emettre_sous()));
 
 }
@@ -53,7 +53,7 @@ QHBoxLayout *layout_2 =new QHBoxLayout;
 layout_2->addWidget(scroll_area_2);
 this->setLayout(layout_2);
 
-connect(graphView,SIGNAL(nouv_inter(QString,QString,interType)),this,SLOT(pass_nouv_inter(QString,QString,interType)));
+connect(graphView,SIGNAL(new_inter(QString,QString,interType)),this,SLOT(pass_new_inter(QString,QString,interType)));
 
 
 scroll_area_2->ensureWidgetVisible(container);
@@ -607,7 +607,7 @@ liI =new LiI(p_a,p_b);
 liI->set_li_mode(li_mode);
 
 liI->set_nm_bouts(nm_1,nm_2);
-emit nouv_inter(nm_1,nm_2,li_mode);
+emit new_inter(nm_1,nm_2,li_mode);
 matr_copie[ind_1][ind_2]=li_mode;
 matr_copie[ind_2][ind_1]=li_mode;
 
@@ -759,7 +759,7 @@ matr_copie[ind_1][ind_2]=interType::NO_INTER;
 matr_copie[ind_2][ind_1]=interType::NO_INTER;
 //=================================
 
-emit nouv_inter(nm_1,nm_2,interType::NO_INTER);
+emit new_inter(nm_1,nm_2,interType::NO_INTER);
 
 this->scene()->removeItem(ptr_li_a);
 li_list.removeOne(ptr_li_a);
@@ -873,12 +873,12 @@ for(int i=0;i<li_list.size();i++)
 {if(li_list.at(i)->shape().contains(point))return(li_list.at(i));}
 return(NULL);
 }
- void FenI::pass_nouv_inter(QString st1,QString st2,interType inter)
+ void FenI::pass_new_inter(QString st1,QString st2,interType inter)
 {
-emit nouv_inter(st1,st2,inter);
+emit new_inter(st1,st2,inter);
 }
- void FenDesI::pass_nouv_inter(QString st1,QString st2,interType inter)
+ void FenDesI::pass_new_inter(QString st1,QString st2,interType inter)
 {
-emit nouv_inter(st1,st2,inter);
+emit new_inter(st1,st2,inter);
 }
 

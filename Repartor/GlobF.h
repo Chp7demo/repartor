@@ -66,22 +66,22 @@ public slots:
     void setMode(GlobMode);
     void aff_cercle(Elements sc){fenI->aff_cercle(sc);}
     void add_cpt_freeze_fenres(){cpt_freeze_fenres++;fenGlobBut->freeze_fenres();}//en fait on freeze tout les boutons...pas que fenres.../useless
-    void sous_cpt_freeze_fenres(){cpt_freeze_fenres--;std::cout<<"cpt_freeze: "<<cpt_freeze_fenres<<std::endl;if(cpt_freeze_fenres==0)fenGlobBut->unfreeze();}
+    void sub_cpt_freeze_fenres(){cpt_freeze_fenres--;std::cout<<"cpt_freeze: "<<cpt_freeze_fenres<<std::endl;if(cpt_freeze_fenres==0)fenGlobBut->unfreeze();}
 
     //slot mng en 2 etapes.
-    void aj_cl_et_ro(QList<QString> l){cpt_freeze_fenres+=3;fenGlobBut->freeze_fenres();mng->aj_cl_et_ro(l);}
-    void nouv_inter(QString s,QString s2,interType it){cpt_freeze_fenres+=2;fenGlobBut->freeze_fenres();mng->nouv_inter(s,s2,it);}
-    void modif_bur(int i,Pos p){cpt_freeze_fenres+=2;fenGlobBut->freeze_fenres();mng->modif_bur(i,p);}
-    void supr_bur(int i){cpt_freeze_fenres+=3;fenGlobBut->freeze_fenres();mng->supr_bur(i);}
-    void add_bur(Pos p){cpt_freeze_fenres+=2;fenGlobBut->freeze_fenres();mng->add_bur(p);}
+    void rfsh_elem_space(QList<QString> l){cpt_freeze_fenres+=3;fenGlobBut->freeze_fenres();mng->rfsh_elem_space(l);}
+    void new_inter(QString s,QString s2,interType it){cpt_freeze_fenres+=2;fenGlobBut->freeze_fenres();mng->new_inter(s,s2,it);}
+    void modif_cell(int i,Pos p){cpt_freeze_fenres+=2;fenGlobBut->freeze_fenres();mng->modif_cell(i,p);}
+    void supr_cell(int i){cpt_freeze_fenres+=3;fenGlobBut->freeze_fenres();mng->supr_cell(i);}
+    void add_cell(Pos p){cpt_freeze_fenres+=2;fenGlobBut->freeze_fenres();mng->add_cell(p);}
     void add_cpl(int i,int i2){cpt_freeze_fenres++;fenGlobBut->freeze_fenres();mng->add_cpl(i,i2);}
     void supr_cpl(int i,int i2){cpt_freeze_fenres++;fenGlobBut->freeze_fenres();mng->supr_cpl(i,i2);}
     //....
 
-    void faire_ajourner(Elements sc,std::map<int,int> mp){cpt_freeze_fenres+=2/*pas sur */;fenRes->ajourner(sc,mp);}
+    void make_refresh(Elements sc,std::map<int,int> mp){cpt_freeze_fenres+=2/*pas sur */;fenRes->ajourner(sc,mp);}
 
 private:
-    void fermer_anc_mode(GlobMode);
+    void close_old_mode(GlobMode);
     
     FeNa *feNa;
     FenI *fenI;

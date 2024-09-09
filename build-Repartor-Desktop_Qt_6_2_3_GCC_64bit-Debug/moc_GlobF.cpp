@@ -292,7 +292,7 @@ void FenGlobBut::aj_mode(GlobMode _t1)
 }
 struct qt_meta_stringdata_GlobF_t {
     const uint offsetsAndSize[56];
-    char stringdata0[226];
+    char stringdata0[229];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_GlobF_t, stringdata0) + ofs), len 
@@ -306,34 +306,34 @@ QT_MOC_LITERAL(24, 10), // "aff_cercle"
 QT_MOC_LITERAL(35, 8), // "Elements"
 QT_MOC_LITERAL(44, 2), // "sc"
 QT_MOC_LITERAL(47, 21), // "add_cpt_freeze_fenres"
-QT_MOC_LITERAL(69, 22), // "sous_cpt_freeze_fenres"
-QT_MOC_LITERAL(92, 11), // "aj_cl_et_ro"
-QT_MOC_LITERAL(104, 1), // "l"
-QT_MOC_LITERAL(106, 10), // "nouv_inter"
-QT_MOC_LITERAL(117, 1), // "s"
-QT_MOC_LITERAL(119, 2), // "s2"
-QT_MOC_LITERAL(122, 9), // "interType"
-QT_MOC_LITERAL(132, 2), // "it"
-QT_MOC_LITERAL(135, 9), // "modif_bur"
-QT_MOC_LITERAL(145, 1), // "i"
-QT_MOC_LITERAL(147, 3), // "Pos"
-QT_MOC_LITERAL(151, 1), // "p"
-QT_MOC_LITERAL(153, 8), // "supr_bur"
-QT_MOC_LITERAL(162, 7), // "add_bur"
-QT_MOC_LITERAL(170, 7), // "add_cpl"
-QT_MOC_LITERAL(178, 2), // "i2"
-QT_MOC_LITERAL(181, 8), // "supr_cpl"
-QT_MOC_LITERAL(190, 14), // "faire_ajourner"
-QT_MOC_LITERAL(205, 17), // "std::map<int,int>"
-QT_MOC_LITERAL(223, 2) // "mp"
+QT_MOC_LITERAL(69, 21), // "sub_cpt_freeze_fenres"
+QT_MOC_LITERAL(91, 15), // "rfsh_elem_space"
+QT_MOC_LITERAL(107, 1), // "l"
+QT_MOC_LITERAL(109, 9), // "new_inter"
+QT_MOC_LITERAL(119, 1), // "s"
+QT_MOC_LITERAL(121, 2), // "s2"
+QT_MOC_LITERAL(124, 9), // "interType"
+QT_MOC_LITERAL(134, 2), // "it"
+QT_MOC_LITERAL(137, 10), // "modif_cell"
+QT_MOC_LITERAL(148, 1), // "i"
+QT_MOC_LITERAL(150, 3), // "Pos"
+QT_MOC_LITERAL(154, 1), // "p"
+QT_MOC_LITERAL(156, 9), // "supr_cell"
+QT_MOC_LITERAL(166, 8), // "add_cell"
+QT_MOC_LITERAL(175, 7), // "add_cpl"
+QT_MOC_LITERAL(183, 2), // "i2"
+QT_MOC_LITERAL(186, 8), // "supr_cpl"
+QT_MOC_LITERAL(195, 12), // "make_refresh"
+QT_MOC_LITERAL(208, 17), // "std::map<int,int>"
+QT_MOC_LITERAL(226, 2) // "mp"
 
     },
     "GlobF\0setMode\0\0GlobMode\0aff_cercle\0"
     "Elements\0sc\0add_cpt_freeze_fenres\0"
-    "sous_cpt_freeze_fenres\0aj_cl_et_ro\0l\0"
-    "nouv_inter\0s\0s2\0interType\0it\0modif_bur\0"
-    "i\0Pos\0p\0supr_bur\0add_bur\0add_cpl\0i2\0"
-    "supr_cpl\0faire_ajourner\0std::map<int,int>\0"
+    "sub_cpt_freeze_fenres\0rfsh_elem_space\0"
+    "l\0new_inter\0s\0s2\0interType\0it\0modif_cell\0"
+    "i\0Pos\0p\0supr_cell\0add_cell\0add_cpl\0"
+    "i2\0supr_cpl\0make_refresh\0std::map<int,int>\0"
     "mp"
 };
 #undef QT_MOC_LITERAL
@@ -391,15 +391,15 @@ void GlobF::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         case 0: _t->setMode((*reinterpret_cast< GlobMode(*)>(_a[1]))); break;
         case 1: _t->aff_cercle((*reinterpret_cast< Elements(*)>(_a[1]))); break;
         case 2: _t->add_cpt_freeze_fenres(); break;
-        case 3: _t->sous_cpt_freeze_fenres(); break;
-        case 4: _t->aj_cl_et_ro((*reinterpret_cast< QList<QString>(*)>(_a[1]))); break;
-        case 5: _t->nouv_inter((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< interType(*)>(_a[3]))); break;
-        case 6: _t->modif_bur((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< Pos(*)>(_a[2]))); break;
-        case 7: _t->supr_bur((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 8: _t->add_bur((*reinterpret_cast< Pos(*)>(_a[1]))); break;
+        case 3: _t->sub_cpt_freeze_fenres(); break;
+        case 4: _t->rfsh_elem_space((*reinterpret_cast< QList<QString>(*)>(_a[1]))); break;
+        case 5: _t->new_inter((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< interType(*)>(_a[3]))); break;
+        case 6: _t->modif_cell((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< Pos(*)>(_a[2]))); break;
+        case 7: _t->supr_cell((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 8: _t->add_cell((*reinterpret_cast< Pos(*)>(_a[1]))); break;
         case 9: _t->add_cpl((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 10: _t->supr_cpl((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 11: _t->faire_ajourner((*reinterpret_cast< Elements(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2]))); break;
+        case 11: _t->make_refresh((*reinterpret_cast< Elements(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2]))); break;
         default: ;
         }
     }

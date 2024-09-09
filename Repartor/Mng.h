@@ -50,7 +50,7 @@ Q_OBJECT
 
 void lancer_calc();
 void placer_stud(vector<int>);
-void record_ag(double,double,int,vector<int>);
+
 
 
 //=============fcts en rapport avec liste d'elements=========

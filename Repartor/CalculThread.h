@@ -1,5 +1,4 @@
-#ifndef CALCULTHREAD_H
-#define CALCULTHREAD_H
+#pragma once
 
 #include <QThread>
 #include "fct_ag/evaluation.h"
@@ -16,13 +15,12 @@ class CalculThread : public QThread
  Q_OBJECT
 
  public:
-    CalculThread(const DataZone & dz) : QThread() , dZ{dz}  {Combi combi_vide;dZ=dz;}
+    CalculThread(const DataZone & dz) : QThread() , dZ{dz}  {}
 
  public slots:
     void run();
 
  signals:
-    void record_ag(double,double,int,vector<int>);
     void fin_ag(vector<int>);
 
  private :
@@ -31,4 +29,3 @@ class CalculThread : public QThread
 };
 
 
-#endif

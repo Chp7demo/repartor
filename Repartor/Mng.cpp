@@ -332,6 +332,7 @@ DataZone Dz(cr);
 //lancer thread
 CalculThread * myThread=new CalculThread(Dz);
 connect(myThread,SIGNAL(fin_ag(vector<int>)),this,SLOT(placer_stud(vector<int>)));
+connect(myThread, &QThread::finished, this, &QObject::deleteLater); // is it correct ?
 myThread->start();
 
 }
@@ -487,26 +488,7 @@ void Mng::placer_stud(vector<int> gen)
      emit faire_ajourner(elements,combi.elem_cell_map);//pb a l affichage , à voir...
 }
 
-void Mng::record_ag(double fit_moy,double fit_max,int ng,vector<int> best_g)
-{
 
-    /*
-    //enregistrer les donnee dans un fichier (a definir)
-
-QFile file(fileName);
-// file.open(QFile::WriteOnly|QFile::Text);
-//cout<<"heho"<<endl;
-if(ng==0)file.open(QFile::WriteOnly|QFile::Text|QFile::Truncate);
-else file.open(QFile::WriteOnly|QFile::Text|QFile::Append);
-QTextStream out_text(&file);
-out_text<<ng<<" "<<fit_moy<<" "<<fit_max<<"   ";
-for(int i=0;i<best_g.size();i++){out_text<<best_g.at(i)<<" ";}
-out_text << Qt::endl;
-file.close();
-
-    //faire une boite de dial demandant le nom du fich en debut d'ag?
-    */
-}
 
 void Mng::creer_fichier()//faire tout ça dans mng avant le slot ... imbecile!
 {

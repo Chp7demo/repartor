@@ -77,7 +77,7 @@ for(int i=0;i<N_g;i++)
        // selection de N_el indiv pour elitisme//on garde  le genome//1 seul pr l'instant
    best_g=pop_ordo.at(0);
 
-     // emit record_ag(fit_moy,fit_max,ng,best_g);// temps?
+
 
 
     //...........................................................................

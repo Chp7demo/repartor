@@ -51,7 +51,7 @@ Q_OBJECT
 void lancer_calc();
 void placer_stud(vector<int>);
 void record_ag(double,double,int,vector<int>);
-void aff_graph();
+
 
 //=============fcts en rapport avec liste d'elements=========
 void aj_list(QList<QString>);//pas tres optimal...//non utilisee

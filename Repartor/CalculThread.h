@@ -11,23 +11,24 @@
 #include <QFileDialog>
 #include<QTextStream>
 
-class MyThread : public QThread
+class CalculThread : public QThread
 {
  Q_OBJECT
 
-public:
-    MyThread(const DataZone & dz) : QThread () {Combi combi_vide;dZ=new DataZone(combi_vide);*dZ=dz;}//nawak
+ public:
+    CalculThread(const DataZone & dz) : QThread() , dZ{dz}  {Combi combi_vide;dZ=dz;}
+
  public slots:
     void run();
+
  signals:
     void record_ag(double,double,int,vector<int>);
     void fin_ag(vector<int>);
-    void aff_graph();
-    private :
 
+ private :
 
-    DataZone *dZ;
+    DataZone dZ;
 };
 
 
-#endif // CALCULTHREAD_H
+#endif

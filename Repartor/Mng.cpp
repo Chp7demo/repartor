@@ -317,22 +317,26 @@ void Mng::supr_frozen_cell(int i)
 combi.frozen_cell.erase(i);
 }
 
+
+
 void Mng::lancer_calc()
 {
+
 //crea_combi_ready
 Combi cr;
 cr=crea_combi_ready();
+
 //crea datazone
 DataZone Dz(cr);
-//fichier analise ag
-creer_fichier();//cette fct nettoie aussi le fichier recird indiv debug // inutilisé à priori
+
 //lancer thread
-MyThread * myThread=new MyThread(Dz);
+CalculThread * myThread=new CalculThread(Dz);
 connect(myThread,SIGNAL(fin_ag(vector<int>)),this,SLOT(placer_stud(vector<int>)));
-//connect(myThread,SIGNAL(record_ag(double,double,int,vector<int>)),this,SLOT(record_ag(double,double,int,vector<int>)));
-//connect(myThread,SIGNAL(aff_graph()),this,SLOT(aff_graph()));
 myThread->start();
+
 }
+
+
 
 Combi Mng::crea_combi_ready()
 {
@@ -503,12 +507,7 @@ file.close();
     //faire une boite de dial demandant le nom du fich en debut d'ag?
     */
 }
-void Mng::aff_graph()
-{
-    //afficher une fenetre avec le graphdu ficheir enregistré
-    //passer le nom de fichier en arg? ou bien le nom est un menbre?
-    //pr l'instant on va voir avec gnuplot...
-}
+
 void Mng::creer_fichier()//faire tout ça dans mng avant le slot ... imbecile!
 {
    // fileName=QFileDialog::getSaveFileName();

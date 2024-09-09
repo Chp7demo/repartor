@@ -1,25 +1,24 @@
 #include "CalculThread.h"
 
-void MyThread::run()
+void CalculThread::run()
 {
-   // cout<<"run thread"<<endl;
 
-    double fit_moy,fit_max;
-    //==============
-     //param de l'ag
+   double fit_moy,fit_max;
+
+   //==============
+   //param de l'ag
    int N=502;// N nombre fixe d 'individu à chaque générations./doit etre pair
    int N_g=1000;// N_g nombre de generations fixe
-    int N_el=1;// nombre de meilleurs individus directements transmits  d'un gene a l'autre//1?.//impair
-   int  N_int=1;//nombre d 'indiv nouveau introduit à chaque generations//1?// on prend N_el = N_int = 1 pr le moment...
+   int N_el=1;// nombre de meilleurs individus directements transmits  d'un gene a l'autre//1?.//impair
    double P_crois=0.6;// probabilité de croisement lors de reproduction d'un couple//0.6?
    double P_mut=0.005;// proba de mutation sur un indiv
    double K_roul=0.15;//coeff rang-largeur roulette //largeur additionelle en fait//a euilibrer en fct de N...
 
-  double d_roul_tot=0; // n'etait pas initialisé précedement et pourtant cela fonctionnait! génant ?
+   double d_roul_tot=0; // n'etait pas initialisé précedement et pourtant cela fonctionnait! génant ?
    for(int i=0;i<N;i++) {d_roul_tot+=1+K_roul*i;}
 
-    int  ng=0;//generation en cours
- vector<int> best_g;//pr stocker le meilleur indiv de chaque g
+   int  ng=0;//generation en cours
+   vector<int> best_g;//pr stocker le meilleur indiv de chaque g
 
     //genese
    //cout<<"av genere"<<endl;
@@ -33,12 +32,12 @@ vector<vector<int>> pop={};
 
 for (int i=0;i<N;i++)
 {
-    pop.push_back(genere_indiv(*dZ)); // *dz pourquoi etoile ?
+    pop.push_back(genere_indiv(dZ)); // *dz pourquoi etoile ?
 }
 //cout<<"taille pop : "<<pop.size()<<endl;
      // cout<<"ap_genere"<<endl;
 //DEBUG======
-      check_pop(pop,*dZ);
+      check_pop(pop,dZ);
 //==========
     //initialisation critere d 'arret// fenetre progression ?
     //debut boucle //avec test critere d'arret
@@ -49,7 +48,7 @@ for(int i=0;i<N_g;i++)
     //evaluation
    //cout<<"av eval"<<endl;
     vector<double> eval_pop={};
-    for(int j=0;j<N;j++) eval_pop.push_back(evaluation(pop.at(j),*dZ));
+    for(int j=0;j<N;j++) eval_pop.push_back(evaluation(pop.at(j),dZ));
    // cout<<"ap eval"<<endl;
     //DEBUG======     //useless ici en theorie
   //    check_pop(pop,"ap_eval",*dZ);
@@ -113,10 +112,10 @@ for(int i=0;i<N_g;i++)
      {
        pop.push_back(pop_couples.at(id));
        pop.push_back(pop_couples.at(id+1));
-     if(((double) (rand_a_b(0,1000)/1000))<=P_crois){cross_over(pop.at(id),pop.at(id+1),*dZ);}
+     if(((double) (rand_a_b(0,1000)/1000))<=P_crois){cross_over(pop.at(id),pop.at(id+1),dZ);}
    }
    //DEBUG======
-      check_pop(pop,*dZ);
+      check_pop(pop,dZ);
 //==========
 
     //reunion des deux ensembles
@@ -132,12 +131,12 @@ for(int i=0;i<N_g;i++)
  for(int id=0;id<pop.size();id++)
  {
     //cout<< ((double) rand_a_b(0,1000))/1000<<endl;
-       if((((double) rand_a_b(0,1000))/1000)<=P_mut){mutation(pop.at(id),*dZ);cout<<"mutation"<<endl;}
+       if((((double) rand_a_b(0,1000))/1000)<=P_mut){mutation(pop.at(id),dZ);cout<<"mutation"<<endl;}
  }
 // cout<<"ap_mutation"<<endl;
 
 //DEBUG======
-      check_pop(pop,*dZ);
+      check_pop(pop,dZ);
 //==========
     //reintroduction des N_el
  //  cout<<"on remet best g"<<endl;
@@ -146,7 +145,7 @@ for(int i=0;i<N_g;i++)
     // introduction de N_int nouveau indiv aux hasard//un seul pr l'instant
  //  cout<<"on reintroduit un type"<<endl;
 
- pop.push_back(genere_indiv(*dZ));
+ pop.push_back(genere_indiv(dZ));
    ng++;
     }
     //............................................................................
@@ -158,6 +157,5 @@ for(int i=0;i<N_g;i++)
    // cout<<endl;
    // best_g=;
     emit fin_ag(best_g);
-    emit aff_graph();
 }
 

@@ -332,7 +332,7 @@ DataZone Dz(cr);
 //lancer thread
 CalculThread * myThread=new CalculThread(Dz);
 connect(myThread,SIGNAL(fin_ag(vector<int>)),this,SLOT(placer_stud(vector<int>)));
-connect(myThread, &QThread::finished, this, &QObject::deleteLater); // is it correct ?
+connect(myThread, &QThread::finished, myThread, &QObject::deleteLater); // is it correct ?
 myThread->start();
 
 }

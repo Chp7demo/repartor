@@ -24,7 +24,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MaGraphicsView_t {
     const uint offsetsAndSize[34];
-    char stringdata0[140];
+    char stringdata0[143];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MaGraphicsView_t, stringdata0) + ofs), len 
@@ -42,16 +42,16 @@ QT_MOC_LITERAL(60, 7), // "add_cpl"
 QT_MOC_LITERAL(68, 8), // "supr_cpl"
 QT_MOC_LITERAL(77, 6), // "resize"
 QT_MOC_LITERAL(84, 8), // "rotation"
-QT_MOC_LITERAL(93, 12), // "index_du_wiB"
-QT_MOC_LITERAL(106, 7), // "setMode"
-QT_MOC_LITERAL(114, 8), // "ViewMode"
-QT_MOC_LITERAL(123, 2), // "vM"
-QT_MOC_LITERAL(126, 13) // "effectuer_rot"
+QT_MOC_LITERAL(93, 15), // "index_du_wicell"
+QT_MOC_LITERAL(109, 7), // "setMode"
+QT_MOC_LITERAL(117, 8), // "ViewMode"
+QT_MOC_LITERAL(126, 2), // "vM"
+QT_MOC_LITERAL(129, 13) // "effectuer_rot"
 
     },
     "MaGraphicsView\0modif_cell\0\0index\0Pos\0"
     "pos\0supr_cell\0add_cell\0add_cpl\0supr_cpl\0"
-    "resize\0rotation\0index_du_wiB\0setMode\0"
+    "resize\0rotation\0index_du_wicell\0setMode\0"
     "ViewMode\0vM\0effectuer_rot"
 };
 #undef QT_MOC_LITERAL

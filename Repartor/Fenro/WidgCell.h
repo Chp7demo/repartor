@@ -1,5 +1,5 @@
-#ifndef WIDGLI_H
-#define WIDGLI_H
+#ifndef WIDGCELL_H
+#define WIDGCELL_H
 
 
 
@@ -7,6 +7,7 @@
 #include <math.h>
 #include <string.h>
 #include <cstdlib>
+
 
 
 
@@ -27,6 +28,7 @@
 #include <QMetaType>
 #include <QHBoxLayout>
 #include <QMouseEvent>
+#include "FenRo.h"
 #include <QDragEnterEvent>
 #include <QDragMoveEvent>
 #include <QDropEvent>
@@ -39,27 +41,47 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QGraphicsSceneHoverEvent>
 #include <QGraphicsObject>
-#include <QPainterPath>
-#include <QPolygon>
-#include <QPainterPathStroker>
+#include <QMimeData>
+#include <QDrag>
 
-class WidgCell;
+
+#include "WidgLi.h"
+
+class WidgLi;
 class FenRoDes;
-class WidgLi :  public QGraphicsObject 
+class WidgCell :  public QGraphicsObject
 {
 
     Q_OBJECT
 
 public:
-    WidgLi(QPointF,QPointF,QGraphicsItem *parent=0);
+    WidgLi* get_ptr_li();
+    void set_ptr_li(WidgLi *);
+    WidgCell* get_ptr_cell_li();
+    void set_ptr_cell_li(WidgCell *);
 
-    QRectF boundingRect() const;//useless?
+    WidgCell(QRectF rect,QGraphicsItem *parent=0);
+
+    QRectF boundingRect() const;
     QPainterPath shape() const;
+
     void paint(QPainter *painter,const QStyleOptionGraphicsItem *option,QWidget *widget=0);
     void set_couleur(const QColor & coul);
+    bool have_cpl();
+    void set_have_cpl(bool);
 
-    WidgCell* get_ptr_bout();
-    void set_ptr_bout(WidgCell *);
+    QPolygonF get_polygon();
+    void set_shape(QPainterPath,QPolygonF);
+
+    QPainterPath rotated_shape();
+
+    QPointF get_centre();
+
+    void set_index(int);
+    int get_index();
+    void set_angle(double);//useless
+    double get_angle();
+    QRectF get_rect_eff();
 
 
 protected:
@@ -67,7 +89,7 @@ protected:
     void mouseMoveEvent(QGraphicsSceneMouseEvent *);
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *);
     
-    virtual  void hoverEnterEvent(QGraphicsSceneHoverEvent *);
+    virtual   void hoverEnterEvent(QGraphicsSceneHoverEvent *);
     void hoverLeaveEvent(QGraphicsSceneHoverEvent *);
 
     void dragEnterEvent(QGraphicsSceneDragDropEvent *);
@@ -76,24 +98,43 @@ protected:
 
 
 signals:
+    void constr_cpl();
+    void clean_others();
 
 public slots:
+    void aj_cpl_actif(bool);
+    void bar_oth_en_cour();
+    void clean();
+
+    void rotation();
 
 private:
-    QPolygonF creat_poly_1(const QPointF &pt_1,const QPointF &pt_2,double a);
-    QPolygonF creat_poly_2(const QPointF &pt_1,const QPointF &pt_2,double a);
+
+    bool entered;
+    bool cpl_actif;
+    bool bar_cpl_actif;
+    bool bar_cpl_oth_actif;
+    bool drop_accepted;
+    bool drag_entrant;
+
+    bool havecpl;
+
+    QRectF rect_ini;
+    QRectF rect_eff;
+
+    QColor couleur;
+
+    WidgLi * ptr_li;
+    WidgCell * ptr_cell_li;
 
 
-    QRectF b_rect;
     QPainterPath painting_path;
-    QPointF p_1;
-    QPointF p_2;
+    QPolygonF polygon_shape;
 
 
-    bool entered;//utile?
-    QColor col;
+    int index;
+    double angle;
 
-    WidgCell* ptr_bout;
 
 };
 #endif

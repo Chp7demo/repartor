@@ -107,7 +107,7 @@ public slots:
 
 private:
     ItemPersI*  trouve_it(const QPointF & point);
-    LiI*  trouve_li(const QPointF & point);
+    LiI*  find_li(const QPointF & point);
 
     QVector<QPointF> calcul_pos(int taille_liste);
 

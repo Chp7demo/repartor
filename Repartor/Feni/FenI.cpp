@@ -704,7 +704,7 @@ void MaGraphicsViewI::mousePressEvent_SUPR(QMouseEvent *event)
 {
     p_1=event->pos();
 
-    ptr_li_a=trouve_li(p_1);
+    ptr_li_a=find_li(p_1);
     if(ptr_li_a!=NULL)
     {
 
@@ -743,7 +743,7 @@ void MaGraphicsViewI::mousePressEvent_SUPR(QMouseEvent *event)
 void MaGraphicsViewI::mouseMoveEvent_SUPR(QMouseEvent *event)
 {
     ptr_li_b=ptr_li_a;
-    ptr_li_a=trouve_li(event->pos());
+    ptr_li_a=find_li(event->pos());
     if(ptr_li_a!=NULL )
     {
         QColor coul;
@@ -796,7 +796,7 @@ ItemPersI*  MaGraphicsViewI::trouve_it(const QPointF & point)
 }
 
 
-LiI*  MaGraphicsViewI::trouve_li(const QPointF & point)
+LiI*  MaGraphicsViewI::find_li(const QPointF & point)
 {
     for(int i=0;i<li_list.size();i++)
     {

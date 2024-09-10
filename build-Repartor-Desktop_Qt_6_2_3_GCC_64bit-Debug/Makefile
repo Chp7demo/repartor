@@ -60,7 +60,7 @@ SOURCES       = ../Repartor/CalculThread.cpp \
 		../Repartor/Fenres/FenRes.cpp \
 		../Repartor/Fenres/WidgCellRes.cpp \
 		../Repartor/Fenro/FenRo.cpp \
-		../Repartor/Fenro/WidgBur.cpp \
+		../Repartor/Fenro/WidgCell.cpp \
 		../Repartor/Fenro/WidgLi.cpp \
 		../Repartor/GlobF.cpp \
 		../Repartor/Mng.cpp \
@@ -77,7 +77,7 @@ SOURCES       = ../Repartor/CalculThread.cpp \
 		moc_FenRes.cpp \
 		moc_WidgCellRes.cpp \
 		moc_FenRo.cpp \
-		moc_WidgBur.cpp \
+		moc_WidgCell.cpp \
 		moc_WidgLi.cpp \
 		moc_GlobF.cpp \
 		moc_Mng.cpp \
@@ -90,7 +90,7 @@ OBJECTS       = CalculThread.o \
 		FenRes.o \
 		WidgCellRes.o \
 		FenRo.o \
-		WidgBur.o \
+		WidgCell.o \
 		WidgLi.o \
 		GlobF.o \
 		Mng.o \
@@ -108,7 +108,7 @@ OBJECTS       = CalculThread.o \
 		moc_FenRes.o \
 		moc_WidgCellRes.o \
 		moc_FenRo.o \
-		moc_WidgBur.o \
+		moc_WidgCell.o \
 		moc_WidgLi.o \
 		moc_GlobF.o \
 		moc_Mng.o \
@@ -261,7 +261,7 @@ DIST          = ../Repartor/README.md \
 		../Repartor/Fenres/FenRes.h \
 		../Repartor/Fenres/WidgCellRes.h \
 		../Repartor/Fenro/FenRo.h \
-		../Repartor/Fenro/WidgBur.h \
+		../Repartor/Fenro/WidgCell.h \
 		../Repartor/Fenro/WidgLi.h \
 		../Repartor/GlobF.h \
 		../Repartor/Mng.h \
@@ -280,7 +280,7 @@ DIST          = ../Repartor/README.md \
 		../Repartor/Fenres/FenRes.cpp \
 		../Repartor/Fenres/WidgCellRes.cpp \
 		../Repartor/Fenro/FenRo.cpp \
-		../Repartor/Fenro/WidgBur.cpp \
+		../Repartor/Fenro/WidgCell.cpp \
 		../Repartor/Fenro/WidgLi.cpp \
 		../Repartor/GlobF.cpp \
 		../Repartor/Mng.cpp \
@@ -603,8 +603,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../Qt/6.2.3/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Repartor/CalculThread.h ../Repartor/Elements_and_space.h ../Repartor/Fena/FeNa.h ../Repartor/Feni/FenI.h ../Repartor/Feni/ItemPersI.h ../Repartor/Feni/LiI.h ../Repartor/Fenres/FenRes.h ../Repartor/Fenres/WidgCellRes.h ../Repartor/Fenro/FenRo.h ../Repartor/Fenro/WidgBur.h ../Repartor/Fenro/WidgLi.h ../Repartor/GlobF.h ../Repartor/Mng.h ../Repartor/RepartorTypes.h ../Repartor/fct_ag/DataZone.h ../Repartor/fct_ag/cross_over.h ../Repartor/fct_ag/evaluation.h ../Repartor/fct_ag/genese.h ../Repartor/fct_ag/mutation.h ../Repartor/fct_ag/petites_fonctions.h ../Repartor/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Repartor/CalculThread.cpp ../Repartor/Fena/FeNa.cpp ../Repartor/Feni/FenI.cpp ../Repartor/Feni/ItemPersI.cpp ../Repartor/Feni/LiI.cpp ../Repartor/Fenres/FenRes.cpp ../Repartor/Fenres/WidgCellRes.cpp ../Repartor/Fenro/FenRo.cpp ../Repartor/Fenro/WidgBur.cpp ../Repartor/Fenro/WidgLi.cpp ../Repartor/GlobF.cpp ../Repartor/Mng.cpp ../Repartor/fct_ag/DataZone.cpp ../Repartor/fct_ag/cross_over.cpp ../Repartor/fct_ag/evaluation.cpp ../Repartor/fct_ag/genese.cpp ../Repartor/fct_ag/mutation.cpp ../Repartor/fct_ag/petites_fonctions.cpp ../Repartor/main.cpp ../Repartor/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Repartor/CalculThread.h ../Repartor/Elements_and_space.h ../Repartor/Fena/FeNa.h ../Repartor/Feni/FenI.h ../Repartor/Feni/ItemPersI.h ../Repartor/Feni/LiI.h ../Repartor/Fenres/FenRes.h ../Repartor/Fenres/WidgCellRes.h ../Repartor/Fenro/FenRo.h ../Repartor/Fenro/WidgCell.h ../Repartor/Fenro/WidgLi.h ../Repartor/GlobF.h ../Repartor/Mng.h ../Repartor/RepartorTypes.h ../Repartor/fct_ag/DataZone.h ../Repartor/fct_ag/cross_over.h ../Repartor/fct_ag/evaluation.h ../Repartor/fct_ag/genese.h ../Repartor/fct_ag/mutation.h ../Repartor/fct_ag/petites_fonctions.h ../Repartor/mainwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Repartor/CalculThread.cpp ../Repartor/Fena/FeNa.cpp ../Repartor/Feni/FenI.cpp ../Repartor/Feni/ItemPersI.cpp ../Repartor/Feni/LiI.cpp ../Repartor/Fenres/FenRes.cpp ../Repartor/Fenres/WidgCellRes.cpp ../Repartor/Fenro/FenRo.cpp ../Repartor/Fenro/WidgCell.cpp ../Repartor/Fenro/WidgLi.cpp ../Repartor/GlobF.cpp ../Repartor/Mng.cpp ../Repartor/fct_ag/DataZone.cpp ../Repartor/fct_ag/cross_over.cpp ../Repartor/fct_ag/evaluation.cpp ../Repartor/fct_ag/genese.cpp ../Repartor/fct_ag/mutation.cpp ../Repartor/fct_ag/petites_fonctions.cpp ../Repartor/main.cpp ../Repartor/mainwindow.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Repartor/mainwindow.ui $(DISTDIR)/
 
 
@@ -637,9 +637,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: ../../Qt/6.2.3/gcc_64/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -Wall -Wextra -dM -E -o moc_predefs.h ../../Qt/6.2.3/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_CalculThread.cpp moc_FeNa.cpp moc_FenI.cpp moc_FenRes.cpp moc_WidgCellRes.cpp moc_FenRo.cpp moc_WidgBur.cpp moc_WidgLi.cpp moc_GlobF.cpp moc_Mng.cpp moc_mainwindow.cpp
+compiler_moc_header_make_all: moc_CalculThread.cpp moc_FeNa.cpp moc_FenI.cpp moc_FenRes.cpp moc_WidgCellRes.cpp moc_FenRo.cpp moc_WidgCell.cpp moc_WidgLi.cpp moc_GlobF.cpp moc_Mng.cpp moc_mainwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_CalculThread.cpp moc_FeNa.cpp moc_FenI.cpp moc_FenRes.cpp moc_WidgCellRes.cpp moc_FenRo.cpp moc_WidgBur.cpp moc_WidgLi.cpp moc_GlobF.cpp moc_Mng.cpp moc_mainwindow.cpp
+	-$(DEL_FILE) moc_CalculThread.cpp moc_FeNa.cpp moc_FenI.cpp moc_FenRes.cpp moc_WidgCellRes.cpp moc_FenRo.cpp moc_WidgCell.cpp moc_WidgLi.cpp moc_GlobF.cpp moc_Mng.cpp moc_mainwindow.cpp
 moc_CalculThread.cpp: ../Repartor/CalculThread.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QThread \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qthread.h \
@@ -1353,7 +1353,7 @@ moc_FenRes.cpp: ../Repartor/Fenres/FenRes.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/QGraphicsSceneHoverEvent \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/QGraphicsObject \
 		../Repartor/Fenro/FenRo.h \
-		../Repartor/Fenro/WidgBur.h \
+		../Repartor/Fenro/WidgCell.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QMimeData \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qmimedata.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QDrag \
@@ -1548,7 +1548,7 @@ moc_WidgCellRes.cpp: ../Repartor/Fenres/WidgCellRes.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/QGraphicsObject \
 		../Repartor/Fenro/FenRo.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QEvent \
-		../Repartor/Fenro/WidgBur.h \
+		../Repartor/Fenro/WidgCell.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QMimeData \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qmimedata.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QDrag \
@@ -1735,7 +1735,7 @@ moc_FenRo.cpp: ../Repartor/Fenro/FenRo.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/QGraphicsRectItem \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QRectF \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QEvent \
-		../Repartor/Fenro/WidgBur.h \
+		../Repartor/Fenro/WidgCell.h \
 		../Repartor/Fenro/FenRo.h \
 		../Repartor/Fenro/WidgLi.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QDragEnterEvent \
@@ -1758,7 +1758,7 @@ moc_FenRo.cpp: ../Repartor/Fenro/FenRo.h \
 		../../Qt/6.2.3/gcc_64/libexec/moc
 	/home/remi/Qt/6.2.3/gcc_64/libexec/moc $(DEFINES) --include /home/remi/repartor_rep/build-Repartor-Desktop_Qt_6_2_3_GCC_64bit-Debug/moc_predefs.h -I/home/remi/Qt/6.2.3/gcc_64/mkspecs/linux-g++ -I/home/remi/repartor_rep/Repartor -I/home/remi/Qt/6.2.3/gcc_64/include -I/home/remi/Qt/6.2.3/gcc_64/include/QtWidgets -I/home/remi/Qt/6.2.3/gcc_64/include/QtGui -I/home/remi/Qt/6.2.3/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/c++/13/x86_64-redhat-linux -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-redhat-linux/13/include -I/usr/local/include -I/usr/include ../Repartor/Fenro/FenRo.h -o moc_FenRo.cpp
 
-moc_WidgBur.cpp: ../Repartor/Fenro/WidgBur.h \
+moc_WidgCell.cpp: ../Repartor/Fenro/WidgCell.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/QWidget \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/qwidget.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -1932,7 +1932,7 @@ moc_WidgBur.cpp: ../Repartor/Fenro/WidgBur.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/QGraphicsRectItem \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QRectF \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QEvent \
-		../Repartor/Fenro/WidgBur.h \
+		../Repartor/Fenro/WidgCell.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QDragEnterEvent \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QDragMoveEvent \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QDropEvent \
@@ -1952,7 +1952,7 @@ moc_WidgBur.cpp: ../Repartor/Fenro/WidgBur.h \
 		../Repartor/RepartorTypes.h \
 		moc_predefs.h \
 		../../Qt/6.2.3/gcc_64/libexec/moc
-	/home/remi/Qt/6.2.3/gcc_64/libexec/moc $(DEFINES) --include /home/remi/repartor_rep/build-Repartor-Desktop_Qt_6_2_3_GCC_64bit-Debug/moc_predefs.h -I/home/remi/Qt/6.2.3/gcc_64/mkspecs/linux-g++ -I/home/remi/repartor_rep/Repartor -I/home/remi/Qt/6.2.3/gcc_64/include -I/home/remi/Qt/6.2.3/gcc_64/include/QtWidgets -I/home/remi/Qt/6.2.3/gcc_64/include/QtGui -I/home/remi/Qt/6.2.3/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/c++/13/x86_64-redhat-linux -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-redhat-linux/13/include -I/usr/local/include -I/usr/include ../Repartor/Fenro/WidgBur.h -o moc_WidgBur.cpp
+	/home/remi/Qt/6.2.3/gcc_64/libexec/moc $(DEFINES) --include /home/remi/repartor_rep/build-Repartor-Desktop_Qt_6_2_3_GCC_64bit-Debug/moc_predefs.h -I/home/remi/Qt/6.2.3/gcc_64/mkspecs/linux-g++ -I/home/remi/repartor_rep/Repartor -I/home/remi/Qt/6.2.3/gcc_64/include -I/home/remi/Qt/6.2.3/gcc_64/include/QtWidgets -I/home/remi/Qt/6.2.3/gcc_64/include/QtGui -I/home/remi/Qt/6.2.3/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/c++/13/x86_64-redhat-linux -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-redhat-linux/13/include -I/usr/local/include -I/usr/include ../Repartor/Fenro/WidgCell.h -o moc_WidgCell.cpp
 
 moc_WidgLi.cpp: ../Repartor/Fenro/WidgLi.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/QWidget \
@@ -2340,7 +2340,7 @@ moc_GlobF.cpp: ../Repartor/GlobF.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/qsplitter.h \
 		../Repartor/Fenres/WidgCellRes.h \
 		../Repartor/Fenro/FenRo.h \
-		../Repartor/Fenro/WidgBur.h \
+		../Repartor/Fenro/WidgCell.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QMimeData \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qmimedata.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QDrag \
@@ -3804,7 +3804,7 @@ FenRes.o: ../Repartor/Fenres/FenRes.cpp ../Repartor/Fenres/FenRes.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/QGraphicsSceneHoverEvent \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/QGraphicsObject \
 		../Repartor/Fenro/FenRo.h \
-		../Repartor/Fenro/WidgBur.h \
+		../Repartor/Fenro/WidgCell.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QMimeData \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qmimedata.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QDrag \
@@ -3997,7 +3997,7 @@ WidgCellRes.o: ../Repartor/Fenres/WidgCellRes.cpp ../Repartor/Fenres/WidgCellRes
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/QGraphicsObject \
 		../Repartor/Fenro/FenRo.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QEvent \
-		../Repartor/Fenro/WidgBur.h \
+		../Repartor/Fenro/WidgCell.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QMimeData \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qmimedata.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QDrag \
@@ -4186,7 +4186,7 @@ FenRo.o: ../Repartor/Fenro/FenRo.cpp ../Repartor/Fenro/FenRo.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/QGraphicsRectItem \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QRectF \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QEvent \
-		../Repartor/Fenro/WidgBur.h \
+		../Repartor/Fenro/WidgCell.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QDragEnterEvent \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QDragMoveEvent \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QDropEvent \
@@ -4206,7 +4206,7 @@ FenRo.o: ../Repartor/Fenro/FenRo.cpp ../Repartor/Fenro/FenRo.h \
 		../Repartor/RepartorTypes.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o FenRo.o ../Repartor/Fenro/FenRo.cpp
 
-WidgBur.o: ../Repartor/Fenro/WidgBur.cpp ../Repartor/Fenro/WidgBur.h \
+WidgCell.o: ../Repartor/Fenro/WidgCell.cpp ../Repartor/Fenro/WidgCell.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/QWidget \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/qwidget.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -4397,7 +4397,7 @@ WidgBur.o: ../Repartor/Fenro/WidgBur.cpp ../Repartor/Fenro/WidgBur.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qmimedata.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QDrag \
 		../../Qt/6.2.3/gcc_64/include/QtGui/qdrag.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o WidgBur.o ../Repartor/Fenro/WidgBur.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o WidgCell.o ../Repartor/Fenro/WidgCell.cpp
 
 WidgLi.o: ../Repartor/Fenro/WidgLi.cpp ../Repartor/Fenro/WidgLi.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/QWidget \
@@ -4783,7 +4783,7 @@ GlobF.o: ../Repartor/GlobF.cpp ../Repartor/GlobF.h \
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/qsplitter.h \
 		../Repartor/Fenres/WidgCellRes.h \
 		../Repartor/Fenro/FenRo.h \
-		../Repartor/Fenro/WidgBur.h \
+		../Repartor/Fenro/WidgCell.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QMimeData \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qmimedata.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QDrag \
@@ -5710,7 +5710,7 @@ main.o: ../Repartor/main.cpp ../../Qt/6.2.3/gcc_64/include/QtWidgets/QApplicatio
 		../../Qt/6.2.3/gcc_64/include/QtWidgets/qsplitter.h \
 		../Repartor/Fenres/WidgCellRes.h \
 		../Repartor/Fenro/FenRo.h \
-		../Repartor/Fenro/WidgBur.h \
+		../Repartor/Fenro/WidgCell.h \
 		../../Qt/6.2.3/gcc_64/include/QtCore/QMimeData \
 		../../Qt/6.2.3/gcc_64/include/QtCore/qmimedata.h \
 		../../Qt/6.2.3/gcc_64/include/QtGui/QDrag \
@@ -5917,8 +5917,8 @@ moc_WidgCellRes.o: moc_WidgCellRes.cpp
 moc_FenRo.o: moc_FenRo.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_FenRo.o moc_FenRo.cpp
 
-moc_WidgBur.o: moc_WidgBur.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_WidgBur.o moc_WidgBur.cpp
+moc_WidgCell.o: moc_WidgCell.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_WidgCell.o moc_WidgCell.cpp
 
 moc_WidgLi.o: moc_WidgLi.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_WidgLi.o moc_WidgLi.cpp

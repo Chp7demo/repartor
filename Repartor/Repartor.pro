@@ -17,7 +17,7 @@ SOURCES += \
     Fenres/FenRes.cpp \
     Fenres/WidgCellRes.cpp \
     Fenro/FenRo.cpp \
-    Fenro/WidgBur.cpp \
+    Fenro/WidgCell.cpp \
     Fenro/WidgLi.cpp \
     GlobF.cpp \
     Mng.cpp \
@@ -40,7 +40,7 @@ HEADERS += \
     Fenres/FenRes.h \
     Fenres/WidgCellRes.h \
     Fenro/FenRo.h \
-    Fenro/WidgBur.h \
+    Fenro/WidgCell.h \
     Fenro/WidgLi.h \
     GlobF.h \
     Mng.h \

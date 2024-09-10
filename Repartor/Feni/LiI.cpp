@@ -5,7 +5,7 @@ using namespace std;
 
 LiI::LiI(QPointF p1,QPointF p2,QGraphicsItem *parent) :QGraphicsItem(parent)
 {
-    col.setRgb(90,5,200,130); //un espece de bleu
+    col.setRgb(90,5,200,130); //un bleu
     coul_3.setRgb(10,200,80,100);
     coul_2.setRgb(50,180,80,100);
     coul_1.setRgb(20,200,180,100);
@@ -20,6 +20,7 @@ LiI::LiI(QPointF p1,QPointF p2,QGraphicsItem *parent) :QGraphicsItem(parent)
     QRectF rect;
     QPolygonF poly;
     double a=4;// demi epaisseur liaison
+
     if((p_1.x()<p_2.x())&&(p_1.y()<p_2.y()))
     {
         poly=creat_poly_2(p_1,p_2,a);
@@ -73,10 +74,9 @@ LiI::LiI(QPointF p1,QPointF p2,QGraphicsItem *parent) :QGraphicsItem(parent)
     painting_path.addEllipse(p_2,a,a);
 
     //bounding rect=================================================
-    //pas sur que ce soit bien le bounding rect... mais bon...
+
     b_rect=rect;
     b_rect.adjust(-a,-a,a,a);
-
 
 }
 

@@ -15,7 +15,7 @@ SOURCES += \
     Feni/ItemPersI.cpp \
     Feni/LiI.cpp \
     Fenres/FenRes.cpp \
-    Fenres/WidgBurRes.cpp \
+    Fenres/WidgCellRes.cpp \
     Fenro/FenRo.cpp \
     Fenro/WidgBur.cpp \
     Fenro/WidgLi.cpp \
@@ -38,7 +38,7 @@ HEADERS += \
     Feni/ItemPersI.h \
     Feni/LiI.h \
     Fenres/FenRes.h \
-    Fenres/WidgBurRes.h \
+    Fenres/WidgCellRes.h \
     Fenro/FenRo.h \
     Fenro/WidgBur.h \
     Fenro/WidgLi.h \

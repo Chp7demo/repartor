@@ -25,7 +25,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MaGraphicsViewRes_t {
     const uint offsetsAndSize[48];
-    char stringdata0[303];
+    char stringdata0[306];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MaGraphicsViewRes_t, stringdata0) + ofs), len 
@@ -41,30 +41,30 @@ QT_MOC_LITERAL(74, 4), // "sous"
 QT_MOC_LITERAL(79, 14), // "ad_frozen_cell"
 QT_MOC_LITERAL(94, 16), // "supr_frozen_cell"
 QT_MOC_LITERAL(111, 14), // "drop_cached_sl"
-QT_MOC_LITERAL(126, 11), // "ajourner_bu"
-QT_MOC_LITERAL(138, 16), // "std::vector<Pos>"
-QT_MOC_LITERAL(155, 17), // "std::map<int,int>"
-QT_MOC_LITERAL(173, 13), // "std::set<int>"
-QT_MOC_LITERAL(187, 15), // "set_frozen_cell"
-QT_MOC_LITERAL(203, 11), // "ajourner_mm"
-QT_MOC_LITERAL(215, 22), // "aj_drop_catched_locale"
-QT_MOC_LITERAL(238, 1), // "b"
-QT_MOC_LITERAL(240, 11), // "detruire_wn"
-QT_MOC_LITERAL(252, 8), // "widgNRG*"
-QT_MOC_LITERAL(261, 5), // "pt_wn"
-QT_MOC_LITERAL(267, 13), // "creer_widgNRG"
-QT_MOC_LITERAL(281, 11), // "WidgBurRes*"
-QT_MOC_LITERAL(293, 9) // "rapatrier"
+QT_MOC_LITERAL(126, 13), // "ajourner_cell"
+QT_MOC_LITERAL(140, 16), // "std::vector<Pos>"
+QT_MOC_LITERAL(157, 17), // "std::map<int,int>"
+QT_MOC_LITERAL(175, 13), // "std::set<int>"
+QT_MOC_LITERAL(189, 15), // "set_frozen_cell"
+QT_MOC_LITERAL(205, 11), // "ajourner_mm"
+QT_MOC_LITERAL(217, 22), // "aj_drop_catched_locale"
+QT_MOC_LITERAL(240, 1), // "b"
+QT_MOC_LITERAL(242, 11), // "detruire_wn"
+QT_MOC_LITERAL(254, 8), // "widgNRG*"
+QT_MOC_LITERAL(263, 5), // "pt_wn"
+QT_MOC_LITERAL(269, 13), // "creer_widgNRG"
+QT_MOC_LITERAL(283, 12), // "WidgCellRes*"
+QT_MOC_LITERAL(296, 9) // "rapatrier"
 
     },
     "MaGraphicsViewRes\0drop_cached\0\0"
     "aj_elem_cell_map\0enlever_st\0rapatrier_wNRG\0"
     "sous\0ad_frozen_cell\0supr_frozen_cell\0"
-    "drop_cached_sl\0ajourner_bu\0std::vector<Pos>\0"
-    "std::map<int,int>\0std::set<int>\0"
-    "set_frozen_cell\0ajourner_mm\0"
+    "drop_cached_sl\0ajourner_cell\0"
+    "std::vector<Pos>\0std::map<int,int>\0"
+    "std::set<int>\0set_frozen_cell\0ajourner_mm\0"
     "aj_drop_catched_locale\0b\0detruire_wn\0"
-    "widgNRG*\0pt_wn\0creer_widgNRG\0WidgBurRes*\0"
+    "widgNRG*\0pt_wn\0creer_widgNRG\0WidgCellRes*\0"
     "rapatrier"
 };
 #undef QT_MOC_LITERAL
@@ -135,11 +135,11 @@ void MaGraphicsViewRes::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
         case 5: _t->ad_frozen_cell((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 6: _t->supr_frozen_cell((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 7: _t->drop_cached_sl(); break;
-        case 8: _t->ajourner_bu((*reinterpret_cast< std::vector<Pos>(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2])),(*reinterpret_cast< std::set<int>(*)>(_a[3]))); break;
+        case 8: _t->ajourner_cell((*reinterpret_cast< std::vector<Pos>(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2])),(*reinterpret_cast< std::set<int>(*)>(_a[3]))); break;
         case 9: _t->ajourner_mm((*reinterpret_cast< std::map<int,int>(*)>(_a[1]))); break;
         case 10: _t->aj_drop_catched_locale((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 11: _t->detruire_wn((*reinterpret_cast< widgNRG*(*)>(_a[1]))); break;
-        case 12: { widgNRG* _r = _t->creer_widgNRG((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< WidgBurRes*(*)>(_a[2])));
+        case 12: { widgNRG* _r = _t->creer_widgNRG((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< WidgCellRes*(*)>(_a[2])));
             if (_a[0]) *reinterpret_cast< widgNRG**>(_a[0]) = std::move(_r); }  break;
         case 13: _t->rapatrier((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
@@ -158,7 +158,7 @@ void MaGraphicsViewRes::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 1:
-                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< WidgBurRes* >(); break;
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< WidgCellRes* >(); break;
             }
             break;
         }
@@ -224,7 +224,7 @@ const QMetaObject MaGraphicsViewRes::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_MaGraphicsViewRes_t
 , QtPrivate::TypeAndForceComplete<MaGraphicsViewRes, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QList<QString>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::vector<Pos>, std::false_type>, QtPrivate::TypeAndForceComplete<std::map<int,int>, std::false_type>, QtPrivate::TypeAndForceComplete<std::set<int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::map<int,int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<widgNRG *, std::false_type>, QtPrivate::TypeAndForceComplete<widgNRG *, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<WidgBurRes *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::vector<Pos>, std::false_type>, QtPrivate::TypeAndForceComplete<std::map<int,int>, std::false_type>, QtPrivate::TypeAndForceComplete<std::set<int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<std::map<int,int>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<widgNRG *, std::false_type>, QtPrivate::TypeAndForceComplete<widgNRG *, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<WidgCellRes *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>
 
 
 >,
@@ -310,7 +310,7 @@ void MaGraphicsViewRes::supr_frozen_cell(int _t1)
 }
 struct qt_meta_stringdata_FenDesRes_t {
     const uint offsetsAndSize[24];
-    char stringdata0[157];
+    char stringdata0[159];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_FenDesRes_t, stringdata0) + ofs), len 
@@ -321,17 +321,17 @@ QT_MOC_LITERAL(10, 8), // "ajourner"
 QT_MOC_LITERAL(19, 0), // ""
 QT_MOC_LITERAL(20, 8), // "Elements"
 QT_MOC_LITERAL(29, 17), // "std::map<int,int>"
-QT_MOC_LITERAL(47, 11), // "ajourner_bu"
-QT_MOC_LITERAL(59, 16), // "std::vector<Pos>"
-QT_MOC_LITERAL(76, 13), // "std::set<int>"
-QT_MOC_LITERAL(90, 15), // "set_frozen_cell"
-QT_MOC_LITERAL(106, 11), // "ajourner_mm"
-QT_MOC_LITERAL(118, 19), // "drop_locale_catched"
-QT_MOC_LITERAL(138, 18) // "desact_frozen_cell"
+QT_MOC_LITERAL(47, 13), // "ajourner_cell"
+QT_MOC_LITERAL(61, 16), // "std::vector<Pos>"
+QT_MOC_LITERAL(78, 13), // "std::set<int>"
+QT_MOC_LITERAL(92, 15), // "set_frozen_cell"
+QT_MOC_LITERAL(108, 11), // "ajourner_mm"
+QT_MOC_LITERAL(120, 19), // "drop_locale_catched"
+QT_MOC_LITERAL(140, 18) // "desact_frozen_cell"
 
     },
     "FenDesRes\0ajourner\0\0Elements\0"
-    "std::map<int,int>\0ajourner_bu\0"
+    "std::map<int,int>\0ajourner_cell\0"
     "std::vector<Pos>\0std::set<int>\0"
     "set_frozen_cell\0ajourner_mm\0"
     "drop_locale_catched\0desact_frozen_cell"
@@ -375,7 +375,7 @@ void FenDesRes::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         (void)_t;
         switch (_id) {
         case 0: _t->ajourner((*reinterpret_cast< Elements(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2]))); break;
-        case 1: _t->ajourner_bu((*reinterpret_cast< std::vector<Pos>(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2])),(*reinterpret_cast< std::set<int>(*)>(_a[3]))); break;
+        case 1: _t->ajourner_cell((*reinterpret_cast< std::vector<Pos>(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2])),(*reinterpret_cast< std::set<int>(*)>(_a[3]))); break;
         case 2: _t->ajourner_mm((*reinterpret_cast< std::map<int,int>(*)>(_a[1]))); break;
         case 3: _t->drop_locale_catched(); break;
         case 4: _t->desact_frozen_cell(); break;
@@ -634,7 +634,7 @@ void FenButRes::aj_mode(modeRes _t1)
 }
 struct qt_meta_stringdata_FenRes_t {
     const uint offsetsAndSize[52];
-    char stringdata0[356];
+    char stringdata0[358];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_FenRes_t, stringdata0) + ofs), len 
@@ -651,29 +651,29 @@ QT_MOC_LITERAL(98, 11), // "lancer_calc"
 QT_MOC_LITERAL(110, 8), // "ajourner"
 QT_MOC_LITERAL(119, 8), // "Elements"
 QT_MOC_LITERAL(128, 17), // "std::map<int,int>"
-QT_MOC_LITERAL(146, 11), // "ajourner_bu"
-QT_MOC_LITERAL(158, 16), // "std::vector<Pos>"
-QT_MOC_LITERAL(175, 13), // "std::set<int>"
-QT_MOC_LITERAL(189, 11), // "ajourner_mm"
-QT_MOC_LITERAL(201, 16), // "set_drop_catched"
-QT_MOC_LITERAL(218, 24), // "emettre_aj_elem_cell_map"
-QT_MOC_LITERAL(243, 1), // "s"
-QT_MOC_LITERAL(245, 1), // "i"
-QT_MOC_LITERAL(247, 26), // "emettre_elem_cell_map_supr"
-QT_MOC_LITERAL(274, 12), // "emettre_sous"
-QT_MOC_LITERAL(287, 22), // "emettre_ad_frozen_cell"
-QT_MOC_LITERAL(310, 24), // "emettre_supr_frozen_cell"
-QT_MOC_LITERAL(335, 7), // "aj_mode"
-QT_MOC_LITERAL(343, 7), // "modeRes"
-QT_MOC_LITERAL(351, 4) // "mode"
+QT_MOC_LITERAL(146, 13), // "ajourner_cell"
+QT_MOC_LITERAL(160, 16), // "std::vector<Pos>"
+QT_MOC_LITERAL(177, 13), // "std::set<int>"
+QT_MOC_LITERAL(191, 11), // "ajourner_mm"
+QT_MOC_LITERAL(203, 16), // "set_drop_catched"
+QT_MOC_LITERAL(220, 24), // "emettre_aj_elem_cell_map"
+QT_MOC_LITERAL(245, 1), // "s"
+QT_MOC_LITERAL(247, 1), // "i"
+QT_MOC_LITERAL(249, 26), // "emettre_elem_cell_map_supr"
+QT_MOC_LITERAL(276, 12), // "emettre_sous"
+QT_MOC_LITERAL(289, 22), // "emettre_ad_frozen_cell"
+QT_MOC_LITERAL(312, 24), // "emettre_supr_frozen_cell"
+QT_MOC_LITERAL(337, 7), // "aj_mode"
+QT_MOC_LITERAL(345, 7), // "modeRes"
+QT_MOC_LITERAL(353, 4) // "mode"
 
     },
     "FenRes\0aj_elem_cell_map\0\0ad_frozen_cell\0"
     "supr_frozen_cell\0elem_cell_map_supr\0"
     "sub_cpt_freeze_fenres\0lancer_calc\0"
     "ajourner\0Elements\0std::map<int,int>\0"
-    "ajourner_bu\0std::vector<Pos>\0std::set<int>\0"
-    "ajourner_mm\0set_drop_catched\0"
+    "ajourner_cell\0std::vector<Pos>\0"
+    "std::set<int>\0ajourner_mm\0set_drop_catched\0"
     "emettre_aj_elem_cell_map\0s\0i\0"
     "emettre_elem_cell_map_supr\0emettre_sous\0"
     "emettre_ad_frozen_cell\0emettre_supr_frozen_cell\0"
@@ -750,7 +750,7 @@ void FenRes::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 4: _t->sub_cpt_freeze_fenres(); break;
         case 5: _t->lancer_calc(); break;
         case 6: _t->ajourner((*reinterpret_cast< Elements(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2]))); break;
-        case 7: _t->ajourner_bu((*reinterpret_cast< std::vector<Pos>(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2])),(*reinterpret_cast< std::set<int>(*)>(_a[3]))); break;
+        case 7: _t->ajourner_cell((*reinterpret_cast< std::vector<Pos>(*)>(_a[1])),(*reinterpret_cast< std::map<int,int>(*)>(_a[2])),(*reinterpret_cast< std::set<int>(*)>(_a[3]))); break;
         case 8: _t->ajourner_mm((*reinterpret_cast< std::map<int,int>(*)>(_a[1]))); break;
         case 9: _t->set_drop_catched(); break;
         case 10: _t->emettre_aj_elem_cell_map((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;

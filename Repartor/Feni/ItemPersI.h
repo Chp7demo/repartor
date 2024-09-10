@@ -44,30 +44,27 @@ class ItemPersI :  public QGraphicsItem
 {
 
     
+public:
 
-    public:
-               
-	ItemPersI(QRectF rect,QString str,QGraphicsItem *parent=0);
+    ItemPersI(QRectF rect,QString string_N,QGraphicsItem *parent=0);
 
-        QRectF boundingRect() const;
-	void paint(QPainter *painter,const QStyleOptionGraphicsItem *option,QWidget *widget=0);
-        void set_couleur(const QColor & coul);
-        QString get_nm();
-        
+    QRectF boundingRect() const;
+    void paint(QPainter *painter,const QStyleOptionGraphicsItem *option,QWidget *widget=0);
+    void set_couleur(const QColor & coul);
+    QString get_nm();
+
     
-    protected: 
+protected:
 
-  
-       
-    signals:
- 
-    public slots:
-  
-     private:
-     
-     QRectF rect_ini;
-     QColor couleur;//fond
-     QString str;
+signals:
 
- };
+public slots:
+
+private:
+
+    QRectF rect_ini;
+    QColor couleur;//fond
+    QString str;
+
+};
 #endif

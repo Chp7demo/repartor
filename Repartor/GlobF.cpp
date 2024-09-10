@@ -58,7 +58,7 @@ GlobF::GlobF() :QWidget()
     connect(mng,SIGNAL(refreshed(Elements,std::map<int,int>)),this,SLOT(aff_cercle(Elements)));
     connect(mng,SIGNAL(refreshed(Elements,std::map<int,int>)),fenRes,SLOT(ajourner(Elements,std::map<int,int>)));
     connect(mng,SIGNAL(refresh_without_circle_disp(Elements,std::map<int,int>)),fenRes,SLOT(ajourner(Elements,std::map<int,int>)));
-    connect(mng,SIGNAL(cell_pos_refreshed(std::vector<Pos>,std::map<int,int>,std::set<int>)),fenRes,SLOT(ajourner_bu(std::vector<Pos>,std::map<int,int>,std::set<int>)));
+    connect(mng,SIGNAL(cell_pos_refreshed(std::vector<Pos>,std::map<int,int>,std::set<int>)),fenRes,SLOT(ajourner_cell(std::vector<Pos>,std::map<int,int>,std::set<int>)));
     connect(mng,SIGNAL(cell_map_refreshed(std::map<int,int>)),fenRes,SLOT(ajourner_mm(std::map<int,int>)));
 
     connect(mng,SIGNAL(make_refresh(Elements,std::map<int,int>)),this,SLOT(make_refresh(Elements,std::map<int,int>)));

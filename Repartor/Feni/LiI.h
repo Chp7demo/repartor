@@ -45,9 +45,11 @@
 
 #include "RepartorTypes.h"
 
+
+
+
 class LiI :  public QGraphicsItem 
 {
-
 
 public:
     LiI(QPointF,QPointF,QGraphicsItem *parent=0);
@@ -66,9 +68,8 @@ public:
     void set_li_mode(interType);
     interType get_li_mode();
     void set_nm_bouts(QString,QString);
+
 protected:
-
-
 
 signals:
 
@@ -77,9 +78,6 @@ public slots:
 private:
     QPolygonF creat_poly_1(const QPointF &pt_1,const QPointF &pt_2,double a);
     QPolygonF creat_poly_2(const QPointF &pt_1,const QPointF &pt_2,double a);
-
-
-
 
     QRectF b_rect;
     QPainterPath painting_path;

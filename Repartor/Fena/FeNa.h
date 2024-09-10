@@ -107,16 +107,17 @@ class MaLineEdit:  public QLineEdit
 
     Q_OBJECT
 
-    public:
-	MaLineEdit();
-       
-    protected:
-       void keyPressEvent(QKeyEvent * event);
+public:
+    MaLineEdit();
 
-       public slots:
-    signals:
-     void enter();
-    private:
+protected:
+    void keyPressEvent(QKeyEvent * event);
+
+public slots:
+
+signals:
+    void enter();
+private:
 
 
 

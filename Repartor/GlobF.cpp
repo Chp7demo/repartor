@@ -55,11 +55,11 @@ GlobF::GlobF() :QWidget()
 
     qRegisterMetaType< Elements >("Elements");
 
-    connect(mng,SIGNAL(ajourned(Elements,std::map<int,int>)),this,SLOT(aff_cercle(Elements)));
-    connect(mng,SIGNAL(ajourned(Elements,std::map<int,int>)),fenRes,SLOT(ajourner(Elements,std::map<int,int>)));
-    connect(mng,SIGNAL(ajourner_sans_reaff_cercle(Elements,std::map<int,int>)),fenRes,SLOT(ajourner(Elements,std::map<int,int>)));
-    connect(mng,SIGNAL(cell_pos_ajourned(std::vector<Pos>,std::map<int,int>,std::set<int>)),fenRes,SLOT(ajourner_bu(std::vector<Pos>,std::map<int,int>,std::set<int>)));
-    connect(mng,SIGNAL(bmmp_ajourned(std::map<int,int>)),fenRes,SLOT(ajourner_mm(std::map<int,int>)));
+    connect(mng,SIGNAL(refreshed(Elements,std::map<int,int>)),this,SLOT(aff_cercle(Elements)));
+    connect(mng,SIGNAL(refreshed(Elements,std::map<int,int>)),fenRes,SLOT(ajourner(Elements,std::map<int,int>)));
+    connect(mng,SIGNAL(refresh_without_circle_disp(Elements,std::map<int,int>)),fenRes,SLOT(ajourner(Elements,std::map<int,int>)));
+    connect(mng,SIGNAL(cell_pos_refreshed(std::vector<Pos>,std::map<int,int>,std::set<int>)),fenRes,SLOT(ajourner_bu(std::vector<Pos>,std::map<int,int>,std::set<int>)));
+    connect(mng,SIGNAL(cell_map_refreshed(std::map<int,int>)),fenRes,SLOT(ajourner_mm(std::map<int,int>)));
 
     connect(mng,SIGNAL(make_refresh(Elements,std::map<int,int>)),this,SLOT(make_refresh(Elements,std::map<int,int>)));
 

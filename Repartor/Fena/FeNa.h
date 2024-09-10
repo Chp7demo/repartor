@@ -40,40 +40,39 @@ class FeNa :  public QWidget
 
     Q_OBJECT
 
-    public:
-	FeNa();
-    public slots:
-void nouvelle_fen_N(QString string_N);
-void addN();
-void detruire_N(widgN*);
-    signals:
+public:
+    FeNa();
+public slots:
+    void nouvelle_fen_N(QString string_N);
+    void addN();
+    void detruire_N(widgN*);
+signals:
     void addNS(QString);
     void aj_list(QList<QString>);
-    protected:
-        //void showEvent();
+protected:
+    //void showEvent();
 
-    private:
-bool N_libre();
+private:
+    bool N_libre();
 
-//=================ajout N===============
-QPushButton * bouton;
-MaLineEdit * line;
-
-
-//========================================
-//===============container N===============
-QList<widgN*> N_list;
-QList<QString> N_str_list;
-QWidget * m_w_multi_aff;
-QScrollArea * m_scroll_multi_aff;
-QVBoxLayout* m_vboxlayout_pr_aff;
+    //=================ajout N===============
+    QPushButton * bouton;
+    MaLineEdit * line;
 
 
+    //========================================
+    //===============container N===============
+    QList<widgN*> N_list;
+    QList<QString> N_str_list;
+    QWidget * m_w_multi_aff;
+    QScrollArea * m_scroll_multi_aff;
+    QVBoxLayout* m_vboxlayout_pr_aff;
 
-//===================================
-QHBoxLayout * l;
-QHBoxLayout * lay;
-     };
+
+    //===================================
+    QHBoxLayout * l;
+    QHBoxLayout * lay;
+};
 
 
 
@@ -82,22 +81,22 @@ class widgN:  public QWidget
 
     Q_OBJECT
 
-    public:
-	widgN();
-        ~widgN();
-        void paintEvent(QPaintEvent *);
-        void setN(QString string_N);
-        QString getN();   
+public:
+    widgN();
+    ~widgN();
+    void paintEvent(QPaintEvent *);
+    void setN(QString string_N);
+    QString getN();
 
-       public slots:
-void destruction(); 
-    signals:
-void     detruit_moi(widgN*);
- //void add_cpt_freeze_fenres();
+public slots:
+    void destruction();
 
-    private:
+signals:
+    void     detruit_moi(widgN*);
+    //void add_cpt_freeze_fenres();
 
-	QLabel *m_label_N;
+private:
+    QLabel *m_label_N;
 
 
 };
@@ -117,8 +116,8 @@ public slots:
 
 signals:
     void enter();
-private:
 
+private:
 
 
 };

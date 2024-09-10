@@ -41,84 +41,79 @@
 #include "Elements_and_space.h"
 
 
-enum class ViewModeI{NOMODE,MODE1,MODE2,MODE3,MODE4,MODE5,MODE6,MODE7};
+enum class ViewModeI{NOMODE,MODE1,MODE2,MODE3,MODE4,MODE5,MODE6};
 
 class MaGraphicsViewI : public QGraphicsView
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
+public:
     MaGraphicsViewI(QGraphicsScene* scene,QWidget *parent=0);
- 
-    protected:
-        //void drawForeground(QPainter *,const QRectF &);
-        void mousePressEvent(QMouseEvent *);
 
- 	void mousePressEvent_NOMODE(QMouseEvent *event);
- 	void mousePressEvent_MODE1(QMouseEvent *event);
- 	void mousePressEvent_MODE2(QMouseEvent *event);
- 	void mousePressEvent_MODE3(QMouseEvent *event);
- 	void mousePressEvent_MODE4(QMouseEvent *event);
- 	void mousePressEvent_MODE5(QMouseEvent *event);
- 	void mousePressEvent_MODE6(QMouseEvent *event);
+protected:
 
-        void mouseMoveEvent(QMouseEvent *);
+    void mousePressEvent(QMouseEvent *);
 
- 	void mouseMoveEvent_NOMODE(QMouseEvent *event);
- 	void mouseMoveEvent_MODE1(QMouseEvent *event);
- 	void mouseMoveEvent_MODE2(QMouseEvent *event);
- 	void mouseMoveEvent_MODE3(QMouseEvent *event);
- 	void mouseMoveEvent_MODE4(QMouseEvent *event);
- 	void mouseMoveEvent_MODE5(QMouseEvent *event);
- 	void mouseMoveEvent_MODE6(QMouseEvent *event);
-
-        void mouseReleaseEvent(QMouseEvent *);
-
- 	void mouseReleaseEvent_NOMODE(QMouseEvent *event);
- 	void mouseReleaseEvent_MODE1(QMouseEvent *event);
- 	void mouseReleaseEvent_MODE2(QMouseEvent *event);
- 	void mouseReleaseEvent_MODE3(QMouseEvent *event);
- 	void mouseReleaseEvent_MODE4(QMouseEvent *event);
- 	void mouseReleaseEvent_MODE5(QMouseEvent *event);
- 	void mouseReleaseEvent_MODE6(QMouseEvent *event);
-
-        void mousePressEvent_SUPR(QMouseEvent *event);
-        void mouseMoveEvent_SUPR(QMouseEvent *event);
-        void mouseReleaseEvent_SUPR(QMouseEvent *event);
+    void mousePressEvent_NOMODE(QMouseEvent *event);
+    void mousePressEvent_MODE1(QMouseEvent *event);
+    void mousePressEvent_MODE2(QMouseEvent *event);
+    void mousePressEvent_MODE3(QMouseEvent *event);
+    void mousePressEvent_MODE4(QMouseEvent *event);
+    void mousePressEvent_MODE5(QMouseEvent *event);
+    void mousePressEvent_MODE6(QMouseEvent *event);
 
 
-     
-        void dragMoveEvent(QDragMoveEvent *);
-        void dropEvent(QDropEvent * event);
-        void dragEnterEvent(QDragEnterEvent *);
+    void mouseMoveEvent(QMouseEvent *);
 
-     //   void enterEvent(QEvent *);
-        void wheelEvent(QWheelEvent *event);
+    void mouseMoveEvent_NOMODE(QMouseEvent *event);
+    void mouseMoveEvent_MODE1(QMouseEvent *event);
+    void mouseMoveEvent_MODE2(QMouseEvent *event);
+    void mouseMoveEvent_MODE3(QMouseEvent *event);
+    void mouseMoveEvent_MODE4(QMouseEvent *event);
+    void mouseMoveEvent_MODE5(QMouseEvent *event);
+    void mouseMoveEvent_MODE6(QMouseEvent *event);
 
-        
-        //void resizeEvent(QResizeEvent *);
 
-    signals:
+    void mouseReleaseEvent(QMouseEvent *);
+
+    void mouseReleaseEvent_NOMODE(QMouseEvent *event);
+    void mouseReleaseEvent_MODE1(QMouseEvent *event);
+    void mouseReleaseEvent_MODE2(QMouseEvent *event);
+    void mouseReleaseEvent_MODE3(QMouseEvent *event);
+    void mouseReleaseEvent_MODE4(QMouseEvent *event);
+    void mouseReleaseEvent_MODE5(QMouseEvent *event);
+    void mouseReleaseEvent_MODE6(QMouseEvent *event);
+
+    void mousePressEvent_SUPR(QMouseEvent *event);
+    void mouseMoveEvent_SUPR(QMouseEvent *event);
+    void mouseReleaseEvent_SUPR(QMouseEvent *event);
+
+
+    void dragMoveEvent(QDragMoveEvent *);
+    void dropEvent(QDropEvent * event);
+    void dragEnterEvent(QDragEnterEvent *);
+
+
+    void wheelEvent(QWheelEvent *event);
+
+
+signals:
     void new_inter(QString,QString,interType);
-    // void add_cpt_freeze_fenres();
     void sous();
-     public slots:
 
-    void aff_cercle(Elements); 
- 
+public slots:
+    void aff_cercle(Elements);
     void setMode(ViewModeI vM);
 
-    private:
-   ItemPersI*  trouve_it(const QPointF & point);
-   LiI*  trouve_li(const QPointF & point);
- 
+private:
+    ItemPersI*  trouve_it(const QPointF & point);
+    LiI*  trouve_li(const QPointF & point);
+
     QVector<QPointF> calcul_pos(int taille_liste);
 
     QList<ItemPersI *> item_list;
     QList<LiI *> li_list;
-    
-  
-  
+       
     ViewModeI mode;
 
     int HAUT_ITEM;
@@ -128,7 +123,7 @@ class MaGraphicsViewI : public QGraphicsView
     QPointF center;
 
     bool constr;
-   
+
     ItemPersI  * ptr_it_a;
     ItemPersI  * ptr_it_mouve;
     ItemPersI  * ptr_it_re;
@@ -144,10 +139,7 @@ class MaGraphicsViewI : public QGraphicsView
 
 
 
-
-
-
-    MI matr_copie; 
+    MI matr_copie;
     std::vector<std::string> str_list_std;
 
 
@@ -155,11 +147,11 @@ class MaGraphicsViewI : public QGraphicsView
     QPointF p_2;
     QPointF p_3;
 
-QColor coul_1;
-QColor coul_2;
-QColor coul_3;
-QColor coul_4;
-QColor coul_5;
+    QColor coul_1;
+    QColor coul_2;
+    QColor coul_3;
+    QColor coul_4;
+    QColor coul_5;
 
 
 
@@ -171,62 +163,63 @@ class FenDesI :  public QWidget
 
     Q_OBJECT
 
-    public:
-	FenDesI();
+public:
+    FenDesI();
     QGraphicsView *pt_graph_View(){return graphView;}
-    public slots:
+
+public slots:
     void setMode(ViewModeI);
-  void aff_cercle(Elements);
-  void pass_new_inter(QString,QString,interType);
-    signals:
-  void new_inter(QString,QString,interType);
+    void aff_cercle(Elements);
+    void pass_new_inter(QString,QString,interType);
 
-     private:
- QGraphicsScene *graphScene;
-  MaGraphicsViewI *graphView;
-QWidget * container;
-QScrollArea * scroll_area_2;
+signals:
+    void new_inter(QString,QString,interType);
+
+private:
+    QGraphicsScene *graphScene;
+    MaGraphicsViewI *graphView;
+    QWidget * container;
+    QScrollArea * scroll_area_2;
 
 
-     };
+};
 
 class MonBoutI : public QPushButton
 {
-Q_OBJECT
-  public:
-	MonBoutI();
-  ViewModeI mode();
-  void setMode(ViewModeI);
-  public slots:
-  void envoyer_click();
-   signals:
-  void mon_clicked(MonBoutI*);
-    private:
-  ViewModeI m_mode;
+    Q_OBJECT
+public:
+    MonBoutI();
+    ViewModeI mode();
+    void setMode(ViewModeI);
+public slots:
+    void envoyer_click();
+signals:
+    void mon_clicked(MonBoutI*);
+private:
+    ViewModeI m_mode;
 
 };
+
+
 class FenButI :  public QWidget 
 {
 
     Q_OBJECT
 
-    public:
-	FenButI();
+public:
+    FenButI();
 
-    //enum but {BUR,CPL,ROT,SUPR,COPIE};
-    public slots:
+public slots:
     void  aj_but(MonBoutI *);
-   
 
-    signals:
-   void aj_mode(ViewModeI);
+signals:
+    void aj_mode(ViewModeI);
 
-    private:
- 
-   void uncheck_others(MonBoutI *);
+private:
+    void uncheck_others(MonBoutI *);
 
-QList<MonBoutI *> list_but;
-     QVBoxLayout *vLayout;
+    QList<MonBoutI *> list_but;
+    QVBoxLayout *vLayout;
 
     
 
@@ -238,27 +231,23 @@ class FenI :  public QWidget
 
     Q_OBJECT
 
-    public:
-	FenI();
+public:
+    FenI();
 
+public slots:
+    void aff_cercle(Elements);
+    void pass_new_inter(QString,QString,interType);
+    void emettre_sous(){emit sub_cpt_freeze_fenres();}
 
-    public slots:
-  void aff_cercle(Elements);
-  void pass_new_inter(QString,QString,interType);
-  void emettre_sous(){emit sub_cpt_freeze_fenres();}
-    signals:
-  void new_inter(QString,QString,interType);
-  void sub_cpt_freeze_fenres();
-    private:
+signals:
+    void new_inter(QString,QString,interType);
+    void sub_cpt_freeze_fenres();
 
-
+private:
     FenDesI *fenDes;
     FenButI *fenBut;
     QHBoxLayout *hLayout;
-
-QScrollArea * scroll_area;
-
-
+    QScrollArea * scroll_area;
 
 };
 

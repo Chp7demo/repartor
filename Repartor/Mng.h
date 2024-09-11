@@ -51,8 +51,6 @@ public slots:
     void lancer_calc();
     void place_elem(vector<int>);
 
-
-
     //=============elements fcts=========
     void rfsh_elem_space(QList<QString>);
     void new_inter(QString,QString,interType);

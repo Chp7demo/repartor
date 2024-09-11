@@ -4,97 +4,97 @@ using namespace std;
 
 void mutation(vector<int> &indiv,const DataZone &dZ)
 {
-ordo(indiv,dZ.vect_ordo);
-int a=rand_a_b(dZ.N_Fix,indiv.size()-1);
-int bord= dZ.N_Cpl+dZ.N_Fix;
+    ordo(indiv,dZ.vect_ordo);
+    int a=rand_a_b(dZ.N_Fix,indiv.size()-1);
+    int bord= dZ.N_Cpl+dZ.N_Fix;
 
-int cell=rand_a_b(1,dZ.N_Cell);
-int idx=index(indiv,cell);
+    int cell=rand_a_b(1,dZ.N_Cell);
+    int idx=index(indiv,cell);
 
-bool ds_indiv;
-if(idx==-1){ds_indiv=false;}
-else{ds_indiv=true;}
+    bool ds_indiv;
+    if(idx==-1){ds_indiv=false;}
+    else{ds_indiv=true;}
 
-if(ds_indiv)
-{
-    int b=idx;
-    if(idx >= dZ.N_Fix)//diminue encore le taux de mutation...
+    if(ds_indiv)
     {
-        if(a!=b)
+        int b=idx;
+        if(idx >= dZ.N_Fix)//diminue encore le taux de mutation...
         {
-            if ((a >= bord) &( b >= bord))
+            if(a!=b)
             {
-                simple_switch(indiv,a,b);
-            }
-            if ((a < bord) &( b >= bord))
-            {
-                desordo(indiv,dZ.vect_desordo);
+                if ((a >= bord) &( b >= bord))
+                {
+                    simple_switch(indiv,a,b);
+                }
+                if ((a < bord) &( b >= bord))
+                {
+                    desordo(indiv,dZ.vect_desordo);
 
-                if(cell_have_pair_av(indiv[dZ.vect_ordo[b]],dZ.cell_pair_map))//sinon pas de mutation atttention dilue le taux de mut
-                {
-                    switch_cell_pair(indiv,dZ.vect_ordo[a],dZ.vect_ordo[b],dZ);
+                    if(cell_have_pair_av(indiv[dZ.vect_ordo[b]],dZ.cell_pair_map))//sinon pas de mutation atttention dilue le taux de mut
+                    {
+                        switch_cell_pair(indiv,dZ.vect_ordo[a],dZ.vect_ordo[b],dZ);
+                    }
+                    ordo(indiv,dZ.vect_ordo);
                 }
-                ordo(indiv,dZ.vect_ordo);
-            }
-            if ((a < bord) &( b < bord))
-            {
-                desordo(indiv,dZ.vect_desordo);
-                if(are_cpl(dZ.vect_ordo[a],dZ.vect_ordo[b],dZ))
+                if ((a < bord) &( b < bord))
                 {
-                    simple_switch(indiv,dZ.vect_ordo[a],dZ.vect_ordo[b]);
+                    desordo(indiv,dZ.vect_desordo);
+                    if(are_cpl(dZ.vect_ordo[a],dZ.vect_ordo[b],dZ))
+                    {
+                        simple_switch(indiv,dZ.vect_ordo[a],dZ.vect_ordo[b]);
+                    }
+                    else
+                    {
+                        switch_cell_pair(indiv,dZ.vect_ordo[a],dZ.vect_ordo[b],dZ);
+                    }
+                    ordo(indiv,dZ.vect_ordo);
                 }
-                else
+                if ((b < bord) &( a >= bord))
                 {
-                    switch_cell_pair(indiv,dZ.vect_ordo[a],dZ.vect_ordo[b],dZ);
+                    desordo(indiv,dZ.vect_desordo);
+                    if(cell_have_pair_av(indiv[dZ.vect_ordo[a]],dZ.cell_pair_map))//attention au taux de mut
+                    {
+                        switch_cell_pair(indiv,dZ.vect_ordo[b],dZ.vect_ordo[a],dZ);
+                    }
+                    ordo(indiv,dZ.vect_ordo);
                 }
-                ordo(indiv,dZ.vect_ordo);
-            }
-            if ((b < bord) &( a >= bord))
-            {
-                desordo(indiv,dZ.vect_desordo);
-                if(cell_have_pair_av(indiv[dZ.vect_ordo[a]],dZ.cell_pair_map))//attention au taux de mut
-                {
-                    switch_cell_pair(indiv,dZ.vect_ordo[b],dZ.vect_ordo[a],dZ);
-                }
-                ordo(indiv,dZ.vect_ordo);
             }
         }
     }
-}
-else
-{
-    if(a >= bord)
+    else
     {
-        indiv[a]=cell;
-    }
-    if(a < bord)
-    {
-        if(cell_have_pair_av(cell,dZ.cell_pair_map))//attention au taux de mut
+        if(a >= bord)
         {
-            int c_pair=get_cell_pair(cell,dZ.cell_pair_map);
-            int idx_bis=index(indiv,c_pair);
-            bool ds_indiv_bis;
-            if(idx_bis==-1){ds_indiv_bis=false;}
-            else{ds_indiv_bis=true;}
-            if(ds_indiv_bis)
+            indiv[a]=cell;
+        }
+        if(a < bord)
+        {
+            if(cell_have_pair_av(cell,dZ.cell_pair_map))//attention au taux de mut
             {
-                desordo(indiv,dZ.vect_desordo);
-                int a_bis=get_elem_pair(dZ.vect_ordo[a],dZ);
-                int b_bis=dZ.vect_ordo[idx_bis];
-                switch_cell_pair(indiv,a_bis,b_bis,dZ);//marteau pr mouche;
-                ordo(indiv,dZ.vect_ordo);
-            }
-            else{
-                desordo(indiv,dZ.vect_desordo);
-                indiv[dZ.vect_ordo[a]]=cell;
-                indiv[get_elem_pair(dZ.vect_ordo[a],dZ)]=c_pair;
-                ordo(indiv,dZ.vect_ordo);
+                int c_pair=get_cell_pair(cell,dZ.cell_pair_map);
+                int idx_bis=index(indiv,c_pair);
+                bool ds_indiv_bis;
+                if(idx_bis==-1){ds_indiv_bis=false;}
+                else{ds_indiv_bis=true;}
+                if(ds_indiv_bis)
+                {
+                    desordo(indiv,dZ.vect_desordo);
+                    int a_bis=get_elem_pair(dZ.vect_ordo[a],dZ);
+                    int b_bis=dZ.vect_ordo[idx_bis];
+                    switch_cell_pair(indiv,a_bis,b_bis,dZ);//marteau pr mouche;
+                    ordo(indiv,dZ.vect_ordo);
+                }
+                else{
+                    desordo(indiv,dZ.vect_desordo);
+                    indiv[dZ.vect_ordo[a]]=cell;
+                    indiv[get_elem_pair(dZ.vect_ordo[a],dZ)]=c_pair;
+                    ordo(indiv,dZ.vect_ordo);
+                }
             }
         }
     }
-}
 
-desordo(indiv,dZ.vect_desordo);
+    desordo(indiv,dZ.vect_desordo);
 
 }
 

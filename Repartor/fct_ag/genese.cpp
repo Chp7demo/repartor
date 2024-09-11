@@ -3,213 +3,122 @@
 
 using namespace std;
 
+
+//attention confusion dans ce fichier entre cell et elem due à un search and replace raté-> à revoir
 vector<int> genere_indiv(const DataZone & dZ)
 {
-//srand(time(NULL));//voir lib standard
-vector<int> indiv(dZ.N_Elem);
-vector<int> bur_ind_list;//pourquoi des vect et pas des set?ou list c'est mieux pr les erase...
-//cout<<"rep G1"<<endl;
-for(int i=1;i<=dZ.N_Cell;i++)bur_ind_list.push_back(i);
-vector<int> cell_ind_list=dZ.vect_ordo;
-//cout<<"rep G2"<<endl;
 
-//for(int i=0;i<dZ.N_Elem;i++)cell_ind_list.push_back(i);
-//auto cell_pair_map_av=dZ.cell_pair_map;//marche pas!
-std::map<int,int> cell_pair_map_av=dZ.cell_pair_map;
-//cout<<"rep G3"<<endl;
+    vector<int> indiv(dZ.N_Elem);
+    vector<int> Cellindlist; // cell ok
 
-//cout<<"placement des direct s"<<endl;
-//cout<<"elem_cell_map:"<<endl;
-//DEBUG=========
-//for(auto m_p : dZ.elem_cell_map){cout<<"st: "<<m_p.first<<"bu: "<<m_p.second<<endl;}
-//===============
-for(auto m_p : dZ.elem_cell_map)
-{
-/*//DEBUG==========
-cout<<"rep G4"<<endl;
-cout<<"st av :"<<endl;
-debug_aff_vect(cell_ind_list);
-cout<<"bu av: "<<endl;
-debug_aff_vect(bur_ind_list);
-//=============*/
-indiv[m_p.first]=m_p.second;
-bur_ind_list.erase(find(bur_ind_list.begin(),bur_ind_list.end(),m_p.second));
-// effacer pair ds cell_pair_map_av si c'est un bur de paire!!!
-if(cell_have_pair_av(m_p.second,cell_pair_map_av))
-{
-    auto it=cell_pair_map_av.find(m_p.second);
-    //auto it_2=cell_pair_map_av.find(it->second);
-    int ind_bp=it->second;
-    cell_pair_map_av.erase(it);
-    it=cell_pair_map_av.find(ind_bp);
-    cell_pair_map_av.erase(it);
+    for(int i=1;i<=dZ.N_Cell;i++)Cellindlist.push_back(i);
+    vector<int> cell_ind_list=dZ.vect_ordo; // elem ?
 
-}
-cell_ind_list.erase(find(cell_ind_list.begin(),cell_ind_list.end(),m_p.first));
-//DEBUG===========
-/*
-cout<<"st ap :"<<endl;
-debug_aff_vect(cell_ind_list);
-cout<<"bu ap: "<<endl;
-debug_aff_vect(bur_ind_list);
-//================
-*/
-}
-//cout<<"fin placement"<<endl;
-//debug_aff_vect(indiv);
-//cout<<"rep_1"<<endl;
-//cout<<"placement des cpl des direct s"<<endl;
-//useless c'est fait manuellement...*
-/*
-for(auto m_p : dZ.elem_cell_map)
-{
-if((elem_have_pair(m_p.first,dZ))&&(!cpl_in_elem_cell_map(m_p.first,dZ)))
-{
-//cout<<"entree if"<<endl;
-int bp=get_a_cell_pair(m_p.second,cell_pair_map_av);
-//cout<<"sortie get_a_bur pair"<<endl;
-int st_pair=get_elem_pair(m_p.first,dZ);
-//cout<<"sortie_fct"<<endl;
-indiv[st_pair]=bp;
-bur_ind_list.erase(find(bur_ind_list.begin(),bur_ind_list.end(),bp));
-cell_ind_list.erase(find(cell_ind_list.begin(),cell_ind_list.end(),st_pair));
+    std::map<int,int> cell_pair_map_av=dZ.cell_pair_map;
 
-}
-}
-*/
-//cout<<"fin placement"<<endl;
-//debug_aff_vect(indiv);
-//cout<<"rep_2"<<endl;
+    for(auto m_p : dZ.elem_cell_map)
+    {
 
-//les stud ac des cpl seront traité avant car cell_ind est ordo
-while(cell_ind_list.size()!=0)
-{
-//cout<<"entree while,choix d'un indice de bur"<<endl;
-//cout<<"rep G5"<<endl;
-int a=rand_a_b(0,bur_ind_list.size());//voir lib std si il ya une fct implementée
-while(elem_have_pair(cell_ind_list.at(0),dZ)&&(!cell_have_pair_av(bur_ind_list.at(a),cell_pair_map_av)))
-{//cout<<"rep g5 while"<<endl;
-//cout<<"a= "<<a<<endl;
-//cout<<"(int) a/(bur_ind_list.size())"<<(int) a/(bur_ind_list.size())<<endl;
-a=a+1-(((int) (a+1)/(bur_ind_list.size()))*bur_ind_list.size());//?? pas optimal!!!
-//cout<<"a= "<<a<<endl;
+        indiv[m_p.first]=m_p.second;
+        Cellindlist.erase(find(Cellindlist.begin(),Cellindlist.end(),m_p.second));
 
-}
-//cout<<"rep G6"<<endl;
-int bur_ind=bur_ind_list.at(a);
-//cout<<"bur_ind_list: "<<endl;
-//debug_aff_vect(bur_ind_list);
+        // effacer paire dans cell_pair_map_av si c'est une cell de paire!!!
+        if(cell_have_pair_av(m_p.second,cell_pair_map_av))
+        {
+            auto it=cell_pair_map_av.find(m_p.second);
+            int ind_bp=it->second;
+            cell_pair_map_av.erase(it);
+            it=cell_pair_map_av.find(ind_bp);
+            cell_pair_map_av.erase(it);
 
-bur_ind_list.erase(bur_ind_list.begin()+a);
-//cout<<"bur_ind_list: "<<endl;
-//debug_aff_vect(bur_ind_list);
+        }
+        cell_ind_list.erase(find(cell_ind_list.begin(),cell_ind_list.end(),m_p.first));
+    }
 
-indiv[cell_ind_list.at(0)]=bur_ind;
 
-//cout<<"fin choix"<<endl;
-//debug_aff_vect(indiv);
-//cout<<"si paire choix du bur du st paire"<<endl;
-if(elem_have_pair(cell_ind_list.at(0),dZ))
-{
-//cout<<"rep G7"<<endl;
-int bp=get_a_cell_pair(bur_ind,cell_pair_map_av);//efface ds cell_pair_map_av...
-//cout<<"rep G7_2"<<endl;
-int st_pair=get_elem_pair(cell_ind_list.at(0),dZ);
-//cout<<"rep G7_3"<<endl;
-indiv[st_pair]=bp;
-//cout<<"rep G7_4"<<endl;
-//cout<<"bur_ind_list: "<<endl;
-//debug_aff_vect(bur_ind_list);
-//cout<<"bp: "<<bp<<endl;
-bur_ind_list.erase(find(bur_ind_list.begin(),bur_ind_list.end(),bp));
-//cout<<"rep G7_5"<<endl;
-//debug_aff_vect(bur_ind_list);
-cell_ind_list.erase(find(cell_ind_list.begin(),cell_ind_list.end(),st_pair));
-//cout<<"rep G8"<<endl;
-}
-//cout<<"fin choix"<<endl;
-//debug_aff_vect(indiv);
-//debug_aff_vect(bur_ind_list);
+    //les elems avec des cpl seront traités avant car cell_ind est ordo
+    while(cell_ind_list.size()!=0)
+    {
 
-cell_ind_list.erase(cell_ind_list.begin());
-}
-//cout<<"rep G9"<<endl;
-return indiv;
+        int a=rand_a_b(0,Cellindlist.size());
+        while(elem_have_pair(cell_ind_list.at(0),dZ)&&(!cell_have_pair_av(Cellindlist.at(a),cell_pair_map_av)))
+        {
+            a=a+1-(((int) (a+1)/(Cellindlist.size()))*Cellindlist.size());//?? pas optimal!!!
+        }
+
+        int bur_ind=Cellindlist.at(a);
+
+        Cellindlist.erase(Cellindlist.begin()+a);
+
+        indiv[cell_ind_list.at(0)]=bur_ind;
+
+
+        if(elem_have_pair(cell_ind_list.at(0),dZ))
+        {
+
+            int bp=get_a_cell_pair(bur_ind,cell_pair_map_av);//efface ds cell_pair_map_av...
+            int st_pair=get_elem_pair(cell_ind_list.at(0),dZ);
+            indiv[st_pair]=bp;
+            Cellindlist.erase(find(Cellindlist.begin(),Cellindlist.end(),bp));
+            cell_ind_list.erase(find(cell_ind_list.begin(),cell_ind_list.end(),st_pair));
+        }
+
+        cell_ind_list.erase(cell_ind_list.begin());
+    }
+
+    return indiv;
 }
 
 
 int get_a_cell_pair(int bur_ind,std::map<int,int> &cell_pair_map_av)
 {
-//cout<<"rep bur_1"<<endl;
-auto itlow=cell_pair_map_av.lower_bound(bur_ind);
-//cout<<"rep bur_2"<<endl;
-int ctrk=cell_pair_map_av.count(bur_ind);
-//cout<<"rep bur_3"<<endl;
-if(ctrk==0)return 0;
-//cout<<"rep bur_4"<<endl;
-int a=rand_a_b(0,ctrk);
-//cout<<"rep bur_5"<<endl;
-for(int i=0;i<a;i++){itlow++;}
-//cout<<"rep bur_6"<<endl;
-int bur_value=itlow->second;
-//cout<<"entree eff pair"<<endl;
-eff_pairs(bur_ind,cell_pair_map_av);
-//cout<<"sortie eff pair"<<endl;
-return bur_value;
+    auto itlow=cell_pair_map_av.lower_bound(bur_ind);
+    int ctrk=cell_pair_map_av.count(bur_ind);
+    if(ctrk==0)return 0;
+    int a=rand_a_b(0,ctrk);
+    for(int i=0;i<a;i++){itlow++;}
+    int bur_value=itlow->second;
+    eff_pairs(bur_ind,cell_pair_map_av);
+    return bur_value;
 }
+
 
 void eff_pairs(int bur_ind,std::map<int,int> &cell_pair_map_av)//pas optimal non?
 {
-auto p=cell_pair_map_av.begin();
-while(p!=cell_pair_map_av.end())
-{
-//cout<<"hello you"<<endl;
-//debug//
-//for(auto pt:cell_pair_map_av){cout<<pt.first<<" "<<pt.second<<endl;}
-//cout<<endl;
-//cout<<p->first<<" "<<p->second<<endl;
-//cout<<endl;
-//
-if((p->first==bur_ind)||(p->second==bur_ind)){
-//cout<<"ça va effacer une paire"<<endl;
-p = cell_pair_map_av.erase(p);
-//cout<<"paire effacee.."<<endl;
-
-}
-else{p++;}
-}
+    auto p=cell_pair_map_av.begin();
+    while(p!=cell_pair_map_av.end())
+    {
+        if((p->first==bur_ind)||(p->second==bur_ind)){
+            p = cell_pair_map_av.erase(p);
+        }
+        else{p++;}
+    }
 }
 
 
 bool cell_have_pair_av(int bur_ind,const std::map<int,int> &cell_pair_map_av)
 {
-//cout<<"entree bur have pair"<<endl;
-auto it_pair=cell_pair_map_av.equal_range(bur_ind);
-return(!(it_pair.first==it_pair.second));//???
+    auto it_pair=cell_pair_map_av.equal_range(bur_ind);
+    return(!(it_pair.first==it_pair.second));//???
 }
+
 
 bool elem_have_pair(int cell_ind,const DataZone & dZ)
 {
-return(!(dZ.cpl_map.find(cell_ind)==dZ.cpl_map.end()));
+    return(!(dZ.cpl_map.find(cell_ind)==dZ.cpl_map.end()));
 }
-
 
 
 int get_elem_pair(int cell_ind,const DataZone & dZ)
-{//cout<<"entree_fct"<<endl;
-// cout<<"dZ.cpl_map.find(cell_ind)->second"<<dZ.cpl_map.find(cell_ind)->second<<endl;
-auto it=dZ.cpl_map.find(cell_ind);
-//cout<<"hello"<<endl;
-return(it->second);
-//return dZ.cpl_map[cell_ind];
+{
+    auto it=dZ.cpl_map.find(cell_ind);
+    return(it->second);
 }
+
 
 bool cpl_in_elem_cell_map(int cell_ind,const DataZone & dZ)
 {
-int fd=get_elem_pair(cell_ind,dZ);
-//cout<<"fd"<<fd<<endl;
-//bool ess=!((dZ.elem_cell_map.find(fd))==(dZ.elem_cell_map.end()));
-//cout<<"ess"<<ess<<endl;
-return(!((dZ.elem_cell_map.find(fd))==(dZ.elem_cell_map.end())));
+    int fd=get_elem_pair(cell_ind,dZ);
+    return(!((dZ.elem_cell_map.find(fd))==(dZ.elem_cell_map.end())));
 }
 

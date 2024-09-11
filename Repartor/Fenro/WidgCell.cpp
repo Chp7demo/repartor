@@ -291,7 +291,7 @@ void WidgCell::rotation()
         double alpha=omega+rot_rad;
 
         //==========nouveaux points=====
-        a_p=R*sin(alpha);cout<<"a"<<a<<endl;
+        a_p=R*sin(alpha);
         b_p=R*cos(alpha);
         polygon_shape[i].setY(ctr.y()+a_p);
         polygon_shape[i].setX(ctr.x()+b_p);
@@ -380,7 +380,7 @@ QPainterPath WidgCell::rotated_shape()
         //=========angle par rap a l'horizontale omega=====
         a=p.y()-ctr.y();
         b=p.x()-ctr.x();
-        double omega;
+        double omega=0;
         if(a>0&&b>0)
         {
             omega=asin(a/R);
@@ -399,7 +399,7 @@ QPainterPath WidgCell::rotated_shape()
         }
 
         //=====nouvel angle alpha=======
-        double alpha=omega+rot_rad;cout<<"alpha"<<alpha<<endl;
+        double alpha=omega+rot_rad;
 
         //==========nouveaux points=====
         a_p=R*sin(alpha);

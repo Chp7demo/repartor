@@ -20,6 +20,7 @@ void cross_over(vector<int> &vect_1, vector<int> &vect_2,const DataZone & dZ)
 
 }
 
+
 void ordo(vector<int> &vect,const vector<int> &vect_ordo)
 {
     vector<int> vect_copie=vect;

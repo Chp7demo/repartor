@@ -25,10 +25,10 @@ DataZone(const Combi &combi);
 
 
 //Les 3 fonctions suivantes existent aussi ds genese.h elles sont surchargées...
-bool elem_have_pair(int cell_ind);
-int get_elem_pair(int cell_ind); //cell_ind doit avoir une pair
-bool cpl_in_elem_cell_map(int cell_ind); //cell_ind doit avoir une pair
-bool in_elem_cell_map(int cell_ind);
+bool elem_have_pair(int elem_ind);
+int get_elem_pair(int elem_ind); //elem_ind doit avoir une pair
+bool cpl_in_elem_cell_map(int elem_ind); //elem_ind doit avoir une pair
+bool in_elem_cell_map(int elem_ind);
 
 
 vector<int> create_ordo();

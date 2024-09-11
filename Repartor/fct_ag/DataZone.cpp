@@ -67,27 +67,27 @@ std::map<int,int>   DataZone::from_matr_to_cpl_map(const MI &matr)
 }
 
 
-bool DataZone::elem_have_pair(int cell_ind)
+bool DataZone::elem_have_pair(int elem_ind)
 {
-    return(!(cpl_map.find(cell_ind)==cpl_map.end()));
+    return(!(cpl_map.find(elem_ind)==cpl_map.end()));
 }
 
 
-int DataZone::get_elem_pair(int cell_ind)
+int DataZone::get_elem_pair(int elem_ind)
 {
-    auto it=cpl_map.find(cell_ind);
+    auto it=cpl_map.find(elem_ind);
     return(it->second);
 }
 
-bool DataZone::cpl_in_elem_cell_map(int cell_ind)
+bool DataZone::cpl_in_elem_cell_map(int elem_ind)
 {
-    int fd=get_elem_pair(cell_ind);
+    int fd=get_elem_pair(elem_ind);
     return(!((elem_cell_map.find(fd))==(elem_cell_map.end())));
 }
 
-bool DataZone::in_elem_cell_map(int cell_ind)
+bool DataZone::in_elem_cell_map(int elem_ind)
 {
-    return(!((elem_cell_map.find(cell_ind))==(elem_cell_map.end())));
+    return(!((elem_cell_map.find(elem_ind))==(elem_cell_map.end())));
 }
 
 
@@ -163,7 +163,7 @@ vector<int> DataZone::create_desordo() // à appeler après create ordo
     {
         vect_des.push_back((int) (find(vect_ordo.begin(),vect_ordo.end(),i)-vect_ordo.begin()));// ??
     }
-    cout<<"vect_des"<<endl;for(auto el:vect_des){cout<<el<<" ";}cout<<endl;
+    // cout<<"vect_des"<<endl;for(auto el:vect_des){cout<<el<<" ";}cout<<endl;
     return vect_des;
 }
 

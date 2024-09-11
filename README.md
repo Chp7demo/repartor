@@ -14,18 +14,27 @@ Pour augmenter fortement son utilité il faut créer des groupes d'éléments et
 (ex: répartitions de stands à thèmes sur un marché ou sur une foire).
 
 à faire: 
+- Réunir toutes les vues en une ou deux vues 
+  (dans l'actuelle fenêtre résultats)
+- Fichier de sauvegarde
+- Fichier d'entrée avec liste de noms
 - Implémenter les groupes
-- Lecture, écriture de fichiers
+- Sortie fichier résultat: un pdf visuel par exemple
+- Esthétique...
 - Zooms / scrolls
+- Image chargeable en arrière plan de l'"espace" servant de carte
 - Pas mal de barrières utilisateur à implémenter
+- Continuer traduction code et commentaires en anglais
+- Analyser structure globale pour simplification
+- Analyser le comportement de l'AG notamment pour des grands nombre d'éléments
+- Implémenter des tests unitaires et des tests grande échelle pour tester l'AG 
+- Optimiser les algos/ aller vers plus de c++ moderne 
 - Quelques bugs à résoudre et oublis à dénicher 
 -... 
 
 Pour aller plus loin:
 
 - Connexion base de donnée
-- Image chargeable en arrière plan de l'"espace"
-- Esthétique...
-- ...
+-...
 
 

@@ -100,43 +100,6 @@ void Mng::new_inter(QString s1 ,QString s2 ,interType inter_type)
     elements.matr_i[ind_2][ind_1]=inter_type;
 
 
-    //DEBUG===aff matrice
-
-    for(unsigned int i=0;i<elements.elem_names.size();i++)
-    {
-
-        for(unsigned int j=0;j<elements.elem_names.size();j++)
-        {
-
-            switch (elements.matr_i.at(i).at(j)) {
-            case (interType::PARTNERS):
-                cout<<"cpl   ";
-                break;
-            case (interType::BRING_CLOSE):
-                cout<<"bav  ";
-                break;
-            case (interType::NO_INTER):
-                cout<<"---    ";
-                break;
-
-            case(interType::BRING_VERY_CLOSE):
-                cout<<"gba  ";
-                break;
-            case(interType::SPLIT):
-                cout<<"mes  ";
-                break;
-            case(interType::SPLIT_FAR):
-                cout<<"gme  ";
-                break;
-            default:
-                cout<<"???  ";
-
-                break;
-            }
-        }
-    }
-    //fin debug======
-
     emit refresh_without_circle_disp(elements,combi.elem_cell_map);
 
 }
@@ -487,7 +450,7 @@ void Mng::place_elem(vector<int> gen)
     {
         pair<int,int> newpair(i,gen[i]);
         combi.elem_cell_map.insert(newpair);
-        cout<< gen[i]<<" ";
+
     }
 
     emit make_refresh(elements,combi.elem_cell_map);

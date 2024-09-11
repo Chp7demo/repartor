@@ -7,6 +7,7 @@ DataZone::DataZone(const Combi &combi)
     cell_pair_map=combi.space.cell_pair;
     elem_cell_map=combi.elem_cell_map;
     cpl_map=from_matr_to_cpl_map(combi.elements.matr_i);
+
     vect_ordo=create_ordo();
     vect_desordo=create_desordo();
 
@@ -154,13 +155,15 @@ vector<int> DataZone::create_ordo()
 }
 
 
-vector<int> DataZone::create_desordo()
+vector<int> DataZone::create_desordo() // à appeler après create ordo
 {
     vector<int> vect_des;
     for(int i=0;i<N_Elem;i++)
+    //{vect_des.push_back(i);}
     {
         vect_des.push_back((int) (find(vect_ordo.begin(),vect_ordo.end(),i)-vect_ordo.begin()));// ??
     }
+    cout<<"vect_des"<<endl;for(auto el:vect_des){cout<<el<<" ";}cout<<endl;
     return vect_des;
 }
 

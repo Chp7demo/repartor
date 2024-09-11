@@ -225,7 +225,6 @@ void FenGlobBut::unfreeze()
     {
         list_but.at(i)->setCheckable(true);
     }
-    cout<<"unfreezed"<<endl;
 }
 
 

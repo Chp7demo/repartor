@@ -49,7 +49,9 @@ map<int,int> elem_cell_map;
 map<int,int> cpl_map;
 
 
-vector<int> vect_ordo;
+vector<int> vect_ordo;  // separated/ordered elements index vector fix/havecpl/free to make crossover
+                        // "combi" have a list of elements name, here we work with vectors of the index
+                        // of this names
 vector<int> vect_desordo;
 
 MI mi;

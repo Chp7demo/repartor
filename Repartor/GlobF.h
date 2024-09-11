@@ -66,7 +66,7 @@ public slots:
     void setMode(GlobMode);
     void aff_cercle(Elements sc){fenI->aff_cercle(sc);}
     void add_cpt_freeze_fenres(){cpt_freeze_fenres++;fenGlobBut->freeze_fenres();}//en fait on freeze tout les boutons...pas que fenres.../useless
-    void sub_cpt_freeze_fenres(){cpt_freeze_fenres--;std::cout<<"cpt_freeze: "<<cpt_freeze_fenres<<std::endl;if(cpt_freeze_fenres==0)fenGlobBut->unfreeze();}
+    void sub_cpt_freeze_fenres(){cpt_freeze_fenres--;if(cpt_freeze_fenres==0)fenGlobBut->unfreeze();}
 
     //slot mng en 2 etapes.
     void rfsh_elem_space(QList<QString> l){cpt_freeze_fenres+=3;fenGlobBut->freeze_fenres();mng->rfsh_elem_space(l);}

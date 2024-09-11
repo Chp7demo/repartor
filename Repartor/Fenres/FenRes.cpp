@@ -825,7 +825,7 @@ void FeResNaAff::dragMoveEvent(QDragMoveEvent * event)
         event->accept();
 
     }
-    else{event->ignore();cout<<"rep 3"<<endl;
+    else{event->ignore();
     }
 }
 
@@ -879,7 +879,7 @@ void FeResNaAff::dragEnterEvent(QDragEnterEvent * event)
         event->accept();
 
     }
-    else{event->ignore();cout<<"rep 6"<<endl;}
+    else{event->ignore();}
 
 }
 

@@ -7,8 +7,7 @@ using namespace std;
 
 int rand_a_b(int a, int b)
 {
-    if(b>a)return rand()%(b-a) +a;
-    else return a;
+    return((b>a)? rand()%(b-a) +a : a);
 }
 
 
@@ -18,13 +17,21 @@ bool is_pair(int val)
 }
 
 
-int index(const std::vector<int> &vect, int val) // version cpp ?
+int index(const std::vector<int> &vect, int val)
 {
-    for(unsigned int i=0;i<vect.size();i++)
+   /* for(unsigned int i=0;i<vect.size();i++)
     {
         if(vect[i]==val)return i;
     }
-    return -1;
+    return -1;*/
+
+    auto i = find(vect.begin(), vect.end(), val);
+    if (i != vect.end()) {
+            return (i-vect.begin());
+        } else {
+            return -1;
+        }
+
 }
 
 

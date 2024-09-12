@@ -27,7 +27,7 @@ Pour augmenter fortement son utilité il faut créer des groupes d'éléments et
 - Continuer traduction code et commentaires en anglais
 - Analyser structure globale pour simplification
 - Analyser le comportement de l'AG notamment pour des grands nombre d'éléments
-- Implémenter des tests unitaires et des tests grande échelle pour tester l'AG 
+- Implémenter des tests unitaires et des tests globaux pour tester l'AG 
 - Optimiser les algos/ aller vers plus de c++ moderne 
 - Quelques bugs à résoudre et oublis à dénicher 
 -... 

@@ -64,7 +64,7 @@ public:
 
 public slots:
     void setMode(GlobMode);
-    void aff_cercle(Elements sc){fenI->aff_cercle(sc);}
+    void aff_cercle(const Elements &sc){fenI->aff_cercle(sc);}
     void add_cpt_freeze_fenres(){cpt_freeze_fenres++;fenGlobBut->freeze_fenres();}//en fait on freeze tout les boutons...pas que fenres.../useless
     void sub_cpt_freeze_fenres(){cpt_freeze_fenres--;if(cpt_freeze_fenres==0)fenGlobBut->unfreeze();}
 

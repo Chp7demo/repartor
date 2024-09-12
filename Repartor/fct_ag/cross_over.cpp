@@ -11,7 +11,7 @@ void cross_over(vector<int> &vect_1, vector<int> &vect_2,const DataZone & dZ)
 
     int ind=tir_ind_cross(dZ);
 
-    simple_cross(ind,vect_1,vect_2);   // ?? avant clean cross?
+    simple_cross(ind,vect_1,vect_2);
 
     clean_cross(vect_1,vect_2,ind,dZ);
 
@@ -64,15 +64,18 @@ void simple_cross(int ind,vector<int> &vect_1,vector<int> &vect_2)
 void clean_cross(vector<int> &vect_1,vector<int> &vect_2,int ind,const DataZone &dZ)//sur vect ordo!
 {
     vector<int> vect_pass=vect_1;
-    if(clean_vect(vect_1,vect_2,ind,dZ))
+    if(clean_vect(vect_1,vect_2,ind,dZ))  // si nettoyage du vecteur_1 effectué
     {
-        if(!clean_vect(vect_2,vect_pass,ind,dZ))
+        if(!clean_vect(vect_2,vect_pass,ind,dZ))   // si on ne peux nettoyer le deuxieme
         {
             vect_1=vect_pass;
-            simple_cross(ind,vect_1,vect_2);
+            simple_cross(ind,vect_1,vect_2);   //reverse cross ? (voir fct crossover)
         }
-    }//on annule le cross...c'est dommage
-    else simple_cross(ind,vect_1,vect_2);
+    }
+    else simple_cross(ind,vect_1,vect_2); // reverse cross ?
+
+    // le crossover est donc effectif uniquement lorsqu'on a pu nettoyer les deux vecteurs
+    // la structure de cet enchainement est à revoir
 }
 
 

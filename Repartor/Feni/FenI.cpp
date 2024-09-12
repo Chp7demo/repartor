@@ -217,7 +217,7 @@ void MaGraphicsViewI::setMode( ViewModeI vM)
     mode=vM;
 }
 
-void MaGraphicsViewI::aff_cercle(Elements scl)
+void MaGraphicsViewI::aff_cercle(const Elements & scl)
 {
     //au passage on transmet une copie de la matr (utile ailleurs) =========
     matr_copie=scl.matr_i;
@@ -364,12 +364,12 @@ QVector<QPointF>  MaGraphicsViewI::calcul_pos(int taille_liste)
 }
 
 
-void FenI::aff_cercle(Elements s)
+void FenI::aff_cercle(const Elements &s)
 {
     fenDes->aff_cercle(s);
 }
 
-void FenDesI::aff_cercle(Elements s)
+void FenDesI::aff_cercle(const Elements &s)
 {
     graphView->aff_cercle(s);
 }

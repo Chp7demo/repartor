@@ -18,7 +18,7 @@ DataZone::DataZone(const Combi &combi)
     cell_pos=combi.space.cell_pos;
 
 
-    //distance max et min
+    //distance max et min //o(n²) -> peut-on faire mieux?
 
     double d_max=0;
     double d_min=0;

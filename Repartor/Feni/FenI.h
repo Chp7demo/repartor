@@ -102,7 +102,7 @@ signals:
     void sous();
 
 public slots:
-    void aff_cercle(Elements);
+    void aff_cercle(const Elements &elems);
     void setMode(ViewModeI vM);
 
 private:
@@ -169,7 +169,7 @@ public:
 
 public slots:
     void setMode(ViewModeI);
-    void aff_cercle(Elements);
+    void aff_cercle(const Elements &elems);
     void pass_new_inter(QString,QString,interType);
 
 signals:
@@ -235,7 +235,7 @@ public:
     FenI();
 
 public slots:
-    void aff_cercle(Elements);
+    void aff_cercle(const Elements &elems);
     void pass_new_inter(QString,QString,interType);
     void emettre_sous(){emit sub_cpt_freeze_fenres();}
 
